@@ -1,2 +1,0 @@
-Campa noob
-tus muertos
