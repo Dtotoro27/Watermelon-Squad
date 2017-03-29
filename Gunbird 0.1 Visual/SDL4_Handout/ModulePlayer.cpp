@@ -19,13 +19,9 @@ ModulePlayer::ModulePlayer()
 	// move left animation 
 	left.PushBack({ 16, 55, 17, 32 });
 	left.PushBack({ 43, 55, 17, 32 });
-	//left.PushBack({ 70, 55, 14, 32 });
-	//left.PushBack({ 94, 55, 14, 32 });
 	left.speed = 0.1f;
 
 	// move right animation
-	//right.PushBack({ 16, 97, 14, 32 });
-	//right.PushBack({ 40, 97, 14, 32 });
 	right.PushBack({ 63, 97, 17, 32 });
 	right.PushBack({ 90, 97, 17, 32 });
 	right.speed = 0.1f;

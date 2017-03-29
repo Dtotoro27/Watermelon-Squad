@@ -45,7 +45,7 @@ update_status ModuleRender::PreUpdate()
 	SDL_UpdateWindowSurface (App->window->window);
 
 	// TODO 10: Blit our test texture to check functionality
-	SDL_BlitSurface(App->textures->Load->backgroundsurface, NULL, App->window->screen_surface, NULL);
+	SDL_BlitSurface(App->textures->Load("test.png")->backgroundsurface, NULL, App->window->screen_surface, NULL);
 
 	return update_status::UPDATE_CONTINUE;
 }
