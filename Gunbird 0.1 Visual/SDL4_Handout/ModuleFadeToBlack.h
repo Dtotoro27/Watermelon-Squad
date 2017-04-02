@@ -30,6 +30,7 @@ private:
 public:
 	Module* moff;
 	Module* mon;
+
 };
 
 #endif //__MODULEFADETOBLACK_H__

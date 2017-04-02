@@ -5,6 +5,7 @@
 #include "ModuleMine.h"
 #include "ModuleSea.h"
 #include "ModuleRender.h"
+#include "ModuleAudio.h"
 #include "SDL/include/SDL_render.h"
 #include "SDL/include/SDL_timer.h"
 
@@ -41,6 +42,7 @@ update_status ModuleFadeToBlack::Update()
 		{
 			moff->Disable();
 			mon->Enable();
+			
 
 			// ---
 			total_time += total_time;

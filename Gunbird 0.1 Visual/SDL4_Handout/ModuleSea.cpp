@@ -6,6 +6,7 @@
 #include "ModuleSea.h"
 #include "ModuleMine.h"
 #include "ModuleInput.h"
+#include "ModuleAudio.h"
 #include "ModuleFadeToBlack.h"
 
 
@@ -29,6 +30,7 @@ bool ModuleSea::Start()
 	LOG("Loading background assets");
 	bool ret = true;
 	seatexture = App->textures->Load("background_sea.png");
+	App->audio->LoadMusic("Audio/sea.ogg");
 	App->player->Enable();
 	return ret;
 }

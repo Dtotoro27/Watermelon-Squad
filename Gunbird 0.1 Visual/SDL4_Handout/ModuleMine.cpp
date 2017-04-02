@@ -6,6 +6,7 @@
 #include "ModuleMine.h"
 #include "ModuleSea.h"
 #include "ModuleInput.h"
+#include "ModuleAudio.h"
 #include "ModuleFadeToBlack.h"
 
 
@@ -30,6 +31,7 @@ bool ModuleMine::Start()
 	LOG("Loading background assets");
 	bool ret = true;
 	minetexture = App->textures->Load("background_mine.png");
+	App->audio->LoadMusic("Audio/mine.ogg");
 	App->player->Enable();
 	return ret;
 }

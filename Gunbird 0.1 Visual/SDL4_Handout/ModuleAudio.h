@@ -18,9 +18,12 @@ public:
 
 	bool Init();
 	bool CleanUp();
+	bool
 
 public:
-	Mix_Music* music = nullptr;
-};
+	Mix_Music* minemusic = nullptr;
+	Mix_Music* seamusic = nullptr;
+	Mix_Music* const ModuleAudio::LoadMusic(const char* path);
+}
 
 #endif

@@ -1,7 +1,10 @@
 #include "Globals.h"
 #include "Application.h"
+#include "ModuleInput.h"
 #include "ModuleRender.h"
 #include "ModuleAudio.h"
+#include "ModuleMine.h"
+#include "ModuleSea.h"
 
 #include "SDL/include/SDL.h"
 #include "SDL_mixer/include/SDL_mixer.h"
@@ -21,22 +24,9 @@ bool ModuleAudio::Init()
 {
 	bool ret = true;
 	Mix_Init(MIX_INIT_OGG);
-	music = Mix_LoadMUS("Audio/mine.ogg");
 	Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048);
-	Mix_PlayMusic(music, -1);
+	//Mix_PlayMusic(minemusic, -1);
 	
-	if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) != 0){
-		LOG("Audio could not initialize. SDL_ERROR: %s", Mix_GetError());
-		ret = false;
-	}
-	if (music == NULL) {
-		LOG("Error loading music: %s", Mix_GetError());
-		ret = false;
-	}
-	if (Mix_PlayMusic(music, -1) != 0) {
-		LOG("Error playing music: %s", Mix_GetError());
-		ret = false;
-	}
 
 	return ret;
 }
@@ -45,13 +35,29 @@ bool ModuleAudio::Init()
 // Called before q	uitting
 bool ModuleAudio::CleanUp()
 {
-	if (music != NULL) {
-		Mix_FreeMusic(music);
+	if (minemusic != NULL) {
+		Mix_FreeMusic(minemusic);
+		Mix_FreeMusic(seamusic);
 	}
 	Mix_CloseAudio();
 	Mix_Quit();
 	SDL_QuitSubSystem(SDL_INIT_AUDIO);
 	return true;
 }
+
+  Mix_Music* const ModuleAudio::LoadMusic(const char* path)
+{
+	Mix_Music* currentmusic = NULL;
+	currentmusic = Mix_LoadMUS(path);
+
+	if (currentmusic == NULL)
+	{
+		LOG("Could not load music with path: %s. Mix Load Music: %s", path, Mix_GetError());
+	}
+	Mix_PlayMusic(currentmusic, -1);
+
+	return currentmusic;
+}
+
 
 
