@@ -83,8 +83,8 @@ void ModuleParticles::AddParticle(const Particle& particle, int x, int y, Uint32
 {
 	Particle* p = new Particle(particle);
 	p->born = SDL_GetTicks() + delay;
-	p->position.x = x;
-	p->position.y = y;
+	p->position.x = x + 4;
+	p->position.y = y - 50;
 
 	active[last_particle++] = p;
 }
