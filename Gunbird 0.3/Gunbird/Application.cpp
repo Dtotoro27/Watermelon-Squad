@@ -11,6 +11,7 @@
 #include "ModulePlayer.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleParticles.h"
+#include "ModuleCollision.h"
 
 
 Application::Application()
@@ -25,8 +26,9 @@ Application::Application()
 	modules[7] = congrats = new ModuleCongrats();
 	modules[8] = player = new ModulePlayer();
 	modules[9] = particles = new ModuleParticles();
-	modules[10] = audio = new ModuleAudio();
-	modules[11] = fade = new ModuleFadeToBlack();
+	modules[10] = collision = new ModuleCollision();
+	modules[11] = audio = new ModuleAudio();
+	modules[12] = fade = new ModuleFadeToBlack();
 
 	
 }
@@ -42,10 +44,11 @@ bool Application::Init()
 	bool ret = true;
 
 	player->Disable();
-
 	sea->Disable();
 	mine->Disable();
 	congrats->Disable();
+	particles->Disable();
+	collision->Disable();
 
 	for (int i = 0; i < NUM_MODULES && ret == true; ++i)
 		ret = modules[i]->Init();

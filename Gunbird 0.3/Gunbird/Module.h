@@ -1,6 +1,11 @@
 #ifndef __MODULE_H__
 #define __MODULE_H__
 
+#include "Globals.h"
+
+
+struct Collider;
+
 class Module
 {
 private:
@@ -35,6 +40,8 @@ public:
 			CleanUp();
 		}
 	}
+	//Callback ---
+	virtual void OnCollision(Collider*, Collider*) {}
 };
 
 #endif // __MODULE_H__

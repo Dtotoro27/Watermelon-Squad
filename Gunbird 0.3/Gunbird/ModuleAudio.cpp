@@ -38,7 +38,7 @@ bool ModuleAudio::CleanUp()
 	if (music != NULL) {
 		Mix_FreeMusic(music);
 	}
-	Mix_FreeChunk(fx_shoot);
+	Mix_FreeChunk(fx_sound);
 	Mix_CloseAudio();
 	Mix_Quit();
 	SDL_QuitSubSystem(SDL_INIT_AUDIO);
@@ -50,7 +50,6 @@ bool ModuleAudio::LoadMusic(const char* path) {
 	bool ret = true;
 
 	music = Mix_LoadMUS(path);
-	fx_shoot = Mix_LoadWAV("Audio/shoot_ash.wav");
 	Mix_PlayMusic(music, -1);
 
 	if (music == NULL) {
@@ -65,4 +64,22 @@ bool ModuleAudio::LoadMusic(const char* path) {
 	return ret;
 }
 
+bool ModuleAudio::LoadFX(const char* path) {
+
+	bool ret = true;
+
+	fx_sound = Mix_LoadWAV(path);
+	Mix_PlayChannel(-1, fx_sound, 0);
+
+	if (fx_sound == NULL) {
+		LOG("Error loading music: %s", Mix_GetError());
+		ret = false;
+	}
+	if (Mix_PlayChannel(-1, fx_sound, 0) != 0) {
+		LOG("Error playing music: %s", Mix_GetError());
+		ret = false;
+	}
+
+	return ret;
+}
 

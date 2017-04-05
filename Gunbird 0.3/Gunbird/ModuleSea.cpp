@@ -6,6 +6,8 @@
 #include "ModuleSea.h"
 #include "ModuleMine.h"
 #include "ModuleCongrats.h"
+#include "ModuleParticles.h"
+#include "ModuleCollision.h"
 #include "ModuleAudio.h"
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
@@ -32,6 +34,8 @@ bool ModuleSea::Start()
 	bool ret = true;
 	seatexture = App->textures->Load("background_sea.png");
 	App->audio->LoadMusic("Audio/sea.ogg");
+	App->particles->Enable();
+	App->collision->Enable();
 	App->player->Enable();
 	return ret;
 }

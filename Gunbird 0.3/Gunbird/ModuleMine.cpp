@@ -5,6 +5,8 @@
 #include "ModuleRender.h"
 #include "ModuleMine.h"
 #include "ModuleAudio.h"
+#include "ModuleParticles.h"
+#include "ModuleCollision.h"
 #include "ModuleSea.h"
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
@@ -41,6 +43,8 @@ bool ModuleMine::Start()
 	minetexture = App->textures->Load("background_mine.png");
 	mineworkertexture = App->textures->Load("mineworker.png");
 	App->player->Enable();
+	App->particles->Enable();
+	App->collision->Enable();
 	App->audio->LoadMusic("Audio/mine.ogg");
 	mineworker_x = 190;
 	return ret;
