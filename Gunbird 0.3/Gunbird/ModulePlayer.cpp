@@ -3,8 +3,6 @@
 #include "ModuleTextures.h"
 #include "ModuleInput.h"
 #include "ModuleRender.h"
-#include "ModuleWelcome.h"
-#include "ModuleFadeToBlack.h"
 #include "ModulePlayer.h"
 #include "ModuleParticles.h"
 
@@ -40,17 +38,7 @@ bool ModulePlayer::Start()
 	LOG("Loading player textures");
 	bool ret = true;
 	graphics = App->textures->Load("ash.png"); // arcade version
-	playerhitbox = App->collision->AddCollider({ position.x, position.y, 19, 32 }, COLLIDER_PLAYER, this);
 	return ret;
-}
-
-bool ModulePlayer::CleanUp()
-{
-	LOG("Unloading player");
-
-	App->textures->Unload(graphics);
-
-	return true;
 }
 
 // Update: draw background
@@ -79,9 +67,7 @@ update_status ModulePlayer::Update()
 
 	if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT)
 	{
-		
-			position.y -= speed;
-		
+		position.y -= speed;
 	}
 
 	if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT)
@@ -92,10 +78,9 @@ update_status ModulePlayer::Update()
 	
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
 	{
-		App->particles->AddParticle(App->particles->laser, position.x + 4, position.y-50, COLLIDER_PLAYER_SHOT);
+		App->particles->AddParticle(App->particles->laser, position.x+4, position.y-40);
 	}
 
-	playerhitbox->SetPos(position.x, position.y - ASH_HEIGHT);
 
 	// Draw everything --------------------------------------
 	SDL_Rect r = current_animation->GetCurrentFrame();
@@ -103,15 +88,4 @@ update_status ModulePlayer::Update()
 	App->render->Blit(graphics, position.x, position.y - r.h, &r);
 
 	return UPDATE_CONTINUE;
-}
-
-void  ModulePlayer::OnCollision(Collider* c1, Collider* c2) {
-	// Always destroy particles that collide
-	if (playerhitbox == c1)
-	{
-		delete playerhitbox;
-		CleanUp();
-		App->fade->FadeToBlack(this, App->welcome, 1);
-		
-	}
 }

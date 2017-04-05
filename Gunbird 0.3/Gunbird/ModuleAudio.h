@@ -19,11 +19,10 @@ public:
 	bool Init();
 	bool CleanUp();
 	bool LoadMusic(const char* path);
-	bool LoadFX(const char* path);
 
 public:
 	Mix_Music* music = nullptr;
-	Mix_Chunk* fx_sound = nullptr;
+	Mix_Chunk* fx_shoot = nullptr;
 };
 
 #endif
