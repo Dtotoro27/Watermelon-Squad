@@ -45,6 +45,7 @@ bool ModuleMine::Start()
 	App->player->Enable();
 	App->particles->Enable();
 	App->collision->Enable();
+	App->collision->AddCollider({ 59, 8, 11, 22 }, COLLIDER_WALL);
 	App->audio->LoadMusic("Audio/mine.ogg");
 	mineworker_x = 190;
 	return ret;

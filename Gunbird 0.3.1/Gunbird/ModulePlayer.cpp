@@ -109,8 +109,8 @@ update_status ModulePlayer::Update()
 	return UPDATE_CONTINUE;
 }
 
-void  ModulePlayer::OnCollision(Collider *c1, Collider *c2) {  //LO MISMO QUE ANTES
-															 // Always destroy particles that collide
+void  ModulePlayer::OnCollision(Collider *c1, Collider *c2) { 
+ // Always destroy particles that collide
 	if (playerhitbox == c1)
 	{
 		delete playerhitbox;
