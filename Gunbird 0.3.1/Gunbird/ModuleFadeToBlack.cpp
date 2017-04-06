@@ -11,7 +11,7 @@
 
 ModuleFadeToBlack::ModuleFadeToBlack()
 {
-	screen = { 0, 0, SCREEN_WIDTH * SCREEN_SIZE, SCREEN_HEIGHT * SCREEN_SIZE };
+	screen = { 0, 0, SCREEN_WIDTH  *SCREEN_SIZE, SCREEN_HEIGHT  *SCREEN_SIZE };
 }
 
 ModuleFadeToBlack::~ModuleFadeToBlack()
@@ -43,6 +43,7 @@ update_status ModuleFadeToBlack::Update()
 			moff->Disable();
 			mon->Enable();
 			App->render->camera.y = 0;
+			App->player->camera_limits.y = 0;
 			App->player->position.x = SCREEN_WIDTH / 2 - 10;
 			App->player->position.y = 0 + SCREEN_HEIGHT;
 
@@ -70,7 +71,7 @@ update_status ModuleFadeToBlack::Update()
 }
 
 // Fade to black. At mid point deactivate one module, then activate the other
-bool ModuleFadeToBlack::FadeToBlack(Module* module_off, Module* module_on, float time)
+bool ModuleFadeToBlack::FadeToBlack(Module *module_off, Module *module_on, float time)
 {
 	bool ret = false;
 
@@ -81,7 +82,7 @@ bool ModuleFadeToBlack::FadeToBlack(Module* module_off, Module* module_on, float
 	{
 		current_step = fade_step::fade_to_black;
 		start_time = SDL_GetTicks();
-		total_time = (Uint32)(time * 0.5f * 1000.0f);
+		total_time = (Uint32)(time  *0.5f  *1000.0f);
 		ret = true;
 	}
 

@@ -14,6 +14,8 @@ ModulePlayer::ModulePlayer()
 	position.x = 100;
 	position.y = 220;
 
+	camera_limits.y = 0;
+
 	// idle animation
 	idle.PushBack({ 14, 13, 19, 32 });
 	idle.PushBack({ 43, 13, 19, 32 });
@@ -60,6 +62,7 @@ update_status ModulePlayer::Update()
 
 	int speed = 5;
 	position.y -= 1;
+	camera_limits.y -= 1;
 
 	if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT)
 	{
@@ -71,28 +74,29 @@ update_status ModulePlayer::Update()
 
 	if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT)
 	{
-			current_animation = &left;
-			if (position.x > 0) {
-				position.x -= speed;
-			}
+		current_animation = &left;
+		if (position.x > 0) {
+			position.x -= speed;
+		}
 	}
 
 	if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT)
 	{
-		
+		if (position.y > camera_limits.y + ASH_HEIGHT) {
 			position.y -= speed;
-		
+		}
 	}
 
 	if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT)
 	{
-		
+		if (position.y < camera_limits.y + SCREEN_HEIGHT) {
 			position.y += speed;
 		}
-	
+	}
+
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
 	{
-		App->particles->AddParticle(App->particles->laser, position.x + 4, position.y-50, COLLIDER_PLAYER_SHOT);
+		App->particles->AddParticle(App->particles->laser, position.x + 4, position.y - 50, COLLIDER_PLAYER_SHOT);
 	}
 
 	playerhitbox->SetPos(position.x, position.y - ASH_HEIGHT);
@@ -105,13 +109,13 @@ update_status ModulePlayer::Update()
 	return UPDATE_CONTINUE;
 }
 
-void  ModulePlayer::OnCollision(Collider* c1, Collider* c2) {
-	// Always destroy particles that collide
+void  ModulePlayer::OnCollision(Collider *c1, Collider *c2) {  //LO MISMO QUE ANTES
+															 // Always destroy particles that collide
 	if (playerhitbox == c1)
 	{
 		delete playerhitbox;
 		CleanUp();
 		App->fade->FadeToBlack(this, App->welcome, 1);
-		
+
 	}
 }

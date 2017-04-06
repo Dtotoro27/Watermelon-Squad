@@ -1,5 +1,5 @@
-#ifndef __ModulePlayer_H__
-#define __ModulePlayer_H__
+#ifndef _ModulePlayer_H_
+#define _ModulePlayer_H_
 
 #include "Module.h"
 #include "Animation.h"
@@ -18,7 +18,7 @@ public:
 	bool Start();
 	update_status Update();
 	bool CleanUp();
-	void OnCollision(Collider* c1, Collider* c2);
+	void OnCollision(Collider *c1, Collider *c2); //PON LOS ASTERISCOS DONDE ESTÁ LA NEGRITA
 
 public:
 
@@ -28,6 +28,7 @@ public:
 	Animation right;
 	Collider* playerhitbox;
 	iPoint position;
+	iPoint camera_limits;
 
 };
 
