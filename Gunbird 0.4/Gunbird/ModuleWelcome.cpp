@@ -8,7 +8,9 @@
 #include "ModuleMine.h"
 #include "ModuleInput.h"
 #include "ModuleAudio.h"
+#include "ModuleCollision.h"
 #include "ModuleFadeToBlack.h"
+
 
 
 ModuleWelcome::ModuleWelcome()
@@ -31,6 +33,7 @@ bool ModuleWelcome::Start()
 	LOG("Loading background assets");
 	bool ret = true;
 	welcometexture = App->textures->Load("background_welcome.png");
+	App->collision->Enable();
 	App->audio->LoadMusic("Audio/characterselection.ogg");
 	return ret;
 }

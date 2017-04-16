@@ -99,6 +99,10 @@ update_status ModulePlayer::Update()
 		App->particles->AddParticle(App->particles->laser, position.x + 4, position.y - 50, COLLIDER_PLAYER_SHOT);
 	}
 
+	if (App->input->keyboard[SDL_SCANCODE_F2]) {
+		godmode = !godmode;
+	}
+
 	playerhitbox->SetPos(position.x, position.y - ASH_HEIGHT);
 
 	// Draw everything --------------------------------------
@@ -111,13 +115,17 @@ update_status ModulePlayer::Update()
 
 void  ModulePlayer::OnCollision(Collider *c1, Collider *c2) { 
 
-		if (c1 == playerhitbox && destroyed == false && App->fade->IsFading() == false)
-		{
-			App->fade->FadeToBlack((Module*)App->mine, (Module*)App->welcome);
 
-			App->particles->AddParticle(App->particles->explosion, position.x, position.y, COLLIDER_NONE, 150);
+		if (c1 == playerhitbox && destroyed == false && App->fade->IsFading() == false && godmode == false)
+		{			
+
+				App->fade->FadeToBlack((Module*)App->mine, (Module*)App->congrats);
+
+				App->particles->AddParticle(App->particles->explosion, position.x, position.y, COLLIDER_NONE, 150);
 
 
-			destroyed = true;
+				destroyed = true;
+			
+			
 		}
 	}

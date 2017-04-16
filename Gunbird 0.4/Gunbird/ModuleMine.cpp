@@ -83,6 +83,8 @@ update_status ModuleMine::Update()
 		change = true;
 	}
 
+
+
 	mineworker_x -= 0.25;
 
 

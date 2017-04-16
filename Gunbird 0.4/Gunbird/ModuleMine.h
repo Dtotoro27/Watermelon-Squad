@@ -19,6 +19,7 @@ public:
 
 public:
 	bool change = true;
+	bool godmode = false;
 	SDL_Texture* minetexture = nullptr;
 	SDL_Texture* mineworkertexture = nullptr;
 	SDL_Rect mine;

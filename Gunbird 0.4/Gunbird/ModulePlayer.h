@@ -28,6 +28,7 @@ public:
 	Animation right;
 	Collider* playerhitbox;
 	bool destroyed = false;
+	bool godmode = false;
 	iPoint position;
 	iPoint camera_limits;
 
