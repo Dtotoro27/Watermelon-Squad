@@ -37,6 +37,7 @@ bool ModuleSea::Start()
 	App->particles->Enable();
 	App->collision->Enable();
 	App->player->Enable();
+	App->player->destroyed = false;
 	return ret;
 }
 

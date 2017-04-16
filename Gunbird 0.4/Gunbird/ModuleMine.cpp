@@ -43,6 +43,7 @@ bool ModuleMine::Start()
 	minetexture = App->textures->Load("background_mine.png");
 	mineworkertexture = App->textures->Load("mineworker.png");
 	App->player->Enable();
+	App->player->destroyed = false;
 	App->particles->Enable();
 	App->collision->Enable();
 	App->collision->AddCollider({ 59, 8, 11, 22 }, COLLIDER_ENEMY);
