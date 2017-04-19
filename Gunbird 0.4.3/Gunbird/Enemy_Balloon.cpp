@@ -8,7 +8,7 @@
 Enemy_Balloon::Enemy_Balloon(int x, int y) : Enemy(x, y)
 {
 	fly.PushBack({ 11,6,41,52 });
-	fly.PushBack({ 11,6,41,52 });
+	
 
 	fly.speed = 0.2f;
 
@@ -19,26 +19,12 @@ Enemy_Balloon::Enemy_Balloon(int x, int y) : Enemy(x, y)
 	originalpos.x = x;
 	originalpos.y = y;
 
-
+	movement.PushBack({ 0.0f,-1.0f }, 50, &fly);
 }
 
 void Enemy_Balloon::Move()
 {
-	if (going_up)
-	{
-		if (wave > 1.0f)
-			going_up = false;
-		else
-			wave += 0.05f;
-	}
-	else
-	{
-		if (wave < -1.0f)
-			going_up = true;
-		else
-			wave -= 0.05f;
-	}
-
+	
 	position = originalpos + movement.GetCurrentPosition();
 	
 }

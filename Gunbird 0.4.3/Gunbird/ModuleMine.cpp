@@ -50,6 +50,8 @@ bool ModuleMine::Start()
 	App->enemies->Enable();
 
 	App->enemies->AddEnemy(ENEMY_TYPES::BALLOON, 50, 100);
+	App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 100, 100);
+	App->enemies->AddEnemy(ENEMY_TYPES::MINISHIP, 150, 100);
 
 	App->audio->LoadMusic("Audio/mine.ogg");
 	mineworker_x = 190;

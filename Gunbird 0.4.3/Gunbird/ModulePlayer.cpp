@@ -100,8 +100,15 @@ update_status ModulePlayer::Update()
 	}
 
 	if (App->input->keyboard[SDL_SCANCODE_F2]) {
-		godmode = !godmode;
+		if (godmode == true) {
+			godmode = false;			
+		}
+		else if (godmode == false) {
+			godmode = true;
+		}
 	}
+
+	
 
 	playerhitbox->SetPos(position.x, position.y - ASH_HEIGHT);
 
@@ -128,5 +135,7 @@ void  ModulePlayer::OnCollision(Collider *c1, Collider *c2) {
 			
 			
 		}
+	
 	}
+
  

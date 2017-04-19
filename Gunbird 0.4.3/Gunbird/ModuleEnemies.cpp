@@ -6,6 +6,8 @@
 #include "ModuleTextures.h"
 #include "Enemy.h"
 #include "Enemy_Balloon.h"
+#include "Enemy_FlyingMachine.h"
+#include "Enemy_MiniShip.h"
 
 
 #define SPAWN_MARGIN 50
@@ -131,7 +133,16 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 		case ENEMY_TYPES::BALLOON:
 			enemies[i] = new Enemy_Balloon(info.x, info.y);
 			break;
+
+		case ENEMY_TYPES::FLYINGMACHINE:
+			enemies[i] = new Enemy_FlyingMachine(info.x, info.y);
+			break;
+		
+		case ENEMY_TYPES::MINISHIP:
+			enemies[i] = new Enemy_MiniShip(info.x, info.y);
+			break;
 		}
+
 	}
 }
 

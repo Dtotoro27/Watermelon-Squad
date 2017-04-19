@@ -9,6 +9,8 @@ enum ENEMY_TYPES
 {
 	NO_TYPE,
 	BALLOON,
+	FLYINGMACHINE,
+	MINISHIP,
 };
 
 class Enemy;
