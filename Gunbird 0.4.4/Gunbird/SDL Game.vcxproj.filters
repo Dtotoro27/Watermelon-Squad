@@ -59,9 +59,6 @@
     <ClInclude Include="ModuleMine.h">
       <Filter>Modules</Filter>
     </ClInclude>
-    <ClInclude Include="ModuleSea.h">
-      <Filter>Modules</Filter>
-    </ClInclude>
     <ClInclude Include="ModuleWelcome.h">
       <Filter>Modules</Filter>
     </ClInclude>
@@ -128,9 +125,6 @@
       <Filter>Modules</Filter>
     </ClCompile>
     <ClCompile Include="ModuleMine.cpp">
-      <Filter>Modules</Filter>
-    </ClCompile>
-    <ClCompile Include="ModuleSea.cpp">
       <Filter>Modules</Filter>
     </ClCompile>
     <ClCompile Include="ModuleWelcome.cpp">

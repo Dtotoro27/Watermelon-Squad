@@ -20,6 +20,7 @@ public:
 public:
 	bool change = true;
 	SDL_Texture* minetexture = nullptr;
+	SDL_Texture* minetexture2 = nullptr;
 	SDL_Texture* mineworkertexture = nullptr;
 	SDL_Rect mine;
 	Animation mineworker;

@@ -8,19 +8,16 @@
 #include "ModuleAudio.h"
 #include "ModuleParticles.h"
 #include "ModuleCollision.h"
-#include "ModuleSea.h"
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleEnemies.h"
+#include "ModuleCongrats.h"
 
 float mineworker_x = 190;
 
 ModuleMine::ModuleMine()
 {
 	// Background 
-	
-
-
 
 }
 
@@ -34,6 +31,7 @@ bool ModuleMine::Start()
 	
 	
 	minetexture = App->textures->Load("background_mine.png");
+	minetexture2 = App->textures->Load("background_mine_2.png");
 	mineworkertexture = App->textures->Load("mineworker.png");
 	
 	App->player->Enable();
@@ -72,6 +70,7 @@ bool ModuleMine::CleanUp()
 	App->player->Disable();
 	App->player2->Disable();
 	App->textures->Unload(minetexture);
+	App->textures->Unload(minetexture2);
 	App->textures->Unload(mineworkertexture);
 	LOG("Unloading stage");
 	return true;
@@ -84,7 +83,9 @@ update_status ModuleMine::Update()
 	// Draw everything --------------------------------------
 
 
-	App->render->Blit(minetexture, 0, -3535 + SCREEN_HEIGHT, &mine, 0.75f);
+	App->render->Blit(minetexture, 0, -3535 + SCREEN_HEIGHT, &mine, 0.18f);
+
+	App->render->Blit(minetexture2, 0, -3535 + SCREEN_HEIGHT, &mine, 0.22f);
 
 	App->render->Blit(mineworkertexture, mineworker_x, 15, &(mineworker.GetCurrentFrame()), 0.75f);
 
@@ -94,7 +95,7 @@ update_status ModuleMine::Update()
 	if (App->input->keyboard[SDL_SCANCODE_P] && change) {
 
 		change = false;
-		App->fade->FadeToBlack(this, App->sea, 1);
+		App->fade->FadeToBlack(this, App->congrats, 1);
 		change = true;
 	}
 

@@ -4,7 +4,6 @@
 #include "ModuleInput.h"
 #include "ModuleTextures.h"
 #include "ModuleMine.h"
-#include "ModuleSea.h"
 #include "ModuleWelcome.h"
 #include "ModuleCongrats.h"
 #include "ModuleAudio.h"
@@ -25,7 +24,6 @@ Application::Application()
 	modules[i++] = textures = new ModuleTextures();
 	modules[i++] = welcome = new ModuleWelcome();
 	modules[i++] = mine = new ModuleMine();
-	modules[i++] = sea = new ModuleSea();
 	modules[i++] = congrats = new ModuleCongrats();
 	modules[i++] = enemies = new ModuleEnemies();
 	modules[i++] = player = new ModulePlayer();
@@ -48,7 +46,6 @@ bool Application::Init()
 {
 	bool ret = true;
 
-	sea->Disable();
 	mine->Disable();
 	congrats->Disable();
 	player->Disable();
