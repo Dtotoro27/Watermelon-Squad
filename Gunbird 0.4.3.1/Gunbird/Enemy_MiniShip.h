@@ -7,15 +7,13 @@
 class Enemy_MiniShip : public Enemy
 {
 private:
-	float wave = -1.0f;
-	bool going_up = true;
 	iPoint originalpos;
 	Animation fly;
+	Path movement;
 
 public:
 
 	Enemy_MiniShip(int x, int y);
-	Path movement;
 	void Move();
 };
 

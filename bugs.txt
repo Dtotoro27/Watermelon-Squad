@@ -1,0 +1,2 @@
+-Si se cambia muchas veces el mapa sin cerrar, acaba petando
+-El sonido de disparo no siempre suena

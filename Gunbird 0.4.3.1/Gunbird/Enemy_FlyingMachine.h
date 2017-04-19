@@ -7,15 +7,14 @@
 class Enemy_FlyingMachine : public Enemy
 {
 private:
-	float wave = -1.0f;
-	bool going_up = true;
 	iPoint originalpos;
 	Animation fly;
+	Path movement;
 
 public:
 
 	Enemy_FlyingMachine(int x, int y);
-	Path movement;
+	
 	void Move();
 };
 

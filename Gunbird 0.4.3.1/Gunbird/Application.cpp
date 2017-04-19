@@ -16,20 +16,22 @@
 
 Application::Application()
 {
-	modules[0] = window = new ModuleWindow();
-	modules[1] = render = new ModuleRender();
-	modules[2] = input = new ModuleInput();
-	modules[3] = textures = new ModuleTextures();
-	modules[4] = mine = new ModuleMine();
-	modules[5] = sea = new ModuleSea();
-	modules[6] = welcome = new ModuleWelcome();
-	modules[7] = congrats = new ModuleCongrats();
-	modules[8] = player = new ModulePlayer();
-	modules[9] = particles = new ModuleParticles();
-	modules[10] = collision = new ModuleCollision();
-	modules[11] = audio = new ModuleAudio();
-	modules[12] = enemies = new ModuleEnemies();
-	modules[13] = fade = new ModuleFadeToBlack();
+	
+	int i = 0;
+	modules[i++] = window = new ModuleWindow();
+	modules[i++] = render = new ModuleRender();
+	modules[i++] = input = new ModuleInput();
+	modules[i++] = textures = new ModuleTextures();
+	modules[i++] = welcome = new ModuleWelcome();
+	modules[i++] = mine = new ModuleMine();
+	modules[i++] = sea = new ModuleSea();
+	modules[i++] = congrats = new ModuleCongrats();
+	modules[i++] = enemies = new ModuleEnemies();
+	modules[i++] = player = new ModulePlayer();
+	modules[i++] = particles = new ModuleParticles();
+	modules[i++] = collision = new ModuleCollision();
+	modules[i++] = audio = new ModuleAudio();
+	modules[i++] = fade = new ModuleFadeToBlack();
 
 	
 }
@@ -44,13 +46,13 @@ bool Application::Init()
 {
 	bool ret = true;
 
-	player->Disable();
 	sea->Disable();
 	mine->Disable();
 	congrats->Disable();
-	particles->Disable();
+	player->Disable();
 	collision->Disable();
 	enemies->Disable();
+	//particles->Disable(); //diferente en handouts
 
 	for (int i = 0; i < NUM_MODULES && ret == true; ++i)
 		ret = modules[i]->Init();

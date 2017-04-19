@@ -10,7 +10,7 @@ ModuleCollision::ModuleCollision()
 
 	matrix[COLLIDER_WALL][COLLIDER_WALL] = false;
 	matrix[COLLIDER_WALL][COLLIDER_PLAYER] = true;
-	matrix[COLLIDER_WALL][COLLIDER_ENEMY] = true;
+	matrix[COLLIDER_WALL][COLLIDER_ENEMY] = false;
 	matrix[COLLIDER_WALL][COLLIDER_PLAYER_SHOT] = true;
 	matrix[COLLIDER_WALL][COLLIDER_ENEMY_SHOT] = true;
 
@@ -20,7 +20,7 @@ ModuleCollision::ModuleCollision()
 	matrix[COLLIDER_PLAYER][COLLIDER_PLAYER_SHOT] = false;
 	matrix[COLLIDER_PLAYER][COLLIDER_ENEMY_SHOT] = true;
 
-	matrix[COLLIDER_ENEMY][COLLIDER_WALL] = true;
+	matrix[COLLIDER_ENEMY][COLLIDER_WALL] = false;
 	matrix[COLLIDER_ENEMY][COLLIDER_PLAYER] = true;
 	matrix[COLLIDER_ENEMY][COLLIDER_ENEMY] = false;
 	matrix[COLLIDER_ENEMY][COLLIDER_PLAYER_SHOT] = true;
@@ -170,15 +170,19 @@ Collider* ModuleCollision::AddCollider(SDL_Rect rect, COLLIDER_TYPE type, Module
 
 bool ModuleCollision::EraseCollider(Collider* collider)
 {
-	for (uint i = 0; i < MAX_COLLIDERS; ++i)
+	if (collider != nullptr)
 	{
-		if (colliders[i] == collider)
+		// we still search for it in case we received a dangling pointer
+		for (uint i = 0; i < MAX_COLLIDERS; ++i)
 		{
-			delete colliders[i];
-			colliders[i] = nullptr;
-			return true;
+			if (colliders[i] == collider)
+			{
+				collider->to_delete = true;
+				break;
+			}
 		}
 	}
+
 
 	return false;
 }
@@ -187,11 +191,8 @@ bool ModuleCollision::EraseCollider(Collider* collider)
 
 bool Collider::CheckCollision(const SDL_Rect& r) const
 {
-	if (r.y + r.h<rect.y || r.y>rect.y + rect.h || r.x + r.w<rect.x || r.x>rect.x + rect.w) {
-		return false;
-	}
-
-	else {
-		return true;
-	}
+	return (rect.x < r.x + r.w &&
+		rect.x + rect.w > r.x &&
+		rect.y < r.y + r.h &&
+		rect.h + rect.y > r.y);
 }

@@ -9,11 +9,12 @@ class Enemy_Balloon : public Enemy
 private:
 	iPoint originalpos;
 	Animation fly;
+	Path movement;
 
 public:
 
 	Enemy_Balloon(int x, int y);
-	Path movement;
+
 	void Move();
 };
 
