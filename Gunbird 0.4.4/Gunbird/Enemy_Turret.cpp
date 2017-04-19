@@ -1,10 +1,10 @@
 #include "Application.h"
-#include "Enemy_MiniShip.h"
+#include "Enemy_Turret.h"
 #include "ModuleCollision.h"
 
 
 
-Enemy_MiniShip::Enemy_MiniShip(int x, int y) : Enemy(x, y)
+Enemy_Turret::Enemy_Turret(int x, int y) : Enemy(x, y)
 {
 	fly.PushBack({ 320,6,41,52 });
 	fly.speed = 0.2f;
@@ -20,7 +20,7 @@ Enemy_MiniShip::Enemy_MiniShip(int x, int y) : Enemy(x, y)
 
 }
 
-void Enemy_MiniShip::Move()
+void Enemy_Turret::Move()
 {
 	position = originalpos + movement.GetCurrentPosition();
 }
