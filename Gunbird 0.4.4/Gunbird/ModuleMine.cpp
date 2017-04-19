@@ -57,7 +57,13 @@ bool ModuleMine::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::MINISHIP, 150, 100);
 
 	App->audio->LoadMusic("Audio/mine.ogg");
-	mineworker_x = 190;
+	mineworker_x = 59;
+
+
+	//Enemy
+
+	App->enemies->AddEnemy(ENEMY_TYPES::BALLOON, 35, 38);
+
 	return true;
 }
 
@@ -87,7 +93,7 @@ update_status ModuleMine::Update()
 
 	App->render->Blit(minetexture2, 0, -3535 + SCREEN_HEIGHT, &mine, 0.22f);
 
-	App->render->Blit(mineworkertexture, mineworker_x, 15, &(mineworker.GetCurrentFrame()), 0.75f);
+	App->render->Blit(mineworkertexture, mineworker_x, 100, &(mineworker.GetCurrentFrame()), 0.22f);
 
 	App->render->camera.y += SCROLL_SPEED;
 
@@ -101,7 +107,7 @@ update_status ModuleMine::Update()
 
 
 
-	mineworker_x -= 0.25;
+	mineworker_x -= 0.10;
 
 
 

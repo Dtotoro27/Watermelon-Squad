@@ -11,6 +11,7 @@ private:
 	Animation fly;
 	Path movement;
 
+
 public:
 
 	Enemy_Balloon(int x, int y);
