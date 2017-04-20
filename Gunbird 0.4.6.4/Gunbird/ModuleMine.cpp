@@ -78,7 +78,7 @@ bool ModuleMine::Start()
 
 	App->enemies->AddEnemy(ENEMY_TYPES::BALLOON, 70, 38);
 	App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 150, 38);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 50, 56);
+	App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 50, 56);
 
 	return true;
 }
