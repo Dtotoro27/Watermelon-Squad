@@ -30,6 +30,12 @@ bool ModuleParticles::Start()
 	laser.life = 2000;
 	laser.speed.y = -5;
 
+	enemy_shoot.anim.PushBack({ 175, 29, 9, 28 });
+	enemy_shoot.anim.loop = true;
+	enemy_shoot.anim.speed = 0.3f;
+	enemy_shoot.life = 2000;
+	enemy_shoot.speed.y = 5;
+
 	
 
 	explosion.anim.PushBack({ 175, 29, 9, 28 });

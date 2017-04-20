@@ -50,6 +50,7 @@ private:
 public:
 	Particle laser;
 	Particle explosion;
+	Particle enemy_shoot;
 
 };
 

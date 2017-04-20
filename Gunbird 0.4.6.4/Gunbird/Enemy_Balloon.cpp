@@ -35,7 +35,7 @@ void Enemy_Balloon::Move()
 
 	now = SDL_GetTicks() - start_time;
 	if (now > shoots*1000) {
- 		App->particles->AddParticle(App->particles->laser, position.x +21, position.y - 26, COLLIDER_PLAYER_SHOT);
+ 		App->particles->AddParticle(App->particles->enemy_shoot, position.x +21, position.y - 26, COLLIDER_ENEMY_SHOT);
 		shoots++;
 	}
 
