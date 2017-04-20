@@ -1,0 +1,42 @@
+0.4
+
+- Player become immortal when die once.
+
+FIXED -> bool "destroyed", have to be initialized as "false" at the begin of each level.
+
+
+0.4.3
+
+- Godmode and hitbox vision can't be reactivated twice.
+
+FIXED -> Right order on the collision condition(ifs).
+
+
+0.4.4
+
+- Godmode doesn't works well.
+
+FIXED -> Right order on the collision condition(ifs).
+
+
+
+0.4.6.4
+
+- Taking PowerUp, kills you.
+
+FIXED -> Add a new condition in OnCollision().
+
+
+0.4.6.4
+
+- Taking PowerUp does nothing.
+
+FIXED -> Instead of trying to change the type of particle in OnCollision(), we made a new variable to storage if we have caught a power up.
+Then, in player module, the particle created when we press shoot key, we have a switch for each type of shoot.
+
+
+0.4.6.4
+
+- Can't take PowerUp with godmode activated.
+
+FIXED -> Right order on the OnCollision condition (godmode is now only a condition with colliders that kills you).
