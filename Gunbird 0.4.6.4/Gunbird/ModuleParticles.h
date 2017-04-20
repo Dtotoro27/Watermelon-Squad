@@ -49,6 +49,7 @@ private:
 
 public:
 	Particle laser;
+	Particle laser2;
 	Particle explosion;
 	Particle enemy_shoot;
 

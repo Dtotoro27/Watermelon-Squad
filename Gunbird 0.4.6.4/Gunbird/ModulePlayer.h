@@ -19,7 +19,6 @@ public:
 	update_status Update();
 	bool CleanUp();
 	void OnCollision(Collider *c1, Collider *c2); //PON LOS ASTERISCOS DONDE ESTÁ LA NEGRITA
-	bool ModulePlayer::GodMode(bool godmode);
 
 public:
 
@@ -32,6 +31,7 @@ public:
 	bool godmode = false;
 	iPoint position;
 	iPoint camera_limits;
+	int powerUps = 0;
 
 };
 

@@ -24,11 +24,18 @@ bool ModuleParticles::Start()
 	
 	graphics = App->textures->Load("ash.png");
 
-	laser.anim.PushBack({ 175, 29, 9, 28 });
+	laser.anim.PushBack({ 206, 29, 15, 28 });
 	laser.anim.loop = true;
 	laser.anim.speed = 0.3f;
 	laser.life = 2000;
 	laser.speed.y = -5;
+
+
+	laser2.anim.PushBack({ 170, 68, 19, 36 });
+	laser2.anim.loop = true;
+	laser2.anim.speed = 0.3f;
+	laser2.life = 2000;
+	laser2.speed.y = -5;
 
 	enemy_shoot.anim.PushBack({ 175, 29, 9, 28 });
 	enemy_shoot.anim.loop = true;
