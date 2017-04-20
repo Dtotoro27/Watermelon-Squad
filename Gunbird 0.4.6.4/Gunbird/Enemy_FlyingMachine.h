@@ -9,6 +9,7 @@ class Enemy_FlyingMachine : public Enemy
 private:
 	iPoint originalpos;
 	Animation fly;
+	Animation enemy_position;
 	Path movement;
 
 public:
