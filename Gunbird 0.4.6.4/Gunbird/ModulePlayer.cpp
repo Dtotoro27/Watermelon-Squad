@@ -84,7 +84,7 @@ update_status ModulePlayer::Update()
 
 	if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT)
 	{
-		if (position.y > camera_limits.y + ASH_HEIGHT) {
+		if (position.y > (camera_limits.y + 35) + ASH_HEIGHT) {
 			position.y -= speed;
 		}
 	}
