@@ -6,6 +6,8 @@
 #include "Globals.h"
 #include "p2Point.h"
 
+#define MAX_POWER_UPS 1
+
 struct SDL_Texture;
 struct Collider;
 

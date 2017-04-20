@@ -99,15 +99,13 @@ update_status ModulePlayer::Update()
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
 	{
-		switch (powerUps) {
-		case 0:
+		if (powerUps == 0) {
 			App->particles->AddParticle(App->particles->laser, position.x + 2, position.y - 50, COLLIDER_PLAYER_SHOT);
 			App->audio->LoadFX("Audio/shoot_ash.wav");
-			break;
-		case 1:
+		}
+		if (powerUps == 1){
 			App->particles->AddParticle(App->particles->laser2, position.x + 2, position.y - 50, COLLIDER_PLAYER_SHOT);
 			App->audio->LoadFX("Audio/shoot_ash.wav");
-			break;
 		}
 	}
 
@@ -140,31 +138,32 @@ update_status ModulePlayer::Update()
 	return UPDATE_CONTINUE;
 }
 
-void  ModulePlayer::OnCollision(Collider *c1, Collider *c2) { 
+void  ModulePlayer::OnCollision(Collider *c1, Collider *c2) {
 
 
-		if (c1 == playerhitbox && destroyed == false && App->fade->IsFading() == false)
-		{			
+	if (c1 == playerhitbox && destroyed == false && App->fade->IsFading() == false)
+	{
 
-			if (c2 == App->mine->pw_hitbox) {
-								
-					powerUps = 1;				
+		if (c2 == App->mine->pw_hitbox) {
 
-			}
-			else {
-				if (godmode == false) {
-					App->fade->FadeToBlack((Module*)App->mine, (Module*)App->congrats);
-
-					App->particles->AddParticle(App->particles->explosion, position.x, position.y, COLLIDER_NONE, 150);
-
-
-					destroyed = true;
-				}
-				else {}
-			}
-			
+			powerUps = 1;
 		}
-	
+
 	}
+	else {
+		if (godmode == false) {
+			App->fade->FadeToBlack((Module*)App->mine, (Module*)App->congrats);
+
+			App->particles->AddParticle(App->particles->explosion, position.x, position.y, COLLIDER_NONE, 150);
+
+
+			destroyed = true;
+		}
+		else {}
+	}
+
+}
+	
+
 
  
