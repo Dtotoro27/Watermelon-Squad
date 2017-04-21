@@ -3,6 +3,7 @@
 #include "ModuleCollision.h"
 #include "ModuleTextures.h"
 #include "ModuleParticles.h"
+#include "ModulePlayer.h"
 #include "SDL/include/SDL_timer.h"
 
 
@@ -30,13 +31,18 @@ Enemy_Balloon::Enemy_Balloon(int x, int y) : Enemy(x, y)
 
 void Enemy_Balloon::Move()
 {
-
 	position = originalpos + movement.GetCurrentPosition();
 
 	now = SDL_GetTicks() - start_time;
 	if (now > shoots * 1000) {
 		App->particles->AddParticle(App->particles->enemy_shoot, position.x + 21, position.y - 26, COLLIDER_ENEMY_SHOT);
+		if (App->player->position.x > position.x) {
+			App->particles->enemy_shoot.speed.x = 3;
+		}
+		else {
+			App->particles->enemy_shoot.speed.x = -3;
+		}
 		shoots++;
 	}
-
+ 
 }
