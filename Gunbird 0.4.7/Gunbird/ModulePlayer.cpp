@@ -12,13 +12,16 @@
 #include "ModuleParticles.h"
 #include "ModuleFonts.h"
 #include "ModuleAudio.h"
+#include "ModuleEnemies.h"
+#include "Enemy.h"
+#include "PowerUp.h"
 
 #include<stdio.h>
 
 ModulePlayer::ModulePlayer()
 {
 	position.x = 100;
-	position.y = ASH_HEIGHT;
+	position.y = 220;
 	score = 0;
 
 	camera_limits.y = 0;
@@ -72,7 +75,7 @@ update_status ModulePlayer::Update()
 
 	char str[10];
 	sprintf_s(str, "%i", score);
-	App->fonts->BlitText(50, 10, font_score, str);
+	App->fonts->BlitText(100, 100, font_score, str);
 
 	int speed = 5;
 	position.y -= 1;
@@ -148,7 +151,7 @@ update_status ModulePlayer::Update()
 
 	sprintf_s(score_text, 10, "%7d", score);
 
-	App->render->Blit(graphics, position.x, position.y - ASH_HEIGHT - r.h, &r);
+	App->render->Blit(graphics, position.x, position.y - r.h, &r);
 
 	return UPDATE_CONTINUE;
 }
@@ -159,7 +162,7 @@ void  ModulePlayer::OnCollision(Collider *c1, Collider *c2) {
 	if (c1 == playerhitbox && destroyed == false && App->fade->IsFading() == false)
 	{
 
-		if (c2 == App->mine->pw_hitbox) {
+		if (c2->type == COLLIDER_TYPE::COLLIDER_POWER_UP) {
 
 			powerUps = 1;
 		}

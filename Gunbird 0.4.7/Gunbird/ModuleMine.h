@@ -23,12 +23,9 @@ public:
 	SDL_Texture* minetexture = nullptr;
 	SDL_Texture* minetexture2 = nullptr;
 	SDL_Texture* mineworkertexture = nullptr;
-	SDL_Texture* pw_texture = nullptr;
 	SDL_Rect mine;
-	Collider* pw_hitbox;
-	iPoint pw_pos;
 	Animation mineworker;
-	Animation pw_anim;
+	
 
 
 };

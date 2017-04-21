@@ -136,7 +136,7 @@ void  ModulePlayer2::OnCollision(Collider *c1, Collider *c2) {
 	if (c1 == player2hitbox && destroyed == false && App->fade->IsFading() == false)
 	{
 
-		if (c2 == App->mine->pw_hitbox) {
+		if (c2->type == COLLIDER_TYPE::COLLIDER_POWER_UP) {
 
 			powerUps = 1;
 		}

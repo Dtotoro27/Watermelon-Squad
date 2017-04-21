@@ -9,6 +9,7 @@
 #include "Enemy_Balloon.h"
 #include "Enemy_FlyingMachine.h"
 #include "Enemy_Bomb.h"
+#include "PowerUp.h"
 
 
 #define SPAWN_MARGIN 50
@@ -141,6 +142,10 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 
 		case ENEMY_TYPES::BOMB:
 			enemies[i] = new Enemy_Bomb(info.x, info.y);
+			break;
+
+		case ENEMY_TYPES::POWER_UP:
+			enemies[i] = new PowerUp(info.x, info.y);
 			break;
 		}
 

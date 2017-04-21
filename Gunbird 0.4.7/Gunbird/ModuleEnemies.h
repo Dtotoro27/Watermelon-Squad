@@ -11,6 +11,7 @@ enum ENEMY_TYPES
 	BALLOON,
 	FLYINGMACHINE,
 	BOMB,
+	POWER_UP,
 };
 
 class Enemy;
@@ -46,6 +47,7 @@ private:
 	EnemyInfo queue[MAX_ENEMIES];
 	Enemy* enemies[MAX_ENEMIES];
 	SDL_Texture* sprites;
+	SDL_Texture* pw_sprites;
 };
 
 #endif // __ModuleEnemies_H__

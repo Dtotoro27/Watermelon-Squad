@@ -24,22 +24,22 @@ bool ModuleParticles::Start()
 {
 	LOG("Loading particles");
 
-	graphics = App->textures->Load("particles.png");
+	graphics = App->textures->Load("ash.png");
 
-	laser.anim.PushBack({ 537, 38, 15, 29 });
+	laser.anim.PushBack({ 206, 29, 15, 28 });
 	laser.anim.loop = true;
 	laser.anim.speed = 0.3f;
 	laser.life = 2000;
 	laser.speed.y = -5;
 
 
-	laser2.anim.PushBack({ 537, 38, 15, 29 });
+	laser2.anim.PushBack({ 170, 68, 19, 36 });
 	laser2.anim.loop = true;
 	laser2.anim.speed = 0.3f;
 	laser2.life = 2000;
 	laser2.speed.y = -5;
 
-	enemy_shoot.anim.PushBack({ 537, 38, 15, 29 });
+	enemy_shoot.anim.PushBack({ 175, 29, 9, 28 });
 	enemy_shoot.anim.loop = true;
 	enemy_shoot.anim.speed = 0.3f;
 	enemy_shoot.life = 2000;
@@ -47,22 +47,8 @@ bool ModuleParticles::Start()
 
 
 
-	explosion.anim.PushBack({ 22,16, 105, 105 });
-	explosion.anim.PushBack({ 126, 16, 105, 105 });
-	explosion.anim.PushBack({ 236, 16, 105, 105 });
-	explosion.anim.PushBack({ 350, 29, 105, 105 });
-	explosion.anim.PushBack({ 26, 130, 105, 105 });
-	explosion.anim.PushBack({ 129, 128, 105, 105 });
-	explosion.anim.PushBack({ 238, 129, 105, 105 });
-	explosion.anim.PushBack({ 352, 134, 105, 105 });
-	explosion.anim.PushBack({ 24, 261, 105, 105 });
-	explosion.anim.PushBack({ 124, 259, 105, 105 });
-	explosion.anim.PushBack({231, 258, 105, 105 });
-	explosion.anim.PushBack({ 345, 263, 105, 105 });
-
-
-
-	explosion.anim.loop = false;
+	explosion.anim.PushBack({ 175, 29, 9, 28 });
+	explosion.anim.loop = true;
 	explosion.anim.speed = 0.3f;
 
 

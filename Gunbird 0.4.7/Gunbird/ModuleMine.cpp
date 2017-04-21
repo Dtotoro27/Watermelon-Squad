@@ -29,14 +29,11 @@ bool ModuleMine::Start()
 {
 	LOG("Loading background assets");
 
-	pw_pos.x = 190;
-	pw_pos.y = 100;
 
 	minetexture = App->textures->Load("background_mine.png");
 	minetexture2 = App->textures->Load("background_mine_2.png");
 	mineworkertexture = App->textures->Load("mineworker.png");
-	pw_texture = App->textures->Load("power_up.png");
-	pw_hitbox = App->collision->AddCollider({ pw_pos.x, pw_pos.y, 21, 12 }, COLLIDER_POWER_UP, this);
+	
 
 	App->player->Enable();
 	App->player->destroyed = false;
@@ -56,15 +53,7 @@ bool ModuleMine::Start()
 	mineworker.PushBack({ 83, 8, 11, 23 });
 	mineworker.speed = 0.08f;
 
-	pw_anim.PushBack({ 4, 32, 21, 10 });
-	pw_anim.PushBack({ 54, 31, 21, 12 });
-	pw_anim.PushBack({ 104, 31, 21, 12 });
-	pw_anim.PushBack({ 54, 47, 21, 12 });
-	pw_anim.PushBack({ 104, 47, 21, 12 });
-	pw_anim.PushBack({ 29, 64, 21, 12 });
-	pw_anim.PushBack({ 104, 64, 21, 12 });
-	pw_anim.PushBack({ 30, 83, 21, 12 });
-	pw_anim.speed = 0.1f;
+	
 
 
 	App->audio->LoadMusic("Audio/mine.ogg");
@@ -78,6 +67,7 @@ bool ModuleMine::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::BALLOON, 70, 38);
 	App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 150, 38);
 	App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 50, 56);
+	App->enemies->AddEnemy(ENEMY_TYPES::POWER_UP, 30, 30);
 
 	return true;
 }
@@ -93,7 +83,6 @@ bool ModuleMine::CleanUp()
 	App->textures->Unload(minetexture);
 	App->textures->Unload(minetexture2);
 	App->textures->Unload(mineworkertexture);
-	App->textures->Unload(pw_texture);
 	LOG("Unloading stage");
 	return true;
 }
@@ -110,8 +99,6 @@ update_status ModuleMine::Update()
 	App->render->Blit(minetexture2, 0, -3535 + SCREEN_HEIGHT, &mine, 0.22f);
 
 	App->render->Blit(mineworkertexture, mineworker_x, 100, &(mineworker.GetCurrentFrame()), 0.22f);
-
-	App->render->Blit(pw_texture, pw_pos.x, pw_pos.y, &(pw_anim.GetCurrentFrame()), 0.22f);
 
 	App->render->camera.y += SCROLL_SPEED;
 
@@ -130,8 +117,7 @@ update_status ModuleMine::Update()
 	mineworker_x -= 0.10;
 
 
-	pw_pos.y += 0.9;
-	pw_hitbox->SetPos(pw_pos.x, pw_pos.y);
+	
 
 
 
