@@ -10,7 +10,7 @@ private:
 	iPoint originalpos;
 	Animation fly;
 	Path movement;
-	int shoots=1;
+	int shoots = 1;
 	Uint32 start_time = 0;
 	Uint32 now = 0;
 

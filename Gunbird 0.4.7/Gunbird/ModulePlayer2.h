@@ -18,7 +18,7 @@ public:
 	bool Start();
 	update_status Update();
 	bool CleanUp();
-	void OnCollision(Collider *c1, Collider *c2); 
+	void OnCollision(Collider *c1, Collider *c2);
 	bool ModulePlayer2::GodMode(bool godmode);
 
 public:

@@ -9,7 +9,7 @@
 Enemy_Balloon::Enemy_Balloon(int x, int y) : Enemy(x, y)
 {
 	fly.PushBack({ 26,17,42,53 });
-	fly.PushBack({ 79,17,42,53 }); 
+	fly.PushBack({ 79,17,42,53 });
 	fly.PushBack({ 131,17,42,53 });
 	fly.PushBack({ 183,17,42,53 });
 	fly.PushBack({ 234,17,42,53 });
@@ -21,21 +21,21 @@ Enemy_Balloon::Enemy_Balloon(int x, int y) : Enemy(x, y)
 
 	collider = App->collision->AddCollider({ 0, 0, 42,53 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
-	
+
 	start_time = SDL_GetTicks();
 	originalpos.x = x;
 	originalpos.y = y;
-	
+
 }
 
 void Enemy_Balloon::Move()
 {
-	
+
 	position = originalpos + movement.GetCurrentPosition();
 
 	now = SDL_GetTicks() - start_time;
-	if (now > shoots*1000) {
- 		App->particles->AddParticle(App->particles->enemy_shoot, position.x +21, position.y - 26, COLLIDER_ENEMY_SHOT);
+	if (now > shoots * 1000) {
+		App->particles->AddParticle(App->particles->enemy_shoot, position.x + 21, position.y - 26, COLLIDER_ENEMY_SHOT);
 		shoots++;
 	}
 

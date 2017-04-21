@@ -22,15 +22,15 @@ bool ModuleAudio::Init()
 	bool ret = true;
 	Mix_Init(MIX_INIT_OGG);
 	Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048);
-	
-	if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) != 0){
+
+	if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) != 0) {
 		LOG("Audio could not initialize. SDL_ERROR: %s", Mix_GetError());
 		ret = false;
 	}
 
 	return ret;
 }
-	
+
 
 // Called before q	uitting
 bool ModuleAudio::CleanUp()

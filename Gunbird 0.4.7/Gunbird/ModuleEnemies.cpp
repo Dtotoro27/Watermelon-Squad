@@ -138,7 +138,7 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 		case ENEMY_TYPES::FLYINGMACHINE:
 			enemies[i] = new Enemy_FlyingMachine(info.x, info.y);
 			break;
-		
+
 		case ENEMY_TYPES::BOMB:
 			enemies[i] = new Enemy_Bomb(info.x, info.y);
 			break;

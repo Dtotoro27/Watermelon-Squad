@@ -34,8 +34,8 @@ update_status ModuleBackground::Update()
 {
 
 	// Draw everything --------------------------------------
-	
-	
+
+
 	App->render->Blit(backgroundtexture, 0, -3535 + SCREEN_HEIGHT, &background, 0.75f);
 
 

@@ -48,7 +48,7 @@ update_status ModuleRender::PreUpdate()
 }
 
 update_status ModuleRender::Update()
-{		
+{
 	//camera.y += SCROLL_SPEED;
 
 	return update_status::UPDATE_CONTINUE;

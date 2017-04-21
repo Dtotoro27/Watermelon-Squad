@@ -15,7 +15,7 @@ private:
 public:
 
 	Enemy_FlyingMachine(int x, int y);
-	
+
 	void Move();
 };
 

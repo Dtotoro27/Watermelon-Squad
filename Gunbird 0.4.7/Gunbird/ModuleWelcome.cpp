@@ -38,7 +38,7 @@ bool ModuleWelcome::Start()
 }
 
 bool ModuleWelcome::CleanUp()
-{	
+{
 	App->textures->Unload(welcometexture);
 	LOG("Unloading stage");
 	return true;

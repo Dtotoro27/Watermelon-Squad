@@ -77,7 +77,7 @@ bool ModuleFadeToBlack::FadeToBlack(Module *module_off, Module *module_on, float
 {
 	bool ret = false;
 
-	
+
 
 	if (current_step == fade_step::none)
 	{
