@@ -22,6 +22,7 @@ public:
 	bool change = true;
 	SDL_Texture* minetexture = nullptr;
 	SDL_Texture* minetexture2 = nullptr;
+	SDL_Texture* mineanimationtexture = nullptr;
 	SDL_Texture* mineworkertexture = nullptr;
 	SDL_Texture* startplayer2texture= nullptr;
 	SDL_Rect mine;
@@ -29,6 +30,7 @@ public:
 	Animation mineworkerstand;
 	Animation startplayer2animation;
 	Animation p1;
+	Animation mineanimation;
 	float mineworker_x = 190;
 	float mineworker_y = 100;
 	

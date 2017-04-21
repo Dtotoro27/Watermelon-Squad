@@ -31,6 +31,7 @@ bool ModuleMine::Start()
 
 
 	minetexture = App->textures->Load("background_mine.png");
+	mineanimationtexture = App->textures->Load("background_mine_animation.png");
 	startplayer2texture = App->textures->Load("ui.png");
 	minetexture2 = App->textures->Load("background_mine_2.png");
 	mineworkertexture = App->textures->Load("mineworker.png");
@@ -53,6 +54,16 @@ bool ModuleMine::Start()
 	mineworkerwalk.PushBack({ 107, 8, 13, 22 });
 	mineworkerwalk.PushBack({ 83, 8, 11, 23 });
 	mineworkerwalk.speed = 0.08f;
+
+	mineanimation.PushBack({ 13,27,175,85 });
+	mineanimation.PushBack({ 197,27,175,85 });
+	mineanimation.PushBack({ 392,27,175,85 });
+	mineanimation.PushBack({ 585,27,175,85 });
+	mineanimation.PushBack({ 8,131,175,85 });
+	mineanimation.PushBack({ 197,131,175,85 });
+	mineanimation.PushBack({ 392,123,175,85 });
+	mineanimation.PushBack({ 585,131,175,85 });
+	mineanimation.speed = 0.05f;
 
 	mineworkerstand.PushBack({ 2,8,13,22 });
 	mineworkerstand.PushBack({ 21,8,14,23 });
@@ -114,7 +125,9 @@ update_status ModuleMine::Update()
 
 	//Background
 	App->render->Blit(minetexture, 0, -3535 + SCREEN_HEIGHT, &mine, 0.18f);
+	App->render->Blit(mineanimationtexture, 16, -796, &(mineanimation.GetCurrentFrame()), 0.18f);
 	App->render->Blit(minetexture2, 0, -3535 + SCREEN_HEIGHT, &mine, 0.22f);
+	
 
 	//Mineworkers
 	
@@ -122,17 +135,11 @@ update_status ModuleMine::Update()
 	App->render->Blit(mineworkertexture, 16, -439, &(mineworkerstand.GetCurrentFrame()), 0.22f);
 	App->render->Blit(mineworkertexture, 137, -460, &(mineworkerstand.GetCurrentFrame()), 0.22f);
 	
-	if (App->render->camera.y > 36750) {
-		App->render->Blit(mineworkertexture, 137, -460, &(mineworkerwalk.GetCurrentFrame()), 0.22f);
-	}
-
 	//UI
 	App->render->Blit(startplayer2texture, 118, 4, &(startplayer2animation.GetCurrentFrame()), 0);
 	App->render->Blit(startplayer2texture, 5, 6, &(p1.GetCurrentFrame()), 0);
 
-
 	
-
 	App->render->camera.y += SCROLL_SPEED;
 
 
