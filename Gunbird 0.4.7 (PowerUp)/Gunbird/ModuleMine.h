@@ -23,8 +23,11 @@ public:
 	SDL_Texture* minetexture = nullptr;
 	SDL_Texture* minetexture2 = nullptr;
 	SDL_Texture* mineworkertexture = nullptr;
+	SDL_Texture* startplayer2texture= nullptr;
 	SDL_Rect mine;
 	Animation mineworker;
+	Animation startplayer2animation;
+	Animation p1;
 	
 
 

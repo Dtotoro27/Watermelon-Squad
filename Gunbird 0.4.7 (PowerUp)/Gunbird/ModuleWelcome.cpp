@@ -32,15 +32,14 @@ bool ModuleWelcome::Start()
 	LOG("Loading background assets");
 	bool ret = true;
 	welcometexture = App->textures->Load("background_welcome.png");
-	Starttexture = App->textures->Load("Ui_Start.png");
+	gameovertexture = App->textures->Load("ui.png");
 	App->collision->Enable();
 	App->audio->LoadMusic("Audio/characterselection.ogg");
 
 	//start animation
-	Presstostart.PushBack({ 6,28,68,13 });
-	Presstostart.PushBack({ 6,5,68,15 });
-	Presstostart.PushBack({ 0,0,0,0 });
-	Presstostart.speed = 0.03f;
+	gameover.PushBack({ 2,91,124,31 });
+	gameover.PushBack({ 0,0,0,0 });
+	gameover.speed = 0.013f;
 	
 
 
@@ -50,7 +49,7 @@ bool ModuleWelcome::Start()
 bool ModuleWelcome::CleanUp()
 {
 	App->textures->Unload(welcometexture);
-	App->textures->Unload(Starttexture);
+	App->textures->Unload(gameovertexture);
 	LOG("Unloading stage");
 	return true;
 }
@@ -64,7 +63,7 @@ update_status ModuleWelcome::Update()
 
 	App->render->Blit(welcometexture, 0, -320 + SCREEN_HEIGHT, &welcome, 0.75f);
 
-	App->render->Blit(Starttexture, 78, 200, &(Presstostart.GetCurrentFrame()), 0.22f);
+	App->render->Blit(gameovertexture, 50, 200, &(gameover.GetCurrentFrame()), 0.22f);
 
 	
 

@@ -75,7 +75,7 @@ update_status ModulePlayer::Update()
 
 	char str[10];
 	sprintf_s(str, "%i", score);
-	App->fonts->BlitText(100, 100, font_score, str);
+	App->fonts->BlitText(44, 7, font_score, str);
 
 	int speed = 5;
 	position.y -= 1;
@@ -99,7 +99,7 @@ update_status ModulePlayer::Update()
 
 	if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT)
 	{
-		if (position.y > camera_limits.y + ASH_HEIGHT) {
+		if (position.y > camera_limits.y + ASH_HEIGHT + 35) {
 			position.y -= speed;
 		}
 	}

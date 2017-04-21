@@ -31,6 +31,7 @@ bool ModuleMine::Start()
 
 
 	minetexture = App->textures->Load("background_mine.png");
+	startplayer2texture = App->textures->Load("ui.png");
 	minetexture2 = App->textures->Load("background_mine_2.png");
 	mineworkertexture = App->textures->Load("mineworker.png");
 	
@@ -53,8 +54,13 @@ bool ModuleMine::Start()
 	mineworker.PushBack({ 83, 8, 11, 23 });
 	mineworker.speed = 0.08f;
 
-	
+	startplayer2animation.PushBack({ 6, 5, 68, 15 });
+	startplayer2animation.PushBack({6, 28,68, 13 });
+	startplayer2animation.PushBack({ 0,0,0,0 });
+	startplayer2animation.speed = 0.02;
 
+	p1.PushBack({ 10, 68, 15, 12});
+	p1.speed = 0;
 
 	App->audio->LoadMusic("Audio/mine.ogg");
 	mineworker_x = 59;
@@ -81,6 +87,7 @@ bool ModuleMine::CleanUp()
 	App->player->Disable();
 	App->player2->Disable();
 	App->textures->Unload(minetexture);
+	App->textures->Unload(startplayer2texture);
 	App->textures->Unload(minetexture2);
 	App->textures->Unload(mineworkertexture);
 	LOG("Unloading stage");
@@ -91,14 +98,18 @@ bool ModuleMine::CleanUp()
 update_status ModuleMine::Update()
 {
 
-	// Draw everything --------------------------------------
+	// -------------------------------------- Draw everything --------------------------------------
 
-
+	//Background
 	App->render->Blit(minetexture, 0, -3535 + SCREEN_HEIGHT, &mine, 0.18f);
-
 	App->render->Blit(minetexture2, 0, -3535 + SCREEN_HEIGHT, &mine, 0.22f);
 
+	//Mineworkers
 	App->render->Blit(mineworkertexture, mineworker_x, 100, &(mineworker.GetCurrentFrame()), 0.22f);
+
+	//UI
+	App->render->Blit(startplayer2texture, 118, 4, &(startplayer2animation.GetCurrentFrame()), 0);
+	App->render->Blit(startplayer2texture, 5, 6, &(p1.GetCurrentFrame()), 0);
 
 	App->render->camera.y += SCROLL_SPEED;
 

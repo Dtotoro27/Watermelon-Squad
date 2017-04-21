@@ -20,9 +20,9 @@ public:
 public:
 	bool change = true;
 	SDL_Texture* welcometexture = nullptr;
-	SDL_Texture* Starttexture = nullptr;
+	SDL_Texture* gameovertexture= nullptr;
 	SDL_Rect welcome;
-	Animation Presstostart;
+	Animation gameover;
 
 
 };
