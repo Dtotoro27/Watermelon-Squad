@@ -13,7 +13,7 @@
 #include "ModuleEnemies.h"
 #include "ModuleCongrats.h"
 
-float mineworker_x = 190;
+
 
 ModuleMine::ModuleMine()
 {
@@ -53,6 +53,17 @@ bool ModuleMine::Start()
 	mineworkerwalk.PushBack({ 107, 8, 13, 22 });
 	mineworkerwalk.PushBack({ 83, 8, 11, 23 });
 	mineworkerwalk.speed = 0.08f;
+
+	mineworkerstand.PushBack({ 2,8,13,22 });
+	mineworkerstand.PushBack({ 21,8,14,23 });
+	mineworkerstand.PushBack({ 38,8,16,22 });
+	mineworkerstand.PushBack({ 7,79,15,22 });
+	mineworkerstand.PushBack({ 27,79,15,23 });
+	mineworkerstand.PushBack({53,80,15,22 });
+	mineworkerstand.PushBack({ 1,46,16,22 });
+	mineworkerstand.PushBack({ 20,45,14,23 });
+	mineworkerstand.PushBack({ 40,45,13,22 });
+	mineworkerstand.speed = 0.03f;
 
 	startplayer2animation.PushBack({ 6, 5, 68, 15 });
 	startplayer2animation.PushBack({6, 28,68, 13 });
@@ -100,16 +111,27 @@ update_status ModuleMine::Update()
 
 	// -------------------------------------- Draw everything --------------------------------------
 
+
 	//Background
 	App->render->Blit(minetexture, 0, -3535 + SCREEN_HEIGHT, &mine, 0.18f);
 	App->render->Blit(minetexture2, 0, -3535 + SCREEN_HEIGHT, &mine, 0.22f);
 
 	//Mineworkers
+	
 	App->render->Blit(mineworkertexture, mineworker_x, 100, &(mineworkerwalk.GetCurrentFrame()), 0.22f);
+	App->render->Blit(mineworkertexture, 16, -439, &(mineworkerstand.GetCurrentFrame()), 0.22f);
+	App->render->Blit(mineworkertexture, 137, -460, &(mineworkerstand.GetCurrentFrame()), 0.22f);
+	
+	if (App->render->camera.y > 36750) {
+		App->render->Blit(mineworkertexture, 137, -460, &(mineworkerwalk.GetCurrentFrame()), 0.22f);
+	}
 
 	//UI
 	App->render->Blit(startplayer2texture, 118, 4, &(startplayer2animation.GetCurrentFrame()), 0);
 	App->render->Blit(startplayer2texture, 5, 6, &(p1.GetCurrentFrame()), 0);
+
+
+	
 
 	App->render->camera.y += SCROLL_SPEED;
 

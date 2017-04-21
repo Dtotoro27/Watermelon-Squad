@@ -29,6 +29,8 @@ public:
 	Animation mineworkerstand;
 	Animation startplayer2animation;
 	Animation p1;
+	float mineworker_x = 190;
+	float mineworker_y = 100;
 	
 
 
