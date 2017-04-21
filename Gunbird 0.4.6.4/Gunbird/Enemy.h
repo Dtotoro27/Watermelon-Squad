@@ -13,7 +13,6 @@ class Enemy
 {
 protected:
 	Animation* animation = nullptr;
-	Animation* animation2 = nullptr;
 	Collider* collider = nullptr;
 
 public:
