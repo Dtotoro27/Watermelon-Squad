@@ -20,7 +20,10 @@ public:
 public:
 	bool change = true;
 	SDL_Texture* welcometexture = nullptr;
+	SDL_Texture* Starttexture = nullptr;
 	SDL_Rect welcome;
+	Animation Presstostart;
+
 
 };
 
