@@ -1,6 +1,7 @@
 #include "Application.h"
 #include "ModuleInput.h"
 #include "ModuleRender.h"
+#include "ModulePlayer.h"
 #include "ModuleEnemies.h"
 #include "ModuleParticles.h"
 #include "ModuleTextures.h"
@@ -162,7 +163,9 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 			else{
 				App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y);
 				App->audio->LoadFX("Audio/explosion.wav");
+				App->player->score += 200;
 			}
+		
 			delete enemies[i];
 			enemies[i] = nullptr;
 			break;

@@ -48,11 +48,11 @@ bool ModuleMine::Start()
 	mine.h = 3535;
 
 
-	mineworker.PushBack({ 59, 8, 11, 22 });
-	mineworker.PushBack({ 83, 8, 11, 23 });
-	mineworker.PushBack({ 107, 8, 13, 22 });
-	mineworker.PushBack({ 83, 8, 11, 23 });
-	mineworker.speed = 0.08f;
+	mineworkerwalk.PushBack({ 59, 8, 11, 22 });
+	mineworkerwalk.PushBack({ 83, 8, 11, 23 });
+	mineworkerwalk.PushBack({ 107, 8, 13, 22 });
+	mineworkerwalk.PushBack({ 83, 8, 11, 23 });
+	mineworkerwalk.speed = 0.08f;
 
 	startplayer2animation.PushBack({ 6, 5, 68, 15 });
 	startplayer2animation.PushBack({6, 28,68, 13 });
@@ -105,7 +105,7 @@ update_status ModuleMine::Update()
 	App->render->Blit(minetexture2, 0, -3535 + SCREEN_HEIGHT, &mine, 0.22f);
 
 	//Mineworkers
-	App->render->Blit(mineworkertexture, mineworker_x, 100, &(mineworker.GetCurrentFrame()), 0.22f);
+	App->render->Blit(mineworkertexture, mineworker_x, 100, &(mineworkerwalk.GetCurrentFrame()), 0.22f);
 
 	//UI
 	App->render->Blit(startplayer2texture, 118, 4, &(startplayer2animation.GetCurrentFrame()), 0);
