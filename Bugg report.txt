@@ -40,3 +40,9 @@ Then, in player module, the particle created when we press shoot key, we have a 
 - Can't take PowerUp with godmode activated.
 
 FIXED -> Right order on the OnCollision condition (godmode is now only a condition with colliders that kills you).
+
+0.4.6.4
+
+- Godmode always active
+
+FIXED -> One branch ({) was in an incorrect position in moduleplayer.

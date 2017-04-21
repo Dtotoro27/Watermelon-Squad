@@ -5,17 +5,21 @@
 #include "ModuleRender.h"
 #include "ModuleWelcome.h"
 #include "ModuleFadeToBlack.h"
+#include "ModuleCollision.h"
 #include "ModuleMine.h"
 #include "ModulePlayer.h"
 #include "ModulePlayer2.h"
 #include "ModuleParticles.h"
+#include "ModuleFonts.h"
 #include "ModuleAudio.h"
 
+#include<stdio.h>
 
 ModulePlayer::ModulePlayer()
 {
 	position.x = 100;
 	position.y = 220;
+	score = 0;
 
 	camera_limits.y = 0;
 
@@ -46,6 +50,7 @@ bool ModulePlayer::Start()
 	bool ret = true;
 	graphics = App->textures->Load("ash.png"); // arcade version
 	playerhitbox = App->collision->AddCollider({ position.x, position.y, 19, 32 }, COLLIDER_PLAYER, this);
+	font_score = App->fonts->Load("numbers.png", "0123456789", 1);
 	return ret;
 }
 
@@ -54,6 +59,8 @@ bool ModulePlayer::CleanUp()
 	LOG("Unloading player");
 
 	App->textures->Unload(graphics);
+	App->collision->EraseCollider(playerhitbox);
+	App->fonts->UnLoad(font_score);
 
 	return true;
 }
@@ -62,6 +69,10 @@ bool ModulePlayer::CleanUp()
 update_status ModulePlayer::Update()
 {
 	Animation* current_animation = &idle;
+
+	char str[10];
+	sprintf_s(str, "%i", score);
+	App->fonts->BlitText(100, 100, font_score, str);
 
 	int speed = 5;
 	position.y -= 1;
@@ -85,7 +96,7 @@ update_status ModulePlayer::Update()
 
 	if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT)
 	{
-		if (position.y > (camera_limits.y + 35) + ASH_HEIGHT) {
+		if (position.y > camera_limits.y + ASH_HEIGHT) {
 			position.y -= speed;
 		}
 	}
@@ -99,21 +110,20 @@ update_status ModulePlayer::Update()
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
 	{
-		switch (powerUps) {
-		case 0:
+		if (powerUps == 0) {
 			App->particles->AddParticle(App->particles->laser, position.x + 2, position.y - 50, COLLIDER_PLAYER_SHOT);
 			App->audio->LoadFX("Audio/shoot_ash.wav");
-			break;
-		case 1:
+		}
+		if (powerUps == 1) {
 			App->particles->AddParticle(App->particles->laser2, position.x + 2, position.y - 50, COLLIDER_PLAYER_SHOT);
 			App->audio->LoadFX("Audio/shoot_ash.wav");
-			break;
 		}
+		score = score + 10;
 	}
 
 	if (App->input->keyboard[SDL_SCANCODE_F2]) {
 		if (godmode == true) {
-			godmode = false;			
+			godmode = false;
 		}
 		else if (godmode == false) {
 			godmode = true;
@@ -128,43 +138,42 @@ update_status ModulePlayer::Update()
 		App->player2->destroyed = false;
 	}
 
-	
+
 
 	playerhitbox->SetPos(position.x, position.y - ASH_HEIGHT);
 
+
 	// Draw everything --------------------------------------
 	SDL_Rect r = current_animation->GetCurrentFrame();
+
+	sprintf_s(score_text, 10, "%7d", score);
 
 	App->render->Blit(graphics, position.x, position.y - r.h, &r);
 
 	return UPDATE_CONTINUE;
 }
 
-void  ModulePlayer::OnCollision(Collider *c1, Collider *c2) { 
+void  ModulePlayer::OnCollision(Collider *c1, Collider *c2) {
 
 
-		if (c1 == playerhitbox && destroyed == false && App->fade->IsFading() == false)
-		{			
+	if (c1 == playerhitbox && destroyed == false && App->fade->IsFading() == false)
+	{
 
-			if (c2 == App->mine->pw_hitbox) {
-								
-					powerUps = 1;				
+		if (c2 == App->mine->pw_hitbox) {
 
-			}
-			else {
-				if (godmode == false) {
-					App->fade->FadeToBlack((Module*)App->mine, (Module*)App->congrats);
-
-					App->particles->AddParticle(App->particles->explosion, position.x, position.y, COLLIDER_NONE, 150);
-
-
-					destroyed = true;
-				}
-				else {}
-			}
-			
+			powerUps = 1;
 		}
-	
-	}
 
- 
+		else {
+			if (godmode == false) {
+				App->fade->FadeToBlack((Module*)App->mine, (Module*)App->congrats);
+
+				App->particles->AddParticle(App->particles->explosion, position.x, position.y, COLLIDER_NONE, 150);
+
+
+				destroyed = true;
+			}
+			else {}
+		}
+	}
+}

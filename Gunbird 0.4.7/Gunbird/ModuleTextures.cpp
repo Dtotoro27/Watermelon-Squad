@@ -2,6 +2,7 @@
 #include "Application.h"
 #include "ModuleRender.h"
 #include "ModuleTextures.h"
+#include <string.h>
 
 #include "SDL/include/SDL.h"
 #include "SDL_image/include/SDL_image.h"
@@ -42,8 +43,10 @@ bool ModuleTextures::CleanUp()
 	LOG("Freeing textures and Image library");
 
 	for (uint i = 0; i < MAX_TEXTURES; ++i)
+	{
 		if (textures[i] != nullptr)
 			SDL_DestroyTexture(textures[i]);
+	}
 
 	IMG_Quit();
 	return true;
@@ -69,7 +72,14 @@ SDL_Texture* const ModuleTextures::Load(const char* path)
 		}
 		else
 		{
-			textures[last_texture++] = texture;
+			for (uint i = 0; i < MAX_TEXTURES; ++i)
+			{
+				if (textures[i] == nullptr)
+				{
+					textures[i] = texture;
+					break;
+				}
+			}
 		}
 
 		SDL_FreeSurface(surface);
@@ -78,24 +88,51 @@ SDL_Texture* const ModuleTextures::Load(const char* path)
 	return texture;
 }
 
-bool ModuleTextures::Unload(SDL_Texture * texture)
+bool ModuleTextures::Unload(SDL_Texture* texture)
 {
 	bool ret = false;
 
-	if (texture != nullptr)
+	for (uint i = 0; i < MAX_TEXTURES; ++i)
 	{
-		for (int i = 0; i < MAX_TEXTURES; ++i)
+		if (texture == textures[i])
 		{
-			if (textures[i] == texture)
-			{
-				textures[i] = nullptr;
-				ret = true;
-				break;
-			}
+			SDL_DestroyTexture(textures[i]);
+			textures[i] = nullptr;
+			ret = true;
+			break;
 		}
-		SDL_DestroyTexture(texture);
 	}
 
 	return ret;
 }
+
+SDL_Texture* ModuleTextures::LoadSurface(SDL_Surface* surface)
+{
+	SDL_Texture* texture = SDL_CreateTextureFromSurface(App->render->renderer, surface);
+
+	if (texture == NULL)
+	{
+		LOG("Unable to create texture from surface! SDL Error: %s\n", SDL_GetError());
+	}
+	else
+	{
+		for (uint i = 0; i < MAX_TEXTURES; ++i)
+		{
+			if (textures[i] == nullptr)
+			{
+				textures[i] = texture;
+				break;
+			}
+		}
+	}
+
+	return texture;
+}
+
+// Retrieve size of a texture
+void ModuleTextures::GetSize(const SDL_Texture* texture, uint& width, uint& height) const
+{
+	SDL_QueryTexture((SDL_Texture*)texture, NULL, NULL, (int*)&width, (int*)&height);
+}
+
 

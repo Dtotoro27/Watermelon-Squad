@@ -75,7 +75,7 @@
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Enemy_Balloon.h" />
     <ClInclude Include="Enemy_FlyingMachine.h" />
-    <ClInclude Include="Enemy_Turret.h" />
+    <ClInclude Include="Enemy_Bomb.h" />
     <ClInclude Include="ModuleAudio.h" />
     <ClInclude Include="Globals.h" />
     <ClInclude Include="MemLeaks.h" />
@@ -83,6 +83,7 @@
     <ClInclude Include="ModuleCollision.h" />
     <ClInclude Include="ModuleCongrats.h" />
     <ClInclude Include="ModuleEnemies.h" />
+    <ClInclude Include="ModuleFonts.h" />
     <ClInclude Include="ModuleMine.h" />
     <ClInclude Include="ModuleFadeToBlack.h" />
     <ClInclude Include="ModuleInput.h" />
@@ -101,13 +102,14 @@
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Enemy_Balloon.cpp" />
     <ClCompile Include="Enemy_FlyingMachine.cpp" />
-    <ClCompile Include="Enemy_Turret.cpp" />
+    <ClCompile Include="Enemy_Bomb.cpp" />
     <ClCompile Include="Globals.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="ModuleAudio.cpp" />
     <ClCompile Include="ModuleCollision.cpp" />
     <ClCompile Include="ModuleCongrats.cpp" />
     <ClCompile Include="ModuleEnemies.cpp" />
+    <ClCompile Include="ModuleFonts.cpp" />
     <ClCompile Include="ModuleMine.cpp" />
     <ClCompile Include="ModuleFadeToBlack.cpp" />
     <ClCompile Include="ModuleInput.cpp" />

@@ -4,12 +4,14 @@
 #include "ModuleTextures.h"
 #include "ModuleRender.h"
 #include "ModuleParticles.h"
+#include "ModuleCollision.h"
 #include "ModuleAudio.h"
 
 #include "SDL/include/SDL_timer.h"
 
 ModuleParticles::ModuleParticles()
 {
+	//handouts tienen aqui las animaciones
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 		active[i] = nullptr;
 }
@@ -21,7 +23,7 @@ ModuleParticles::~ModuleParticles()
 bool ModuleParticles::Start()
 {
 	LOG("Loading particles");
-	
+
 	graphics = App->textures->Load("ash.png");
 
 	laser.anim.PushBack({ 206, 29, 15, 28 });
@@ -43,7 +45,7 @@ bool ModuleParticles::Start()
 	enemy_shoot.life = 2000;
 	enemy_shoot.speed.y = 5;
 
-	
+
 
 	explosion.anim.PushBack({ 175, 29, 9, 28 });
 	explosion.anim.loop = true;

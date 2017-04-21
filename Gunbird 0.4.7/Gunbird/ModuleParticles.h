@@ -10,6 +10,8 @@
 #define MAX_ACTIVE_PARTICLES 100
 
 struct SDL_Texture;
+struct Collider;
+enum COLLIDER_TYPE;
 
 struct Particle
 {

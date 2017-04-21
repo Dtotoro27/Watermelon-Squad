@@ -6,6 +6,8 @@
 #include "Globals.h"
 #include "p2Point.h"
 
+#define MAX_POWER_UPS 1
+
 struct SDL_Texture;
 struct Collider;
 
@@ -18,11 +20,15 @@ public:
 	bool Start();
 	update_status Update();
 	bool CleanUp();
-	void OnCollision(Collider *c1, Collider *c2); //PON LOS ASTERISCOS DONDE ESTÁ LA NEGRITA
+	void OnCollision(Collider *c1, Collider *c2);
 
 public:
 
 	SDL_Texture* graphics = nullptr;
+	int font_score = -1;
+	char score_text[10];
+	uint score = 0;
+	Animation* current_animation = nullptr;
 	Animation idle;
 	Animation left;
 	Animation right;

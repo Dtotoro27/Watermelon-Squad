@@ -13,15 +13,17 @@
 #include "ModuleParticles.h"
 #include "ModuleCollision.h"
 #include "ModuleEnemies.h"
+#include "ModuleFonts.h"
 
 Application::Application()
 {
-	
+
 	int i = 0;
 	modules[i++] = window = new ModuleWindow();
 	modules[i++] = render = new ModuleRender();
 	modules[i++] = input = new ModuleInput();
 	modules[i++] = textures = new ModuleTextures();
+	modules[i++] = fonts = new ModuleFonts();
 	modules[i++] = welcome = new ModuleWelcome();
 	modules[i++] = mine = new ModuleMine();
 	modules[i++] = congrats = new ModuleCongrats();
@@ -33,7 +35,7 @@ Application::Application()
 	modules[i++] = audio = new ModuleAudio();
 	modules[i++] = fade = new ModuleFadeToBlack();
 
-	
+
 }
 
 Application::~Application()
@@ -72,7 +74,7 @@ update_status Application::Update()
 
 	for (int i = 0; i < NUM_MODULES && ret == UPDATE_CONTINUE; ++i)
 		ret = modules[i]->IsEnabled() ? modules[i]->Update() : UPDATE_CONTINUE;
-	
+
 	for (int i = 0; i < NUM_MODULES && ret == UPDATE_CONTINUE; ++i)
 		ret = modules[i]->IsEnabled() ? modules[i]->PostUpdate() : UPDATE_CONTINUE;
 
@@ -84,7 +86,6 @@ bool Application::CleanUp()
 	bool ret = true;
 
 	for (int i = NUM_MODULES - 1; i >= 0 && ret == true; --i)
-		ret = modules[i]->CleanUp();
-
+		ret = modules[i]->IsEnabled() ? modules[i]->CleanUp() : true;
 	return ret;
 }

@@ -10,7 +10,7 @@ enum ENEMY_TYPES
 	NO_TYPE,
 	BALLOON,
 	FLYINGMACHINE,
-	TURRET,
+	BOMB,
 };
 
 class Enemy;

@@ -1,10 +1,10 @@
-#ifndef __ENEMY_TURRET_H__
-#define __ENEMY_TURRET_H__
+#ifndef __ENEMY_BOMB_H__
+#define __ENEMY_BOMB_H__
 
 #include "Enemy.h"
 #include "Path.h"
 
-class Enemy_Turret : public Enemy
+class Enemy_Bomb : public Enemy
 {
 private:
 	iPoint originalpos;
@@ -13,7 +13,7 @@ private:
 
 public:
 
-	Enemy_Turret(int x, int y);
+	Enemy_Bomb(int x, int y);
 	void Move();
 };
 

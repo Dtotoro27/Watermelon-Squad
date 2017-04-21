@@ -89,8 +89,11 @@
     <ClInclude Include="ModulePlayer2.h">
       <Filter>Modules</Filter>
     </ClInclude>
-    <ClInclude Include="Enemy_Turret.h">
+    <ClInclude Include="Enemy_Bomb.h">
       <Filter>Modules\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleFonts.h">
+      <Filter>Modules</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -154,8 +157,11 @@
     <ClCompile Include="ModulePlayer2.cpp">
       <Filter>Modules</Filter>
     </ClCompile>
-    <ClCompile Include="Enemy_Turret.cpp">
+    <ClCompile Include="Enemy_Bomb.cpp">
       <Filter>Modules\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleFonts.cpp">
+      <Filter>Modules</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

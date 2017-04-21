@@ -21,6 +21,7 @@ public:
 	bool change = true;
 	SDL_Texture* congratstexture = nullptr;
 	SDL_Rect congrats;
+	/*handout2*/uint fx = 0;
 
 };
 

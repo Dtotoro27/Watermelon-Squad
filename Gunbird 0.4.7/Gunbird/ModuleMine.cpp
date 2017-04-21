@@ -11,7 +11,6 @@
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleEnemies.h"
-#include "Enemy_Balloon.h"
 #include "ModuleCongrats.h"
 
 float mineworker_x = 190;
@@ -29,16 +28,16 @@ ModuleMine::~ModuleMine()
 bool ModuleMine::Start()
 {
 	LOG("Loading background assets");
-	
+
 	pw_pos.x = 190;
 	pw_pos.y = 100;
-	
+
 	minetexture = App->textures->Load("background_mine.png");
 	minetexture2 = App->textures->Load("background_mine_2.png");
 	mineworkertexture = App->textures->Load("mineworker.png");
 	pw_texture = App->textures->Load("power_up.png");
 	pw_hitbox = App->collision->AddCollider({ pw_pos.x, pw_pos.y, 21, 12 }, COLLIDER_POWER_UP, this);
-	
+
 	App->player->Enable();
 	App->player->destroyed = false;
 	App->particles->Enable();
@@ -67,25 +66,25 @@ bool ModuleMine::Start()
 	pw_anim.PushBack({ 30, 83, 21, 12 });
 	pw_anim.speed = 0.1f;
 
-	
+
 	App->audio->LoadMusic("Audio/mine.ogg");
 	mineworker_x = 59;
 
-	
+
 
 
 	//Enemy
 
 	App->enemies->AddEnemy(ENEMY_TYPES::BALLOON, 70, 38);
 	App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 150, 38);
-	App->enemies->AddEnemy(ENEMY_TYPES::TURRET, 50, 56);
+	App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 50, 56);
 
 	return true;
 }
 
 bool ModuleMine::CleanUp()
 {
-	
+
 	App->enemies->Disable();
 	App->collision->Disable();
 	App->particles->Disable();
