@@ -29,6 +29,7 @@ bool ModuleMine::Start()
 {
 	LOG("Loading background assets");
 
+	mineworkeractive.y = 0;
 
 	minetexture = App->textures->Load("background_mine.png");
 	mineanimationtexture = App->textures->Load("background_mine_animation.png");
@@ -49,11 +50,16 @@ bool ModuleMine::Start()
 	mine.h = 3535;
 
 
-	mineworkerwalk.PushBack({ 59, 8, 11, 22 });
-	mineworkerwalk.PushBack({ 83, 8, 11, 23 });
-	mineworkerwalk.PushBack({ 107, 8, 13, 22 });
-	mineworkerwalk.PushBack({ 83, 8, 11, 23 });
-	mineworkerwalk.speed = 0.08f;
+	mineworkerwalkleft.PushBack({ 59, 8, 11, 22 });
+	mineworkerwalkleft.PushBack({ 83, 8, 11, 23 });
+	mineworkerwalkleft.PushBack({ 107, 8, 13, 22 });
+	mineworkerwalkleft.PushBack({ 83, 8, 11, 23 });
+	mineworkerwalkleft.speed = 0.08f;
+
+	mineworkerwalkright.PushBack({ 61, 45, 11, 22 });
+	mineworkerwalkright.PushBack({ 83, 45, 11, 23 });
+	mineworkerwalkright.PushBack({ 107, 45, 12, 22 });
+	mineworkerwalkright.speed = 0.08f;
 
 	mineanimation.PushBack({ 13,27,175,85 });
 	mineanimation.PushBack({ 197,27,175,85 });
@@ -130,10 +136,18 @@ update_status ModuleMine::Update()
 	
 
 	//Mineworkers
-	
-	App->render->Blit(mineworkertexture, mineworker_x, 100, &(mineworkerwalk.GetCurrentFrame()), 0.22f);
-	App->render->Blit(mineworkertexture, 16, -439, &(mineworkerstand.GetCurrentFrame()), 0.22f);
-	App->render->Blit(mineworkertexture, 137, -460, &(mineworkerstand.GetCurrentFrame()), 0.22f);
+	if (mineworkeractive.y < 2500) {
+		App->render->Blit(mineworkertexture, mineworker_x, 100, &(mineworkerwalkleft.GetCurrentFrame()), 0.22f);
+		App->render->Blit(mineworkertexture, 16, -439, &(mineworkerstand.GetCurrentFrame()), 0.22f);
+		App->render->Blit(mineworkertexture, 137, -460, &(mineworkerstand.GetCurrentFrame()), 0.22f);
+		mineworker_x -= 0.10;
+	}
+	else {
+		App->render->Blit(mineworkertexture, mineworker_x2, -460, &(mineworkerwalkright.GetCurrentFrame()), 0.22f);
+		App->render->Blit(mineworkertexture, mineworker_x3, -439, &(mineworkerwalkleft.GetCurrentFrame()), 0.22f);
+		mineworker_x2 -= 0.1;
+		mineworker_x3 += 0.1;
+	}
 	
 	//UI
 	App->render->Blit(startplayer2texture, 118, 4, &(startplayer2animation.GetCurrentFrame()), 0);
@@ -153,8 +167,8 @@ update_status ModuleMine::Update()
 	}
 
 
-
-	mineworker_x -= 0.10;
+	mineworkeractive.y += 1;
+	
 
 
 	

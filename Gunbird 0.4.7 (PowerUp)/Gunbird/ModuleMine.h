@@ -26,13 +26,16 @@ public:
 	SDL_Texture* mineworkertexture = nullptr;
 	SDL_Texture* startplayer2texture= nullptr;
 	SDL_Rect mine;
-	Animation mineworkerwalk;
+	Animation mineworkerwalkright;
+	Animation mineworkerwalkleft;
 	Animation mineworkerstand;
 	Animation startplayer2animation;
 	Animation p1;
 	Animation mineanimation;
 	float mineworker_x = 190;
-	float mineworker_y = 100;
+	float mineworker_x2 = 137;
+	float mineworker_x3 = 16;
+	iPoint mineworkeractive;
 	
 
 
