@@ -115,7 +115,7 @@ update_status ModulePlayer::Update()
 			App->audio->LoadFX("Audio/shoot_ash.wav");
 		}
 		if (powerUps == 1) {
-			App->particles->AddParticle(App->particles->laser2, position.x + 2, position.y - 50, COLLIDER_PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->laser2, position.x, position.y - 50, COLLIDER_PLAYER_SHOT);
 			App->audio->LoadFX("Audio/shoot_ash.wav");
 		}
 		score = score + 10;

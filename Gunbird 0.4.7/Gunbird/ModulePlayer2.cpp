@@ -7,6 +7,7 @@
 #include "ModuleFadeToBlack.h"
 #include "ModulePlayer2.h"
 #include "ModulePlayer.h"
+#include "ModuleMine.h"
 #include "ModuleParticles.h"
 #include "ModuleAudio.h"
 
@@ -97,8 +98,15 @@ update_status ModulePlayer2::Update()
 
 	if (App->input->keyboard[SDL_SCANCODE_V] == KEY_STATE::KEY_DOWN)
 	{
-		App->particles->AddParticle(App->particles->laser, position.x + 4, position.y - 50, COLLIDER_PLAYER_SHOT);
-		App->audio->LoadFX("Audio/shoot_ash.wav");
+		if(powerUps == 0) {
+			App->particles->AddParticle(App->particles->laser, position.x + 2, position.y - 50, COLLIDER_PLAYER_SHOT);
+			App->audio->LoadFX("Audio/shoot_ash.wav");
+		}
+		if (powerUps == 1) {
+			App->particles->AddParticle(App->particles->laser2, position.x, position.y - 50, COLLIDER_PLAYER_SHOT);
+			App->audio->LoadFX("Audio/shoot_ash.wav");
+		}
+		
 	}
 
 	if (App->input->keyboard[SDL_SCANCODE_F2]) {
@@ -125,18 +133,27 @@ update_status ModulePlayer2::Update()
 void  ModulePlayer2::OnCollision(Collider *c1, Collider *c2) {
 
 
-	if (c1 == player2hitbox && destroyed == false && App->fade->IsFading() == false && godmode == false)
+	if (c1 == player2hitbox && destroyed == false && App->fade->IsFading() == false)
 	{
 
-		App->fade->FadeToBlack((Module*)App->mine, (Module*)App->congrats);
+		if (c2 == App->mine->pw_hitbox) {
 
-		App->particles->AddParticle(App->particles->explosion, position.x, position.y, COLLIDER_NONE, 150);
+			powerUps = 1;
+		}
+
+		else {
+			if (godmode == false) {
+				App->fade->FadeToBlack((Module*)App->mine, (Module*)App->congrats);
+
+				App->particles->AddParticle(App->particles->explosion, position.x, position.y, COLLIDER_NONE, 150);
 
 
-		destroyed = true;
-
-
+				destroyed = true;
+			}
+			else {}
+		}
 	}
-
 }
+
+
 

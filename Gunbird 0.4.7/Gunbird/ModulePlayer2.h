@@ -32,6 +32,7 @@ public:
 	bool godmode = false;
 	iPoint position;
 	iPoint camera_limitsp2;
+	int powerUps = 0;
 
 };
 
