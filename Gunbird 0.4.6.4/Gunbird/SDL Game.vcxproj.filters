@@ -89,7 +89,7 @@
     <ClInclude Include="ModulePlayer2.h">
       <Filter>Modules</Filter>
     </ClInclude>
-    <ClInclude Include="Enemy_Bomb.h">
+    <ClInclude Include="Enemy_Turret.h">
       <Filter>Modules\Enemies</Filter>
     </ClInclude>
   </ItemGroup>
@@ -154,7 +154,7 @@
     <ClCompile Include="ModulePlayer2.cpp">
       <Filter>Modules</Filter>
     </ClCompile>
-    <ClCompile Include="Enemy_Bomb.cpp">
+    <ClCompile Include="Enemy_Turret.cpp">
       <Filter>Modules\Enemies</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,10 +1,10 @@
 #include "Application.h"
-#include "Enemy_Bomb.h"
+#include "Enemy_Turret.h"
 #include "ModuleCollision.h"
 
 
 
-Enemy_Bomb::Enemy_Bomb(int x, int y) : Enemy(x, y)
+Enemy_Turret::Enemy_Turret(int x, int y) : Enemy(x, y)
 {
 	fly.PushBack({ 790,24,28,32});
 	fly.PushBack({ 819,24,28,32 });
@@ -29,7 +29,7 @@ Enemy_Bomb::Enemy_Bomb(int x, int y) : Enemy(x, y)
 
 }
 
-void Enemy_Bomb::Move()
+void Enemy_Turret::Move()
 {
 	position = originalpos + movement.GetCurrentPosition();
 }
