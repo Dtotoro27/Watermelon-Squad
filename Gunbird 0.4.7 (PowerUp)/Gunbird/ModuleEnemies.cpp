@@ -158,8 +158,11 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 	{
 		if (enemies[i] != nullptr && enemies[i]->GetCollider() == c1)
 		{
-			App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y);
-			App->audio->LoadFX("Audio/explosion.wav");
+			if (c1->type == COLLIDER_POWER_UP) {}
+			else{
+				App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y);
+				App->audio->LoadFX("Audio/explosion.wav");
+			}
 			delete enemies[i];
 			enemies[i] = nullptr;
 			break;
