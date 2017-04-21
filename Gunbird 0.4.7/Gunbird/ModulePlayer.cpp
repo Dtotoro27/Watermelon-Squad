@@ -18,7 +18,7 @@
 ModulePlayer::ModulePlayer()
 {
 	position.x = 100;
-	position.y = 220;
+	position.y = ASH_HEIGHT;
 	score = 0;
 
 	camera_limits.y = 0;
@@ -72,7 +72,7 @@ update_status ModulePlayer::Update()
 
 	char str[10];
 	sprintf_s(str, "%i", score);
-	App->fonts->BlitText(100, 100, font_score, str);
+	App->fonts->BlitText(50, 10, font_score, str);
 
 	int speed = 5;
 	position.y -= 1;
@@ -148,7 +148,7 @@ update_status ModulePlayer::Update()
 
 	sprintf_s(score_text, 10, "%7d", score);
 
-	App->render->Blit(graphics, position.x, position.y - r.h, &r);
+	App->render->Blit(graphics, position.x, position.y - ASH_HEIGHT - r.h, &r);
 
 	return UPDATE_CONTINUE;
 }
