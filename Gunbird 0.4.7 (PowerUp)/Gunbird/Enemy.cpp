@@ -30,5 +30,8 @@ void Enemy::Draw(SDL_Texture* sprites)
 
 void Enemy::OnCollision(Collider* collider)
 {
-	App->particles->AddParticle(App->particles->explosion, position.x, position.y);
+	if(collider->type != COLLIDER_TYPE::COLLIDER_POWER_UP){
+		App->particles->AddParticle(App->particles->explosion, position.x, position.y);
+	}
+	
 }

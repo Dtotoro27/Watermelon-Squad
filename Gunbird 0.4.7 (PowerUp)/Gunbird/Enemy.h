@@ -15,7 +15,6 @@ protected:
 	Animation* animation = nullptr;
 	Animation* animation2 = nullptr;
 	Collider* collider = nullptr;
-	Collider* pw_collider = nullptr;
 
 public:
 	iPoint position;
