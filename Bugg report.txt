@@ -46,3 +46,7 @@ FIXED -> Right order on the OnCollision condition (godmode is now only a conditi
 - Godmode always active
 
 FIXED -> One branch ({) was in an incorrect position in moduleplayer.
+
+0.4.7.2.1
+
+- When you take a powerUp, it appears the explosion animation. 
