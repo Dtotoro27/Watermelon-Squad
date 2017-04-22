@@ -36,7 +36,7 @@ bool ModuleMine::Start()
 	startplayer2texture = App->textures->Load("ui.png");
 	minetexture2 = App->textures->Load("background_mine_2.png");
 	mineworkertexture = App->textures->Load("mineworker.png");
-	
+
 
 	App->player->Enable();
 	App->player->destroyed = false;
@@ -76,18 +76,18 @@ bool ModuleMine::Start()
 	mineworkerstand.PushBack({ 38,8,16,22 });
 	mineworkerstand.PushBack({ 7,79,15,22 });
 	mineworkerstand.PushBack({ 27,79,15,23 });
-	mineworkerstand.PushBack({53,80,15,22 });
+	mineworkerstand.PushBack({ 53,80,15,22 });
 	mineworkerstand.PushBack({ 1,46,16,22 });
 	mineworkerstand.PushBack({ 20,45,14,23 });
 	mineworkerstand.PushBack({ 40,45,13,22 });
 	mineworkerstand.speed = 0.03f;
 
 	startplayer2animation.PushBack({ 6, 5, 68, 15 });
-	startplayer2animation.PushBack({6, 28,68, 13 });
+	startplayer2animation.PushBack({ 6, 28,68, 13 });
 	startplayer2animation.PushBack({ 0,0,0,0 });
 	startplayer2animation.speed = 0.02;
 
-	p1.PushBack({ 10, 68, 15, 12});
+	p1.PushBack({ 10, 68, 15, 12 });
 	p2.PushBack({ 30,67,16,12 });
 
 	App->audio->LoadMusic("Audio/mine.ogg");
@@ -150,7 +150,7 @@ update_status ModuleMine::Update()
 	App->render->Blit(minetexture, 0, -3535 + SCREEN_HEIGHT, &mine, 0.18f);
 	App->render->Blit(mineanimationtexture, 16, -796, &(mineanimation.GetCurrentFrame()), 0.18f);
 	App->render->Blit(minetexture2, 0, -3535 + SCREEN_HEIGHT, &mine, 0.22f);
-	
+
 
 	//Mineworkers
 	if (mineworkeractive.y < 2500) {
@@ -165,7 +165,7 @@ update_status ModuleMine::Update()
 		mineworker_x2 += 0.1;
 		mineworker_x3 -= 0.1;
 	}
-	
+
 	//UI
 	if (App->input->keyboard[SDL_SCANCODE_Q] == KEY_STATE::KEY_DOWN) {
 		player2 = true;
@@ -180,14 +180,14 @@ update_status ModuleMine::Update()
 
 	App->render->Blit(startplayer2texture, 5, 6, &(p1.GetCurrentFrame()), 0);
 
-	
-	if (App -> render -> camera.y <= 14313) {
-		App -> render -> camera.y += SCROLL_SPEED;
+
+	if (App->render->camera.y <= 14313) {
+		App->render->camera.y += SCROLL_SPEED;
 	}
 
 	else {
 		change = false;
-		App -> fade -> FadeToBlack(this, App -> congrats, 1);
+		App->fade->FadeToBlack(this, App->congrats, 1);
 		change = true;
 	}
 
@@ -210,24 +210,36 @@ update_status ModuleMine::Update()
 		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 157, -1482);
 		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 187, -1462);
 	}
-	
 
 
+	if (App->render->camera.y == 6801) {
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 1, -2344);
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 30, -2364);
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 60, -2344);
 
-	if (App->input->keyboard[SDL_SCANCODE_P] && change) {
-		int polla;
-		polla = App->render->camera.y;
-		change = false;
-		App->fade->FadeToBlack(this, App->congrats, 1);
-		change = true;
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 127, -2324);
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 157, -2344);
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 187, -2324);
 	}
 
+	if (App->render->camera.y == 7191) {
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 100, -2544);
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 88, -2586);
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 66, -2628);
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 44, -2670);
+
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 200, -2544);
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 222, -2586);
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 244, -2628);
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 266, -2670);
+
+	}
 
 	mineworkeractive.y += 1;
-	
 
 
-	
+
+
 
 
 

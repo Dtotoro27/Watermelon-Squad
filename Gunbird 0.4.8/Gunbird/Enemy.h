@@ -18,8 +18,6 @@ protected:
 
 public:
 	iPoint position;
-	int shootspeed_x;
-	int shootspeed_y;
 
 public:
 	Enemy(int x, int y);
@@ -28,7 +26,6 @@ public:
 	const Collider* GetCollider() const;
 
 	virtual void Move() {};
-	virtual void Shoot() {};
 	virtual void Draw(SDL_Texture* sprites);
 	virtual void OnCollision(Collider* collider);
 };

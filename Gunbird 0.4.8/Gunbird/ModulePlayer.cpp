@@ -119,11 +119,11 @@ update_status ModulePlayer::Update()
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
 	{
 		if (powerUps == 0) {
-			App->particles->AddParticle(App->particles->laser, position.x + 2, position.y, 0, -5 - 50, COLLIDER_PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->laser, position.x + 2, position.y - 50, COLLIDER_PLAYER_SHOT);
 			App->audio->LoadFX("Audio/shoot_ash.wav");
 		}
 		if (powerUps == 1) {
-			App->particles->AddParticle(App->particles->laser2, position.x, position.y - 50, 0, -5, COLLIDER_PLAYER_SHOT);
+			App->particles->AddParticle(App->particles->laser2, position.x, position.y - 50, COLLIDER_PLAYER_SHOT);
 			App->audio->LoadFX("Audio/shoot_ash.wav");
 		}
 	}
