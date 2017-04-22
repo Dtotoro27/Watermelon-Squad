@@ -100,6 +100,23 @@ bool ModuleMine::Start()
 
 	App->enemies->AddEnemy(ENEMY_TYPES::BALLOON, 51, 10);
 
+
+	/*App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 127, -176);
+	App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 157, -196);
+	App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 187, -176);
+
+	App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE2, 0, -136);
+	App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE2, 30, -156);
+	App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE2, 60, -136);
+
+	App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE3, 1, -336);
+	App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE3, 30, -356);
+	App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE3, 60, -336);
+
+	/*App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 127, -336);
+	App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 157, -356);
+	App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 187, -336);*/
+
 	App->enemies->AddEnemy(ENEMY_TYPES::POWER_UP, 30, 30);
 
 
@@ -168,9 +185,7 @@ update_status ModuleMine::Update()
 		App -> render -> camera.y += SCROLL_SPEED;
 	}
 
-	if (App->input->keyboard[SDL_SCANCODE_P] == KEY_STATE::KEY_DOWN) {
-		int polla;
-		polla = App->render->camera.y;
+	else {
 		change = false;
 		App -> fade -> FadeToBlack(this, App -> congrats, 1);
 		change = true;
@@ -196,29 +211,17 @@ update_status ModuleMine::Update()
 		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 187, -1462);
 	}
 	
-	if (App->render->camera.y == 6150) {
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 127, -2100);
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 157, -2120);
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 187, -2100);
 
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE2, 1, -2080);
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE2, 30, -2100);
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE2, 60, -2080);
+
+
+	if (App->input->keyboard[SDL_SCANCODE_P] && change) {
+		int polla;
+		polla = App->render->camera.y;
+		change = false;
+		App->fade->FadeToBlack(this, App->congrats, 1);
+		change = true;
 	}
 
-
-	if (App->render->camera.y == 7191) {
-		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 100, -2544);
-		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 88, -2586);
-		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 66, -2628);
-		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 44, -2670);
-
-		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 200, -2544);
-		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 222, -2586);
-		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 244, -2628);
-		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 266, -2670);
-
-	}
 
 	mineworkeractive.y += 1;
 	
