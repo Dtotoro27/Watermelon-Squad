@@ -211,17 +211,15 @@ update_status ModuleMine::Update()
 		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 187, -1462);
 	}
 	
+	if (App->render->camera.y == 6801) {
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 1, -2344);
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 30, -2364);
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 60, -2344);
 
-
-
-	if (App->input->keyboard[SDL_SCANCODE_P] && change) {
-		int polla;
-		polla = App->render->camera.y;
-		change = false;
-		App->fade->FadeToBlack(this, App->congrats, 1);
-		change = true;
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 127, -2324);
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 157, -2344);
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 187, -2324);
 	}
-
 
 	mineworkeractive.y += 1;
 	
