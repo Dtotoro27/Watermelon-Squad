@@ -173,14 +173,22 @@ update_status ModuleMine::Update()
 	App->render->Blit(startplayer2texture, 5, 6, &(p1.GetCurrentFrame()), 0);
 
 	
-	App->render->camera.y += SCROLL_SPEED;
+	if (App -> render -> camera.y <= 14313) {
+		App -> render -> camera.y += SCROLL_SPEED;
+	}
+
+	else {
+		change = false;
+		App -> fade -> FadeToBlack(this, App -> congrats, 1);
+		change = true;
+	}
 
 
 
 
 	if (App->input->keyboard[SDL_SCANCODE_P] && change) {
 
-		change = false;
+			change = false;
 		App->fade->FadeToBlack(this, App->congrats, 1);
 		change = true;
 	}
