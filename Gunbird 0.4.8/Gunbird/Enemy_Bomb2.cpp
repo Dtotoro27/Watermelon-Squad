@@ -1,10 +1,10 @@
 #include "Application.h"
-#include "Enemy_Bomb.h"
+#include "Enemy_Bomb2.h"
 #include "ModuleCollision.h"
 
 
 
-Enemy_Bomb::Enemy_Bomb(int x, int y) : Enemy(x, y)
+Enemy_Bomb2::Enemy_Bomb2(int x, int y) : Enemy(x, y)
 {
 	fly.PushBack({ 790,24,28,32 });
 	fly.PushBack({ 819,24,28,32 });
@@ -20,25 +20,24 @@ Enemy_Bomb::Enemy_Bomb(int x, int y) : Enemy(x, y)
 	animation = &fly;
 
 	if (bomb_num == 1) {
-		movement.PushBack({ 0.5f,1.0f }, 10000, &fly);
+		movement.PushBack({ -0.5f,1.0f }, 10000, &fly);
 		bomb_num++;
 	}
 	else if (bomb_num == 1) {
 		movement.PushBack({ 0.0f,-1.0f }, 20, &fly);
-		movement.PushBack({ 0.5f,1.0f }, 10000, &fly);
+		movement.PushBack({ -0.2f,1.0f }, 10000, &fly);
 		bomb_num++;
 	}
 	else if (bomb_num == 1) {
 		movement.PushBack({ 0.0f,-1.0f }, 40, &fly);
-		movement.PushBack({ 0.5f,1.0f }, 10000, &fly);
+		movement.PushBack({ -0.2f,1.0f }, 10000, &fly);
 		bomb_num++;
 	}
 	else if (bomb_num == 1) {
 		movement.PushBack({ 0.0f,-1.0f }, 60, &fly);
-		movement.PushBack({ 0.5f,1.0f }, 10000, &fly);
+		movement.PushBack({ -0.2f,1.0f }, 10000, &fly);
 		bomb_num == 1;
 	}
-	
 
 	collider = App->collision->AddCollider({ 0, 0, 28,41 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
@@ -48,7 +47,7 @@ Enemy_Bomb::Enemy_Bomb(int x, int y) : Enemy(x, y)
 
 }
 
-void Enemy_Bomb::Move()
+void Enemy_Bomb2::Move()
 {
 	position = originalpos + movement.GetCurrentPosition();
 }

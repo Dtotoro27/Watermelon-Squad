@@ -199,6 +199,7 @@ update_status ModuleMine::Update()
 		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE2, 1, -610);
 		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE2, 30, -630);
 		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE2, 60, -610);
+
 	}
 
 	if (App->render->camera.y == 4269) {
@@ -212,28 +213,39 @@ update_status ModuleMine::Update()
 	}
 
 
-	if (App->render->camera.y == 6801) {
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 1, -2344);
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 30, -2364);
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 60, -2344);
+	if (App->render->camera.y == 6102) {
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 127, -2094);
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 157, -2114);
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 187, -2094);
 
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 127, -2324);
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 157, -2344);
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 187, -2324);
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE2, 1, -2074);
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE2, 30, -2094);
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE2, 60, -2074);
 	}
 
-	if (App->render->camera.y == 7191) {
-		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 100, -2544);
-		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 88, -2586);
-		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 66, -2628);
-		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 44, -2670);
+	if (App->render->camera.y == 8151) {
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 1, -2754);
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 30, -2774);
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 60, -2754);
 
-		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 200, -2544);
-		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 222, -2586);
-		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 244, -2628);
-		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 266, -2670);
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 127, -2754);
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 157, -2774);
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 187, -2754);
+	}
+
+	if (App->render->camera.y == 11157) {
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 90, -3804);
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 60, -3834);
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 30, -3864);
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 0, -3894);
+
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB2, 102, -3804);
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB2, 132, -3834);
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB2, 162, -3864);
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB2, 192, -3894);
 
 	}
+
 
 	mineworkeractive.y += 1;
 

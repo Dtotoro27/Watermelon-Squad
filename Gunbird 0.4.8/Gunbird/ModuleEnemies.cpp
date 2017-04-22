@@ -10,9 +10,9 @@
 #include "Enemy_Balloon.h"
 #include "Enemy_FlyingMachine.h"
 #include "Enemy_FlyingMachine2.h"
-#include "Enemy_FlyingMachine3.h"
 #include "Enemy_FlyingMachine4.h"
 #include "Enemy_Bomb.h"
+#include "Enemy_Bomb2.h"
 #include "PowerUp.h"
 
 
@@ -46,6 +46,7 @@ update_status ModuleEnemies::PreUpdate()
 	{
 		if (queue[i].type != ENEMY_TYPES::NO_TYPE)
 		{
+
 			if (queue[i].x * SCREEN_SIZE < App->render->camera.x + (App->render->camera.w * SCREEN_SIZE) + SPAWN_MARGIN)
 			{
 				SpawnEnemy(queue[i]);
@@ -77,6 +78,7 @@ update_status ModuleEnemies::PostUpdate()
 	{
 		if (enemies[i] != nullptr)
 		{
+	
 			if (enemies[i]->position.x * SCREEN_SIZE < (App->render->camera.x) - SPAWN_MARGIN)
 			{
 				LOG("DeSpawning enemy at %d", enemies[i]->position.x * SCREEN_SIZE);
@@ -150,16 +152,16 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			enemies[i] = new Enemy_FlyingMachine2(info.x, info.y);
 			break;
 
-		case ENEMY_TYPES::FLYINGMACHINE3:
-			enemies[i] = new Enemy_FlyingMachine3(info.x, info.y);
-			break;
-
 		case ENEMY_TYPES::FLYINGMACHINE4:
 			enemies[i] = new Enemy_FlyingMachine4(info.x, info.y);
 			break;
 
 		case ENEMY_TYPES::BOMB:
 			enemies[i] = new Enemy_Bomb(info.x, info.y);
+			break;
+
+		case ENEMY_TYPES::BOMB2:
+			enemies[i] = new Enemy_Bomb2(info.x, info.y);
 			break;
 
 		case ENEMY_TYPES::POWER_UP:
