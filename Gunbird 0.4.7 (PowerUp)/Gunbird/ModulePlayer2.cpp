@@ -10,12 +10,16 @@
 #include "ModuleMine.h"
 #include "ModuleParticles.h"
 #include "ModuleAudio.h"
+#include "ModuleFonts.h"
+
+#include<stdio.h>
 
 
 ModulePlayer2::ModulePlayer2()
 {
 	position.x = 100;
 	position.y = 220;
+	score = 0;
 
 
 	// idle animation
@@ -45,6 +49,8 @@ bool ModulePlayer2::Start()
 	bool ret = true;
 	graphics = App->textures->Load("ash.png"); // arcade version
 	player2hitbox = App->collision->AddCollider({ position.x, position.y, 19, 32 }, COLLIDER_PLAYER, this);
+	font_score = App->fonts->Load("numbers.png", "0123456789", 1);
+	score = 0;
 	return ret;
 }
 
@@ -54,6 +60,8 @@ bool ModulePlayer2::CleanUp()
 
 	App->textures->Unload(graphics);
 
+	App->fonts->UnLoad(font_score);
+
 	return true;
 }
 
@@ -61,6 +69,10 @@ bool ModulePlayer2::CleanUp()
 update_status ModulePlayer2::Update()
 {
 	Animation* current_animation = &idle;
+
+	char str[10];
+	sprintf_s(str, "%i", score);
+	App->fonts->BlitText(180, 7, font_score, str);
 
 	int speed = 5;
 	position.y -= 1;
@@ -124,6 +136,8 @@ update_status ModulePlayer2::Update()
 
 	// Draw everything --------------------------------------
 	SDL_Rect r = current_animation->GetCurrentFrame();
+
+	sprintf_s(score_text, 10, "%7d", score);
 
 	App->render->Blit(graphics, position.x, position.y - r.h, &r);
 

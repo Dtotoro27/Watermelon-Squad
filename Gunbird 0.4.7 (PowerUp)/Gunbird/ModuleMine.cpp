@@ -88,7 +88,7 @@ bool ModuleMine::Start()
 	startplayer2animation.speed = 0.02;
 
 	p1.PushBack({ 10, 68, 15, 12});
-	p1.speed = 0;
+	p2.PushBack({ 30,67,16,12 });
 
 	App->audio->LoadMusic("Audio/mine.ogg");
 	mineworker_x = 59;
@@ -145,12 +145,22 @@ update_status ModuleMine::Update()
 	else {
 		App->render->Blit(mineworkertexture, mineworker_x2, -460, &(mineworkerwalkright.GetCurrentFrame()), 0.22f);
 		App->render->Blit(mineworkertexture, mineworker_x3, -439, &(mineworkerwalkleft.GetCurrentFrame()), 0.22f);
-		mineworker_x2 -= 0.1;
-		mineworker_x3 += 0.1;
+		mineworker_x2 += 0.1;
+		mineworker_x3 -= 0.1;
 	}
 	
 	//UI
-	App->render->Blit(startplayer2texture, 118, 4, &(startplayer2animation.GetCurrentFrame()), 0);
+	if (App->input->keyboard[SDL_SCANCODE_Q] == KEY_STATE::KEY_DOWN) {
+		player2 = true;
+	}
+
+	if (player2 == true) {
+		App->render->Blit(startplayer2texture, 116, 6, &(p2.GetCurrentFrame()), 0);
+	}
+	else {
+		App->render->Blit(startplayer2texture, 118, 4, &(startplayer2animation.GetCurrentFrame()), 0);
+	}
+
 	App->render->Blit(startplayer2texture, 5, 6, &(p1.GetCurrentFrame()), 0);
 
 	
