@@ -25,7 +25,8 @@ Enemy_FlyingMachine4::Enemy_FlyingMachine4(int x, int y) : Enemy(x, y)
 
 	collider = App->collision->AddCollider({ 0, 0,26,26 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
-	movement.PushBack({ 0.0f,-1.0f }, 50, &enemy_position);
+	movement.PushBack({ 0.0f,-0.775f }, 250, &enemy_position);
+	movement.PushBack({ -0.1f,-0.35f }, 650, &enemy_position);
 
 	originalpos.x = x;
 	originalpos.y = y;

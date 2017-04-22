@@ -56,6 +56,7 @@ bool ModuleCongrats::CleanUp()
 	App->textures->Unload(congratstexture);
 	App->textures->Unload(gameovertexture);
 	App->fonts->UnLoad(font_score);
+	App->player->powerUps = 0;
 	LOG("Unloading stage");
 
 
