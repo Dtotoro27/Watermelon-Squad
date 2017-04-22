@@ -1,16 +1,16 @@
 #include "Application.h"
-#include "Enemy_FlyingMachine.h"
+#include "Enemy_FlyingMachine3.h"
 #include "ModuleCollision.h"
 
 
 
-Enemy_FlyingMachine::Enemy_FlyingMachine(int x, int y) : Enemy(x, y)
+Enemy_FlyingMachine3::Enemy_FlyingMachine3(int x, int y) : Enemy(x, y)
 {
 	enemy_position.PushBack({ 626,105,32,34 });
 	enemy_position.speed = 0.2f;
 	animation = &enemy_position;
 
-	
+
 	fly.PushBack({ 531,154,32,32 });
 	fly.PushBack({ 568,152,32,32 });
 	fly.PushBack({ 601,152,32,32 });
@@ -25,12 +25,7 @@ Enemy_FlyingMachine::Enemy_FlyingMachine(int x, int y) : Enemy(x, y)
 
 	collider = App->collision->AddCollider({ 0, 0,26,26 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
-	movement.PushBack({ 0.0f,-0.775f }, 550, &enemy_position);
-	movement.PushBack({ 0.0f,-0.35f }, 225, &enemy_position);
-	movement.PushBack({ 0.0f,-0.6f }, 50, &enemy_position);
-	movement.PushBack({ 0.0f,-0.775f }, 150, &enemy_position);
-	movement.PushBack({ 0.0f, -2.0f }, 10000, &enemy_position);
-	
+	movement.PushBack({ 0.0f,-1.0f }, 50, &enemy_position);
 
 	originalpos.x = x;
 	originalpos.y = y;
@@ -38,7 +33,7 @@ Enemy_FlyingMachine::Enemy_FlyingMachine(int x, int y) : Enemy(x, y)
 
 }
 
-void Enemy_FlyingMachine::Move()
+void Enemy_FlyingMachine3::Move()
 {
 
 	position = originalpos + movement.GetCurrentPosition();

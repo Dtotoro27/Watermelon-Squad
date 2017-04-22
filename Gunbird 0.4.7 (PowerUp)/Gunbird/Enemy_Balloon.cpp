@@ -18,8 +18,11 @@ Enemy_Balloon::Enemy_Balloon(int x, int y) : Enemy(x, y)
 	fly.speed = 0.2f;
 	animation = &fly;
 
-	movement.PushBack({ 0.0f,-1.0f }, 100, &fly);
-	movement.PushBack({ 1.0f,-1.0f }, 100, &fly);
+
+	movement.PushBack({ 0.0f,-1.0f }, 350, &fly);
+	movement.PushBack({ 0.0f,-0.5f }, 175, &fly);
+	movement.PushBack({ 0.0f,-1.0f }, 650, &fly);
+	movement.PushBack({ 0.0f,-0.35f }, 1000, &fly);
 
 	collider = App->collision->AddCollider({ 0, 0, 42,53 }, COLLIDER_TYPE::COLLIDER_BALLOON, (Module*)App->enemies);
 

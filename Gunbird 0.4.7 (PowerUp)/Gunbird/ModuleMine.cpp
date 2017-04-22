@@ -98,10 +98,19 @@ bool ModuleMine::Start()
 
 	//Enemy
 
-	App->enemies->AddEnemy(ENEMY_TYPES::BALLOON, 70, 38);
-	App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 150, 38);
-	App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 50, 56);
+	App->enemies->AddEnemy(ENEMY_TYPES::BALLOON, 51, 10);
+
+	App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 137, -176);
+	App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 167, -196);
+	App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 197, -176);
+
+	App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE2, 0, -136);
+	App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE2, 30, -156);
+	App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE2, 60, -136);
+
+
 	App->enemies->AddEnemy(ENEMY_TYPES::POWER_UP, 30, 30);
+
 
 	return true;
 }

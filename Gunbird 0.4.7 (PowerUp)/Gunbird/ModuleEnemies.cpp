@@ -9,6 +9,9 @@
 #include "Enemy.h"
 #include "Enemy_Balloon.h"
 #include "Enemy_FlyingMachine.h"
+#include "Enemy_FlyingMachine2.h"
+#include "Enemy_FlyingMachine3.h"
+#include "Enemy_FlyingMachine4.h"
 #include "Enemy_Bomb.h"
 #include "PowerUp.h"
 
@@ -141,6 +144,18 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			enemies[i] = new Enemy_FlyingMachine(info.x, info.y);
 			break;
 
+		case ENEMY_TYPES::FLYINGMACHINE2:
+			enemies[i] = new Enemy_FlyingMachine2(info.x, info.y);
+			break;
+
+		case ENEMY_TYPES::FLYINGMACHINE3:
+			enemies[i] = new Enemy_FlyingMachine3(info.x, info.y);
+			break;
+
+		case ENEMY_TYPES::FLYINGMACHINE4:
+			enemies[i] = new Enemy_FlyingMachine4(info.x, info.y);
+			break;
+
 		case ENEMY_TYPES::BOMB:
 			enemies[i] = new Enemy_Bomb(info.x, info.y);
 			break;
@@ -159,21 +174,34 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 	{
 		if (enemies[i] != nullptr && enemies[i]->GetCollider() == c1)
 		{
-			if (c1->type == COLLIDER_POWER_UP) {}
+			if (c1->type == COLLIDER_POWER_UP) {
+				delete enemies[i];
+				enemies[i] = nullptr;
+				break;
+			}
+			else if ((c1->type == COLLIDER_POWER_UP && c2->type == COLLIDER_ENEMY_SHOT) || (c1->type == COLLIDER_POWER_UP && c2->type == COLLIDER_ENEMY)) {}
+			else if ((c2->type == COLLIDER_POWER_UP && c1->type == COLLIDER_ENEMY_SHOT) || (c2->type == COLLIDER_POWER_UP && c1->type == COLLIDER_ENEMY)) {}
+			else if ((c1->type == COLLIDER_POWER_UP && c2->type == COLLIDER_BALLOON) || (c1->type == COLLIDER_POWER_UP && c2->type == COLLIDER_BALLOON)) {}
+
 			else if (c1->type == COLLIDER_BALLOON) {
 				App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x-25, enemies[i]->position.y-25);
 				App->audio->LoadFX("Audio/explosion.wav");
 				App->player->score += 500;
+
+				delete enemies[i];
+				enemies[i] = nullptr;
+				break;
 			}
 			else {
 				App->particles->AddParticle(App->particles->littleexplosion, enemies[i]->position.x - 10, enemies[i]->position.y - 5);
 				App->audio->LoadFX("Audio/explosion.wav");
 				App->player->score += 200;
+
+				delete enemies[i];
+				enemies[i] = nullptr;
+				break;
 			}
 		
-			delete enemies[i];
-			enemies[i] = nullptr;
-			break;
 		}
 	}
 }
