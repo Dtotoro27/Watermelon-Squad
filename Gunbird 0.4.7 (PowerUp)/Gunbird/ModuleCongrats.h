@@ -20,8 +20,13 @@ public:
 public:
 	bool change = true;
 	SDL_Texture* congratstexture = nullptr;
+	SDL_Texture* gameovertexture = nullptr;
+	SDL_Texture* rankingtexture = nullptr;
 	SDL_Rect congrats;
-	/*handout2*/uint fx = 0;
+	Animation gameover;
+	Animation p1,score_ranking;
+	int font_score = -1;
+	uint fx = 0;
 
 };
 
