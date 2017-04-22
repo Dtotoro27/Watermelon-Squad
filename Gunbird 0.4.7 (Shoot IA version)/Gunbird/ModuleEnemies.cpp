@@ -34,6 +34,8 @@ bool ModuleEnemies::Start()
 	// Create a prototype for each enemy available so we can copy them around
 	sprites = App->textures->Load("enemies.png");
 
+
+
 	return true;
 }
 
@@ -61,9 +63,6 @@ update_status ModuleEnemies::Update()
 {
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 		if (enemies[i] != nullptr) enemies[i]->Move();
-
-	for (uint i = 0; i < MAX_ENEMIES; ++i)
-		if (enemies[i] != nullptr) enemies[i]->Shoot();
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 		if (enemies[i] != nullptr) enemies[i]->Draw(sprites);
@@ -187,16 +186,21 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 			else if ((c1->type == COLLIDER_POWER_UP && c2->type == COLLIDER_BALLOON) || (c1->type == COLLIDER_POWER_UP && c2->type == COLLIDER_BALLOON)) {}
 
 			else if (c1->type == COLLIDER_BALLOON) {
-				App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x-25, enemies[i]->position.y-25,0,0);
-				App->audio->LoadFX("Audio/explosion.wav");
-				App->player->score += 500;
-
-				delete enemies[i];
-				enemies[i] = nullptr;
+				if (big_enemy_life == 0) {
+					App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x - 25, enemies[i]->position.y - 25);
+					App->audio->LoadFX("Audio/explosion.wav");
+					App->player->score += 500;
+					delete enemies[i];
+					enemies[i] = nullptr;
+				}
+				if (big_enemy_life > 0) {
+					App->particles->AddParticle(App->particles->damage_balloon, enemies[i]->position.x, enemies[i]->position.y);
+					big_enemy_life--;
+				}
 				break;
 			}
 			else {
-				App->particles->AddParticle(App->particles->littleexplosion, enemies[i]->position.x - 10, enemies[i]->position.y - 5,0,0);
+				App->particles->AddParticle(App->particles->littleexplosion, enemies[i]->position.x - 10, enemies[i]->position.y - 5);
 				App->audio->LoadFX("Audio/explosion.wav");
 				App->player->score += 200;
 
@@ -204,7 +208,6 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 				enemies[i] = nullptr;
 				break;
 			}
-		
 		}
 	}
 }

@@ -47,6 +47,7 @@ private:
 
 private:
 
+	int big_enemy_life = 4;
 	EnemyInfo queue[MAX_ENEMIES];
 	Enemy* enemies[MAX_ENEMIES];
 	SDL_Texture* sprites;

@@ -54,6 +54,7 @@ public:
 	Particle laser2;
 	Particle explosion;
 	Particle littleexplosion;
+	Particle damage_balloon;
 	Particle enemy_shoot;
 	Particle dead;
 };
