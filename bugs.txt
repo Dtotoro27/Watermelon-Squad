@@ -1,3 +1,4 @@
 -Si se cambia muchas veces el mapa sin cerrar, acaba petando
 -El sonido de disparo no siempre suena
 -Si disparas al powerup, tus disparos desaparecen
+-La puntuación del player 2 se suma al player 1
