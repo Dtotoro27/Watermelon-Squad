@@ -6,6 +6,7 @@
 
 Enemy_FlyingMachine::Enemy_FlyingMachine(int x, int y) : Enemy(x, y)
 {
+	enemy_position.PushBack({ 626,105,32,34 });
 	enemy_position.speed = 0.2f;
 	animation = &enemy_position;
 
