@@ -21,7 +21,7 @@ Enemy_Balloon::Enemy_Balloon(int x, int y) : Enemy(x, y)
 	movement.PushBack({ 0.0f,-1.0f }, 100, &fly);
 	movement.PushBack({ 1.0f,-1.0f }, 100, &fly);
 
-	collider = App->collision->AddCollider({ 0, 0, 42,53 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
+	collider = App->collision->AddCollider({ 0, 0, 42,53 }, COLLIDER_TYPE::COLLIDER_BALLOON, (Module*)App->enemies);
 
 
 	start_time = SDL_GetTicks();

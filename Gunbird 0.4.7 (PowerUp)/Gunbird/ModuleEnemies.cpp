@@ -160,8 +160,13 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 		if (enemies[i] != nullptr && enemies[i]->GetCollider() == c1)
 		{
 			if (c1->type == COLLIDER_POWER_UP) {}
-			else{
-				App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y);
+			else if (c1->type == COLLIDER_BALLOON) {
+				App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x-25, enemies[i]->position.y-25);
+				App->audio->LoadFX("Audio/explosion.wav");
+				App->player->score += 500;
+			}
+			else {
+				App->particles->AddParticle(App->particles->littleexplosion, enemies[i]->position.x - 10, enemies[i]->position.y - 5);
 				App->audio->LoadFX("Audio/explosion.wav");
 				App->player->score += 200;
 			}

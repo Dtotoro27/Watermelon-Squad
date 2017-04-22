@@ -53,6 +53,7 @@ public:
 	Particle laser;
 	Particle laser2;
 	Particle explosion;
+	Particle littleexplosion;
 	Particle enemy_shoot;
 
 };
