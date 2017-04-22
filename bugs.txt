@@ -1,4 +1,3 @@
 -Si se cambia muchas veces el mapa sin cerrar, acaba petando
 -El sonido de disparo no siempre suena
--Justo al empezar el juego, puedes matar a un enemigo cuerpo a cuerpo sin morir
 -Si disparas al powerup, tus disparos desaparecen

@@ -30,6 +30,7 @@ public:
 	uint score = 0;
 	Animation* current_animation = nullptr;
 	Animation idle;
+	Animation immortal;
 	Animation left;
 	Animation right;
 	Collider* playerhitbox;
@@ -37,6 +38,7 @@ public:
 	bool godmode = false;
 	iPoint position;
 	iPoint camera_limits;
+	iPoint time;
 	int powerUps = 0;
 
 };

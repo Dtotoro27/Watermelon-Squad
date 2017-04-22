@@ -50,7 +50,20 @@ bool ModuleParticles::Start()
 	enemy_shoot.life = 2000;
 	enemy_shoot.speed.y = 0.5f;
 
-
+	dead.anim.PushBack({ 631, 170, 31,26 });
+	dead.anim.PushBack({ 631, 170, 31,26 });
+	dead.anim.PushBack({ 631, 170, 31,26 });
+	dead.anim.PushBack({ 631, 170, 31,26 });
+	dead.anim.PushBack({ 631, 170, 31,26 });
+	dead.anim.PushBack({ 631, 170, 31,26 });
+	dead.anim.PushBack({ 631, 170, 31,26 });
+	dead.anim.PushBack({ 631, 170, 31,26 });
+	dead.anim.PushBack({ 631, 170, 31,26 });
+	dead.anim.PushBack({ 631, 170, 31,26 });
+	dead.anim.PushBack({ 631, 170, 31,26 });
+	dead.anim.speed = 0.1f;
+	dead.anim.loop = true;
+	
 
 	explosion.anim.PushBack({ 22,16, 105, 105 });
 	explosion.anim.PushBack({ 126, 16, 105, 105 });

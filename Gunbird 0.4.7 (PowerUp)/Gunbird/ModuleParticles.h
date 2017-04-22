@@ -55,7 +55,7 @@ public:
 	Particle explosion;
 	Particle littleexplosion;
 	Particle enemy_shoot;
-
+	Particle dead;
 };
 
 #endif // __MODULEPARTICLES_H__

@@ -41,6 +41,9 @@ ModulePlayer::ModulePlayer()
 	right.PushBack({ 90, 97, 17, 32 });
 	right.speed = 0.1f;
 
+	immortal.PushBack({ 14, 13, 19, 32 });
+	immortal.PushBack({ 0,0,0,0 });
+	immortal.speed = 0.1;
 }
 
 ModulePlayer::~ModulePlayer()
@@ -55,6 +58,7 @@ bool ModulePlayer::Start()
 	playerhitbox = App->collision->AddCollider({ position.x, position.y, 19, 32 }, COLLIDER_PLAYER, this);
 	font_score = App->fonts->Load("numbers.png", "0123456789", 1);
 	score = 0; 
+	time.x = 0;
 	return ret;
 }
 
@@ -151,7 +155,15 @@ update_status ModulePlayer::Update()
 
 	sprintf_s(score_text, 10, "%7d", score);
 
-	App->render->Blit(graphics, position.x, position.y - r.h, &r);
+	
+
+	if (time.x > 150) {
+		App->render->Blit(graphics, position.x, position.y - r.h, &r);
+	}
+	else {
+		App->render->Blit(graphics, position.x, position.y - r.h, &(immortal.GetCurrentFrame()));
+		time.x++;
+	}
 
 	return UPDATE_CONTINUE;
 }
@@ -169,9 +181,10 @@ void  ModulePlayer::OnCollision(Collider *c1, Collider *c2) {
 
 		else {
 			if (godmode == false) {
+				App->textures->Unload(graphics);
+				App->particles->AddParticle(App->particles->explosion, position.x-45, position.y-120, COLLIDER_NONE, 150);
+				App->particles->AddParticle(App->particles->dead, position.x - 5, position.y-75, COLLIDER_NONE, 150);
 				App->fade->FadeToBlack((Module*)App->mine, (Module*)App->congrats);
-
-				App->particles->AddParticle(App->particles->explosion, position.x, position.y, COLLIDER_NONE, 150);
 
 
 				destroyed = true;
