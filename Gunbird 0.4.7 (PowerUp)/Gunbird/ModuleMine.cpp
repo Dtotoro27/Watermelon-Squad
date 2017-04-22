@@ -211,6 +211,7 @@ update_status ModuleMine::Update()
 		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 187, -1462);
 	}
 	
+
 	if (App->render->camera.y == 6801) {
 		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 1, -2344);
 		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 30, -2364);
@@ -219,6 +220,19 @@ update_status ModuleMine::Update()
 		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 127, -2324);
 		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 157, -2344);
 		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 187, -2324);
+	}
+
+	if (App->render->camera.y == 7191) {
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 100, -2544);
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 88, -2586);
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 66, -2628);
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 44, -2670);
+
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 200, -2544);
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 222, -2586);
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 244, -2628);
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 266, -2670);
+
 	}
 
 	mineworkeractive.y += 1;
