@@ -51,7 +51,7 @@ bool ModuleParticles::Start()
 	enemy_shoot.anim.PushBack({ 561, 235, 6,6 });
 
 	enemy_shoot.anim.loop = true;
-	enemy_shoot.anim.speed = 0.3f;
+	//enemy_shoot.anim.speed = 0.3f;
 	enemy_shoot.life = 5000;
 	
 	

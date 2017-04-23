@@ -45,11 +45,9 @@ void Enemy_Balloon::Shoot() {
 
 	now = SDL_GetTicks() - start_time;
 	if (now > shoots * 1000) {
-		shootspeed_x = App->player->position.x - position.x;
-		shootspeed_y = App->player->position.y - position.y;
-		shootspeed_x = shootspeed_x / sqrt(pow(2,shootspeed_x) + pow(2,shootspeed_y));
-		shootspeed_y = shootspeed_y / sqrt(pow(2, shootspeed_x) + pow(2, shootspeed_y));
-		App->particles->AddParticle(App->particles->enemy_shoot, position.x + 21, position.y + 26, shootspeed_x*4, shootspeed_y*4, COLLIDER_ENEMY_SHOT);
+		shootspeed_x = (App->player->position.x - (position.x))/100;
+		shootspeed_y = (App->player->position.y - (position.y))/100;
+		App->particles->AddParticle(App->particles->enemy_shoot, position.x + 21, position.y + 26, shootspeed_x, shootspeed_y, COLLIDER_ENEMY_SHOT);
 		shoots++;
 	}
 
