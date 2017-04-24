@@ -190,6 +190,11 @@ update_status ModuleMine::Update()
 		App->fade->FadeToBlack(this, App->congrats, 1);
 		change = true;
 	}
+	if (App->input->keyboard[SDL_SCANCODE_P] == KEY_STATE::KEY_DOWN) {
+		change = false;
+		App->fade->FadeToBlack(this, App->congrats, 1);
+		change = true;
+	}
 
 	if (App->render->camera.y == 1755) {
 		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 127, -630);
