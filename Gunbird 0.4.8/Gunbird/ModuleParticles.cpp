@@ -30,19 +30,19 @@ bool ModuleParticles::Start()
 	laser.anim.loop = true;
 	laser.anim.speed = 0.3f;
 	laser.life = 1150;
-	laser.speed.y = -5;
+	
 
 	damage_balloon.anim.PushBack({ 684,157,42,53 });
 	damage_balloon.anim.PushBack({ 735,157,42,53 });
 	damage_balloon.anim.speed = 0.08f;
 	damage_balloon.anim.loop = false;
-	damage_balloon.speed.y = -1;
+	
 
 	laser2.anim.PushBack({ 501, 77, 19, 37 });
 	laser2.anim.loop = true;
 	laser2.anim.speed = 0.3f;
 	laser2.life = 1150;
-	laser2.speed.y = -5;
+	
 
 	enemy_shoot.anim.PushBack({ 502, 235, 6,6 });
 	enemy_shoot.anim.PushBack({ 517, 235, 6,6 });
@@ -52,7 +52,7 @@ bool ModuleParticles::Start()
 
 	enemy_shoot.anim.loop = true;
 	enemy_shoot.anim.speed = 0.3f;
-	enemy_shoot.life =1150;
+	enemy_shoot.life =1300;
 
 
 

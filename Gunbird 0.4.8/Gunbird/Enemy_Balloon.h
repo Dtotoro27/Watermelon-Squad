@@ -9,6 +9,7 @@ class Enemy_Balloon : public Enemy
 private:
 	iPoint originalpos;
 	Animation fly;
+	Animation enemy_position;
 	Path movement;
 	int shoots = 1;
 	Uint32 start_time = 0;
@@ -19,6 +20,7 @@ public:
 	Enemy_Balloon(int x, int y);
 
 	void Move();
+	void Shoot();
 };
 
 #endif

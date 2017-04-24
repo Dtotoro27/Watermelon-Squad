@@ -54,9 +54,8 @@ void Enemy_FlyingMachine::Move()
 }
 
 void Enemy_FlyingMachine::Shoot() {
-
 	now = SDL_GetTicks() - start_time;
-	if (now > shoots * 1000) {
+	if (now > shoots * 3000) {
 		shootspeed_x = (App->player->position.x - (position.x));
 		shootspeed_y = (App->player->position.y - (position.y));
 

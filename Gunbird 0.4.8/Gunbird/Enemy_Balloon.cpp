@@ -38,3 +38,17 @@ void Enemy_Balloon::Move()
 	position = originalpos + movement.GetCurrentPosition();
 
 }
+
+
+void Enemy_Balloon::Shoot() {
+
+	now = SDL_GetTicks() - start_time;
+	if (now > shoots * 3000) {
+		
+			App->particles->AddParticle(App->particles->enemy_shoot, position.x + 21, position.y + 26, 2, 1 , COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->enemy_shoot, position.x + 21, position.y + 26, -2, 1 , COLLIDER_ENEMY_SHOT);
+
+		shoots++;
+	}
+
+}

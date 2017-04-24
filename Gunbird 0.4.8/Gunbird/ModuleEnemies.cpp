@@ -64,13 +64,26 @@ update_status ModuleEnemies::PreUpdate()
 update_status ModuleEnemies::Update()
 {
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
-		if (enemies[i] != nullptr) enemies[i]->Move();
-
+	{
+		if (enemies[i] != nullptr)
+		{
+			enemies[i]->Move();
+		}
+	}
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
-		if (enemies[i] != nullptr) enemies[i]->Shoot();
-
+	{
+		if (enemies[i] != nullptr)
+		{
+			enemies[i]->Shoot();
+		}
+	}
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
-		if (enemies[i] != nullptr) enemies[i]->Draw(sprites);
+	{
+		if (enemies[i] != nullptr)
+		{
+			enemies[i]->Draw(sprites);
+		}
+	}
 
 	return UPDATE_CONTINUE;
 }
