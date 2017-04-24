@@ -77,9 +77,6 @@
     <ClInclude Include="ModuleAudio.h">
       <Filter>Modules</Filter>
     </ClInclude>
-    <ClInclude Include="ModuleBackground.h">
-      <Filter>Modules</Filter>
-    </ClInclude>
     <ClInclude Include="ModuleCongrats.h">
       <Filter>Modules</Filter>
     </ClInclude>
@@ -158,9 +155,6 @@
       <Filter>Modules\Enemies</Filter>
     </ClCompile>
     <ClCompile Include="ModuleAudio.cpp">
-      <Filter>Modules</Filter>
-    </ClCompile>
-    <ClCompile Include="ModuleBackground.cpp">
       <Filter>Modules</Filter>
     </ClCompile>
     <ClCompile Include="ModuleCongrats.cpp">
