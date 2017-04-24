@@ -31,6 +31,10 @@ bool ModuleMine::Start()
 
 	mineworkeractive.y = 0;
 
+	mineworker_x = 59;
+    mineworker_x2 = 137;
+	mineworker_x3 = 16;
+
 	minetexture = App->textures->Load("background_mine.png");
 	mineanimationtexture = App->textures->Load("background_mine_animation.png");
 	startplayer2texture = App->textures->Load("ui.png");
@@ -91,7 +95,7 @@ bool ModuleMine::Start()
 	p2.PushBack({ 30,67,16,12 });
 
 	App->audio->LoadMusic("Audio/mine.ogg");
-	mineworker_x = 59;
+	
 
 
 

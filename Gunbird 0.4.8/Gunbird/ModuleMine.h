@@ -33,9 +33,9 @@ public:
 	Animation startplayer2animation;
 	Animation p1, p2;
 	Animation mineanimation;
-	float mineworker_x = 190;
-	float mineworker_x2 = 137;
-	float mineworker_x3 = 16;
+	float mineworker_x;
+	float mineworker_x2;
+	float mineworker_x3;
 	iPoint mineworkeractive;
 	
 

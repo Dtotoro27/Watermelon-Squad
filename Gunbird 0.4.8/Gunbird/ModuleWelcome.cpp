@@ -33,7 +33,6 @@ bool ModuleWelcome::Start()
 	bool ret = true;
 	welcometexture = App->textures->Load("background_welcome.png");
 	gameovertexture = App->textures->Load("ui.png");
-	App->collision->Enable();
 	App->audio->LoadMusic("Audio/characterselection.ogg");
 
 	//start animation
