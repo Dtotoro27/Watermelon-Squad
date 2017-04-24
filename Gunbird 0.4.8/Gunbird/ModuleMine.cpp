@@ -134,13 +134,13 @@ update_status ModuleMine::Update()
 	// -------------------------------------- Draw everything --------------------------------------
 
 
-	//Background
+	//Background--------------------------
 	App->render->Blit(minetexture, 0, -3535 + SCREEN_HEIGHT, &mine, 0.18f);
 	App->render->Blit(mineanimationtexture, 16, -796, &(mineanimation.GetCurrentFrame()), 0.18f);
 	App->render->Blit(minetexture2, 0, -3535 + SCREEN_HEIGHT, &mine, 0.22f);
 
 
-	//Mineworkers
+	//Mineworkers--------------------------
 	if (mineworkeractive.y < 2500) {
 		App->render->Blit(mineworkertexture, mineworker_x, 100, &(mineworkerwalkleft.GetCurrentFrame()), 0.22f);
 		App->render->Blit(mineworkertexture, 16, -439, &(mineworkerstand.GetCurrentFrame()), 0.22f);
@@ -154,7 +154,8 @@ update_status ModuleMine::Update()
 		mineworker_x3 -= 0.1;
 	}
 
-	//UI
+	//UI--------------------------
+
 	if (App->input->keyboard[SDL_SCANCODE_Q] == KEY_STATE::KEY_DOWN) {
 		player2 = true;
 	}
@@ -184,6 +185,7 @@ update_status ModuleMine::Update()
 		change = true;
 	}
 
+	//ENEMIES--------------------------
 	
 	if (App->render->camera.y == 1755) {
 		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 127, -630);

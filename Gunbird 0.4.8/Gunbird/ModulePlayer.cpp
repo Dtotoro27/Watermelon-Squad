@@ -137,12 +137,15 @@ update_status ModulePlayer::Update()
 		}
 	}
 
+	if (App->player2->IsEnabled()){}
 
-	if (App->input->keyboard[SDL_SCANCODE_Q]) {
-		App->player2->Enable();
-		App->player2->position.x = SCREEN_WIDTH / 2 + 10;
-		App->player2->position.y = position.y;
-		App->player2->destroyed = false;
+	else {
+		if (App->input->keyboard[SDL_SCANCODE_Q]) {
+			App->player2->Enable();
+			App->player2->position.x = SCREEN_WIDTH / 2 + 10;
+			App->player2->position.y = position.y;
+			App->player2->destroyed = false;
+		}
 	}
 
 
