@@ -118,7 +118,6 @@ bool ModuleMine::CleanUp()
 	App->textures->Unload(startplayer2texture);
 	App->textures->Unload(minetexture2);
 	App->textures->Unload(mineworkertexture);
-	App->textures->Unload(mineanimationtexture);
 	LOG("Unloading stage");
 	return true;
 }
