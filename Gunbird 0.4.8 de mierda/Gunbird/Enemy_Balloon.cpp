@@ -6,8 +6,6 @@
 #include "ModulePlayer.h"
 #include "SDL/include/SDL_timer.h"
 
-#include <math.h>
-
 
 Enemy_Balloon::Enemy_Balloon(int x, int y) : Enemy(x, y)
 {
@@ -39,26 +37,4 @@ void Enemy_Balloon::Move()
 {
 	position = originalpos + movement.GetCurrentPosition();
  
-}
-
-void Enemy_Balloon::Shoot() {
-
-	now = SDL_GetTicks() - start_time;
-	if (now > shoots * 1000) {
-		shootspeed_x = (App->player->position.x - (position.x));
-		shootspeed_y = (App->player->position.y - (position.y));
-		
-		vmodule = sqrt((shootspeed_x*shootspeed_x) + (shootspeed_y*shootspeed_y));
-			
-		shootspeed_x_u = (shootspeed_x / vmodule) * 5;
-		shootspeed_y_u = (shootspeed_y / vmodule) * 5;
-
-		
-		if (shootspeed_y_u>=0) {
-			App->particles->AddParticle(App->particles->enemy_shoot, position.x + 21, position.y + 26, shootspeed_x_u, shootspeed_y_u -1.88f, COLLIDER_ENEMY_SHOT);
-			
-		}
-		shoots++;
-	}
-
 }
