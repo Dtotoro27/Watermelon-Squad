@@ -99,26 +99,9 @@ bool ModuleMine::Start()
 	//Enemy
 
 	App->enemies->AddEnemy(ENEMY_TYPES::BALLOON, 51, 10);
+	App->enemies->AddEnemy(ENEMY_TYPES::POWER_UP, 150, 10);
 
-
-	/*App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 127, -176);
-	App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 157, -196);
-	App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 187, -176);
-
-	App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE2, 0, -136);
-	App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE2, 30, -156);
-	App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE2, 60, -136);
-
-	App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE3, 1, -336);
-	App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE3, 30, -356);
-	App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE3, 60, -336);
-
-	/*App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 127, -336);
-	App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 157, -356);
-	App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 187, -336);*/
-
-	App->enemies->AddEnemy(ENEMY_TYPES::POWER_UP, 30, 30);
-
+	
 
 	return true;
 }
@@ -196,6 +179,7 @@ update_status ModuleMine::Update()
 		change = true;
 	}
 
+	
 	if (App->render->camera.y == 1755) {
 		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 127, -630);
 		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 157, -650);
@@ -250,7 +234,7 @@ update_status ModuleMine::Update()
 		App->enemies->AddEnemy(ENEMY_TYPES::BOMB2, 192, -3894);
 
 	}
-
+	
 
 	mineworkeractive.y += 1;
 
