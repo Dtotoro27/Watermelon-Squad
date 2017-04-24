@@ -177,7 +177,7 @@ void  ModulePlayer::OnCollision(Collider *c1, Collider *c2) {
 		if (c2->type == COLLIDER_TYPE::COLLIDER_POWER_UP) {
 
 			powerUps = 1;
-		}
+ 		}
 
 		else {
 			if (godmode == false) {
