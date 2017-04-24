@@ -2,6 +2,7 @@
 #include "ModuleInput.h"
 #include "ModuleRender.h"
 #include "ModulePlayer.h"
+#include "ModulePlayer2.h"
 #include "ModuleEnemies.h"
 #include "ModuleParticles.h"
 #include "ModuleTextures.h"
@@ -220,9 +221,16 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 				break;
 			}
 			else {
-				App->particles->AddParticle(App->particles->littleexplosion, enemies[i]->position.x , enemies[i]->position.y - 5,0,0);
+				if (c2->type == COLLIDER_PLAYER_2_SHOT) {
+					App->player2->score += 200;
+				}
+				if (c2->type == COLLIDER_PLAYER_SHOT) {
+					App->player->score += 200;
+				}
+		
+
+				App->particles->AddParticle(App->particles->littleexplosion, enemies[i]->position.x, enemies[i]->position.y - 5, 0, 0);
 				App->audio->LoadFX("Audio/explosion.wav");
-				App->player->score += 200;
 
 				delete enemies[i];
 				enemies[i] = nullptr;
