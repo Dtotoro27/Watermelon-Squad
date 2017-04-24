@@ -4,7 +4,7 @@
 - La puntuación del player 2 se suma al player 1
 - Los efectos de sonido se buguean si suena mas de uno en poco tiempo
 - La animacion de hit del globo se buguea (aparece el globo normal debajo)
-- Si te pasas el juego y vuelves a jugar el globo tienen 1 de vida y las explosiones de la flying machine y las bombas no salen
+- Las explosiones de la flying machine y las bombas no salen
 - No funciona la p para saltarte el nivel
 - El sonido de victoria está en bucle
 - Los mineros desaparecen a la segunda vez
@@ -14,3 +14,4 @@
 - Fallo en el colider de los drones
 - Si le das otra vez a la Q una vez el player 2 está activo, se coloca a la altura del player 1
 - Los enemigos disparan una ráfaga de balas
+- Memory Leaks
