@@ -50,3 +50,7 @@ FIXED -> One branch ({) was in an incorrect position in moduleplayer.
 0.4.7.2.1
 
 - When you take a powerUp, it appears the explosion animation. 
+
+0.4.9.1
+
+- Balloon only has 1 hit when you play more than one time
