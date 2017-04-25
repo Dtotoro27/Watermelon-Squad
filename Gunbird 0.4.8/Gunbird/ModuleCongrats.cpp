@@ -23,7 +23,14 @@ ModuleCongrats::ModuleCongrats()
 	congrats.w = 224;
 	congrats.h = 320;
 
+	p1.PushBack({ 8,30,55,20 });
+	p2.PushBack({ 8,53,55,20 });
 
+	gameover.PushBack({ 2,91,124,31 });
+	gameover.PushBack({ 0,0,0,0 });
+	gameover.speed = 0.013f;
+
+	score_ranking.PushBack({ 6,3,114,21 });
 }
 
 ModuleCongrats::~ModuleCongrats()
@@ -41,14 +48,6 @@ bool ModuleCongrats::Start()
 	App->audio->LoadMusic(music_congrats);
 	font_score = App->fonts->Load("numbers_score.png", "0123456789", 1);
 
-	gameover.PushBack({ 2,91,124,31 });
-	gameover.PushBack({ 0,0,0,0 });
-	gameover.speed = 0.013f;
-
-	p1.PushBack({ 8,30,55,20 });
-	p2.PushBack({8,53,55,20});
-	score_ranking.PushBack({ 6,3,114,21 });
-
 	return ret;
 }
 
@@ -60,6 +59,7 @@ bool ModuleCongrats::CleanUp()
 	App->audio->UnLoadMusic(music_congrats);
 	App->fonts->UnLoad(font_score);
 	App->player->powerUps = 0;
+	App->congrats->Disable();
 	LOG("Unloading stage");
 
 

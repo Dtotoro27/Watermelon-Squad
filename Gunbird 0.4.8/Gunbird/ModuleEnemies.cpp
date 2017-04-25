@@ -58,7 +58,7 @@ update_status ModuleEnemies::PreUpdate()
 			}
 		}
 	}
-	
+
 
 	return UPDATE_CONTINUE;
 }
@@ -81,7 +81,7 @@ update_status ModuleEnemies::Update()
 			enemies[i]->Shoot();
 		}
 	}
-	
+
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 	{
 		if (enemies[i] != nullptr)
@@ -213,7 +213,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 			else if (c1->type == COLLIDER_BALLOON) {
 
 				if (big_enemy_life == 0) {
-					App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x - 25, enemies[i]->position.y - 25,0,0);
+					App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x - 25, enemies[i]->position.y - 25, 0, 0);
 					App->audio->PlayFX(audio_explosion);
 					if (c2->type == COLLIDER_PLAYER_2_SHOT) {
 						App->player2->score += 500;
@@ -226,7 +226,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 				}
 
 				if (big_enemy_life > 0) {
-					App->particles->AddParticle(App->particles->damage_balloon, enemies[i]->position.x, enemies[i]->position.y,0,-1);
+					App->particles->AddParticle(App->particles->damage_balloon, enemies[i]->position.x, enemies[i]->position.y, 0, -1);
 					big_enemy_life--;
 				}
 				break;
@@ -238,7 +238,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 				if (c2->type == COLLIDER_PLAYER_SHOT) {
 					App->player->score += 200;
 				}
-		
+
 
 				App->particles->AddParticle(App->particles->littleexplosion, enemies[i]->position.x, enemies[i]->position.y - 5, 0, 0);
 				App->audio->LoadFX("Audio/explosion.wav");

@@ -20,6 +20,11 @@ ModuleWelcome::ModuleWelcome()
 	welcome.w = 224;
 	welcome.h = 320;
 
+	//start animation
+	gameover.PushBack({ 2,91,124,31 });
+	gameover.PushBack({ 0,0,0,0 });
+	gameover.speed = 0.013f;
+
 
 }
 
@@ -34,11 +39,6 @@ bool ModuleWelcome::Start()
 	welcometexture = App->textures->Load("background_welcome.png");
 	gameovertexture = App->textures->Load("ui.png");
 	App->audio->LoadMusic(music_welcome);
-
-	//start animation
-	gameover.PushBack({ 2,91,124,31 });
-	gameover.PushBack({ 0,0,0,0 });
-	gameover.speed = 0.013f;
 	
 
 
@@ -50,6 +50,7 @@ bool ModuleWelcome::CleanUp()
 	App->textures->Unload(welcometexture);
 	App->textures->Unload(gameovertexture);
 	App->audio->UnLoadMusic(music_welcome);
+	App->welcome->Disable();
 	LOG("Unloading stage");
 	return true;
 }

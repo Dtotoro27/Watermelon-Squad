@@ -24,7 +24,7 @@ public:
 	SDL_Texture* rankingtexture = nullptr;
 	SDL_Rect congrats;
 	Animation gameover;
-	Animation p1,score_ranking,p2;
+	Animation p1, score_ranking, p2;
 	int font_score = -1;
 	uint fx = 0;
 

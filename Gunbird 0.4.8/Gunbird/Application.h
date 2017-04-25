@@ -6,20 +6,22 @@
 #define NUM_MODULES 15
 
 class ModuleWindow;
+class ModuleRender;
 class ModuleInput;
 class ModuleTextures;
-class ModuleRender;
-class ModuleMine;
+class ModuleFonts;
 class ModuleWelcome;
-class ModuleCongrats;
+class ModuleMine;
 class ModulePlayer;
 class ModulePlayer2;
-class ModuleAudio;
-class ModuleFadeToBlack;
+class ModuleEnemies;
+class ModuleCongrats;
 class ModuleParticles;
 class ModuleCollision;
-class ModuleEnemies;
-class ModuleFonts;
+class ModuleAudio;
+class ModuleFadeToBlack;
+
+
 class Module;
 
 class Application
@@ -31,17 +33,19 @@ public:
 	ModuleRender* render;
 	ModuleInput* input;
 	ModuleTextures* textures;
-	ModuleMine* mine;
+	ModuleFonts* fonts;
 	ModuleWelcome* welcome;
-	ModuleCongrats* congrats;
-	ModuleAudio* audio;
+	ModuleMine* mine;
 	ModulePlayer* player;
 	ModulePlayer2* player2;
-	ModuleFadeToBlack* fade;
+	ModuleEnemies* enemies;
+	ModuleCongrats* congrats;
 	ModuleParticles* particles;
 	ModuleCollision* collision;
-	ModuleEnemies* enemies;
-	ModuleFonts* fonts;
+	ModuleAudio* audio;	
+	ModuleFadeToBlack* fade;
+	
+	
 
 public:
 

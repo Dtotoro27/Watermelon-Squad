@@ -77,9 +77,6 @@
     <ClInclude Include="ModuleAudio.h">
       <Filter>Modules</Filter>
     </ClInclude>
-    <ClInclude Include="ModuleCongrats.h">
-      <Filter>Modules</Filter>
-    </ClInclude>
     <ClInclude Include="ModuleMine.h">
       <Filter>Modules</Filter>
     </ClInclude>
@@ -98,14 +95,17 @@
     <ClInclude Include="Enemy_FlyingMachine4.h">
       <Filter>Modules\Enemies</Filter>
     </ClInclude>
-    <ClInclude Include="ModuleEnemies.h">
-      <Filter>Modules</Filter>
-    </ClInclude>
     <ClInclude Include="ModuleParticles.h">
       <Filter>Modules</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_Bomb2.h">
       <Filter>Modules\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleCongrats.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleEnemies.h">
+      <Filter>Modules</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -157,9 +157,6 @@
     <ClCompile Include="ModuleAudio.cpp">
       <Filter>Modules</Filter>
     </ClCompile>
-    <ClCompile Include="ModuleCongrats.cpp">
-      <Filter>Modules</Filter>
-    </ClCompile>
     <ClCompile Include="ModulePlayer2.cpp">
       <Filter>Modules</Filter>
     </ClCompile>
@@ -175,9 +172,6 @@
     <ClCompile Include="Enemy_FlyingMachine4.cpp">
       <Filter>Modules\Enemies</Filter>
     </ClCompile>
-    <ClCompile Include="ModuleEnemies.cpp">
-      <Filter>Modules</Filter>
-    </ClCompile>
     <ClCompile Include="ModuleMine.cpp">
       <Filter>Modules</Filter>
     </ClCompile>
@@ -186,6 +180,12 @@
     </ClCompile>
     <ClCompile Include="Enemy_Bomb2.cpp">
       <Filter>Modules\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleCongrats.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleEnemies.cpp">
+      <Filter>Modules</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

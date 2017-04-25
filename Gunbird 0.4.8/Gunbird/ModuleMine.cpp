@@ -18,42 +18,13 @@
 ModuleMine::ModuleMine()
 {
 	// Background 
-
-}
-
-ModuleMine::~ModuleMine()
-{}
-
-// Load assets
-bool ModuleMine::Start()
-{
-	LOG("Loading background assets");
-
-	mineworkeractive.y = 0;
-
-	mineworker_x = 59;
-    mineworker_x2 = 137;
-	mineworker_x3 = 16;
-
-	minetexture = App->textures->Load("background_mine.png");
-	mineanimationtexture = App->textures->Load("background_mine_animation.png");
-	startplayer2texture = App->textures->Load("ui.png");
-	minetexture2 = App->textures->Load("background_mine_2.png");
-	mineworkertexture = App->textures->Load("mineworker.png");
-	App->audio->LoadMusic(music_level_1);
-
-
-	App->player->Enable();
-	App->player->destroyed = false;
-	App->particles->Enable();
-	App->collision->Enable();
-	App->enemies->Enable();
-
 	mine.x = 0;
 	mine.y = 0;
 	mine.w = 234;
 	mine.h = 3535;
 
+	p1.PushBack({ 10, 68, 15, 12 });
+	p2.PushBack({ 30,67,16,12 });
 
 	mineworkerwalkleft.PushBack({ 59, 8, 11, 22 });
 	mineworkerwalkleft.PushBack({ 83, 8, 11, 23 });
@@ -91,13 +62,35 @@ bool ModuleMine::Start()
 	startplayer2animation.PushBack({ 6, 28,68, 13 });
 	startplayer2animation.PushBack({ 0,0,0,0 });
 	startplayer2animation.speed = 0.02;
+}
 
-	p1.PushBack({ 10, 68, 15, 12 });
-	p2.PushBack({ 30,67,16,12 });
+ModuleMine::~ModuleMine()
+{}
+
+// Load assets
+bool ModuleMine::Start()
+{
+	LOG("Loading background assets");
+
+	mineworkeractive.y = 0;
+
+	mineworker_x = 59;
+    mineworker_x2 = 137;
+	mineworker_x3 = 16;
+
+	minetexture = App->textures->Load("background_mine.png");
+	mineanimationtexture = App->textures->Load("background_mine_animation.png");
+	startplayer2texture = App->textures->Load("ui.png");
+	minetexture2 = App->textures->Load("background_mine_2.png");
+	mineworkertexture = App->textures->Load("mineworker.png");
+	App->audio->LoadMusic(music_level_1);
 
 
-	
-
+	App->player->Enable();
+	App->player->destroyed = false;
+	App->particles->Enable();
+	App->collision->Enable();
+	App->enemies->Enable();
 
 
 
@@ -126,6 +119,7 @@ bool ModuleMine::CleanUp()
 	App->textures->Unload(mineworkertexture);
 	App->textures->Unload(mineanimationtexture);
 	App->audio->UnLoadMusic(music_level_1);
+	App->mine->Disable();
 	
 	LOG("Unloading stage");
 	return true;
