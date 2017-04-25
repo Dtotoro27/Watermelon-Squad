@@ -38,7 +38,7 @@ bool ModuleCongrats::Start()
 	congratstexture = App->textures->Load("background_congrats.png");
 	gameovertexture = App->textures->Load("ui.png");
 	rankingtexture = App->textures->Load("game_over_ui.png");
-	App->audio->LoadMusic("Audio/stageclear.ogg");
+	App->audio->LoadMusic(music_congrats);
 	font_score = App->fonts->Load("numbers_score.png", "0123456789", 1);
 
 	gameover.PushBack({ 2,91,124,31 });
@@ -57,6 +57,7 @@ bool ModuleCongrats::CleanUp()
 	App->textures->Unload(congratstexture);
 	App->textures->Unload(gameovertexture);
 	App->textures->Unload(rankingtexture);
+	App->audio->UnLoadMusic(music_congrats);
 	App->fonts->UnLoad(font_score);
 	App->player->powerUps = 0;
 	LOG("Unloading stage");

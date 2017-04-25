@@ -40,6 +40,7 @@ bool ModuleMine::Start()
 	startplayer2texture = App->textures->Load("ui.png");
 	minetexture2 = App->textures->Load("background_mine_2.png");
 	mineworkertexture = App->textures->Load("mineworker.png");
+	App->audio->LoadMusic(music_level_1);
 
 
 	App->player->Enable();
@@ -94,7 +95,7 @@ bool ModuleMine::Start()
 	p1.PushBack({ 10, 68, 15, 12 });
 	p2.PushBack({ 30,67,16,12 });
 
-	App->audio->LoadMusic("Audio/mine.ogg");
+
 	
 
 
@@ -124,6 +125,8 @@ bool ModuleMine::CleanUp()
 	App->textures->Unload(minetexture2);
 	App->textures->Unload(mineworkertexture);
 	App->textures->Unload(mineanimationtexture);
+	App->audio->UnLoadMusic(music_level_1);
+	
 	LOG("Unloading stage");
 	return true;
 }

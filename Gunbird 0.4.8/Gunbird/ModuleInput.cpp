@@ -55,8 +55,10 @@ update_status ModuleInput::PreUpdate()
 		}
 	}
 
-	if (keyboard[SDL_SCANCODE_ESCAPE])
+	if (keyboard[SDL_SCANCODE_ESCAPE]) {
+		App->CleanUp();
 		return update_status::UPDATE_STOP;
+	}
 
 	return update_status::UPDATE_CONTINUE;
 }

@@ -35,33 +35,56 @@ bool ModuleAudio::Init()
 // Called before q	uitting
 bool ModuleAudio::CleanUp()
 {
-	if (music != NULL) {
-		Mix_FreeMusic(music);
-	}
 	Mix_CloseAudio();
 	Mix_Quit();
 	SDL_QuitSubSystem(SDL_INIT_AUDIO);
 	return true;
 }
 
-bool ModuleAudio::LoadMusic(const char* path) {
+bool ModuleAudio::LoadMusic(music musiclevel) {
 
-	bool ret = true;
 
-	music = Mix_LoadMUS(path);
-	Mix_PlayMusic(music, -1);
-
-	if (music == NULL) {
-		LOG("Error loading music: %s", Mix_GetError());
-		ret = false;
+	switch (musiclevel) {
+	case music_level_1:
+		musicinexecution[musiclevel] = Mix_LoadMUS("Audio/mine.ogg");
+		Mix_FreeMusic(musicinexecution[musiclevel]);
+		break;
+	case music_welcome:
+		musicinexecution[musiclevel] = Mix_LoadMUS("Audio/characterselection.ogg");
+		Mix_PlayMusic(musicinexecution[musiclevel],-1);
+		break;
+	case music_congrats:
+		musicinexecution[musiclevel] = Mix_LoadMUS("Audio/stageclear.ogg");
+		Mix_PlayMusic(musicinexecution[musiclevel], -1);
+		break;
 	}
-	if (Mix_PlayMusic(music, -1) != 0) {
-		LOG("Error playing music: %s", Mix_GetError());
-		ret = false;
-	}
 
-	return ret;
+	return true;
 }
+
+bool ModuleAudio::UnLoadMusic(music musiclevel) {
+	switch (musiclevel) {
+	case music_level_1:
+		musicinexecution[musiclevel] = Mix_LoadMUS("Audio/mine.ogg");
+		Mix_FreeMusic(musicinexecution[musiclevel]);
+		musicinexecution[musiclevel] = NULL;
+		break;
+	case music_welcome:
+		musicinexecution[musiclevel] = Mix_LoadMUS("Audio/characterselection.ogg");
+		Mix_FreeMusic(musicinexecution[musiclevel]);
+		musicinexecution[musiclevel] = NULL;
+		break;
+	case music_congrats:
+		musicinexecution[musiclevel] = Mix_LoadMUS("Audio/stageclear.ogg");
+		Mix_FreeMusic(musicinexecution[musiclevel]);
+		musicinexecution[musiclevel] = NULL;
+		break;
+	}
+
+	return true;
+}
+
+
 
 uint ModuleAudio::LoadFX(const char* path) {
 

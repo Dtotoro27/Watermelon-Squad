@@ -33,7 +33,7 @@ bool ModuleWelcome::Start()
 	bool ret = true;
 	welcometexture = App->textures->Load("background_welcome.png");
 	gameovertexture = App->textures->Load("ui.png");
-	App->audio->LoadMusic("Audio/characterselection.ogg");
+	App->audio->LoadMusic(music_welcome);
 
 	//start animation
 	gameover.PushBack({ 2,91,124,31 });
@@ -49,6 +49,7 @@ bool ModuleWelcome::CleanUp()
 {
 	App->textures->Unload(welcometexture);
 	App->textures->Unload(gameovertexture);
+	App->audio->UnLoadMusic(music_welcome);
 	LOG("Unloading stage");
 	return true;
 }
