@@ -62,3 +62,7 @@ FIXED -> One branch ({) was in an incorrect position in moduleplayer.
 0.4.9.4
 
 - Player2 teleports to Player1 y when you press Q while player2 is enabled
+
+0.4.9.5
+
+- Player2 score is the same as Player1 score

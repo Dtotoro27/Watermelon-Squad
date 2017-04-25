@@ -46,6 +46,7 @@ bool ModuleCongrats::Start()
 	gameover.speed = 0.013f;
 
 	p1.PushBack({ 8,30,55,20 });
+	p2.PushBack({8,53,55,20});
 	score_ranking.PushBack({ 6,3,114,21 });
 
 	return ret;
@@ -69,6 +70,7 @@ bool ModuleCongrats::CleanUp()
 update_status ModuleCongrats::Update()
 {
 	char str[10];
+	char str2[10];
 
 	// Draw everything --------------------------------------
 
@@ -77,10 +79,14 @@ update_status ModuleCongrats::Update()
 
 	App->render->Blit(gameovertexture, 50, 136, &(gameover.GetCurrentFrame()), 0.22f);
 	App->render->Blit(rankingtexture, 41, 52, &(p1.GetCurrentFrame()), 0.22f);
+	App->render->Blit(rankingtexture, 39, 76, &(p2.GetCurrentFrame()), 0.22f);
 	App->render->Blit(rankingtexture, 56, 17, &(score_ranking.GetCurrentFrame()), 0.22f);
 
 	sprintf_s(str, "%i", App->player->score);
+	sprintf_s(str2, "%i", App->player2->score);
+
 	App->fonts->BlitText(136, 58, font_score, str);
+	App->fonts->BlitText(136, 82, font_score, str2);
 
 
 	if (App->input->keyboard[SDL_SCANCODE_P] && change) {
