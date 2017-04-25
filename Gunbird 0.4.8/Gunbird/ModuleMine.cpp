@@ -230,15 +230,15 @@ update_status ModuleMine::Update()
 	}
 
 	if (App->render->camera.y == 11157) {
-		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 90, -3804);
-		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 60, -3834);
-		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 30, -3864);
-		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 0, -3894);
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 90, -3704);
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 60, -3734);
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 30, -3764);
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 0, -3794);
 
-		App->enemies->AddEnemy(ENEMY_TYPES::BOMB2, 102, -3804);
-		App->enemies->AddEnemy(ENEMY_TYPES::BOMB2, 132, -3834);
-		App->enemies->AddEnemy(ENEMY_TYPES::BOMB2, 162, -3864);
-		App->enemies->AddEnemy(ENEMY_TYPES::BOMB2, 192, -3894);
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB2, 102, -3704);
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB2, 132, -3734);
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB2, 162, -3764);
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB2, 192, -3794);
 
 	}
 	
