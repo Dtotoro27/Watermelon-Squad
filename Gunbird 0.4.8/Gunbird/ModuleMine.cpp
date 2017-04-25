@@ -91,6 +91,7 @@ bool ModuleMine::Start()
 	App->particles->Enable();
 	App->collision->Enable();
 	App->enemies->Enable();
+	player2 = false;
 
 
 

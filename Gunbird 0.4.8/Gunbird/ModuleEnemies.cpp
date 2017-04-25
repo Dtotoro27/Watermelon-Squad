@@ -216,7 +216,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 					App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x - 25, enemies[i]->position.y - 25, 0, 0);
 					App->audio->PlayFX(audio_explosion);
 					if (c2->type == COLLIDER_PLAYER_2_SHOT) {
-						App->player2->score += 500;
+						App->player2->score+= 500;
 					}
 					if (c2->type == COLLIDER_PLAYER_SHOT) {
 						App->player->score += 500;
