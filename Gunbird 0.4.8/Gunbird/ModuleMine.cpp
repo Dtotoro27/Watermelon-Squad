@@ -104,6 +104,7 @@ bool ModuleMine::Start()
 
 	App->enemies->AddEnemy(ENEMY_TYPES::BALLOON, 51, 10);
 	App->enemies->AddEnemy(ENEMY_TYPES::POWER_UP, 150, 10);
+	
 
 	
 
