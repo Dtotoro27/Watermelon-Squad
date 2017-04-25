@@ -168,7 +168,7 @@ update_status ModuleMine::Update()
 	App->render->Blit(startplayer2texture, 5, 6, &(p1.GetCurrentFrame()), 0);
 
 
-	if (App->render->camera.y <= 14313) {
+	if (App->render->camera.y <= 10113) {
 		App->render->camera.y += SCROLL_SPEED;
 	}
 
@@ -178,7 +178,6 @@ update_status ModuleMine::Update()
 		change = true;
 	}
 	if (App->input->keyboard[SDL_SCANCODE_P] == KEY_STATE::KEY_DOWN) {
-		int polla;
 		polla = App->render->camera.y;
 		change = false;
 		App->fade->FadeToBlack(this, App->congrats, 1);
@@ -203,13 +202,13 @@ update_status ModuleMine::Update()
 		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 30, -1522);
 		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 60, -1502);
 
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 127, -1482);
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 157, -1502);
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 187, -1482);
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 127, -1462);
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 157, -1482);
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 187, -1462);
 	}
 
 
-	if (App->render->camera.y == 6102) {
+	if (App->render->camera.y == 4120) {
 		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 127, -2114);
 		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 157, -2134);
 		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 187, -2114);
@@ -219,7 +218,7 @@ update_status ModuleMine::Update()
 		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE2, 60, -2094);
 	}
 
-	if (App->render->camera.y == 8151) {
+	if (App->render->camera.y == 5500) {
 		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 1, -2774);
 		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 30, -2794);
 		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 60, -2774);
@@ -229,16 +228,16 @@ update_status ModuleMine::Update()
 		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 187, -2774);
 	}
 
-	if (App->render->camera.y == 11157) {
-		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 90, -3724);
-		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 60, -3754);
-		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 30, -3784);
-		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 0, -3814);
+	if (App->render->camera.y == 9000) {
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 90, -4524);
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 60, -4554);
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 30, -4584);
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 0, -4514);
 
-		App->enemies->AddEnemy(ENEMY_TYPES::BOMB2, 102, -3724);
-		App->enemies->AddEnemy(ENEMY_TYPES::BOMB2, 132, -3754);
-		App->enemies->AddEnemy(ENEMY_TYPES::BOMB2, 162, -3784);
-		App->enemies->AddEnemy(ENEMY_TYPES::BOMB2, 192, -3814);
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB2, 102, -4524);
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB2, 132, -4554);
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB2, 162, -4584);
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB2, 192, -4514);
 
 	}
 	

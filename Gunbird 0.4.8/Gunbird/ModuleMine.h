@@ -37,6 +37,7 @@ public:
 	float mineworker_x2;
 	float mineworker_x3;
 	iPoint mineworkeractive;
+	int polla = 0;
 	
 
 

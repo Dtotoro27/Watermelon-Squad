@@ -19,7 +19,7 @@ public:
 	update_status Update();
 	bool CleanUp();
 	void OnCollision(Collider *c1, Collider *c2);
-	bool ModulePlayer2::GodMode(bool godmode);
+	bool ModulePlayer2::GodMode(bool godmode2);
 	uint audio_shot;
 
 public:
@@ -34,7 +34,7 @@ public:
 	Animation right;
 	Collider* player2hitbox;
 	bool destroyed = false;
-	bool godmode = false;
+	bool godmode2 = false;
 	iPoint position;
 	iPoint camera_limitsp2;
 	int powerUps = 0;

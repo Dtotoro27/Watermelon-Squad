@@ -19,7 +19,7 @@ Enemy_Bomb::Enemy_Bomb(int x, int y) : Enemy(x, y)
 	fly.speed = 0.1f;
 	animation = &fly;
 
-	if (bomb_num == 1) {
+	/*if (bomb_num == 1) {
 		movement.PushBack({ 0.5f,1.0f }, 10000, &fly);
 		bomb_num++;
 	}
@@ -37,7 +37,8 @@ Enemy_Bomb::Enemy_Bomb(int x, int y) : Enemy(x, y)
 		movement.PushBack({ 0.0f,-1.0f }, 60, &fly);
 		movement.PushBack({ 0.5f,1.0f }, 10000, &fly);
 		bomb_num == 1;
-	}
+	}*/
+	movement.PushBack({ 0.5f,1.0f }, 10000, &fly);
 	
 
 	collider = App->collision->AddCollider({ 0, 0, 28,41 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);

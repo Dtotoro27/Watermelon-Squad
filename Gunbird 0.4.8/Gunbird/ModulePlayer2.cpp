@@ -123,11 +123,11 @@ update_status ModulePlayer2::Update()
 	}
 
 	if (App->input->keyboard[SDL_SCANCODE_F3]) {
-		if (godmode == true) {
-			godmode = false;
+		if (godmode2 == true) {
+			godmode2 = false;
 		}
-		else if (godmode == false) {
-			godmode = true;
+		else if (godmode2 == false) {
+			godmode2 = true;
 		}
 	}
 
@@ -157,10 +157,11 @@ void  ModulePlayer2::OnCollision(Collider *c1, Collider *c2) {
 		}
 
 		else {
-			if (godmode == false) {
-				App->fade->FadeToBlack((Module*)App->mine, (Module*)App->congrats);
+			if (godmode2 == false) {
 
-				App->particles->AddParticle(App->particles->explosion, position.x, position.y, COLLIDER_NONE, 150);
+				App->particles->AddParticle(App->particles->dead, position.x - 5, position.y - 25, 0, 0, COLLIDER_NONE, 150); 
+				App->textures->Unload(graphics);
+				App->fade->FadeToBlack((Module*)App->mine, (Module*)App->congrats);
 
 
 				destroyed = true;
