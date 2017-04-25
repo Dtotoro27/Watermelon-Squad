@@ -14,35 +14,24 @@ ModuleParticles::ModuleParticles()
 	//handouts tienen aqui las animaciones
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 		active[i] = nullptr;
-}
-
-ModuleParticles::~ModuleParticles()
-{}
-
-// Load assets
-bool ModuleParticles::Start()
-{
-	LOG("Loading particles");
-
-	graphics = App->textures->Load("particles.png");
 
 	laser.anim.PushBack({ 537, 38, 15, 29 });
 	laser.anim.loop = true;
 	laser.anim.speed = 0.3f;
 	laser.life = 1150;
-	
+
 
 	damage_balloon.anim.PushBack({ 684,157,42,53 });
 	damage_balloon.anim.PushBack({ 735,157,42,53 });
 	damage_balloon.anim.speed = 1;
 	damage_balloon.anim.loop = false;
-	
+
 
 	laser2.anim.PushBack({ 501, 77, 19, 37 });
 	laser2.anim.loop = true;
 	laser2.anim.speed = 0.3f;
 	laser2.life = 1150;
-	
+
 	enemy_shoot.anim.PushBack({ 502, 235, 6,6 });
 	enemy_shoot.anim.PushBack({ 517, 235, 6,6 });
 	enemy_shoot.anim.PushBack({ 532, 235, 6,6 });
@@ -51,7 +40,7 @@ bool ModuleParticles::Start()
 
 	enemy_shoot.anim.loop = true;
 	enemy_shoot.anim.speed = 0.3f;
-	enemy_shoot.life =1300;
+	enemy_shoot.life = 2000;
 
 	dead.anim.PushBack({ 631, 170, 31,26 });
 	dead.anim.PushBack({ 631, 170, 31,26 });
@@ -100,7 +89,17 @@ bool ModuleParticles::Start()
 	explosion.anim.loop = false;
 	littleexplosion.anim.loop = false;
 	explosion.anim.speed = 0.1f;
+}
 
+ModuleParticles::~ModuleParticles()
+{}
+
+// Load assets
+bool ModuleParticles::Start()
+{
+	LOG("Loading particles");
+
+	graphics = App->textures->Load("particles.png");
 
 	return true;
 }

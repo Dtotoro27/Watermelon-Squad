@@ -1,11 +1,6 @@
 - Si se cambia muchas veces el mapa sin cerrar, acaba petando
 - El sonido de disparo no siempre suena
 - Los efectos de sonido se buguean si suena mas de uno en poco tiempo
-- Las explosiones de la flying machine y las bombas no salen
 - El sonido de victoria está en bucle
-- Se buguea el background de los creditos 
-- Sprite start se buguea a la tercera vez
-- No aparece la animación de muertea la tercera
-- Fallo en el colider de los drones
-- Los enemigos disparan una ráfaga de balas
+- Helice del dron mal puesta
 - Memory Leaks

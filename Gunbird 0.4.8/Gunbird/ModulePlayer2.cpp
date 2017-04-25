@@ -121,7 +121,7 @@ update_status ModulePlayer2::Update()
 
 	}
 
-	if (App->input->keyboard[SDL_SCANCODE_F2]) {
+	if (App->input->keyboard[SDL_SCANCODE_F3]) {
 		if (godmode == true) {
 			godmode = false;
 		}

@@ -51,22 +51,40 @@ FIXED -> One branch ({) was in an incorrect position in moduleplayer.
 
 - When you take a powerUp, it appears the explosion animation. 
 
+FIXED -> Add condition on enemies OnCollision();
+
 0.4.9.1
 
 - Balloon only has 1 hit when you play more than one time
+
+FIXED -> Inicialized life of the ballon to 5 at moduleStart
 
 0.4.9.3
 
 - Miners disapear the second time you play the game
 
+FIXED -> Inicialized miner.x to the default value at moduleStart
+
 0.4.9.4
 
-- Player2 teleports to Player1 y when you press Q while player2 is enabled
+- Player2 teleports to Player1 y when you press Q while Player2 is enabled
+
+FIXED -> Add condition. If Player2 is already enabled, it does nothing.
 
 0.4.9.5
 
 - Player2 score is the same as Player1 score
 
+FIXED -> Add different collision to Player2 shoots so when it hits an enemy it adds score to the Player2 score
+
 0.4.9.7
 
 - Error with the damage balloon animation
+
+FIXED -> Set faster animation speed.
+
+0.4.9.10
+
+- Error loading diferent particles after some games. 
+
+FIXED -> Setting particles animations on ModuleParticles constructor instead of Start(). XD. 
