@@ -12,8 +12,8 @@
 #define MAX_FX 500
 
 enum music {
-	music_level_1,
 	music_welcome,
+	music_level_1,
 	music_congrats
 };
 

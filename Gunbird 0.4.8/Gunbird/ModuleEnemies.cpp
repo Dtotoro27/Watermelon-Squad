@@ -241,7 +241,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 
 
 				App->particles->AddParticle(App->particles->littleexplosion, enemies[i]->position.x, enemies[i]->position.y - 5, 0, 0);
-				App->audio->LoadFX("Audio/explosion.wav");
+				App->audio->PlayFX(audio_explosion);
 
 				delete enemies[i];
 				enemies[i] = nullptr;
