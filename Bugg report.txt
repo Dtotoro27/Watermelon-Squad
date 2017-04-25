@@ -88,3 +88,17 @@ FIXED -> Set faster animation speed.
 - Error loading diferent particles after some games. 
 
 FIXED -> Setting particles animations on ModuleParticles constructor instead of Start(). :D 
+
+0.4.9.22
+
+ - Player 2 couldn't kill the balloon
+
+FIXED -> It was a problem with a non-declared collider with the player2 shoots
+
+ - Player 2 has wrong the upper limit
+
+FIXED -> Decreassed 35 pixels the limit
+
+ - Start button disapear if you play a second time without the player 2
+
+FIXED -> inicialized on the start module
