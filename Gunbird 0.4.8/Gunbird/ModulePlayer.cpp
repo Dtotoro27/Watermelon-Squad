@@ -83,7 +83,7 @@ update_status ModulePlayer::Update()
 	sprintf_s(str, "%i", score);
 	App->fonts->BlitText(44, 7, font_score, str);
 
-	int speed = 5;
+	int speed = 2;
 	position.y -= 1;
 	camera_limits.y -= 1;
 

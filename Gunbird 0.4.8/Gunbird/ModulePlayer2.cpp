@@ -75,7 +75,7 @@ update_status ModulePlayer2::Update()
 	sprintf_s(str, "%i", score);
 	App->fonts->BlitText(180, 7, font_score, str);
 
-	int speed = 5;
+	int speed = 2;
 	position.y -= 1;
 	camera_limitsp2 = App->player->camera_limits;
 
