@@ -57,6 +57,7 @@ bool ModulePlayer::Start()
 	graphics = App->textures->Load("ash.png"); // arcade version
 	playerhitbox = App->collision->AddCollider({ position.x, position.y, 19, 32 }, COLLIDER_PLAYER, this);
 	font_score = App->fonts->Load("numbers.png", "0123456789", 1);
+	audio_shot = App->audio->LoadFX("Audio/shoot_ash.wav");
 	score = 0;
 	time.x = 0;
 	return ret;
@@ -120,11 +121,13 @@ update_status ModulePlayer::Update()
 	{
 		if (powerUps == 0) {
 			App->particles->AddParticle(App->particles->laser, position.x + 2, position.y - 50, 0, -5, COLLIDER_PLAYER_SHOT);
-			App->audio->LoadFX("Audio/shoot_ash.wav");
+			App->audio->PlayFX(audio_shot);
+			//App->audio->LoadFX("Audio/shoot_ash.wav");
 		}
 		if (powerUps == 1) {
 			App->particles->AddParticle(App->particles->laser2, position.x, position.y - 50, 0, -5, COLLIDER_PLAYER_SHOT);
-			App->audio->LoadFX("Audio/shoot_ash.wav");
+			App->audio->PlayFX(audio_shot);
+			//App->audio->LoadFX("Audio/shoot_ash.wav");
 		}
 	}
 
@@ -184,12 +187,9 @@ void  ModulePlayer::OnCollision(Collider *c1, Collider *c2) {
 
 		else {
 			if (godmode == false) {
+				App->particles->AddParticle(App->particles->dead, position.x - 5, position.y - 25, 0, 0, COLLIDER_NONE, 150);
 				App->textures->Unload(graphics);
-				//App->particles->AddParticle(App->particles->explosion, position.x - 45, position.y - 120, COLLIDER_NONE, 150);
-				App->particles->AddParticle(App->particles->dead, position.x - 5, position.y - 75,0,0, COLLIDER_NONE, 150);
 				App->fade->FadeToBlack((Module*)App->mine, (Module*)App->congrats);
-
-
 				destroyed = true;
 			}
 			else {}

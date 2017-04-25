@@ -20,7 +20,15 @@ PowerUp::PowerUp(int x, int y) : Enemy(x, y)
 	fly.speed = 0.1f;
 	animation = &fly;
 
-	movement.PushBack({ 0.0f,-0.78f }, 50, &fly);
+
+	movement.PushBack({ 1.0f,-0.1f }, 52, &fly);
+	movement.PushBack({ -1.0f,-0.1f }, 205, &fly);
+	movement.PushBack({ 1.0f, -0.1f }, 75, &fly);
+	movement.PushBack({ 1.0f, -2.0f }, 132, &fly);
+	movement.PushBack({ -1.0f, -2.0f }, 20005, &fly);
+	
+	
+
 
 	collider = App->collision->AddCollider({ 0, 0, 21,12 }, COLLIDER_TYPE::COLLIDER_POWER_UP, (Module*)App->enemies);
 

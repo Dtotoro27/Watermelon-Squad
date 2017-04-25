@@ -50,6 +50,7 @@ bool ModulePlayer2::Start()
 	graphics = App->textures->Load("ash.png"); // arcade version
 	player2hitbox = App->collision->AddCollider({ position.x, position.y, 19, 32 }, COLLIDER_PLAYER, this);
 	font_score = App->fonts->Load("numbers.png", "0123456789", 1);
+	audio_shot = App->audio->LoadFX("Audio/shoot_ash.wav");
 	score = 0;
 	return ret;
 }
@@ -112,11 +113,11 @@ update_status ModulePlayer2::Update()
 	{
 		if (powerUps == 0) {
 			App->particles->AddParticle(App->particles->laser, position.x + 2, position.y - 50,0,-5, COLLIDER_PLAYER_2_SHOT);
-			App->audio->LoadFX("Audio/shoot_ash.wav");
+			App->audio->PlayFX(audio_shot);
 		}
 		if (powerUps == 1) {
 			App->particles->AddParticle(App->particles->laser2, position.x, position.y - 50,0,-5, COLLIDER_PLAYER_2_SHOT);
-			App->audio->LoadFX("Audio/shoot_ash.wav");
+			App->audio->PlayFX(audio_shot);
 		}
 
 	}
