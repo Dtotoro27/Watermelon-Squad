@@ -55,7 +55,7 @@ void Enemy_FlyingMachine::Move()
 
 void Enemy_FlyingMachine::Shoot() {
 	now = SDL_GetTicks() - start_time;
-	if (now > shoots * 3000) {
+	if (now >  3000) {
 		shootspeed_x = (App->player->position.x - (position.x));
 		shootspeed_y = (App->player->position.y - (position.y));
 
@@ -65,12 +65,12 @@ void Enemy_FlyingMachine::Shoot() {
 		shootspeed_y_u = (shootspeed_y / vmodule) * 5;
 
 
-		if (shootspeed_y_u >= 0) {
-			
-			App->particles->AddParticle(App->particles->enemy_shoot, position.x + 21, position.y + 26, shootspeed_x_u, shootspeed_y_u - 1.88f, COLLIDER_ENEMY_SHOT);
+		if (shootspeed_y_u >= 0 && now > 3000) {
 
+			App->particles->AddParticle(App->particles->enemy_shoot, position.x + 21, position.y + 26, shootspeed_x_u, shootspeed_y_u - 1.88f, COLLIDER_ENEMY_SHOT);
+			start_time = SDL_GetTicks();
 		}
-		shoots++;
+
 	}
 
 }

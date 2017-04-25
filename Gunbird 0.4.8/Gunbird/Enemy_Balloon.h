@@ -11,7 +11,6 @@ private:
 	Animation fly;
 	Animation enemy_position;
 	Path movement;
-	int shoots = 1;
 	Uint32 start_time = 0;
 	Uint32 now = 0;
 

@@ -57,6 +57,7 @@ update_status ModuleEnemies::PreUpdate()
 			}
 		}
 	}
+	
 
 	return UPDATE_CONTINUE;
 }
@@ -71,6 +72,7 @@ update_status ModuleEnemies::Update()
 			enemies[i]->Move();
 		}
 	}
+
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 	{
 		if (enemies[i] != nullptr)
@@ -78,6 +80,7 @@ update_status ModuleEnemies::Update()
 			enemies[i]->Shoot();
 		}
 	}
+	
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 	{
 		if (enemies[i] != nullptr)
