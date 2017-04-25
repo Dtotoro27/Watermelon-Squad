@@ -66,3 +66,7 @@ FIXED -> One branch ({) was in an incorrect position in moduleplayer.
 0.4.9.5
 
 - Player2 score is the same as Player1 score
+
+0.4.9.7
+
+- Error with the damage balloon animation
