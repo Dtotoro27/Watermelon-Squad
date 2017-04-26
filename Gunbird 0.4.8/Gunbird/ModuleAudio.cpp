@@ -45,16 +45,16 @@ bool ModuleAudio::LoadMusic(music musiclevel) {
 
 
 	switch (musiclevel) {
-	case music_level_1:
-		musicinexecution[musiclevel] = Mix_LoadMUS("Audio/mine.ogg");
-		Mix_FreeMusic(musicinexecution[musiclevel]);
+	case music_level1:
+		musicinexecution[musiclevel] = Mix_LoadMUS("assets/Audio/mine.ogg");
+		Mix_PlayMusic(musicinexecution[musiclevel], -1);
 		break;
 	case music_welcome:
-		musicinexecution[musiclevel] = Mix_LoadMUS("Audio/characterselection.ogg");
+		musicinexecution[musiclevel] = Mix_LoadMUS("assets/Audio/characterselection.ogg");
 		Mix_PlayMusic(musicinexecution[musiclevel],-1);
 		break;
 	case music_congrats:
-		musicinexecution[musiclevel] = Mix_LoadMUS("Audio/stageclear.ogg");
+		musicinexecution[musiclevel] = Mix_LoadMUS("assets/Audio/stageclear.ogg");
 		Mix_PlayMusic(musicinexecution[musiclevel], -1);
 		break;
 	}
@@ -64,18 +64,18 @@ bool ModuleAudio::LoadMusic(music musiclevel) {
 
 bool ModuleAudio::UnLoadMusic(music musiclevel) {
 	switch (musiclevel) {
-	case music_level_1:
-		musicinexecution[musiclevel] = Mix_LoadMUS("Audio/mine.ogg");
+	case music_level1:
+		musicinexecution[musiclevel] = Mix_LoadMUS("assets/Audio/mine.ogg");
 		Mix_FreeMusic(musicinexecution[musiclevel]);
 		musicinexecution[musiclevel] = NULL;
 		break;
 	case music_welcome:
-		musicinexecution[musiclevel] = Mix_LoadMUS("Audio/characterselection.ogg");
+		musicinexecution[musiclevel] = Mix_LoadMUS("assets/Audio/characterselection.ogg");
 		Mix_FreeMusic(musicinexecution[musiclevel]);
 		musicinexecution[musiclevel] = NULL;
 		break;
 	case music_congrats:
-		musicinexecution[musiclevel] = Mix_LoadMUS("Audio/stageclear.ogg");
+		musicinexecution[musiclevel] = Mix_LoadMUS("assets/Audio/stageclear.ogg");
 		Mix_FreeMusic(musicinexecution[musiclevel]);
 		musicinexecution[musiclevel] = NULL;
 		break;

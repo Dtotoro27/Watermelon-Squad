@@ -102,3 +102,13 @@ FIXED -> Decreassed 35 pixels the limit
  - Start button disapear if you play a second time without the player 2
 
 FIXED -> inicialized on the start module
+
+0.4.9.25
+
+ - Mine music didn't start
+
+FIXED -> It was a mistake on the load music on level1 music, instead of loading it, we free it
+
+- Player2 score was saved after the second
+
+FIXED -> when we star the module mine, we set the player 2 score to 0 again

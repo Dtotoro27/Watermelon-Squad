@@ -19,12 +19,12 @@ Enemy_FlyingMachine::Enemy_FlyingMachine(int x, int y) : Enemy(x, y)
 	animation = &enemy_position;
 
 
-	fly.PushBack({ 531,154,32,32 });
-	fly.PushBack({ 568,152,32,32 });
-	fly.PushBack({ 601,152,32,32 });
-	fly.PushBack({ 638,151,32,32 });
-	fly.PushBack({ 684,152,32,32 });
-	fly.PushBack({ 737,153,32,32 });
+	fly.PushBack({ 533,154,32,32 });
+	fly.PushBack({ 570,152,32,32 });
+	fly.PushBack({ 603,152,32,32 });
+	fly.PushBack({ 640,151,32,32 });
+	fly.PushBack({ 686,152,32,32 });
+	fly.PushBack({ 739,153,32,32 });
 
 	fly.speed = 0.5f;
 	animation2 = &fly;

@@ -33,9 +33,9 @@ ModuleEnemies::~ModuleEnemies()
 bool ModuleEnemies::Start()
 {
 	// Create a prototype for each enemy available so we can copy them around
-	sprites = App->textures->Load("enemies.png");
+	sprites = App->textures->Load("assets/enemies.png");
 	big_enemy_life = 5;
-	audio_explosion = App->audio->LoadFX("Audio/explosion.wav");
+	audio_explosion = App->audio->LoadFX("assets/Audio/explosion.wav");
 
 
 

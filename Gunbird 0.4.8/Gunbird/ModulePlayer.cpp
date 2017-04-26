@@ -54,10 +54,10 @@ bool ModulePlayer::Start()
 {
 	LOG("Loading player textures");
 	bool ret = true;
-	graphics = App->textures->Load("ash.png"); // arcade version
+	graphics = App->textures->Load("assets/ash.png"); // arcade version
 	playerhitbox = App->collision->AddCollider({ position.x, position.y, 19, 32 }, COLLIDER_PLAYER, this);
-	font_score = App->fonts->Load("numbers.png", "0123456789", 1);
-	audio_shot = App->audio->LoadFX("Audio/shoot_ash.wav");
+	font_score = App->fonts->Load("assets/numbers.png", "0123456789", 1);
+	audio_shot = App->audio->LoadFX("assets/Audio/shoot_ash.wav");
 	score = 0;
 	time.x = 0;
 	return ret;

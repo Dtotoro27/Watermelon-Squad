@@ -42,11 +42,11 @@ bool ModuleCongrats::Start()
 	/*handout 2*/App->render->camera.x = App->render->camera.y = 0;
 	LOG("Loading background assets");
 	bool ret = true;
-	congratstexture = App->textures->Load("background_congrats.png");
-	gameovertexture = App->textures->Load("ui.png");
-	rankingtexture = App->textures->Load("game_over_ui.png");
+	congratstexture = App->textures->Load("assets/background_congrats.png");
+	gameovertexture = App->textures->Load("assets/ui.png");
+	rankingtexture = App->textures->Load("assets/game_over_ui.png");
 	App->audio->LoadMusic(music_congrats);
-	font_score = App->fonts->Load("numbers_score.png", "0123456789", 1);
+	font_score = App->fonts->Load("assets/numbers_score.png", "0123456789", 1);
 
 	return ret;
 }

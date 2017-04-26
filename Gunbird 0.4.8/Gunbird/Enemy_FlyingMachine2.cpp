@@ -24,7 +24,7 @@ Enemy_FlyingMachine2::Enemy_FlyingMachine2(int x, int y) : Enemy(x, y)
 	fly.PushBack({ 684,152,32,32 });
 	fly.PushBack({ 737,153,32,32 });
 
-	fly.speed = 0.2f;
+	fly.speed = 0.5f;
 	animation2 = &fly;
 
 

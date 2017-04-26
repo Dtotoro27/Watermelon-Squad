@@ -72,18 +72,20 @@ bool ModuleMine::Start()
 {
 	LOG("Loading background assets");
 
+	App->player2->score = 0;
+
 	mineworkeractive.y = 0;
 
 	mineworker_x = 59;
     mineworker_x2 = 137;
 	mineworker_x3 = 16;
 
-	minetexture = App->textures->Load("background_mine.png");
-	mineanimationtexture = App->textures->Load("background_mine_animation.png");
-	startplayer2texture = App->textures->Load("ui.png");
-	minetexture2 = App->textures->Load("background_mine_2.png");
-	mineworkertexture = App->textures->Load("mineworker.png");
-	App->audio->LoadMusic(music_level_1);
+	minetexture = App->textures->Load("assets/background_mine.png");
+	mineanimationtexture = App->textures->Load("assets/background_mine_animation.png");
+	startplayer2texture = App->textures->Load("assets/ui.png");
+	minetexture2 = App->textures->Load("assets/background_mine_2.png");
+	mineworkertexture = App->textures->Load("assets/mineworker.png");
+	App->audio->LoadMusic(music_level1);
 
 
 	App->player->Enable();
@@ -119,7 +121,7 @@ bool ModuleMine::CleanUp()
 	App->textures->Unload(minetexture2);
 	App->textures->Unload(mineworkertexture);
 	App->textures->Unload(mineanimationtexture);
-	App->audio->UnLoadMusic(music_level_1);
+	App->audio->UnLoadMusic(music_level1);
 	App->mine->Disable();
 	
 	LOG("Unloading stage");
@@ -169,7 +171,7 @@ update_status ModuleMine::Update()
 	App->render->Blit(startplayer2texture, 5, 6, &(p1.GetCurrentFrame()), 0);
 
 
-	if (App->render->camera.y <= 10113) {
+	if (App->render->camera.y <= 10000) {
 		App->render->camera.y += SCROLL_SPEED;
 	}
 
@@ -198,7 +200,7 @@ update_status ModuleMine::Update()
 
 	}
 
-	if (App->render->camera.y == 2900) {
+	if (App->render->camera.y == 2850) {
 		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 1, -1502);
 		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 30, -1522);
 		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 60, -1502);
@@ -229,16 +231,16 @@ update_status ModuleMine::Update()
 		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 187, -2774);
 	}
 
-	if (App->render->camera.y == 9000) {
-		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 90, -4524);
-		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 60, -4554);
-		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 30, -4584);
-		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 0, -4514);
+	if (App->render->camera.y == 9100) {
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 90, -4554);
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 60, -4574);
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 30, -4594);
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 1, -4614);
 
-		App->enemies->AddEnemy(ENEMY_TYPES::BOMB2, 102, -4524);
-		App->enemies->AddEnemy(ENEMY_TYPES::BOMB2, 132, -4554);
-		App->enemies->AddEnemy(ENEMY_TYPES::BOMB2, 162, -4584);
-		App->enemies->AddEnemy(ENEMY_TYPES::BOMB2, 192, -4514);
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB2, 102, -4554);
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB2, 132, -4574);
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB2, 162, -4594);
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB2, 192, -4614);
 
 	}
 	

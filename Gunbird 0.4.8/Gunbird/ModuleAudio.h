@@ -13,7 +13,7 @@
 
 enum music {
 	music_welcome,
-	music_level_1,
+	music_level1,
 	music_congrats
 };
 

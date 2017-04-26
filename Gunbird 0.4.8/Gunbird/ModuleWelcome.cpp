@@ -36,8 +36,8 @@ bool ModuleWelcome::Start()
 {
 	LOG("Loading background assets");
 	bool ret = true;
-	welcometexture = App->textures->Load("background_welcome.png");
-	gameovertexture = App->textures->Load("ui.png");
+	welcometexture = App->textures->Load("assets/background_welcome.png");
+	gameovertexture = App->textures->Load("assets/ui.png");
 	App->audio->LoadMusic(music_welcome);
 	
 
