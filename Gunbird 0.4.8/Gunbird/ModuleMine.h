@@ -37,7 +37,6 @@ public:
 	float mineworker_x2;
 	float mineworker_x3;
 	iPoint mineworkeractive;
-	int games = 0;
 	
 
 
