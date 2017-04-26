@@ -176,12 +176,14 @@ update_status ModuleMine::Update()
 	}
 
 	else {
-		change = false;
-		App->fade->FadeToBlack(this, App->congrats, 1);
-		change = true;
+		if (games <= 2) {
+			change = false;
+			App->fade->FadeToBlack(this, App->mine, 1);
+			change = true;
+			games++;
+		}
 	}
 	if (App->input->keyboard[SDL_SCANCODE_P] == KEY_STATE::KEY_DOWN) {
-		polla = App->render->camera.y;
 		change = false;
 		App->fade->FadeToBlack(this, App->congrats, 1);
 		change = true;

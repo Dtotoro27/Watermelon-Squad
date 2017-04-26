@@ -18,7 +18,7 @@ ModuleParticles::ModuleParticles()
 	laser.anim.PushBack({ 537, 38, 15, 29 });
 	laser.anim.loop = true;
 	laser.anim.speed = 0.3f;
-	laser.life = 1150;
+	laser.life = 500;
 
 
 	damage_balloon.anim.PushBack({ 684,157,42,53 });
@@ -30,7 +30,7 @@ ModuleParticles::ModuleParticles()
 	laser2.anim.PushBack({ 501, 77, 19, 37 });
 	laser2.anim.speed = 0.3f;
 	laser2.anim.loop = true;
-	laser2.life = 1150;
+	laser2.life = 500;
 
 	enemy_shoot.anim.PushBack({ 502, 235, 6,6 });
 	enemy_shoot.anim.PushBack({ 517, 235, 6,6 });

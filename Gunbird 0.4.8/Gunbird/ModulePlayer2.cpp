@@ -112,11 +112,11 @@ update_status ModulePlayer2::Update()
 	if (App->input->keyboard[SDL_SCANCODE_V] == KEY_STATE::KEY_DOWN)
 	{
 		if (powerUps == 0) {
-			App->particles->AddParticle(App->particles->laser, position.x + 2, position.y - 50,0,-5, COLLIDER_PLAYER_2_SHOT);
+			App->particles->AddParticle(App->particles->laser, position.x + 2, position.y - 50,0,-10, COLLIDER_PLAYER_2_SHOT);
 			App->audio->PlayFX(audio_shot);
 		}
 		if (powerUps == 1) {
-			App->particles->AddParticle(App->particles->laser2, position.x, position.y - 50,0,-5, COLLIDER_PLAYER_2_SHOT);
+			App->particles->AddParticle(App->particles->laser2, position.x, position.y - 50,0,-10, COLLIDER_PLAYER_2_SHOT);
 			App->audio->PlayFX(audio_shot);
 		}
 
