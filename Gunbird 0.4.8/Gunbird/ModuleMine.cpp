@@ -26,7 +26,7 @@ ModuleMine::ModuleMine()
 	p1.PushBack({ 10, 68, 15, 12 });
 	p2.PushBack({ 30,67,16,12 });
 
-	mineworkerwalkleft.PushBack({ 59, 8, 11, 22 });
+	mineworkerwalkleft.PushBack({ 58, 8, 11, 22 });
 	mineworkerwalkleft.PushBack({ 83, 8, 11, 23 });
 	mineworkerwalkleft.PushBack({ 107, 8, 13, 22 });
 	mineworkerwalkleft.PushBack({ 83, 8, 11, 23 });
@@ -146,13 +146,13 @@ update_status ModuleMine::Update()
 		App->render->Blit(mineworkertexture, mineworker_x, 100, &(mineworkerwalkleft.GetCurrentFrame()), 0.22f);
 		App->render->Blit(mineworkertexture, 16, -439, &(mineworkerstand.GetCurrentFrame()), 0.22f);
 		App->render->Blit(mineworkertexture, 137, -460, &(mineworkerstand.GetCurrentFrame()), 0.22f);
-		mineworker_x -= 0.10;
+		mineworker_x -= 0.20;
 	}
 	else {
 		App->render->Blit(mineworkertexture, mineworker_x2, -460, &(mineworkerwalkright.GetCurrentFrame()), 0.22f);
 		App->render->Blit(mineworkertexture, mineworker_x3, -439, &(mineworkerwalkleft.GetCurrentFrame()), 0.22f);
-		mineworker_x2 += 0.1;
-		mineworker_x3 -= 0.1;
+		mineworker_x2 += 0.2;
+		mineworker_x3 -= 0.2;
 	}
 
 	//UI--------------------------
