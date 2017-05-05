@@ -169,6 +169,7 @@ bool ModuleCharacterSelect::Start()
 	valnus_texture= App->textures->Load("assets/characters/valnus.png");
 	yuan_texture= App->textures->Load("assets/characters/yuan_nang.png");
 	characterselected1 = 2;
+	characterselected2 = 4;
 	p1_x = 56;
 	cloud1_x = 0;
 	cloud2_x = 417;
@@ -189,6 +190,7 @@ bool ModuleCharacterSelect::CleanUp()
 	App->textures->Unload(tetsu_texture);
 	App->textures->Unload(valnus_texture);
 	App->textures->Unload(yuan_texture);
+	App->audio->UnLoadMusic(music_welcome);
 	App->characterselect->Disable();
 	
 
@@ -204,7 +206,12 @@ update_status ModuleCharacterSelect::Update()
 	if (App->input->keyboard[SDL_SCANCODE_2] == KEY_STATE::KEY_DOWN) {
 		coop = true;
 		p2_x = 136;
-		characterselected2 == 4;
+		if (characterselected1 == 4) {
+			characterselected2 = 2;
+		}
+		else {
+			characterselected2 == 4;
+		}
 	}
 
 	App->render->Blit(characterselecttexture, 0, -320 + SCREEN_HEIGHT, &background, 0.75f);

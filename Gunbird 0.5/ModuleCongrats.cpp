@@ -39,7 +39,7 @@ ModuleCongrats::~ModuleCongrats()
 // Load assets
 bool ModuleCongrats::Start()
 {
-	/*handout 2*/App->render->camera.x = App->render->camera.y = 0;
+ App->render->camera.x = App->render->camera.y = 0;
 	LOG("Loading background assets");
 	bool ret = true;
 	congratstexture = App->textures->Load("assets/background_congrats.png");
