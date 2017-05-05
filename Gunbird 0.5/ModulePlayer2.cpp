@@ -47,7 +47,7 @@ bool ModulePlayer2::Start()
 {
 	LOG("Loading player textures");
 	bool ret = true;
-	graphics = App->textures->Load("assets/ash.png"); // arcade version
+	graphics = App->textures->Load("assets/characters/ash.png"); // arcade version
 	player2hitbox = App->collision->AddCollider({ position.x, position.y, 19, 32 }, COLLIDER_PLAYER, this);
 	font_score = App->fonts->Load("assets/numbers.png", "0123456789", 1);
 	audio_shot = App->audio->LoadFX("assets/Audio/shoot_ash.wav");

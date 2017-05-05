@@ -205,7 +205,6 @@ update_status ModuleCharacterSelect::Update()
 
 	if (App->input->keyboard[SDL_SCANCODE_2] == KEY_STATE::KEY_DOWN) {
 		coop = true;
-		p2_x = 136;
 		if (characterselected1 == 4) {
 			characterselected2 = 2;
 		}
