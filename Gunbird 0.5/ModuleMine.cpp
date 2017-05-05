@@ -12,6 +12,7 @@
 #include "ModuleFadeToBlack.h"
 #include "ModuleEnemies.h"
 #include "ModuleCongrats.h"
+#include "ModuleCharacterSelect.h"
 
 
 
@@ -91,11 +92,15 @@ bool ModuleMine::Start()
 
 
 	App->player->Enable();
+	if (App->characterselect->coop == true) {
+		App->player2->Enable();
+		player2 = true;
+	}
 	App->player->destroyed = false;
 	App->particles->Enable();
 	App->collision->Enable();
 	App->enemies->Enable();
-	player2 = false;
+	
 
 
 
