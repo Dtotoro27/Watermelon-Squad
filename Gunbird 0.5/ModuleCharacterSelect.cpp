@@ -226,12 +226,35 @@ update_status ModuleCharacterSelect::Update()
 	// MOVEMENT
 
 	//Player1
-	if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_DOWN) {
+	if (coop == false) {
+		if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_DOWN) {
+			if (characterselected1 < 5) {
+				characterselected1 += 1;
+			}
+			else if (characterselected1 == 5) {
+				characterselected1 = 1;
+			}
+		}
+		if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_DOWN) {
+			if (characterselected1 > 1) {
+				characterselected1 -= 1;
+			}
+			else {
+				characterselected1 = 5;
+			}
+		}
+	}
+	//Player2
+
+	if (coop == true) {
+		//Player 1
+
+		if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_DOWN) {
 			if (characterselected1 < 5) {
 				if (characterselected1 == characterselected2 - 1) {
 					characterselected1 += 2;
 				}
-				else { 
+				else {
 					characterselected1 += 1;
 				}
 			}
@@ -243,28 +266,28 @@ update_status ModuleCharacterSelect::Update()
 					characterselected1 = 1;
 				}
 			}
-	}
-	if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_DOWN) {
-		if (characterselected1 > 1) {
-			if (characterselected1 == characterselected2 + 1) {
-				characterselected1 -= 2;
+		}
+		if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_DOWN) {
+			if (characterselected1 > 1) {
+				if (characterselected1 == characterselected2 + 1) {
+					characterselected1 -= 2;
+				}
+				else {
+					characterselected1 -= 1;
+				}
 			}
-			else {
-				characterselected1 -= 1;
+			else if (characterselected1 == 1) {
+				if (characterselected2 == 5) {
+					characterselected1 = 4;
+				}
+				else {
+					characterselected1 = 5;
+				}
 			}
 		}
-		else if (characterselected1 == 1) {
-			if (characterselected2 == 5) {
-				characterselected1 = 4;
-			}
-			else {
-				characterselected1 = 5;
-			}
-		}
-	}
-	//Player2
 
-	if (coop == true) {
+		//Player 2
+
 		if(App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_DOWN) {
 			if (characterselected2 < 5) {
 				if (characterselected2 == characterselected1 - 1) {
