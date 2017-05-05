@@ -59,6 +59,7 @@ bool ModuleCongrats::CleanUp()
 	App->audio->UnloadMusic();
 	App->fonts->UnLoad(font_score);
 	App->player->powerUps = 0;
+	App->player2->powerUps = 0;
 	App->congrats->Disable();
 	LOG("Unloading stage");
 
