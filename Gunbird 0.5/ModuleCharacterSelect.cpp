@@ -51,20 +51,20 @@ ModuleCharacterSelect::ModuleCharacterSelect()
 	ash_anim.PushBack({ 163,11,104,109 });
 	ash_anim.PushBack({ 328,11,104,109 });
 	ash_anim.PushBack({ 485,11,104,109 });
-	ash_anim.speed = 0.1f;
+	ash_anim.speed = 0.15f;
 
 	//Marion
 	marion_anim.PushBack({ 17,140,128,103 });
 	marion_anim.PushBack({ 235,140,128,104 });
 	marion_anim.PushBack({ 455,140,128,105 });
-	marion_anim.speed = 0.1f;
+	marion_anim.speed = 0.15f;
 
 	//Valnus
 	valnus_anim.PushBack({ 16,275,120,118 });
 	valnus_anim.PushBack({ 168,275,120,118 });
 	valnus_anim.PushBack({ 320,275,120,118 });
 	valnus_anim.PushBack({ 471,275,120,118 });
-	valnus_anim.speed = 0.1f;
+	valnus_anim.speed = 0.5f;
 
 	//Yuan Nang
 	yuan_anim.PushBack({ 20,13,135,125 });
@@ -75,19 +75,19 @@ ModuleCharacterSelect::ModuleCharacterSelect()
 	yuan_anim.PushBack({ 732,13,135,125 });
 	yuan_anim.PushBack({ 20,166,135,125 });
 	yuan_anim.PushBack({ 158,165,135,125 });
-	yuan_anim.speed = 0.1f;
+	yuan_anim.speed = 0.2f;
 
 	//Tetsu
 	tetsu_anim1.PushBack({ 426,241,121,16});
 	tetsu_anim1.PushBack({ 426,267,121,15 });
 	tetsu_anim1.PushBack({ 426,292,121,14 });
 	tetsu_anim1.PushBack({ 426,315,121,16 });
-	tetsu_anim1.speed = 0.2f;
+	tetsu_anim1.speed = 0.8f;
 
 	tetsu_anim2.PushBack({ 1,318,125,101 });
 	tetsu_anim2.PushBack({ 139,318,125,101 });
 	tetsu_anim2.PushBack({ 279,318,125,101 });
-	tetsu_anim2.speed = 0.05f;
+	tetsu_anim2.speed = 0.1f;
 
 	//----------Character Selection----------
 
@@ -95,19 +95,19 @@ ModuleCharacterSelect::ModuleCharacterSelect()
 
 	ash.PushBack({ 14, 13, 19, 32 });
 	ash.PushBack({ 43, 13, 19, 32 });
-	ash.speed = 0.1f;
+	ash.speed = 0.2f;
 
 	//Marion
 	marion.PushBack({ 4, 67, 20, 30 });
 	marion.PushBack({ 36, 67, 20, 30 });
 	marion.PushBack({ 67, 67, 20, 30 });
 	marion.PushBack({ 100, 67, 20, 30 });
-	marion.speed = 0.1f;
+	marion.speed = 0.2f;
 
 	//Valnus
 	valnus.PushBack({ 0,0,31,30 });
 	valnus.PushBack({ 38,0, 31,30 });
-	valnus.speed = 0.1f;
+	valnus.speed = 0.4f;
 
 	//Yuan_Nang
 	yuan.PushBack({ 9,6,27,48 });
@@ -118,7 +118,7 @@ ModuleCharacterSelect::ModuleCharacterSelect()
 	yuan.PushBack({ 61,96,27,48 });
 	yuan.PushBack({ 112,97,27,48 });
 	yuan.PushBack({ 163,99,27,48 });
-	yuan.speed = 0.1f;
+	yuan.speed = 0.2f;
 
 	//tetsu
 	tetsu.PushBack({ 31,17,30,37 });
@@ -145,7 +145,7 @@ ModuleCharacterSelect::ModuleCharacterSelect()
 	tetsu.PushBack({ 71,205,30,37 });
 	tetsu.PushBack({ 111,205,30,37 });
 	tetsu.PushBack({ 151,205,30,37 });
-	tetsu.speed = 0.1f;
+	tetsu.speed = 0.5f;
 
 }
 
@@ -177,6 +177,7 @@ bool ModuleCharacterSelect::Start()
 
 bool ModuleCharacterSelect::CleanUp()
 {
+	LOG("Unloading stage");
 	App->textures->Unload(characterselecttexture);
 	App->textures->Unload(characterfaces);
 	App->textures->Unload(clouds);
@@ -189,7 +190,7 @@ bool ModuleCharacterSelect::CleanUp()
 	App->textures->Unload(valnus_texture);
 	App->textures->Unload(yuan_texture);
 	App->characterselect->Disable();
-	LOG("Unloading stage");
+	
 
 	return true;
 }
