@@ -4,3 +4,6 @@
 - El sonido de victoria está en bucle
 - Helice del dron mal puesta
 - Memory Leaks
+
+0.5.1
+A veces peta al cerrar el juego en el player select
