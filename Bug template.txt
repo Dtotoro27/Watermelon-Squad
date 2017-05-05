@@ -1,0 +1,6 @@
+1.- Sumary.
+2.- Type.
+3.- Steps to reproduce.
+4.- Actual result.
+5.- Expected result.
+6.- Build.
