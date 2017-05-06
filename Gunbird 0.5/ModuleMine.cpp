@@ -74,7 +74,7 @@ bool ModuleMine::Start()
 	LOG("Loading background assets");
 
 	App->player2->score = 0;
-
+	pause = false;
 	mineworkeractive.y = 0;
 
 	mineworker_x = 59;
@@ -140,6 +140,20 @@ update_status ModuleMine::Update()
 
 	// -------------------------------------- Draw everything --------------------------------------
 
+
+	if (App->input->keyboard[SDL_SCANCODE_O] == KEY_STATE::KEY_DOWN) {
+		pause = true;
+	}
+
+	if (pause == true) {
+		App->render->camera.y -= SCROLL_SPEED;
+		App->player->position.y += 1;
+		App->player->camera_limits.y += 1;
+		if (App->input->keyboard[SDL_SCANCODE_I] == KEY_STATE::KEY_DOWN) {
+			pause = false;
+		}
+
+	}
 
 	//Background--------------------------
 	App->render->Blit(minetexture, 0, -3535 + SCREEN_HEIGHT, &mine, 0.18f);

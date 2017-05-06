@@ -79,58 +79,60 @@ update_status ModulePlayer2::Update()
 	position.y -= 1;
 	camera_limitsp2 = App->player->camera_limits;
 
-	if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT)
-	{
-		current_animation = &right;
-		if (position.x < SCREEN_WIDTH - ASH_WIDTH) {
-			position.x += speed;
+	if (App->mine->pause == false) {
+
+		if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT)
+		{
+			current_animation = &right;
+			if (position.x < SCREEN_WIDTH - ASH_WIDTH) {
+				position.x += speed;
+			}
+		}
+
+		if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT)
+		{
+			current_animation = &left;
+			if (position.x > 0) {
+				position.x -= speed;
+			}
+		}
+
+		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
+		{
+			if (position.y > camera_limitsp2.y + ASH_HEIGHT + 35) {
+				position.y -= speed;
+			}
+		}
+
+		if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT)
+		{
+			if (position.y < camera_limitsp2.y + SCREEN_HEIGHT) {
+				position.y += speed;
+			}
+		}
+
+		if (App->input->keyboard[SDL_SCANCODE_V] == KEY_STATE::KEY_DOWN)
+		{
+			if (powerUps == 0) {
+				App->particles->AddParticle(App->particles->laser, position.x + 2, position.y - 50, 0, -10, COLLIDER_PLAYER_2_SHOT);
+				App->audio->PlayFX(audio_shot);
+			}
+			if (powerUps == 1) {
+				App->particles->AddParticle(App->particles->laser2, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_2_SHOT);
+				App->audio->PlayFX(audio_shot);
+			}
+
+		}
+
+		if (App->input->keyboard[SDL_SCANCODE_F3]) {
+			if (godmode2 == true) {
+				godmode2 = false;
+			}
+			else if (godmode2 == false) {
+				godmode2 = true;
+			}
 		}
 	}
-
-	if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT)
-	{
-		current_animation = &left;
-		if (position.x > 0) {
-			position.x -= speed;
-		}
-	}
-
-	if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
-	{
-		if (position.y > camera_limitsp2.y + ASH_HEIGHT + 35) {
-			position.y -= speed;
-		}
-	}
-
-	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT)
-	{
-		if (position.y < camera_limitsp2.y + SCREEN_HEIGHT) {
-			position.y += speed;
-		}
-	}
-
-	if (App->input->keyboard[SDL_SCANCODE_V] == KEY_STATE::KEY_DOWN)
-	{
-		if (powerUps == 0) {
-			App->particles->AddParticle(App->particles->laser, position.x + 2, position.y - 50,0,-10, COLLIDER_PLAYER_2_SHOT);
-			App->audio->PlayFX(audio_shot);
-		}
-		if (powerUps == 1) {
-			App->particles->AddParticle(App->particles->laser2, position.x, position.y - 50,0,-10, COLLIDER_PLAYER_2_SHOT);
-			App->audio->PlayFX(audio_shot);
-		}
-
-	}
-
-	if (App->input->keyboard[SDL_SCANCODE_F3]) {
-		if (godmode2 == true) {
-			godmode2 = false;
-		}
-		else if (godmode2 == false) {
-			godmode2 = true;
-		}
-	}
-
 
 
 	player2hitbox->SetPos(position.x, position.y - ASH_HEIGHT);

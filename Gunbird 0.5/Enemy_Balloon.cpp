@@ -4,6 +4,7 @@
 #include "ModuleTextures.h"
 #include "ModuleParticles.h"
 #include "ModulePlayer.h"
+#include "ModuleMine.h"
 #include "SDL/include/SDL_timer.h"
 
 
@@ -35,20 +36,22 @@ Enemy_Balloon::Enemy_Balloon(int x, int y) : Enemy(x, y)
 
 void Enemy_Balloon::Move()
 {
-	position = originalpos + movement.GetCurrentPosition();
+	if (App->mine->pause == false) {
+		position = originalpos + movement.GetCurrentPosition();
+	}
 
 }
 
 
 void Enemy_Balloon::Shoot() {
-
-	now = SDL_GetTicks() - start_time;
-	if (now > 3000) {
-		
-			App->particles->AddParticle(App->particles->enemy_shoot, position.x + 21, position.y + 26, 2, 1 , COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->enemy_shoot, position.x + 21, position.y + 26, -2, 1 , COLLIDER_ENEMY_SHOT);
+	if (App->mine->pause == false) {
+		now = SDL_GetTicks() - start_time;
+		if (now > 3000) {
+			App->particles->AddParticle(App->particles->enemy_shoot, position.x + 21, position.y + 26, 2, 1, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->enemy_shoot, position.x + 21, position.y + 26, -2, 1, COLLIDER_ENEMY_SHOT);
 			start_time = SDL_GetTicks();
-		;
+			
+		}
 	}
 
 }

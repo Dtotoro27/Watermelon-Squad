@@ -4,6 +4,7 @@
 #include "ModuleTextures.h"
 #include "ModuleParticles.h"
 #include "ModulePlayer.h"
+#include "ModuleMine.h"
 #include "SDL/include/SDL_timer.h"
 
 #include <math.h>
@@ -42,30 +43,30 @@ Enemy_FlyingMachine4::Enemy_FlyingMachine4(int x, int y) : Enemy(x, y)
 
 void Enemy_FlyingMachine4::Move()
 {
-
-	position = originalpos + movement.GetCurrentPosition();
-
+	if (App->mine->pause == false) {
+		position = originalpos + movement.GetCurrentPosition();
+	}
 }
 
 void Enemy_FlyingMachine4::Shoot() {
+	if (App->mine->pause == false) {
+		now = SDL_GetTicks() - start_time;
+		if (now > 3000) {
+			shootspeed_x = (App->player->position.x - (position.x));
+			shootspeed_y = (App->player->position.y - (position.y));
 
-	now = SDL_GetTicks() - start_time;
-	if (now >  3000) {
-		shootspeed_x = (App->player->position.x - (position.x));
-		shootspeed_y = (App->player->position.y - (position.y));
+			vmodule = sqrt((shootspeed_x*shootspeed_x) + (shootspeed_y*shootspeed_y));
 
-		vmodule = sqrt((shootspeed_x*shootspeed_x) + (shootspeed_y*shootspeed_y));
-
-		shootspeed_x_u = (shootspeed_x / vmodule) * 5;
-		shootspeed_y_u = (shootspeed_y / vmodule) * 5;
+			shootspeed_x_u = (shootspeed_x / vmodule) * 5;
+			shootspeed_y_u = (shootspeed_y / vmodule) * 5;
 
 
-		if (shootspeed_y_u >= 0 && now > 3000) {
+			if (shootspeed_y_u >= 0 && now > 3000) {
 
-		App->particles->AddParticle(App->particles->enemy_shoot, position.x + 21, position.y + 26, shootspeed_x_u, shootspeed_y_u - 1.88f, COLLIDER_ENEMY_SHOT);
-		start_time=SDL_GetTicks();
+				App->particles->AddParticle(App->particles->enemy_shoot, position.x + 21, position.y + 26, shootspeed_x_u, shootspeed_y_u - 1.88f, COLLIDER_ENEMY_SHOT);
+				start_time = SDL_GetTicks();
+			}
+
 		}
-
 	}
-
 }

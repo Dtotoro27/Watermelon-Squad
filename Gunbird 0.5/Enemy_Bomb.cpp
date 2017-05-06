@@ -1,5 +1,6 @@
 #include "Application.h"
 #include "Enemy_Bomb.h"
+#include "ModuleMine.h"
 #include "ModuleCollision.h"
 
 
@@ -51,5 +52,7 @@ Enemy_Bomb::Enemy_Bomb(int x, int y) : Enemy(x, y)
 
 void Enemy_Bomb::Move()
 {
-	position = originalpos + movement.GetCurrentPosition();
+	if (App->mine->pause == false) {
+		position = originalpos + movement.GetCurrentPosition();
+	}
 }

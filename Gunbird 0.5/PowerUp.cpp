@@ -1,5 +1,6 @@
 #include "Application.h"
 #include "PowerUp.h"
+#include "ModuleMine.h"
 #include "ModuleCollision.h"
 
 
@@ -40,5 +41,7 @@ PowerUp::PowerUp(int x, int y) : Enemy(x, y)
 
 void PowerUp::Move()
 {
-	position = originalpos + movement.GetCurrentPosition();
+	if (App->mine->pause == false) {
+		position = originalpos + movement.GetCurrentPosition();
+	}
 }
