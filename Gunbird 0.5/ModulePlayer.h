@@ -42,8 +42,8 @@ public:
 	iPoint camera_limits;
 	iPoint time;
 	int powerUps = 0;
-	int lifes = 2;
-	int position_lifes;
+	int lives = 2;
+	int position_lives;
 
 
 

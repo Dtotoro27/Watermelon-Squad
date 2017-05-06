@@ -59,8 +59,9 @@ bool ModulePlayer::Start()
 	LOG("Loading player textures");
 	bool ret = true;
 	position.x = 100;
-	position_lifes = 21;
+	position_lives = 21;
 	position.y = (camera_limits.y + 300);
+	lives = 2;
 
 	graphics = App->textures->Load("assets/characters/ash.png");
 	playerhitbox = App->collision->AddCollider({ position.x, position.y, 19, 32 }, COLLIDER_PLAYER, this);
@@ -181,16 +182,16 @@ update_status ModulePlayer::Update()
 	}
 
 
-	// PLAYER LIFES
+	// PLAYER LIVES
 
-	if (lifes == 2) {
+	if (lives == 2) {
 		App->render->Blit(graphics, 6, camera_limits.y + 21, &(life_indicator.GetCurrentFrame()));
 		App->render->Blit(graphics, 22, camera_limits.y + 21, &(life_indicator.GetCurrentFrame()));
 	}
-	if (lifes == 1) {
+	if (lives == 1) {
 		App->render->Blit(graphics, 6, camera_limits.y+21, &(life_indicator.GetCurrentFrame()));
 	}
-	//else if(App->player->lifes = 1){}
+
 
 	
 
@@ -211,14 +212,14 @@ void  ModulePlayer::OnCollision(Collider *c1, Collider *c2) {
 
 			else {
 				if (godmode == false) {
-					if (lifes == 0) {
+					if (lives == 0) {
 						App->particles->AddParticle(App->particles->dead, position.x - 5, position.y - 25, 0, 0, COLLIDER_NONE, 150);
 						App->textures->Unload(graphics);
 						App->fade->FadeToBlack((Module*)App->mine, (Module*)App->congrats);
 						destroyed = true;
 					}
 					else {
-						lifes--;
+						lives--;
 						App->particles->AddParticle(App->particles->dead, position.x - 5, position.y - 25, 0, 0, COLLIDER_NONE, 150);
 						position.x = 100;
 						position.y = camera_limits.y + 300;
