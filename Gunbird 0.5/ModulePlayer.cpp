@@ -16,6 +16,7 @@
 #include "Enemy.h"
 #include "PowerUp.h"
 
+
 #include<stdio.h>
 
 ModulePlayer::ModulePlayer()
@@ -181,11 +182,11 @@ update_status ModulePlayer::Update()
 
 	// PLAYER LIFES
 
-	if (lifes == 3) {
+	if (lifes == 2) {
 		App->render->Blit(graphics, 6, camera_limits.y + 21, &(life_indicator.GetCurrentFrame()));
 		App->render->Blit(graphics, 22, camera_limits.y + 21, &(life_indicator.GetCurrentFrame()));
 	}
-	if (lifes > 0 && lifes < 3) {
+	if (lifes == 1) {
 		App->render->Blit(graphics, 6, camera_limits.y+21, &(life_indicator.GetCurrentFrame()));
 	}
 	//else if(App->player->lifes = 1){}
@@ -204,7 +205,7 @@ void  ModulePlayer::OnCollision(Collider *c1, Collider *c2) {
 		if (c2->type == COLLIDER_TYPE::COLLIDER_POWER_UP) {
 
 			powerUps = 1;
- 		}
+		}
 
 		else {
 			if (godmode == false) {
@@ -215,13 +216,13 @@ void  ModulePlayer::OnCollision(Collider *c1, Collider *c2) {
 					destroyed = true;
 				}
 				else {
-					App->textures->Unload(graphics);
 					lifes--;
 					App->particles->AddParticle(App->particles->dead, position.x - 5, position.y - 25, 0, 0, COLLIDER_NONE, 150);
-					dead = true;
+					position.x = 100;
+					position.y = camera_limits.y + 300;
 				}
 			}
-			else {}
 		}
 	}
 }
+

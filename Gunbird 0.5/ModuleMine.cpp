@@ -74,7 +74,6 @@ bool ModuleMine::Start()
 	LOG("Loading background assets");
 
 	App->player2->score = 0;
-	App->player->lifes = 3;
 
 	mineworkeractive.y = 0;
 
@@ -249,18 +248,6 @@ update_status ModuleMine::Update()
 		App->enemies->AddEnemy(ENEMY_TYPES::BOMB2, 162, -4594);
 		App->enemies->AddEnemy(ENEMY_TYPES::BOMB2, 192, -4614);
 
-	}
-	
-
-	if (App->player->dead == true) {
-		App->player->Disable();
-		App->player->dead = false;
-	}
-	else {
-		if (App->player->IsEnabled()) {}
-		else {
-			App->player->Enable();
-		}
 	}
 
 	mineworkeractive.y += 1;

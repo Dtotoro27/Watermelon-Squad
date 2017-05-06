@@ -42,9 +42,10 @@ public:
 	iPoint camera_limits;
 	iPoint time;
 	int powerUps = 0;
-	int lifes = 3;
-	bool dead = false;
+	int lifes = 2;
 	int position_lifes;
+
+
 
 };
 
