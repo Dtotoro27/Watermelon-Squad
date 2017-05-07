@@ -13,6 +13,10 @@ struct Collider;
 
 class ModulePlayer : public Module
 {
+
+private:
+	int delay = 0;
+	bool shooting;
 public:
 	ModulePlayer();
 	~ModulePlayer();
@@ -50,3 +54,5 @@ public:
 };
 
 #endif
+
+

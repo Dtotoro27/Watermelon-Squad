@@ -111,17 +111,58 @@ update_status ModulePlayer2::Update()
 			}
 		}
 
-		if (App->input->keyboard[SDL_SCANCODE_V] == KEY_STATE::KEY_DOWN)
+		if (App->input->keyboard[SDL_SCANCODE_V] == KEY_STATE::KEY_DOWN || 0 < delay)
 		{
+			shooting = true;
 			if (powerUps == 0) {
-				App->particles->AddParticle(App->particles->laser, position.x + 2, position.y - 50, 0, -10, COLLIDER_PLAYER_2_SHOT);
-				App->audio->PlayFX(audio_shot);
+				if (delay == 0) {
+					App->particles->AddParticle(App->particles->laser, position.x + 2, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+					App->audio->PlayFX(audio_shot);
+				}
+				if (delay == 7) {
+					App->particles->AddParticle(App->particles->laser, position.x + 2, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+					App->audio->PlayFX(audio_shot);
+				}
+				if (delay == 14) {
+					App->particles->AddParticle(App->particles->laser, position.x + 2, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+					App->audio->PlayFX(audio_shot);
+				}
+				if (delay == 21) {
+					App->particles->AddParticle(App->particles->laser, position.x + 2, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+					App->audio->PlayFX(audio_shot);
+					shooting = false;
+					delay = 0;
+				}
+				if (shooting == true) {
+					delay++;
+				}
+				//App->audio->LoadFX("Audio/shoot_ash.wav");
 			}
 			if (powerUps == 1) {
-				App->particles->AddParticle(App->particles->laser2, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_2_SHOT);
-				App->audio->PlayFX(audio_shot);
-			}
+				//App->audio->LoadFX("Audio/shoot_ash.wav");
 
+				if (delay == 0) {
+					App->particles->AddParticle(App->particles->laser2, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+					App->audio->PlayFX(audio_shot);
+				}
+				if (delay == 7) {
+					App->particles->AddParticle(App->particles->laser2, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+					App->audio->PlayFX(audio_shot);
+				}
+				if (delay == 14) {
+					App->particles->AddParticle(App->particles->laser2, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+					App->audio->PlayFX(audio_shot);
+				}
+				if (delay == 21) {
+					App->particles->AddParticle(App->particles->laser2, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+					App->audio->PlayFX(audio_shot);
+					shooting = false;
+					delay = 0;
+				}
+				if (shooting == true) {
+					delay++;
+				}
+			}
 		}
 
 		if (App->input->keyboard[SDL_SCANCODE_F3]) {
