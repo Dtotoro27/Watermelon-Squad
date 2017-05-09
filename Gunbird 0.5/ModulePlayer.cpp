@@ -221,11 +221,32 @@ update_status ModulePlayer::Update()
 	// Draw everything --------------------------------------
 	SDL_Rect r = current_animation->GetCurrentFrame();
 
+	if (dead == true) {
+		if (delay2 < 100) {
+			App->render->Blit(graphics, 100, position_immortal.y, &(immortal.GetCurrentFrame()));
+			if (position_immortal.y != camera_limits.y + 266) {
+				position_immortal.y -= 2;
+			}
+		}
+		if (delay2 == 100) {
+			position.x = 100;
+			position.y =camera_limits.y + 300;
+			App->render->Blit(graphics, position.x, position.y - r.h, &(immortal.GetCurrentFrame()));
+		}
+		if (delay2 == 300) {
+			playerhitbox = App->collision->AddCollider({ position.x, position.y, 19, 32 }, COLLIDER_PLAYER, this);
+			delay2 = 0;
+			dead = false;
+		}
+		else
+			delay2++;
+	}
+
 	sprintf_s(score_text, 10, "%7d", score);
 
 
 
-	if (time.x > 150) {
+	if (time.x > 150 && dead == false) {
 		App->render->Blit(graphics, position.x, position.y - r.h, &r);
 	}
 	else {
@@ -273,8 +294,10 @@ void  ModulePlayer::OnCollision(Collider *c1, Collider *c2) {
 					else {
 						lives--;
 						App->particles->AddParticle(App->particles->dead, position.x - 5, position.y - 25, 0, 0, COLLIDER_NONE, 150);
-						position.x = 100;
-						position.y = camera_limits.y + 300;
+						position.y = camera_limits.y + 800;
+						position_immortal.y = camera_limits.y + 350;
+						App->collision->EraseCollider(playerhitbox);
+						dead = true;
 					}
 				}
 			}

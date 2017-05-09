@@ -17,6 +17,8 @@ class ModulePlayer : public Module
 private:
 	int delay = 0;
 	bool shooting;
+	int delay2 = 0;
+	bool dead = false;
 public:
 	ModulePlayer();
 	~ModulePlayer();
@@ -45,6 +47,7 @@ public:
 	iPoint position;
 	iPoint camera_limits;
 	iPoint time;
+	iPoint position_immortal;
 	int powerUps = 0;
 	int lives = 2;
 	int position_lives;
