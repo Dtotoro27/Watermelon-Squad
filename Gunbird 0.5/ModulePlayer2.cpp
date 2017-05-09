@@ -50,7 +50,7 @@ bool ModulePlayer2::Start()
 	graphics = App->textures->Load("assets/characters/ash.png"); // arcade version
 	player2hitbox = App->collision->AddCollider({ position.x, position.y, 19, 32 }, COLLIDER_PLAYER, this);
 	font_score = App->fonts->Load("assets/numbers.png", "0123456789", 1);
-	audio_shot = App->audio->LoadFX("assets/Audio/shoot_ash.wav");
+	//audio_shot = App->audio->LoadFX("assets/Audio/shoot_ash.wav");
 	score = 0;
 	return ret;
 }
@@ -117,19 +117,19 @@ update_status ModulePlayer2::Update()
 			if (powerUps == 0) {
 				if (delay == 0) {
 					App->particles->AddParticle(App->particles->laser, position.x + 2, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
-					App->audio->PlayFX(audio_shot);
+					//App->audio->PlayFX(audio_shot);
 				}
 				if (delay == 7) {
 					App->particles->AddParticle(App->particles->laser, position.x + 2, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
-					App->audio->PlayFX(audio_shot);
+					//App->audio->PlayFX(audio_shot);
 				}
 				if (delay == 14) {
 					App->particles->AddParticle(App->particles->laser, position.x + 2, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
-					App->audio->PlayFX(audio_shot);
+					//App->audio->PlayFX(audio_shot);
 				}
 				if (delay == 21) {
 					App->particles->AddParticle(App->particles->laser, position.x + 2, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
-					App->audio->PlayFX(audio_shot);
+					//App->audio->PlayFX(audio_shot);
 					shooting = false;
 					delay = 0;
 				}
@@ -143,19 +143,19 @@ update_status ModulePlayer2::Update()
 
 				if (delay == 0) {
 					App->particles->AddParticle(App->particles->laser2, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
-					App->audio->PlayFX(audio_shot);
+					//App->audio->PlayFX(audio_shot);
 				}
 				if (delay == 7) {
 					App->particles->AddParticle(App->particles->laser2, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
-					App->audio->PlayFX(audio_shot);
+					//App->audio->PlayFX(audio_shot);
 				}
 				if (delay == 14) {
 					App->particles->AddParticle(App->particles->laser2, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
-					App->audio->PlayFX(audio_shot);
+					//App->audio->PlayFX(audio_shot);
 				}
 				if (delay == 21) {
 					App->particles->AddParticle(App->particles->laser2, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
-					App->audio->PlayFX(audio_shot);
+					//App->audio->PlayFX(audio_shot);
 					shooting = false;
 					delay = 0;
 				}

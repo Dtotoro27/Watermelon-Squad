@@ -39,7 +39,7 @@ bool ModuleWelcome::Start()
 	bool ret = true;
 	welcometexture = App->textures->Load("assets/background_welcome.png");
 	gameovertexture = App->textures->Load("assets/ui.png");
-	App->audio->LoadMusic(music_welcome);
+	//App->audio->LoadMusic(music_welcome);
 	
 
 
@@ -50,7 +50,7 @@ bool ModuleWelcome::CleanUp()
 {
 	App->textures->Unload(welcometexture);
 	App->textures->Unload(gameovertexture);
-	App->audio->UnLoadMusic(music_welcome);
+	//App->audio->UnLoadMusic(music_welcome);
 	App->welcome->Disable();
 	LOG("Unloading stage");
 	return true;

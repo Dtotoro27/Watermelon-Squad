@@ -190,7 +190,6 @@ bool ModuleCharacterSelect::CleanUp()
 	App->textures->Unload(tetsu_texture);
 	App->textures->Unload(valnus_texture);
 	App->textures->Unload(yuan_texture);
-	App->audio->UnLoadMusic(music_welcome);
 	App->characterselect->Disable();
 	
 

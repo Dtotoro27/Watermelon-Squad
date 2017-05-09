@@ -40,7 +40,7 @@ public:
 	void OnCollision(Collider* c1, Collider* c2);
 
 	bool AddEnemy(ENEMY_TYPES type, int x, int y);
-	uint audio_explosion;
+//	uint audio_explosion;
 
 private:
 

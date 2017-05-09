@@ -23,7 +23,7 @@ public:
 	bool CleanUp();
 	void OnCollision(Collider *c1, Collider *c2);
 	bool ModulePlayer2::GodMode(bool godmode2);
-	uint audio_shot;
+	//uint audio_shot;
 
 public:
 
