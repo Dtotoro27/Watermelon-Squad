@@ -181,9 +181,36 @@ update_status ModulePlayer2::Update()
 	// Draw everything --------------------------------------
 	SDL_Rect r = current_animation->GetCurrentFrame();
 
+	if (dead == true) {
+		if (delay2 < 100) {
+			App->render->Blit(graphics, 100, position_immortal.y, &(App->player->immortal.GetCurrentFrame()));
+			if (position_immortal.y != App->player->camera_limits.y + 266) {
+				position_immortal.y -= 2;
+			}
+		}
+		if (delay2 == 100) {
+			position.x = 100;
+			position.y = App->player->camera_limits.y + 300;
+			App->render->Blit(graphics, position.x, position.y - r.h, &(App->player->immortal.GetCurrentFrame()));
+		}
+		if (delay2 == 300) {
+			player2hitbox = App->collision->AddCollider({ position.x, position.y, 19, 32 }, COLLIDER_PLAYER, this);
+			delay2 = 0;
+			dead = false;
+		}
+		else
+			delay2++;
+	}
+
 	sprintf_s(score_text, 10, "%7d", score);
 
-	App->render->Blit(graphics, position.x, position.y - r.h, &r);
+	if (dead == false) {
+		App->render->Blit(graphics, position.x, position.y - r.h, &r);
+	}
+	else {
+		App->render->Blit(graphics, position.x, position.y - r.h, &(App->player->immortal.GetCurrentFrame()));
+	}
+
 
 	return UPDATE_CONTINUE;
 }
@@ -201,13 +228,20 @@ void  ModulePlayer2::OnCollision(Collider *c1, Collider *c2) {
 
 		else {
 			if (godmode2 == false) {
-
-				App->particles->AddParticle(App->particles->dead, position.x - 5, position.y - 25, 0, 0, COLLIDER_NONE, 150); 
-				App->textures->Unload(graphics);
-				App->fade->FadeToBlack((Module*)App->mine, (Module*)App->congrats);
-
-
-				destroyed = true;
+				if (lives == 0) {
+					App->particles->AddParticle(App->particles->dead, position.x - 5, position.y - 25, 0, 0, COLLIDER_NONE, 150);
+					App->textures->Unload(graphics);
+					App->fade->FadeToBlack((Module*)App->mine, (Module*)App->congrats);
+					destroyed = true;
+				}
+				else {
+					lives--;
+					App->particles->AddParticle(App->particles->dead, position.x - 5, position.y - 25, 0, 0, COLLIDER_NONE, 150);
+					position.y = App->player->camera_limits.y + 800;
+					position_immortal.y = App->player->camera_limits.y + 350;
+					App->collision->EraseCollider(player2hitbox);
+					dead = true;
+				}
 			}
 			else {}
 		}
