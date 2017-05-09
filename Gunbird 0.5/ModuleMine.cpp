@@ -61,6 +61,8 @@ bool ModuleMine::Start()
 
 	App->player2->score = 0;
 	pause = false;
+	sea_speed = 0.22f;
+	sea_x = -64;
 
 
 	seatexture = App->textures->Load("assets/background_sea_1.png");
@@ -134,9 +136,19 @@ update_status ModuleMine::Update()
 	}
 
 	//Background--------------------------
-	App->render->Blit(seatexture, -64, -2372 + SCREEN_HEIGHT, &(sea_animation.GetCurrentFrame()), 0.18f);
-	App->render->Blit(rocktexture, 0, 44, &(rock1.GetCurrentFrame()), 0.18f);
-	App->render->Blit(rocktexture, 156, 163, &(rock2.GetCurrentFrame()), 0.18f);
+	App->render->Blit(seatexture, sea_x, -2372 + SCREEN_HEIGHT, &(sea_animation.GetCurrentFrame()), sea_speed);
+	App->render->Blit(rocktexture, 0, 44, &(rock1.GetCurrentFrame()), sea_speed);
+	App->render->Blit(rocktexture, 156, 163, &(rock2.GetCurrentFrame()), sea_speed);
+
+	if (delay > 5200) {
+		if (sea_x < 0) {
+			sea_x += 0.4;
+		}
+		
+	}
+	else {
+		delay++;
+	}
 
 
 
@@ -156,7 +168,7 @@ update_status ModuleMine::Update()
 	App->render->Blit(startplayer2texture, 5, 6, &(p1.GetCurrentFrame()), 0);
 
 
-	if (App->render->camera.y <= 10000) {
+	if (App->render->camera.y <= 100000) {
 		App->render->camera.y += SCROLL_SPEED;
 	}
 

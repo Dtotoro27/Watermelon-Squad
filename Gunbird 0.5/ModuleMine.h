@@ -10,6 +10,10 @@ struct SDL_Texture;
 
 class ModuleMine : public Module
 {
+private: 
+	int delay;
+	float sea_speed;
+	float sea_x;
 public:
 	ModuleMine();
 	~ModuleMine();
