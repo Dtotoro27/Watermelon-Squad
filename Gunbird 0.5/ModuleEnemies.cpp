@@ -35,7 +35,7 @@ bool ModuleEnemies::Start()
 	// Create a prototype for each enemy available so we can copy them around
 	sprites = App->textures->Load("assets/enemies.png");
 	big_enemy_life = 5;
-	audio_explosion = App->audio->LoadFX("assets/Audio/explosion.wav");
+	//audio_explosion = App->audio->LoadFX("assets/Audio/explosion.wav");
 
 
 
@@ -214,7 +214,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 
 				if (big_enemy_life == 0) {
 					App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x - 25, enemies[i]->position.y - 25, 0, 0);
-					App->audio->PlayFX(audio_explosion);
+					//App->audio->PlayFX(audio_explosion);
 					if (c2->type == COLLIDER_PLAYER_2_SHOT) {
 						App->player2->score+= 500;
 					}
@@ -241,7 +241,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 
 
 				App->particles->AddParticle(App->particles->littleexplosion, enemies[i]->position.x, enemies[i]->position.y - 5, 0, 0);
-				App->audio->PlayFX(audio_explosion);
+				//App->audio->PlayFX(audio_explosion);
 
 				delete enemies[i];
 				enemies[i] = nullptr;

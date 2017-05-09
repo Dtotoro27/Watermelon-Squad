@@ -25,7 +25,7 @@ public:
 	update_status Update();
 	bool CleanUp();
 	void OnCollision(Collider *c1, Collider *c2);
-	uint audio_shot;
+	//uint audio_shot;
 
 public:
 
