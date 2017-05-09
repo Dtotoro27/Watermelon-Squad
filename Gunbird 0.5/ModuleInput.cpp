@@ -48,6 +48,7 @@ update_status ModuleInput::PreUpdate()
 	SDL_PumpEvents();
 
 	const Uint8* keys = SDL_GetKeyboardState(NULL);
+	int buttons[] = SDL_GameControllerButton();
 
 	for (int i = 0; i < MAX_KEYS; ++i)
 	{
@@ -66,33 +67,58 @@ update_status ModuleInput::PreUpdate()
 				keyboard[i] = KEY_IDLE;
 		}
 	}
+	for (int i = 0; i < MAX_KEYS; ++i)
+	{
+		if (buttons[i] == 1)
+		{
+			if (keyboard[i] == KEY_IDLE)
+				keyboard[i] = KEY_DOWN;
+			else
+				keyboard[i] = KEY_REPEAT;
+		}
+		else
+		{
+			if (keyboard[i] == KEY_REPEAT || keyboard[i] == KEY_DOWN)
+				keyboard[i] = KEY_UP;
+			else
+				keyboard[i] = KEY_IDLE;
+		}
+	}
 
-
+	/*
 	if (SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_A) == 1) {
-			state = 1;
+		if (state == GC_STATE::GC_IDLE) {
+			state = GC_STATE::GC_A;
+		}
+		else {
+			state = GC_STATE::GC_IDLE;
+		}
 	}
 	else if (SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_B) == 1) {
-		state = 2;
+		state = GC_STATE::GC_A;
 	}
 	else if (SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_X) == 1) {
-		state = 3;
+		state = GC_STATE::GC_A;
 	}
 	else if (SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_Y) == 1) {
-		state = 4;
+		state = GC_STATE::GC_A;
 	}
+	else
+		state = GC_STATE::GC_IDLE;
 
 	if (SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_DPAD_UP) == 1) {
-		dpad_state = 1;
+		dpad_state = DPAD_STATE::DPAD_UP;
 	}
 	else if (SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_DPAD_DOWN) == 1) {
-		dpad_state = 2;
+		dpad_state = DPAD_STATE::DPAD_DOWN;
 	}
 	else if (SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_DPAD_LEFT) == 1) {
-		dpad_state = 3;
+		dpad_state = DPAD_STATE::DPAD_LEFT;
 	}
 	else if (SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_DPAD_RIGHT) == 1) {
-		dpad_state = 4;
+		dpad_state = DPAD_STATE::DPAD_RIGHT;
 	}
+	*/
 	
 
 	if (keyboard[SDL_SCANCODE_ESCAPE]) {

@@ -97,63 +97,63 @@ update_status ModulePlayer::Update()
 	camera_limits.y -= 1;
 
 	if (App->mine->pause == false) {
-		if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT || App->input->dpad_state == 4)
+		if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT)
 		{
 			current_animation = &right;
 			if (position.x < SCREEN_WIDTH - ASH_WIDTH) {
 				position.x += speed;
 			}
-			App->input->dpad_state = 0;
+			App->input->dpad_state = DPAD_STATE::DPAD_IDLE;
 		}
 
-		if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT || App->input->dpad_state == 3)
+		if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT)
 		{
 			current_animation = &left;
 			if (position.x > 0) {
 				position.x -= speed;
 			}
-			App->input->dpad_state = 0;
+			App->input->dpad_state = DPAD_STATE::DPAD_IDLE;
 		}
 
-		if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT || App->input->dpad_state == 1)
+		if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT)
 		{
 			if (position.y > camera_limits.y + ASH_HEIGHT + 35) {
 				position.y -= speed;
 			}
-			App->input->dpad_state = 0;
+			App->input->dpad_state = DPAD_STATE::DPAD_IDLE;
 		}
 
-		if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT || App->input->dpad_state == 2)
+		if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT)
 		{
 			if (position.y < camera_limits.y + SCREEN_HEIGHT) {
 				position.y += speed;
 			}
-			App->input->dpad_state = 0;
+			App->input->dpad_state = DPAD_STATE::DPAD_IDLE;
 		}
 
-		if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN || 0 < delay || App->input->state == 1)
+		if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN || 0 < delay)
 		{
 			shooting = true;
 			if (powerUps == 0) {
 				if (delay == 0) {
 					App->particles->AddParticle(App->particles->laser, position.x + 2, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
 					App->audio->PlayFX(audio_shot);
-					App->input->state = 0;
+					App->input->state == GC_STATE::GC_IDLE;
 				}
 				if (delay ==7) {
 					App->particles->AddParticle(App->particles->laser, position.x + 2, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
 					App->audio->PlayFX(audio_shot);
-					App->input->state = 0;
+					App->input->state == GC_STATE::GC_IDLE;
 				}
 				if (delay == 14) {
 					App->particles->AddParticle(App->particles->laser, position.x + 2, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
 					App->audio->PlayFX(audio_shot);
-					App->input->state = 0;
+					App->input->state == GC_STATE::GC_IDLE;
 				}
 				if (delay == 21) {
 					App->particles->AddParticle(App->particles->laser, position.x + 2, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
 					App->audio->PlayFX(audio_shot);
-					App->input->state = 0;
+					App->input->state == GC_STATE::GC_IDLE;
 					shooting = false;
 					delay = 0;
 				}
@@ -168,22 +168,22 @@ update_status ModulePlayer::Update()
 				if (delay == 0) {
 					App->particles->AddParticle(App->particles->laser2, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
 					App->audio->PlayFX(audio_shot);
-					App->input->state = 0;
+					App->input->state == GC_STATE::GC_IDLE;
 				}
 				if (delay == 7) {
 					App->particles->AddParticle(App->particles->laser2, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
 					App->audio->PlayFX(audio_shot);
-					App->input->state = 0;
+					App->input->state == GC_STATE::GC_IDLE;
 				}
 				if (delay == 14) {
 					App->particles->AddParticle(App->particles->laser2, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
 					App->audio->PlayFX(audio_shot);
-					App->input->state = 0;
+					App->input->state == GC_STATE::GC_IDLE;
 				}
 				if (delay == 21) {
 					App->particles->AddParticle(App->particles->laser2, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
 					App->audio->PlayFX(audio_shot);
-					App->input->state = 0;
+					App->input->state == GC_STATE::GC_IDLE;
 					shooting = false;
 					delay = 0;
 				}
