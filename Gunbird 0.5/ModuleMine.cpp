@@ -19,45 +19,31 @@
 ModuleMine::ModuleMine()
 {
 	// Background 
-	mine.x = 0;
-	mine.y = 0;
-	mine.w = 234;
-	mine.h = 3535;
+
+	sea_animation.PushBack({ 0, 0, 288, 2399 });
+	sea_animation.PushBack({ 288, 0, 288, 2399 });
+	sea_animation.PushBack({ 576, 0, 288, 2399 });
+	sea_animation.PushBack({ 864, 0, 288, 2399 });
+	sea_animation.PushBack({ 1152, 0, 288, 2399 });
+	sea_animation.PushBack({ 864, 0, 288, 2399 });
+	sea_animation.PushBack({ 576, 0, 288, 2399 });
+	sea_animation.PushBack({ 288, 0, 288, 2399 });
+	sea_animation.speed = 0.1;
+
+	rock1.PushBack({0,0,46,175});
+	rock1.PushBack({ 46,0,46,175 });
+	rock1.PushBack({ 92,0,46,175 });
+	rock1.PushBack({ 46,0,46,175 });
+	rock1.speed = 0.06;
+
+	rock2.PushBack({0,187,68,155});
+	rock2.PushBack({ 68,187,68,155 });
+	rock2.PushBack({ 137,187,68,155 });
+	rock2.PushBack({ 206,187,68,155 });
+	rock2.speed = 0.06;
 
 	p1.PushBack({ 10, 68, 15, 12 });
 	p2.PushBack({ 30,67,16,12 });
-
-	mineworkerwalkleft.PushBack({ 58, 8, 11, 22 });
-	mineworkerwalkleft.PushBack({ 83, 8, 11, 23 });
-	mineworkerwalkleft.PushBack({ 107, 8, 13, 22 });
-	mineworkerwalkleft.PushBack({ 83, 8, 11, 23 });
-	mineworkerwalkleft.speed = 0.08f;
-
-	mineworkerwalkright.PushBack({ 61, 45, 11, 22 });
-	mineworkerwalkright.PushBack({ 83, 45, 11, 23 });
-	mineworkerwalkright.PushBack({ 107, 45, 12, 22 });
-	mineworkerwalkright.speed = 0.08f;
-
-	mineanimation.PushBack({ 13,27,175,85 });
-	mineanimation.PushBack({ 197,27,175,85 });
-	mineanimation.PushBack({ 392,27,175,85 });
-	mineanimation.PushBack({ 585,27,175,85 });
-	mineanimation.PushBack({ 8,131,175,85 });
-	mineanimation.PushBack({ 197,131,175,85 });
-	mineanimation.PushBack({ 392,123,175,85 });
-	mineanimation.PushBack({ 585,131,175,85 });
-	mineanimation.speed = 0.05f;
-
-	mineworkerstand.PushBack({ 2,8,13,22 });
-	mineworkerstand.PushBack({ 21,8,14,23 });
-	mineworkerstand.PushBack({ 38,8,16,22 });
-	mineworkerstand.PushBack({ 7,79,15,22 });
-	mineworkerstand.PushBack({ 27,79,15,23 });
-	mineworkerstand.PushBack({ 53,80,15,22 });
-	mineworkerstand.PushBack({ 1,46,16,22 });
-	mineworkerstand.PushBack({ 20,45,14,23 });
-	mineworkerstand.PushBack({ 40,45,13,22 });
-	mineworkerstand.speed = 0.03f;
 
 	startplayer2animation.PushBack({ 6, 5, 68, 15 });
 	startplayer2animation.PushBack({ 6, 28,68, 13 });
@@ -75,18 +61,12 @@ bool ModuleMine::Start()
 
 	App->player2->score = 0;
 	pause = false;
-	mineworkeractive.y = 0;
-
-	mineworker_x = 59;
-    mineworker_x2 = 137;
-	mineworker_x3 = 16;
 
 
-	minetexture = App->textures->Load("assets/background_mine.png");
-	mineanimationtexture = App->textures->Load("assets/background_mine_animation.png");
+	seatexture = App->textures->Load("assets/background_sea_1.png");
+	rocktexture = App->textures->Load("assets/background_sea_2.png");
 	startplayer2texture = App->textures->Load("assets/ui.png");
-	minetexture2 = App->textures->Load("assets/background_mine_2.png");
-	mineworkertexture = App->textures->Load("assets/mineworker.png");
+
 	//App->audio->LoadMusic(music_level1);
 
 
@@ -122,11 +102,9 @@ bool ModuleMine::CleanUp()
 	App->particles->Disable();
 	App->player->Disable();
 	App->player2->Disable();
-	App->textures->Unload(minetexture);
+	App->textures->Unload(seatexture);	
+	App->textures->Unload(rocktexture);
 	App->textures->Unload(startplayer2texture);
-	App->textures->Unload(minetexture2);
-	App->textures->Unload(mineworkertexture);
-	App->textures->Unload(mineanimationtexture);
 	//App->audio->UnLoadMusic(music_level1);
 	App->mine->Disable();
 	
@@ -156,24 +134,11 @@ update_status ModuleMine::Update()
 	}
 
 	//Background--------------------------
-	App->render->Blit(minetexture, 0, -3535 + SCREEN_HEIGHT, &mine, 0.18f);
-	App->render->Blit(mineanimationtexture, 16, -796, &(mineanimation.GetCurrentFrame()), 0.18f);
-	App->render->Blit(minetexture2, 0, -3535 + SCREEN_HEIGHT, &mine, 0.22f);
+	App->render->Blit(seatexture, -64, -2372 + SCREEN_HEIGHT, &(sea_animation.GetCurrentFrame()), 0.18f);
+	App->render->Blit(rocktexture, 0, 44, &(rock1.GetCurrentFrame()), 0.18f);
+	App->render->Blit(rocktexture, 156, 163, &(rock2.GetCurrentFrame()), 0.18f);
 
 
-	//Mineworkers--------------------------
-	if (mineworkeractive.y < 2500) {
-		App->render->Blit(mineworkertexture, mineworker_x, 100, &(mineworkerwalkleft.GetCurrentFrame()), 0.22f);
-		App->render->Blit(mineworkertexture, 16, -439, &(mineworkerstand.GetCurrentFrame()), 0.22f);
-		App->render->Blit(mineworkertexture, 137, -460, &(mineworkerstand.GetCurrentFrame()), 0.22f);
-		mineworker_x -= 0.20;
-	}
-	else {
-		App->render->Blit(mineworkertexture, mineworker_x2, -460, &(mineworkerwalkright.GetCurrentFrame()), 0.22f);
-		App->render->Blit(mineworkertexture, mineworker_x3, -439, &(mineworkerwalkleft.GetCurrentFrame()), 0.22f);
-		mineworker_x2 += 0.2;
-		mineworker_x3 -= 0.2;
-	}
 
 	//UI--------------------------
 
@@ -263,8 +228,6 @@ update_status ModuleMine::Update()
 		App->enemies->AddEnemy(ENEMY_TYPES::BOMB2, 192, -4614);
 
 	}
-
-	mineworkeractive.y += 1;
 
 
 
