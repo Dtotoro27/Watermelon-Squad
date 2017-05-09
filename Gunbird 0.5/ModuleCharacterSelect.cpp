@@ -362,11 +362,12 @@ update_status ModuleCharacterSelect::Update()
 	if (characterselected2 == 4) { p2_x = 136; }
 	if (characterselected2 == 5) { p2_x = 176; }
 
-	if (App->input->keyboard[SDL_SCANCODE_P] && change) {
+	if (App->input->keyboard[SDL_SCANCODE_P] && change || App->input->state == 1 && change) {
 
 		change = false;
 		App->fade->FadeToBlack(this, App->mine, 1);
 		change = true;
+		App->input->state = 0;
 	}
 
 
