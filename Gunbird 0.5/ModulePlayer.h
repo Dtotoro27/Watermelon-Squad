@@ -19,6 +19,9 @@ private:
 	bool shooting;
 	int delay2 = 0;
 	bool dead = false;
+	bool bomb = false;
+
+
 public:
 	ModulePlayer();
 	~ModulePlayer();
@@ -32,6 +35,7 @@ public:
 public:
 
 	SDL_Texture* graphics = nullptr;
+	SDL_Texture* ash_bomb_texture = nullptr;
 	int font_score = -1;
 	char score_text[10];
 	uint score = 0;
@@ -41,16 +45,24 @@ public:
 	Animation left;
 	Animation right;
 	Animation life_indicator;
+
+	Animation ash_bomb_animation;
+	Animation bomb_throw;
+
 	Collider* playerhitbox;
+	Collider* collider_bomb;
 	bool destroyed = false;
 	bool godmode = false;
 	iPoint position;
+	iPoint bomb_position;
 	iPoint camera_limits;
 	iPoint time;
 	iPoint position_immortal;
 	int powerUps = 0;
 	int lives = 2;
 	int position_lives;
+
+
 
 
 

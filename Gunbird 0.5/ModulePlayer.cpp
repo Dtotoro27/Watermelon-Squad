@@ -47,6 +47,111 @@ ModulePlayer::ModulePlayer()
 	immortal.PushBack({ 0,0,0,0 });
 	immortal.speed = 0.1;
 
+	ash_bomb_animation.PushBack({ 0,0,254,254 });
+	ash_bomb_animation.PushBack({ 0,0,0,0 });
+	ash_bomb_animation.PushBack({ 256,0,254,254 });
+	ash_bomb_animation.PushBack({ 0,0,0,0 });
+	ash_bomb_animation.PushBack({ 512,0,254,254 });
+	ash_bomb_animation.PushBack({ 0,0,0,0 });
+	ash_bomb_animation.PushBack({ 768,0,254,254 });
+	ash_bomb_animation.PushBack({ 0,0,0,0 });
+	ash_bomb_animation.PushBack({ 1024,0,254,254 });
+	ash_bomb_animation.PushBack({ 0,0,0,0 });
+	ash_bomb_animation.PushBack({ 1280,0,254,254 });
+	ash_bomb_animation.PushBack({ 0,0,0,0 });
+	ash_bomb_animation.PushBack({ 1536,0,254,254 });
+	ash_bomb_animation.PushBack({ 0,0,0,0 });
+	ash_bomb_animation.PushBack({ 0,256,254,254 });
+	ash_bomb_animation.PushBack({ 0,0,0,0 });
+	ash_bomb_animation.PushBack({ 256,256,254,254 });
+	ash_bomb_animation.PushBack({ 0,0,0,0 });
+	ash_bomb_animation.PushBack({ 512,256,254,254 });
+	ash_bomb_animation.PushBack({ 0,0,0,0 });
+	ash_bomb_animation.PushBack({ 768,256,254,254 });
+	ash_bomb_animation.PushBack({ 0,0,0,0 });
+	ash_bomb_animation.PushBack({ 1024,256,254,254 });
+	ash_bomb_animation.PushBack({ 0,0,0,0 });
+	ash_bomb_animation.PushBack({ 1280,256,254,254 });
+	ash_bomb_animation.PushBack({ 0,0,0,0 });
+	ash_bomb_animation.PushBack({ 1536,256,254,254 });
+	ash_bomb_animation.PushBack({ 0,0,0,0 });
+	ash_bomb_animation.PushBack({ 0,256,254,254 });
+	ash_bomb_animation.PushBack({ 256,256,254,254 });
+	ash_bomb_animation.PushBack({ 0,0,0,0 });
+	ash_bomb_animation.PushBack({ 512,256,254,254 });
+	ash_bomb_animation.PushBack({ 0,0,0,0 });
+	ash_bomb_animation.PushBack({ 768,256,254,254 });
+	ash_bomb_animation.PushBack({ 0,0,0,0 });
+	ash_bomb_animation.PushBack({ 1024,256,254,254 });
+	ash_bomb_animation.PushBack({ 0,0,0,0 });
+	ash_bomb_animation.PushBack({ 1280,256,254,254 });
+	ash_bomb_animation.PushBack({ 0,0,0,0 });
+	ash_bomb_animation.PushBack({ 1536,256,254,254 });
+	ash_bomb_animation.PushBack({ 0,0,0,0 });
+	ash_bomb_animation.PushBack({ 0,256,254,254 });
+	ash_bomb_animation.PushBack({ 0,0,0,0 });
+	ash_bomb_animation.PushBack({ 256,256,254,254 });
+	ash_bomb_animation.PushBack({ 0,0,0,0 });
+	ash_bomb_animation.PushBack({ 512,256,254,254 });
+	ash_bomb_animation.PushBack({ 0,0,0,0 });
+	ash_bomb_animation.PushBack({ 768,256,254,254 });
+	ash_bomb_animation.PushBack({ 0,0,0,0 });
+	ash_bomb_animation.PushBack({ 1024,256,254,254 });
+	ash_bomb_animation.PushBack({ 0,0,0,0 });
+	ash_bomb_animation.PushBack({ 1280,256,254,254 });
+	ash_bomb_animation.PushBack({ 0,0,0,0 });
+	ash_bomb_animation.PushBack({ 1536,256,254,254 });
+	ash_bomb_animation.PushBack({ 0,0,0,0 });
+	ash_bomb_animation.PushBack({ 0,256,254,254 });
+	ash_bomb_animation.PushBack({ 0,0,0,0 });
+	ash_bomb_animation.PushBack({ 256,256,254,254 });
+	ash_bomb_animation.PushBack({ 0,0,0,0 });
+	ash_bomb_animation.PushBack({ 512,256,254,254 });
+	ash_bomb_animation.PushBack({ 0,0,0,0 });
+	ash_bomb_animation.PushBack({ 768,256,254,254 });
+	ash_bomb_animation.PushBack({ 0,0,0,0 });
+	ash_bomb_animation.PushBack({ 1024,256,254,254 });
+	ash_bomb_animation.PushBack({ 0,0,0,0 });
+	ash_bomb_animation.PushBack({ 1280,256,254,254 });
+	ash_bomb_animation.PushBack({ 0,0,0,0 });
+	ash_bomb_animation.PushBack({ 1536,256,254,254 });
+	ash_bomb_animation.PushBack({ 0,0,0,0 });
+	ash_bomb_animation.PushBack({ 256,513,254,254 });
+	ash_bomb_animation.PushBack({ 0,0,0,0 });
+	ash_bomb_animation.PushBack({ 512,513,254,254 });
+	ash_bomb_animation.PushBack({ 0,0,0,0 });
+	ash_bomb_animation.PushBack({ 768,513,254,254 });
+	ash_bomb_animation.PushBack({ 0,0,0,0 });
+	ash_bomb_animation.PushBack({ 1024,513,254,254 });
+	ash_bomb_animation.PushBack({ 0,0,0,0 });
+	ash_bomb_animation.PushBack({ 1280,513,254,254 });
+	ash_bomb_animation.PushBack({ 0,0,0,0 });
+	ash_bomb_animation.PushBack({ 1536,513,254,254 });
+	ash_bomb_animation.PushBack({ 0,0,0,0 });
+	ash_bomb_animation.PushBack({ 0,769,254,254 });
+	ash_bomb_animation.PushBack({ 0,0,0,0 });
+	ash_bomb_animation.PushBack({ 256,769,254,254 });
+	ash_bomb_animation.PushBack({ 0,0,0,0 });
+	ash_bomb_animation.PushBack({ 512,769,254,254 });
+	ash_bomb_animation.PushBack({ 0,0,0,0 });
+	ash_bomb_animation.PushBack({ 768,769,254,254 });
+	ash_bomb_animation.PushBack({ 0,0,0,0 });
+	ash_bomb_animation.PushBack({ 1024,769,254,254 });
+	ash_bomb_animation.PushBack({ 0,0,0,0 });
+	ash_bomb_animation.PushBack({ 1280,769,254,254 });
+	ash_bomb_animation.PushBack({ 0,0,0,0 });
+	ash_bomb_animation.PushBack({ 1536,769,254,254 });
+	ash_bomb_animation.PushBack({ 0,0,0,0 });
+	ash_bomb_animation.speed = 0.7f;
+
+	bomb_throw.PushBack({ 1868,428,10,14 });
+	bomb_throw.PushBack({ 1881,428,10,13 });
+	bomb_throw.PushBack({ 1894,428,10,11 });
+	bomb_throw.PushBack({ 1907,428,10,10 });
+	bomb_throw.PushBack({ 1920,428,10,7 });
+	bomb_throw.PushBack({ 1933,428,10,5 });
+	bomb_throw.speed = 0.08;
+
 	life_indicator.PushBack({ 146,21,11,13 });
 }
 
@@ -64,6 +169,7 @@ bool ModulePlayer::Start()
 	lives = 2;
 
 	graphics = App->textures->Load("assets/characters/ash.png");
+	ash_bomb_texture = App->textures->Load("assets/ash_bomb.png");
 	playerhitbox = App->collision->AddCollider({ position.x, position.y, 19, 32 }, COLLIDER_PLAYER, this);
 	font_score = App->fonts->Load("assets/numbers.png", "0123456789", 1);
 	audio_shot = App->audio->LoadFX("assets/Audio/shoot_ash.wav");
@@ -77,6 +183,7 @@ bool ModulePlayer::CleanUp()
 	LOG("Unloading player");
 
 	App->textures->Unload(graphics);
+	App->textures->Unload(ash_bomb_texture);
 	App->collision->EraseCollider(playerhitbox);
 	App->fonts->UnLoad(font_score);
 
@@ -97,13 +204,23 @@ update_status ModulePlayer::Update()
 	camera_limits.y -= 1;
 
 	if (App->mine->pause == false) {
+		//BOMB ----------------------
+		if (bomb == false) {
+			bomb_position.y = position.y;
+			if (App->input->keyboard[SDL_SCANCODE_B] == KEY_STATE::KEY_DOWN) {
+				bomb = true;
+				bomb_position.x = position.x;
+				collider_bomb = App->collision->AddCollider({ bomb_position.x, bomb_position.y, 254, 254 }, COLLIDER_ASH_BOMB, this);
+			}
+		}
+
 		if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT)
 		{
 			current_animation = &right;
 			if (position.x < SCREEN_WIDTH - ASH_WIDTH) {
 				position.x += speed;
 			}
-			App->input->dpad_state = DPAD_STATE::DPAD_IDLE;
+		//	App->input->dpad_state = DPAD_STATE::DPAD_IDLE;
 		}
 
 		if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT)
@@ -112,7 +229,7 @@ update_status ModulePlayer::Update()
 			if (position.x > 0) {
 				position.x -= speed;
 			}
-			App->input->dpad_state = DPAD_STATE::DPAD_IDLE;
+		//	App->input->dpad_state = DPAD_STATE::DPAD_IDLE;
 		}
 
 		if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT)
@@ -120,7 +237,7 @@ update_status ModulePlayer::Update()
 			if (position.y > camera_limits.y + ASH_HEIGHT + 35) {
 				position.y -= speed;
 			}
-			App->input->dpad_state = DPAD_STATE::DPAD_IDLE;
+		//	App->input->dpad_state = DPAD_STATE::DPAD_IDLE;
 		}
 
 		if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT)
@@ -128,7 +245,7 @@ update_status ModulePlayer::Update()
 			if (position.y < camera_limits.y + SCREEN_HEIGHT) {
 				position.y += speed;
 			}
-			App->input->dpad_state = DPAD_STATE::DPAD_IDLE;
+		//	App->input->dpad_state = DPAD_STATE::DPAD_IDLE;
 		}
 
 		if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN || 0 < delay)
@@ -138,22 +255,22 @@ update_status ModulePlayer::Update()
 				if (delay == 0) {
 					App->particles->AddParticle(App->particles->laser, position.x + 2, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
 					App->audio->PlayFX(audio_shot);
-					App->input->state == GC_STATE::GC_IDLE;
+				//	App->input->state == GC_STATE::GC_IDLE;
 				}
 				if (delay ==7) {
 					App->particles->AddParticle(App->particles->laser, position.x + 2, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
 					App->audio->PlayFX(audio_shot);
-					App->input->state == GC_STATE::GC_IDLE;
+				//	App->input->state == GC_STATE::GC_IDLE;
 				}
 				if (delay == 14) {
 					App->particles->AddParticle(App->particles->laser, position.x + 2, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
 					App->audio->PlayFX(audio_shot);
-					App->input->state == GC_STATE::GC_IDLE;
+					//App->input->state == GC_STATE::GC_IDLE;
 				}
 				if (delay == 21) {
 					App->particles->AddParticle(App->particles->laser, position.x + 2, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
 					App->audio->PlayFX(audio_shot);
-					App->input->state == GC_STATE::GC_IDLE;
+					//App->input->state == GC_STATE::GC_IDLE;
 					shooting = false;
 					delay = 0;
 				}
@@ -168,22 +285,22 @@ update_status ModulePlayer::Update()
 				if (delay == 0) {
 					App->particles->AddParticle(App->particles->laser2, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
 					App->audio->PlayFX(audio_shot);
-					App->input->state == GC_STATE::GC_IDLE;
+					//App->input->state == GC_STATE::GC_IDLE;
 				}
 				if (delay == 7) {
 					App->particles->AddParticle(App->particles->laser2, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
 					App->audio->PlayFX(audio_shot);
-					App->input->state == GC_STATE::GC_IDLE;
+			//		App->input->state == GC_STATE::GC_IDLE;
 				}
 				if (delay == 14) {
 					App->particles->AddParticle(App->particles->laser2, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
 					App->audio->PlayFX(audio_shot);
-					App->input->state == GC_STATE::GC_IDLE;
+				//	App->input->state == GC_STATE::GC_IDLE;
 				}
 				if (delay == 21) {
 					App->particles->AddParticle(App->particles->laser2, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
 					App->audio->PlayFX(audio_shot);
-					App->input->state == GC_STATE::GC_IDLE;
+				//	App->input->state == GC_STATE::GC_IDLE;
 					shooting = false;
 					delay = 0;
 				}
@@ -254,6 +371,30 @@ update_status ModulePlayer::Update()
 		time.x++;
 	}
 
+	if (bomb == true) {
+		if (delay2 < 75) {
+			App->render->Blit(ash_bomb_texture, bomb_position.x, bomb_position.y - 10, &(bomb_throw.GetCurrentFrame()));
+			delay2++;
+			bomb_position.y -= 1;
+		}
+		if (delay2 >= 75) {
+			
+			App->render->Blit(ash_bomb_texture, bomb_position.x - 124, bomb_position.y - 124, &(ash_bomb_animation.GetCurrentFrame()));
+			delay2++;
+			
+		}
+
+		if (delay2 == 205) {
+			bomb = false;
+			delay2 = 0;
+			App->collision->EraseCollider(collider_bomb);
+		}
+		bomb_position.y -= 1;
+		
+	}
+	
+	
+	
 
 	// PLAYER LIVES
 

@@ -48,7 +48,7 @@ update_status ModuleInput::PreUpdate()
 	SDL_PumpEvents();
 
 	const Uint8* keys = SDL_GetKeyboardState(NULL);
-	int buttons[] = SDL_GameControllerButton();
+//	int buttons[] = SDL_GameControllerButton();
 
 	for (int i = 0; i < MAX_KEYS; ++i)
 	{
@@ -67,7 +67,7 @@ update_status ModuleInput::PreUpdate()
 				keyboard[i] = KEY_IDLE;
 		}
 	}
-	for (int i = 0; i < MAX_KEYS; ++i)
+	/*for (int i = 0; i < MAX_KEYS; ++i)
 	{
 		if (buttons[i] == 1)
 		{
@@ -83,7 +83,7 @@ update_status ModuleInput::PreUpdate()
 			else
 				keyboard[i] = KEY_IDLE;
 		}
-	}
+	}*/
 
 	/*
 	if (SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_A) == 1) {

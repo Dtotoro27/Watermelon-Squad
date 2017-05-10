@@ -74,7 +74,7 @@ update_status ModuleWelcome::Update()
 		change = false;
 		App->fade->FadeToBlack(this, App->characterselect, 1);
 		change = true;
-		App->input->state == GC_STATE::GC_IDLE;
+//		App->input->state == GC_STATE::GC_IDLE;
 	}
 
 
