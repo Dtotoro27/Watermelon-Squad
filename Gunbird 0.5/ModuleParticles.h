@@ -52,6 +52,10 @@ private:
 public:
 	Particle laser;
 	Particle laser2;
+	Particle laser3;
+	Particle laser4;
+	Particle AshShootWave1;
+	Particle AshShootWave2;
 	Particle explosion;
 	Particle littleexplosion;
 	Particle damage_balloon;

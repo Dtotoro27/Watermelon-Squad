@@ -32,6 +32,26 @@ ModuleParticles::ModuleParticles()
 	laser2.anim.loop = true;
 	laser2.life = 500;
 
+	laser3.anim.PushBack({ 501, 124, 19, 37 });
+	laser3.anim.speed = 0.3f;
+	laser3.anim.loop = true;
+	laser3.life = 500;
+
+	laser4.anim.PushBack({ 499, 171, 23, 37 });
+	laser4.anim.speed = 0.3f;
+	laser4.anim.loop = true;
+	laser4.life = 500;
+
+	AshShootWave1.anim.PushBack({ 565, 272, 18, 22 });
+	AshShootWave1.anim.speed = 0.3f;
+	AshShootWave1.anim.loop = true;
+	AshShootWave1.life = 500;
+
+	AshShootWave2.anim.PushBack({ 560, 302, 26, 25 });
+	AshShootWave2.anim.speed = 0.3f;
+	AshShootWave2.anim.loop = true;
+	AshShootWave2.life = 500;
+
 	enemy_shoot.anim.PushBack({ 502, 235, 6,6 });
 	enemy_shoot.anim.PushBack({ 517, 235, 6,6 });
 	enemy_shoot.anim.PushBack({ 532, 235, 6,6 });

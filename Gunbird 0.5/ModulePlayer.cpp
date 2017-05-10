@@ -255,12 +255,12 @@ update_status ModulePlayer::Update()
 				if (delay == 0) {
 					App->particles->AddParticle(App->particles->laser, position.x + 2, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
 					App->audio->PlayFX(audio_shot);
-				//	App->input->state == GC_STATE::GC_IDLE;
+					//	App->input->state == GC_STATE::GC_IDLE;
 				}
-				if (delay ==7) {
+				if (delay == 7) {
 					App->particles->AddParticle(App->particles->laser, position.x + 2, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
 					App->audio->PlayFX(audio_shot);
-				//	App->input->state == GC_STATE::GC_IDLE;
+					//	App->input->state == GC_STATE::GC_IDLE;
 				}
 				if (delay == 14) {
 					App->particles->AddParticle(App->particles->laser, position.x + 2, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
@@ -290,17 +290,17 @@ update_status ModulePlayer::Update()
 				if (delay == 7) {
 					App->particles->AddParticle(App->particles->laser2, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
 					App->audio->PlayFX(audio_shot);
-			//		App->input->state == GC_STATE::GC_IDLE;
+					//		App->input->state == GC_STATE::GC_IDLE;
 				}
 				if (delay == 14) {
 					App->particles->AddParticle(App->particles->laser2, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
 					App->audio->PlayFX(audio_shot);
-				//	App->input->state == GC_STATE::GC_IDLE;
+					//	App->input->state == GC_STATE::GC_IDLE;
 				}
 				if (delay == 21) {
 					App->particles->AddParticle(App->particles->laser2, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
 					App->audio->PlayFX(audio_shot);
-				//	App->input->state == GC_STATE::GC_IDLE;
+					//	App->input->state == GC_STATE::GC_IDLE;
 					shooting = false;
 					delay = 0;
 				}
@@ -308,6 +308,73 @@ update_status ModulePlayer::Update()
 					delay++;
 				}
 			}
+
+			if (powerUps == 2) {
+				//App->audio->LoadFX("Audio/shoot_ash.wav");
+
+				if (delay == 0) {
+					App->particles->AddParticle(App->particles->laser3, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+					App->audio->PlayFX(audio_shot);
+					//App->input->state == GC_STATE::GC_IDLE;
+				}
+				if (delay == 7) {
+					App->particles->AddParticle(App->particles->laser3, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->AshShootWave1, position.x+15, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->AshShootWave1, position.x-15, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+					App->audio->PlayFX(audio_shot);
+					//		App->input->state == GC_STATE::GC_IDLE;
+				}
+				if (delay == 14) {
+					App->particles->AddParticle(App->particles->laser3, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+					App->audio->PlayFX(audio_shot);
+					//	App->input->state == GC_STATE::GC_IDLE;
+				}
+				if (delay == 21) {
+					App->particles->AddParticle(App->particles->laser3, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+					App->audio->PlayFX(audio_shot);
+					//	App->input->state == GC_STATE::GC_IDLE;
+					shooting = false;
+					delay = 0;
+				}
+				if (shooting == true) {
+					delay++;
+				}
+			}
+
+			if (powerUps == 3) {
+				//App->audio->LoadFX("Audio/shoot_ash.wav");
+
+				if (delay == 0) {
+					App->particles->AddParticle(App->particles->laser4, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+					App->audio->PlayFX(audio_shot);
+					//App->input->state == GC_STATE::GC_IDLE;
+				}
+				if (delay == 7) {
+					App->particles->AddParticle(App->particles->laser4, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->AshShootWave2, position.x + 15, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->AshShootWave2, position.x - 15, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+					App->audio->PlayFX(audio_shot);
+					//		App->input->state == GC_STATE::GC_IDLE;
+				}
+				if (delay == 14) {
+					App->particles->AddParticle(App->particles->laser4, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+					App->audio->PlayFX(audio_shot);
+					//	App->input->state == GC_STATE::GC_IDLE;
+				}
+				if (delay == 21) {
+					App->particles->AddParticle(App->particles->laser4, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+					App->audio->PlayFX(audio_shot);
+					//	App->input->state == GC_STATE::GC_IDLE;
+					shooting = false;
+					delay = 0;
+				}
+				if (shooting == true) {
+					delay++;
+				}
+			}
+
+
+
 		}
 
 		if (App->input->keyboard[SDL_SCANCODE_F2] == KEY_STATE::KEY_DOWN) {
@@ -316,6 +383,18 @@ update_status ModulePlayer::Update()
 			}
 			else if (godmode == false) {
 				godmode = true;
+			}
+		}
+
+		if (App->input->keyboard[SDL_SCANCODE_F4] == KEY_STATE::KEY_DOWN) {
+			if (powerUps < 3) {
+				powerUps++;
+			}
+		}
+
+		if (App->input->keyboard[SDL_SCANCODE_F3] == KEY_STATE::KEY_DOWN) {
+			if (powerUps > 0) {
+				powerUps--;
 			}
 		}
 
@@ -425,7 +504,7 @@ void  ModulePlayer::OnCollision(Collider *c1, Collider *c2) {
 
 			if (c2->type == COLLIDER_TYPE::COLLIDER_POWER_UP) {
 
-				powerUps = 1;
+				powerUps += 1;
 			}
 
 			else {
