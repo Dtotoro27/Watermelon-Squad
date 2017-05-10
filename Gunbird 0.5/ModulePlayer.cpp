@@ -210,7 +210,7 @@ update_status ModulePlayer::Update()
 			if (App->input->keyboard[SDL_SCANCODE_B] == KEY_STATE::KEY_DOWN) {
 				bomb = true;
 				bomb_position.x = position.x;
-				collider_bomb = App->collision->AddCollider({ bomb_position.x, bomb_position.y, 254, 254 }, COLLIDER_ASH_BOMB, this);
+				
 			}
 		}
 
@@ -333,6 +333,7 @@ update_status ModulePlayer::Update()
 	}
 
 	playerhitbox->SetPos(position.x, position.y - ASH_HEIGHT);
+	
 
 
 	// Draw everything --------------------------------------
@@ -377,8 +378,11 @@ update_status ModulePlayer::Update()
 			delay2++;
 			bomb_position.y -= 1;
 		}
+		if (delay2==75){
+			bombhitbox = App->collision->AddCollider({ bomb_position.x, bomb_position.y, 254, 254 }, COLLIDER_ASH_BOMB, this);
+		}
 		if (delay2 >= 75) {
-			
+			bombhitbox->SetPos(bomb_position.x-124, bomb_position.y-124);
 			App->render->Blit(ash_bomb_texture, bomb_position.x - 124, bomb_position.y - 124, &(ash_bomb_animation.GetCurrentFrame()));
 			delay2++;
 			
@@ -387,7 +391,7 @@ update_status ModulePlayer::Update()
 		if (delay2 == 205) {
 			bomb = false;
 			delay2 = 0;
-			App->collision->EraseCollider(collider_bomb);
+			App->collision->EraseCollider(bombhitbox);
 		}
 		bomb_position.y -= 1;
 		

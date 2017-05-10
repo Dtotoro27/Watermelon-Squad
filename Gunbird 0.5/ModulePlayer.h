@@ -50,7 +50,7 @@ public:
 	Animation bomb_throw;
 
 	Collider* playerhitbox;
-	Collider* collider_bomb;
+	Collider* bombhitbox;
 	bool destroyed = false;
 	bool godmode = false;
 	iPoint position;
