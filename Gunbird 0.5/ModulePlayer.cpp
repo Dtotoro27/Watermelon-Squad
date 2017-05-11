@@ -322,14 +322,14 @@ update_status ModulePlayer::Update()
 				}
 				if (delay == 7) {
 					App->particles->AddParticle(App->particles->laser3_2, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->AshShootWave1, position.x+20, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->AshShootWave1, position.x-15, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
 					App->audio->PlayFX(audio_shot);
 					App->input->buttonA = false;
 				}
 				if (delay == 14) {
 					App->particles->AddParticle(App->particles->laser3_3, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
 					App->audio->PlayFX(audio_shot);
+					App->particles->AddParticle(App->particles->AshShootWave1, position.x + 15, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->AshShootWave1, position.x - 8, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
 					App->input->buttonA = false;
 				}
 				if (delay == 21) {
@@ -354,14 +354,14 @@ update_status ModulePlayer::Update()
 				}
 				if (delay == 7) {
 					App->particles->AddParticle(App->particles->laser4_2, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->AshShootWave2, position.x + 20, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->AshShootWave2, position.x - 15, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
 					App->audio->PlayFX(audio_shot);
 					App->input->buttonA = false;
 				}
 				if (delay == 14) {
 					App->particles->AddParticle(App->particles->laser4_3, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
 					App->audio->PlayFX(audio_shot);
+					App->particles->AddParticle(App->particles->AshShootWave2, position.x + 16, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->AshShootWave2, position.x - 20, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
 					App->input->buttonA = false;
 				}
 				if (delay == 21) {
@@ -374,6 +374,9 @@ update_status ModulePlayer::Update()
 				if (shooting == true) {
 					delay++;
 				}
+			}
+			if (powerUps == 4) {
+				powerUps--;
 			}
 
 
