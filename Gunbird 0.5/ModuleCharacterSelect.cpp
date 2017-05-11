@@ -233,23 +233,19 @@ update_status ModuleCharacterSelect::Update()
 
 	//Player1
 	if (coop == false) {
-		if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_DOWN || App->input->dpadRight == true) {
+		if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_DOWN || App->input->dpadRight == KEY_STATE::KEY_DOWN) {
 			if (characterselected1 < 5) {
-				App->input->dpadRight = false;
 				characterselected1 += 1;
 			}
 			else if (characterselected1 == 5) {
-				App->input->dpadRight = false;
 				characterselected1 = 1;
 			}
 		}
-		if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_DOWN || App->input->dpadLeft == true) {
+		if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_DOWN || App->input->dpadLeft == KEY_STATE::KEY_DOWN) {
 			if (characterselected1 > 1) {
-				App->input->dpadLeft = false;
 				characterselected1 -= 1;				
 			}
 			else {
-				App->input->dpadLeft = false;
 				characterselected1 = 5;
 			}
 		}
@@ -259,47 +255,39 @@ update_status ModuleCharacterSelect::Update()
 	if (coop == true) {
 		//Player 1
 
-		if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_DOWN || App->input->dpadRight == true) {
+		if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_DOWN || App->input->dpadRight == KEY_STATE::KEY_DOWN) {
 			if (characterselected1 < 5) {
 				if (characterselected1 == characterselected2 - 1) {
 					characterselected1 += 2;
-					App->input->dpadRight = false;
 				}
 				else {
 					characterselected1 += 1;
-					App->input->dpadRight = false;
 				}
 			}
 			else if (characterselected1 == 5) {
 				if (characterselected2 == 1) {
 					characterselected1 = 2;
-					App->input->dpadRight = false;
 				}
 				else {
 					characterselected1 = 1;
-					App->input->dpadRight = false;
 				}
 			}
 		}
-		if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_DOWN || App->input->dpadLeft == true) {
+		if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_DOWN || App->input->dpadLeft == KEY_STATE::KEY_DOWN) {
 			if (characterselected1 > 1) {
 				if (characterselected1 == characterselected2 + 1) {
 					characterselected1 -= 2;
-					App->input->dpadLeft = false;
 				}
 				else {
 					characterselected1 -= 1;
-					App->input->dpadLeft = false;
 				}
 			}
 			else if (characterselected1 == 1) {
 				if (characterselected2 == 5) {
 					characterselected1 = 4;
-					App->input->dpadLeft = false;
 				}
 				else {
 					characterselected1 = 5;
-					App->input->dpadLeft = false;
 				}
 			}
 		}
@@ -373,12 +361,12 @@ update_status ModuleCharacterSelect::Update()
 	if (characterselected2 == 4) { p2_x = 136; }
 	if (characterselected2 == 5) { p2_x = 176; }
 
-	if (App->input->keyboard[SDL_SCANCODE_P] && change || App->input->buttonA == true && change) {
+	if (App->input->keyboard[SDL_SCANCODE_P] && change || App->input->buttonA == KEY_STATE::KEY_DOWN && change) {
 
 		change = false;
 		App->fade->FadeToBlack(this, App->mine, 1);
 		change = true;
-		App->input->buttonA = false;
+		//App->input->buttonA = false;
 		
 	}
 

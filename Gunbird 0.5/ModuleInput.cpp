@@ -68,45 +68,84 @@ update_status ModuleInput::PreUpdate()
 	}
 	
 	if (SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_A) == 1) {
-		if (buttonA == false) {
-			buttonA = true;
-		}
+		if (buttonA == KEY_IDLE)
+			buttonA = KEY_DOWN;
+		else
+			buttonA = KEY_REPEAT;
 	}
+	else
+	{
+		if (buttonA == KEY_REPEAT || buttonA == KEY_DOWN)
+			buttonA = KEY_UP;
+		else
+			buttonA = KEY_IDLE;
+	}
+
 	if (SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_B) == 1) {
-		if (buttonB == false) {
-			buttonB = true;
-		}
+		if (buttonB == KEY_IDLE)
+			buttonB = KEY_DOWN;
+		else
+			buttonB = KEY_REPEAT;
 	}
-	if (SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_X) == 1) {
-		if (buttonX == false) {
-			buttonX = true;
-		}
-	}
-	if (SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_Y) == 1) {
-		if (buttonY == false) {
-			buttonY = true;
-		}
+	else
+	{
+		if (buttonB == KEY_REPEAT || buttonB == KEY_DOWN)
+			buttonB = KEY_UP;
+		else
+			buttonB = KEY_IDLE;
 	}
 	
 	if (SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_DPAD_UP) == 1) {
-		if (dpadUp == false) {
-			dpadUp = true;
-		}
+		if (dpadUp == KEY_IDLE)
+			dpadUp = KEY_DOWN;
+		else
+			dpadUp = KEY_REPEAT;
+	}
+	else
+	{
+		if (dpadUp == KEY_REPEAT || dpadUp == KEY_DOWN)
+			dpadUp = KEY_UP;
+		else
+			dpadUp = KEY_IDLE;
 	}
 	if (SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_DPAD_DOWN) == 1) {
-		if (dpadDown == false) {
-			dpadDown = true;
-		}
+		if (dpadDown == KEY_IDLE)
+			dpadDown = KEY_DOWN;
+		else
+			dpadDown = KEY_REPEAT;
+	}
+	else
+	{
+		if (dpadDown == KEY_REPEAT || dpadDown == KEY_DOWN)
+			dpadDown = KEY_UP;
+		else
+			dpadDown = KEY_IDLE;
 	}
 	if (SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_DPAD_LEFT) == 1) {
-		if (dpadLeft == false) {
-			dpadLeft = true;
-		}
+		if (dpadLeft == KEY_IDLE)
+			dpadLeft = KEY_DOWN;
+		else
+			dpadLeft = KEY_REPEAT;
+	}
+	else
+	{
+		if (dpadLeft == KEY_REPEAT || dpadLeft == KEY_DOWN)
+			dpadLeft = KEY_UP;
+		else
+			dpadLeft = KEY_IDLE;
 	}
 	if (SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_DPAD_RIGHT) == 1) {
-		if (dpadRight == false) {
-			dpadRight = true;
-		}
+		if (dpadRight == KEY_IDLE)
+			dpadRight = KEY_DOWN;
+		else
+			dpadRight = KEY_REPEAT;
+	}
+	else
+	{
+		if (dpadRight == KEY_REPEAT || dpadRight == KEY_DOWN)
+			dpadRight = KEY_UP;
+		else
+			dpadRight = KEY_IDLE;
 	}
 
 	

@@ -35,14 +35,12 @@ public:
 	KEY_STATE keyboard[MAX_KEYS];
 	SDL_GameController *controller = nullptr;
 	SDL_Joystick *joy = nullptr;
-	bool buttonA = false;
-	bool buttonB = false;
-	bool buttonX = false;
-	bool buttonY = false;
-	bool dpadUp = false;
-	bool dpadDown = false;
-	bool dpadLeft = false;
-	bool dpadRight = false;
+	KEY_STATE buttonA;
+	KEY_STATE buttonB;
+	KEY_STATE dpadUp;
+	KEY_STATE dpadDown;
+	KEY_STATE dpadLeft;
+	KEY_STATE dpadRight;
 };
 
 #endif // __ModuleInput_H__
