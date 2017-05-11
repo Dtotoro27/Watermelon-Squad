@@ -14,23 +14,19 @@ ModuleParticles::ModuleParticles()
 	//handouts tienen aqui las animaciones
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 		active[i] = nullptr;
-
-	laser1_1.anim.PushBack({ 537, 38, 15, 29 });
-	laser1_2.anim.PushBack({ 574,38,15,29 });
-	laser1_3.anim.PushBack({ 503, 38, 15, 29 });
-
-	laser1_1.anim.loop = laser1_2.anim.loop=laser1_3.anim.loop= true;
-	laser1_1.anim.speed = laser1_2.anim.speed = laser1_3.anim.speed = 0.3f;
-	laser1_1.life = laser1_2.life = laser1_3.life = 500;
-
-
-	
-
 	damage_balloon.anim.PushBack({ 684,157,42,53 });
 	damage_balloon.anim.PushBack({ 735,157,42,53 });
 	damage_balloon.anim.speed = 1;
 	damage_balloon.anim.loop = false;
 
+
+	laser1_1.anim.PushBack({ 537, 38, 15, 29 });
+	laser1_2.anim.PushBack({ 574,38,15,29 });
+	laser1_3.anim.PushBack({ 503, 38, 15, 29 });
+
+	laser1_1.anim.loop = laser1_2.anim.loop = laser1_3.anim.loop = true;
+	laser1_1.anim.speed = laser1_2.anim.speed = laser1_3.anim.speed = 0.3f;
+	laser1_1.life = laser1_2.life = laser1_3.life = 500;
 
 	laser2_1.anim.PushBack({ 532, 77, 25, 37 });
 	laser2_2.anim.PushBack({ 498, 77, 25, 37 });
@@ -53,14 +49,21 @@ ModuleParticles::ModuleParticles()
 	laser4_1.anim.loop = laser4_2.anim.loop= laser4_3.anim.loop= true;
 	laser4_1.life = laser4_2.life= laser4_3.life=500;
 
+	AshShootWave1.anim.PushBack({ 488, 272, 18, 22 });
 	AshShootWave1.anim.PushBack({ 565, 272, 18, 22 });
-	AshShootWave1.anim.speed = 0.3f;
-	AshShootWave1.anim.loop = true;
+	AshShootWave1.anim.PushBack({ 649, 272, 18, 22 });
+	AshShootWave1.anim.PushBack({ 732, 272, 18, 22 });
+	AshShootWave1.anim.speed = 0.2f;
+	AshShootWave1.anim.loop = false;
 	AshShootWave1.life = 500;
 
-	AshShootWave2.anim.PushBack({ 560, 302, 26, 25 });
-	AshShootWave2.anim.speed = 0.3f;
-	AshShootWave2.anim.loop = true;
+	AshShootWave2.anim.PushBack({ 474, 302, 32, 26 });
+	AshShootWave2.anim.PushBack({ 557, 302, 32, 26 });
+	AshShootWave2.anim.PushBack({ 632, 302, 32, 26 });
+	AshShootWave2.anim.PushBack({ 718, 302, 32, 26 });
+	AshShootWave2.anim.PushBack({ 805, 302, 32, 26 });
+	AshShootWave2.anim.speed = 0.2f;
+	AshShootWave2.anim.loop = false;
 	AshShootWave2.life = 500;
 
 	enemy_shoot.anim.PushBack({ 502, 235, 6,6 });
