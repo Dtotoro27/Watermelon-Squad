@@ -15,11 +15,16 @@ ModuleParticles::ModuleParticles()
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 		active[i] = nullptr;
 
-	laser.anim.PushBack({ 537, 38, 15, 29 });
-	laser.anim.loop = true;
-	laser.anim.speed = 0.3f;
-	laser.life = 500;
+	laser1_1.anim.PushBack({ 537, 38, 15, 29 });
+	laser1_2.anim.PushBack({ 574,38,15,29 });
+	laser1_3.anim.PushBack({ 503, 38, 15, 29 });
 
+	laser1_1.anim.loop = laser1_2.anim.loop=laser1_3.anim.loop= true;
+	laser1_1.anim.speed = laser1_2.anim.speed = laser1_3.anim.speed = 0.3f;
+	laser1_1.life = laser1_2.life = laser1_3.life = 500;
+
+
+	
 
 	damage_balloon.anim.PushBack({ 684,157,42,53 });
 	damage_balloon.anim.PushBack({ 735,157,42,53 });
@@ -27,20 +32,26 @@ ModuleParticles::ModuleParticles()
 	damage_balloon.anim.loop = false;
 
 
-	laser2.anim.PushBack({ 501, 77, 19, 37 });
-	laser2.anim.speed = 0.3f;
-	laser2.anim.loop = true;
-	laser2.life = 500;
+	laser2_1.anim.PushBack({ 532, 77, 25, 37 });
+	laser2_2.anim.PushBack({ 498, 77, 25, 37 });
+	laser2_3.anim.PushBack({ 569, 77, 25, 37 });
+	laser2_1.anim.speed = laser2_2.anim.speed= laser2_3.anim.speed = 0.3f;
+	laser2_1.anim.loop = laser2_2.anim.loop = laser2_3.anim.loop = true;
+	laser2_1.life = laser2_2.life= laser2_3.life=500;
 
-	laser3.anim.PushBack({ 501, 124, 19, 37 });
-	laser3.anim.speed = 0.3f;
-	laser3.anim.loop = true;
-	laser3.life = 500;
+	laser3_1.anim.PushBack({ 532, 124, 25, 37 });
+	laser3_2.anim.PushBack({ 498, 124, 25, 37 });
+	laser3_3.anim.PushBack({ 569, 124, 25, 37 });
+	laser3_1.anim.speed = laser3_2.anim.speed = laser3_3.anim.speed =0.3f;
+	laser3_1.anim.loop = laser3_2.anim.loop = laser3_3.anim.loop = true;
+	laser3_1.life = laser3_2.life= laser3_3.life=500;
 
-	laser4.anim.PushBack({ 499, 171, 23, 37 });
-	laser4.anim.speed = 0.3f;
-	laser4.anim.loop = true;
-	laser4.life = 500;
+	laser4_1.anim.PushBack({ 530, 171, 29, 37 });
+	laser4_2.anim.PushBack({ 496, 171, 29, 37 });
+	laser4_3.anim.PushBack({ 567, 171, 29, 37 });
+	laser4_1.anim.speed = laser4_2.anim.speed = laser4_3.anim.speed =0.3f;
+	laser4_1.anim.loop = laser4_2.anim.loop= laser4_3.anim.loop= true;
+	laser4_1.life = laser4_2.life= laser4_3.life=500;
 
 	AshShootWave1.anim.PushBack({ 565, 272, 18, 22 });
 	AshShootWave1.anim.speed = 0.3f;

@@ -50,10 +50,18 @@ private:
 	uint last_particle = 0;
 
 public:
-	Particle laser;
-	Particle laser2;
-	Particle laser3;
-	Particle laser4;
+	Particle laser1_1;
+	Particle laser1_2;
+	Particle laser1_3;
+	Particle laser2_1;
+	Particle laser2_2;
+	Particle laser2_3;
+	Particle laser3_1;
+	Particle laser3_2;
+	Particle laser3_3;
+	Particle laser4_1;
+	Particle laser4_2;
+	Particle laser4_3;
 	Particle AshShootWave1;
 	Particle AshShootWave2;
 	Particle explosion;

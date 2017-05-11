@@ -22,6 +22,7 @@ private:
 	bool bomb = false;
 
 
+
 public:
 	ModulePlayer();
 	~ModulePlayer();
@@ -48,6 +49,7 @@ public:
 
 	Animation ash_bomb_animation;
 	Animation bomb_throw;
+	
 
 	Collider* playerhitbox;
 	Collider* bombhitbox;
@@ -61,6 +63,7 @@ public:
 	int powerUps = 0;
 	int lives = 2;
 	int position_lives;
+	int max_bomb = 2;
 
 
 

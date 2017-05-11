@@ -33,6 +33,7 @@ public:
 	Animation p1, p2;
 	Animation rock1;
 	Animation rock2;
+	Animation bomb_indicator;
 
 	bool pause=false;
 	

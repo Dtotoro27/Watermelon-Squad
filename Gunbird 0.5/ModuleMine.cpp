@@ -49,6 +49,9 @@ ModuleMine::ModuleMine()
 	startplayer2animation.PushBack({ 6, 28,68, 13 });
 	startplayer2animation.PushBack({ 0,0,0,0 });
 	startplayer2animation.speed = 0.02;
+
+	bomb_indicator.PushBack({ 59,67,12,15 });
+
 }
 
 ModuleMine::~ModuleMine()
@@ -163,6 +166,14 @@ update_status ModuleMine::Update()
 	}
 	else {
 		App->render->Blit(startplayer2texture, 118, 4, &(startplayer2animation.GetCurrentFrame()), 0);
+	}
+
+	if (App->player->max_bomb == 1) {
+		App->render->Blit(startplayer2texture, 6, 300, &(bomb_indicator.GetCurrentFrame()),0);
+	}
+	if (App->player->max_bomb == 2) {
+		App->render->Blit(startplayer2texture, 6, 300, &(bomb_indicator.GetCurrentFrame()),0);
+		App->render->Blit(startplayer2texture, 22, 300, &(bomb_indicator.GetCurrentFrame()), 0);
 	}
 
 	App->render->Blit(startplayer2texture, 5, 6, &(p1.GetCurrentFrame()), 0);

@@ -175,6 +175,8 @@ bool ModulePlayer::Start()
 	audio_shot = App->audio->LoadFX("assets/Audio/shoot_ash.wav");
 	score = 0;
 	time.x = 0;
+	max_bomb = 2;
+
 	return ret;
 }
 
@@ -205,12 +207,12 @@ update_status ModulePlayer::Update()
 
 	if (App->mine->pause == false) {
 		//BOMB ----------------------
-		if (bomb == false) {
+		if (bomb == false && max_bomb>0) {
 			bomb_position.y = position.y;
 			if (App->input->keyboard[SDL_SCANCODE_B] == KEY_STATE::KEY_DOWN) {
 				bomb = true;
 				bomb_position.x = position.x;
-				
+				max_bomb--;				
 			}
 		}
 
@@ -253,22 +255,22 @@ update_status ModulePlayer::Update()
 			shooting = true;
 			if (powerUps == 0) {
 				if (delay == 0) {
-					App->particles->AddParticle(App->particles->laser, position.x + 2, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser1_1, position.x + 2, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
 					App->audio->PlayFX(audio_shot);
 					//	App->input->state == GC_STATE::GC_IDLE;
 				}
 				if (delay == 7) {
-					App->particles->AddParticle(App->particles->laser, position.x + 2, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser1_2, position.x + 2, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
 					App->audio->PlayFX(audio_shot);
 					//	App->input->state == GC_STATE::GC_IDLE;
 				}
 				if (delay == 14) {
-					App->particles->AddParticle(App->particles->laser, position.x + 2, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser1_3, position.x + 2, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
 					App->audio->PlayFX(audio_shot);
 					//App->input->state == GC_STATE::GC_IDLE;
 				}
 				if (delay == 21) {
-					App->particles->AddParticle(App->particles->laser, position.x + 2, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser1_1, position.x + 2, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
 					App->audio->PlayFX(audio_shot);
 					//App->input->state == GC_STATE::GC_IDLE;
 					shooting = false;
@@ -283,22 +285,22 @@ update_status ModulePlayer::Update()
 				//App->audio->LoadFX("Audio/shoot_ash.wav");
 
 				if (delay == 0) {
-					App->particles->AddParticle(App->particles->laser2, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser2_1, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
 					App->audio->PlayFX(audio_shot);
 					//App->input->state == GC_STATE::GC_IDLE;
 				}
 				if (delay == 7) {
-					App->particles->AddParticle(App->particles->laser2, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser2_2, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
 					App->audio->PlayFX(audio_shot);
 					//		App->input->state == GC_STATE::GC_IDLE;
 				}
 				if (delay == 14) {
-					App->particles->AddParticle(App->particles->laser2, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser2_3, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
 					App->audio->PlayFX(audio_shot);
 					//	App->input->state == GC_STATE::GC_IDLE;
 				}
 				if (delay == 21) {
-					App->particles->AddParticle(App->particles->laser2, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser2_1, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
 					App->audio->PlayFX(audio_shot);
 					//	App->input->state == GC_STATE::GC_IDLE;
 					shooting = false;
@@ -313,24 +315,24 @@ update_status ModulePlayer::Update()
 				//App->audio->LoadFX("Audio/shoot_ash.wav");
 
 				if (delay == 0) {
-					App->particles->AddParticle(App->particles->laser3, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser3_1, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
 					App->audio->PlayFX(audio_shot);
 					//App->input->state == GC_STATE::GC_IDLE;
 				}
 				if (delay == 7) {
-					App->particles->AddParticle(App->particles->laser3, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->AshShootWave1, position.x+15, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser3_2, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->AshShootWave1, position.x+20, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
 					App->particles->AddParticle(App->particles->AshShootWave1, position.x-15, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
 					App->audio->PlayFX(audio_shot);
 					//		App->input->state == GC_STATE::GC_IDLE;
 				}
 				if (delay == 14) {
-					App->particles->AddParticle(App->particles->laser3, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser3_3, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
 					App->audio->PlayFX(audio_shot);
 					//	App->input->state == GC_STATE::GC_IDLE;
 				}
 				if (delay == 21) {
-					App->particles->AddParticle(App->particles->laser3, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser3_1, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
 					App->audio->PlayFX(audio_shot);
 					//	App->input->state == GC_STATE::GC_IDLE;
 					shooting = false;
@@ -345,24 +347,24 @@ update_status ModulePlayer::Update()
 				//App->audio->LoadFX("Audio/shoot_ash.wav");
 
 				if (delay == 0) {
-					App->particles->AddParticle(App->particles->laser4, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser4_1, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
 					App->audio->PlayFX(audio_shot);
 					//App->input->state == GC_STATE::GC_IDLE;
 				}
 				if (delay == 7) {
-					App->particles->AddParticle(App->particles->laser4, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->AshShootWave2, position.x + 15, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser4_2, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->AshShootWave2, position.x + 20, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
 					App->particles->AddParticle(App->particles->AshShootWave2, position.x - 15, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
 					App->audio->PlayFX(audio_shot);
 					//		App->input->state == GC_STATE::GC_IDLE;
 				}
 				if (delay == 14) {
-					App->particles->AddParticle(App->particles->laser4, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser4_3, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
 					App->audio->PlayFX(audio_shot);
 					//	App->input->state == GC_STATE::GC_IDLE;
 				}
 				if (delay == 21) {
-					App->particles->AddParticle(App->particles->laser4, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->laser4_1, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
 					App->audio->PlayFX(audio_shot);
 					//	App->input->state == GC_STATE::GC_IDLE;
 					shooting = false;
@@ -418,6 +420,34 @@ update_status ModulePlayer::Update()
 	// Draw everything --------------------------------------
 	SDL_Rect r = current_animation->GetCurrentFrame();
 
+	//BOMB------------------------
+
+	if (bomb == true) {
+		if (delay2 < 75) {
+			App->render->Blit(ash_bomb_texture, bomb_position.x, bomb_position.y - 10, &(bomb_throw.GetCurrentFrame()));
+			delay2++;
+			bomb_position.y -= 1;
+		}
+		if (delay2 == 75) {
+			bombhitbox = App->collision->AddCollider({ bomb_position.x, bomb_position.y, 254, 254 }, COLLIDER_ASH_BOMB, this);
+		}
+		if (delay2 >= 75) {
+			bombhitbox->SetPos(bomb_position.x - 124, bomb_position.y - 124);
+			App->render->Blit(ash_bomb_texture, bomb_position.x - 124, bomb_position.y - 124, &(ash_bomb_animation.GetCurrentFrame()));
+			delay2++;
+
+		}
+
+		if (delay2 == 205) {
+			bomb = false;
+			delay2 = 0;
+			App->collision->EraseCollider(bombhitbox);
+
+		}
+		bomb_position.y -= 1;
+
+	}
+
 	if (dead == true) {
 		if (delay2 < 100) {
 			App->render->Blit(graphics, 100, position_immortal.y, &(immortal.GetCurrentFrame()));
@@ -441,7 +471,7 @@ update_status ModulePlayer::Update()
 
 	sprintf_s(score_text, 10, "%7d", score);
 
-
+	//IMMORTAL ANIMATION---------------------
 
 	if (time.x > 150 && dead == false) {
 		App->render->Blit(graphics, position.x, position.y - r.h, &r);
@@ -451,32 +481,6 @@ update_status ModulePlayer::Update()
 		time.x++;
 	}
 
-	if (bomb == true) {
-		if (delay2 < 75) {
-			App->render->Blit(ash_bomb_texture, bomb_position.x, bomb_position.y - 10, &(bomb_throw.GetCurrentFrame()));
-			delay2++;
-			bomb_position.y -= 1;
-		}
-		if (delay2==75){
-			bombhitbox = App->collision->AddCollider({ bomb_position.x, bomb_position.y, 254, 254 }, COLLIDER_ASH_BOMB, this);
-		}
-		if (delay2 >= 75) {
-			bombhitbox->SetPos(bomb_position.x-124, bomb_position.y-124);
-			App->render->Blit(ash_bomb_texture, bomb_position.x - 124, bomb_position.y - 124, &(ash_bomb_animation.GetCurrentFrame()));
-			delay2++;
-			
-		}
-
-		if (delay2 == 205) {
-			bomb = false;
-			delay2 = 0;
-			App->collision->EraseCollider(bombhitbox);
-		}
-		bomb_position.y -= 1;
-		
-	}
-	
-	
 	
 
 	// PLAYER LIVES
