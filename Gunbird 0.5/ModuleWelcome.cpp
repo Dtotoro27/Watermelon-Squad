@@ -69,12 +69,12 @@ update_status ModuleWelcome::Update()
 
 	
 
-	if (App->input->keyboard[SDL_SCANCODE_P] && change) {
+	if (App->input->keyboard[SDL_SCANCODE_P] && change || App->input->buttonA == true && change) {
 
 		change = false;
 		App->fade->FadeToBlack(this, App->characterselect, 1);
 		change = true;
-//		App->input->state == GC_STATE::GC_IDLE;
+		App->input->buttonA = false;
 	}
 
 

@@ -19,22 +19,6 @@ enum KEY_STATE
 	KEY_UP
 };
 
-enum GC_STATE
-{
-	GC_IDLE = 0,
-	GC_DOWN,
-	GC_REPEAT,
-	GC_UP
-};
-
-enum DPAD_STATE
-{
-	DPAD_IDLE = 0,
-	DPAD_UP,
-	DPAD_DOWN,
-	DPAD_LEFT,
-	DPAD_RIGHT
-};
 
 class ModuleInput : public Module
 {
@@ -49,10 +33,16 @@ public:
 
 public:
 	KEY_STATE keyboard[MAX_KEYS];
-	GC_STATE state[MAX_BUTTONS];
-	int joy_state;
 	SDL_GameController *controller = nullptr;
 	SDL_Joystick *joy = nullptr;
+	bool buttonA = false;
+	bool buttonB = false;
+	bool buttonX = false;
+	bool buttonY = false;
+	bool dpadUp = false;
+	bool dpadDown = false;
+	bool dpadLeft = false;
+	bool dpadRight = false;
 };
 
 #endif // __ModuleInput_H__
