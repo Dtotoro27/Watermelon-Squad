@@ -233,7 +233,7 @@ update_status ModuleCharacterSelect::Update()
 
 	//Player1
 	if (coop == false) {
-		if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_DOWN || App->input->dpadRight == KEY_STATE::KEY_DOWN) {
+		if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_DOWN || App->input->dpadRight == KEY_STATE::KEY_DOWN || App->input->joy_right == KEY_STATE::KEY_DOWN) {
 			if (characterselected1 < 5) {
 				characterselected1 += 1;
 			}
@@ -241,7 +241,7 @@ update_status ModuleCharacterSelect::Update()
 				characterselected1 = 1;
 			}
 		}
-		if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_DOWN || App->input->dpadLeft == KEY_STATE::KEY_DOWN) {
+		if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_DOWN || App->input->dpadLeft == KEY_STATE::KEY_DOWN || App->input->joy_left == KEY_STATE::KEY_DOWN) {
 			if (characterselected1 > 1) {
 				characterselected1 -= 1;				
 			}
@@ -255,7 +255,7 @@ update_status ModuleCharacterSelect::Update()
 	if (coop == true) {
 		//Player 1
 
-		if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_DOWN || App->input->dpadRight == KEY_STATE::KEY_DOWN) {
+		if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_DOWN || App->input->dpadRight == KEY_STATE::KEY_DOWN || App->input->joy_right == KEY_STATE::KEY_DOWN) {
 			if (characterselected1 < 5) {
 				if (characterselected1 == characterselected2 - 1) {
 					characterselected1 += 2;
@@ -273,7 +273,7 @@ update_status ModuleCharacterSelect::Update()
 				}
 			}
 		}
-		if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_DOWN || App->input->dpadLeft == KEY_STATE::KEY_DOWN) {
+		if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_DOWN || App->input->dpadLeft == KEY_STATE::KEY_DOWN || App->input->joy_left == KEY_STATE::KEY_DOWN) {
 			if (characterselected1 > 1) {
 				if (characterselected1 == characterselected2 + 1) {
 					characterselected1 -= 2;

@@ -49,6 +49,11 @@ update_status ModuleInput::PreUpdate()
 
 	const Uint8* keys = SDL_GetKeyboardState(NULL);
 
+	Sint16 x_joy, y_joy;
+
+	x_joy = SDL_JoystickGetAxis(joy, 0);
+	y_joy = SDL_JoystickGetAxis(joy, 1);
+
 	for (int i = 0; i < MAX_KEYS; ++i)
 	{
 		if (keys[i] == 1)
@@ -148,7 +153,59 @@ update_status ModuleInput::PreUpdate()
 			dpadRight = KEY_IDLE;
 	}
 
+	if (x_joy >= -32768 && x_joy < 0) {
+		if (joy_left == KEY_IDLE)
+			joy_left = KEY_DOWN;
+		else
+			joy_left = KEY_REPEAT;
+	}
+	else
+	{
+		if (joy_left == KEY_REPEAT || joy_left == KEY_DOWN)
+			joy_left = KEY_UP;
+		else
+			joy_left = KEY_IDLE;
+	}
 	
+	if (x_joy >= 0 && x_joy < 32767) {
+		if (joy_right == KEY_IDLE)
+			joy_right = KEY_DOWN;
+		else
+			joy_right = KEY_REPEAT;
+	}
+	else
+	{
+		if (joy_right == KEY_REPEAT || joy_right == KEY_DOWN)
+			joy_right = KEY_UP;
+		else
+			joy_right = KEY_IDLE;
+	}
+	if (y_joy >= -32768 && y_joy < 0) {
+		if (joy_down == KEY_IDLE)
+			joy_down = KEY_DOWN;
+		else
+			joy_down = KEY_REPEAT;
+	}
+	else
+	{
+		if (joy_down == KEY_REPEAT || joy_down == KEY_DOWN)
+			joy_down = KEY_UP;
+		else
+			joy_down = KEY_IDLE;
+	}
+	if (y_joy >= 0 && y_joy < 32767) {
+		if (joy_up == KEY_IDLE)
+			joy_up = KEY_DOWN;
+		else
+			joy_up = KEY_REPEAT;
+	}
+	else
+	{
+		if (joy_up == KEY_REPEAT || joy_up == KEY_DOWN)
+			joy_up = KEY_UP;
+		else
+			joy_up = KEY_IDLE;
+	}
 
 	if (keyboard[SDL_SCANCODE_ESCAPE]) {
 		App->CleanUp();

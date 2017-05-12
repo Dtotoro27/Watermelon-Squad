@@ -41,6 +41,11 @@ public:
 	KEY_STATE dpadDown;
 	KEY_STATE dpadLeft;
 	KEY_STATE dpadRight;
+	KEY_STATE joy_up;
+	KEY_STATE joy_down;
+	KEY_STATE joy_left;
+	KEY_STATE joy_right;
+
 };
 
 #endif // __ModuleInput_H__
