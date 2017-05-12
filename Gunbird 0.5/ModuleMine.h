@@ -35,7 +35,7 @@ public:
 	Animation rock2;
 	Animation bomb_indicator;
 
-	bool pause=false;
+	bool pause = false;
 	
 
 

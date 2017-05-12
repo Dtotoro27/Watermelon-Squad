@@ -37,6 +37,7 @@ public:
 	SDL_Joystick *joy = nullptr;
 	KEY_STATE buttonA;
 	KEY_STATE buttonB;
+	KEY_STATE buttonStart;
 	KEY_STATE dpadUp;
 	KEY_STATE dpadDown;
 	KEY_STATE dpadLeft;

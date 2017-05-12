@@ -190,8 +190,8 @@ void ModuleCollision::DebugDraw()
 		case COLLIDER_ENEMY_SHOT: // magenta
 			App->render->DrawQuad(colliders[i]->rect, 0, 255, 255, alpha);
 			break;
-		case COLLIDER_ASH_BOMB: // black
-			App->render->DrawQuad(colliders[i]->rect, 0, 0, 0, alpha);
+		case COLLIDER_ASH_BOMB: // pink
+			App->render->DrawQuad(colliders[i]->rect, 247, 191, 191, alpha);
 		}
 	}
 }

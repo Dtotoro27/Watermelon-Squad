@@ -86,6 +86,20 @@ update_status ModuleInput::PreUpdate()
 			buttonA = KEY_IDLE;
 	}
 
+	if (SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_START) == 1) {
+		if (buttonStart == KEY_IDLE)
+			buttonStart = KEY_DOWN;
+		else
+			buttonStart = KEY_REPEAT;
+	}
+	else
+	{
+		if (buttonStart == KEY_REPEAT || buttonStart == KEY_DOWN)
+			buttonStart = KEY_UP;
+		else
+			buttonStart = KEY_IDLE;
+	}
+
 	if (SDL_GameControllerGetButton(controller, SDL_CONTROLLER_BUTTON_B) == 1) {
 		if (buttonB == KEY_IDLE)
 			buttonB = KEY_DOWN;
@@ -153,7 +167,7 @@ update_status ModuleInput::PreUpdate()
 			dpadRight = KEY_IDLE;
 	}
 
-	if (x_joy >= -32768 && x_joy < 0) {
+	if (x_joy >= -33000 && x_joy < -10000) {
 		if (joy_left == KEY_IDLE)
 			joy_left = KEY_DOWN;
 		else
@@ -167,7 +181,7 @@ update_status ModuleInput::PreUpdate()
 			joy_left = KEY_IDLE;
 	}
 	
-	if (x_joy >= 0 && x_joy < 32767) {
+	if (x_joy >= 10000 && x_joy < 33000) {
 		if (joy_right == KEY_IDLE)
 			joy_right = KEY_DOWN;
 		else
@@ -180,20 +194,7 @@ update_status ModuleInput::PreUpdate()
 		else
 			joy_right = KEY_IDLE;
 	}
-	if (y_joy >= -32768 && y_joy < 0) {
-		if (joy_down == KEY_IDLE)
-			joy_down = KEY_DOWN;
-		else
-			joy_down = KEY_REPEAT;
-	}
-	else
-	{
-		if (joy_down == KEY_REPEAT || joy_down == KEY_DOWN)
-			joy_down = KEY_UP;
-		else
-			joy_down = KEY_IDLE;
-	}
-	if (y_joy >= 0 && y_joy < 32767) {
+	if (y_joy >= -33000 && y_joy < -10000) {
 		if (joy_up == KEY_IDLE)
 			joy_up = KEY_DOWN;
 		else
@@ -205,6 +206,19 @@ update_status ModuleInput::PreUpdate()
 			joy_up = KEY_UP;
 		else
 			joy_up = KEY_IDLE;
+	}
+	if (y_joy >= 10000 && y_joy < 33000) {
+		if (joy_down == KEY_IDLE)
+			joy_down = KEY_DOWN;
+		else
+			joy_down = KEY_REPEAT;
+	}
+	else
+	{
+		if (joy_down == KEY_REPEAT || joy_down == KEY_DOWN)
+			joy_down = KEY_UP;
+		else
+			joy_down = KEY_IDLE;
 	}
 
 	if (keyboard[SDL_SCANCODE_ESCAPE]) {
