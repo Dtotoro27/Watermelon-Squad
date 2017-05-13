@@ -1,5 +1,5 @@
-#ifndef _ModuleMine_H_
-#define _ModuleMine_H_
+#ifndef _ModuleSea_H_
+#define _ModuleSea_H_
 
 #include "Module.h"
 #include "Animation.h"
@@ -8,15 +8,15 @@
 
 struct SDL_Texture;
 
-class ModuleMine : public Module
+class ModuleSea : public Module
 {
 private: 
 	int delay;
 	float sea_speed;
 	float sea_x;
 public:
-	ModuleMine();
-	~ModuleMine();
+	ModuleSea();
+	~ModuleSea();
 
 	bool Start();
 	bool CleanUp();

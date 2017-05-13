@@ -3,7 +3,7 @@
 #include "ModuleRender.h"
 #include "ModuleInput.h"
 #include "ModuleTextures.h"
-#include "ModuleMine.h"
+#include "ModuleSea.h"
 #include "ModuleWelcome.h"
 #include "ModuleCongrats.h"
 #include "ModuleCharacterSelect.h"
@@ -27,7 +27,7 @@ Application::Application()
 	modules[i++] = fonts = new ModuleFonts();
 	modules[i++] = welcome = new ModuleWelcome();
 	modules[i++] = characterselect = new ModuleCharacterSelect();
-	modules[i++] = mine = new ModuleMine();
+	modules[i++] = sea = new ModuleSea();
 	modules[i++] = player = new ModulePlayer();
 	modules[i++] = player2 = new ModulePlayer2();
 	modules[i++] = enemies = new ModuleEnemies();
@@ -50,7 +50,7 @@ bool Application::Init()
 {
 	bool ret = true;
 
-	mine->Disable();
+	sea->Disable();
 	characterselect->Disable();
 	congrats->Disable();
 	player->Disable();

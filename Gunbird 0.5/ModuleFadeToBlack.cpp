@@ -2,7 +2,7 @@
 #include "Globals.h"
 #include "Application.h"
 #include "ModuleFadeToBlack.h"
-#include "ModuleMine.h"
+#include "ModuleSea.h"
 #include "ModuleRender.h"
 #include "ModulePlayer.h"
 #include "ModulePlayer2.h"

@@ -6,7 +6,7 @@
 #include "ModulePlayer2.h"
 #include "ModuleWelcome.h"
 #include "ModuleCharacterSelect.h"
-#include "ModuleMine.h"
+#include "ModuleSea.h"
 #include "ModuleInput.h"
 #include "ModuleAudio.h"
 #include "ModuleFadeToBlack.h"
@@ -364,7 +364,7 @@ update_status ModuleCharacterSelect::Update()
 	if (App->input->keyboard[SDL_SCANCODE_P] && change || App->input->buttonA == KEY_STATE::KEY_DOWN && change) {
 
 		change = false;
-		App->fade->FadeToBlack(this, App->mine, 1);
+		App->fade->FadeToBlack(this, App->sea, 1);
 		change = true;
 		//App->input->buttonA = false;
 		

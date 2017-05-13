@@ -5,7 +5,7 @@
 #include "ModulePlayer.h"
 #include "ModuleCharacterSelect.h"
 #include "ModuleWelcome.h"
-#include "ModuleMine.h"
+#include "ModuleSea.h"
 #include "ModuleInput.h"
 #include "ModuleAudio.h"
 #include "ModuleCollision.h"

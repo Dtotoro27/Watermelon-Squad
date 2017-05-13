@@ -96,7 +96,7 @@
     <ClInclude Include="ModulePlayer.h" />
     <ClInclude Include="ModulePlayer2.h" />
     <ClInclude Include="ModuleRender.h" />
-    <ClInclude Include="ModuleMine.h" />
+    <ClInclude Include="ModuleSea.h" />
     <ClInclude Include="ModuleTextures.h" />
     <ClInclude Include="ModuleWelcome.h" />
     <ClInclude Include="ModuleWindow.h" />
@@ -123,7 +123,7 @@
     <ClCompile Include="ModuleFadeToBlack.cpp" />
     <ClCompile Include="ModuleFonts.cpp" />
     <ClCompile Include="ModuleInput.cpp" />
-    <ClCompile Include="ModuleMine.cpp" />
+    <ClCompile Include="ModuleSea.cpp" />
     <ClCompile Include="ModuleParticles.cpp" />
     <ClCompile Include="ModulePlayer.cpp" />
     <ClCompile Include="ModulePlayer2.cpp" />

@@ -46,7 +46,7 @@ bool ModuleAudio::LoadMusic(music musiclevel) {
 
 	/*switch (musiclevel) {
 	case music_level1:
-		musicinexecution[musiclevel] = Mix_LoadMUS("assets/Audio/mine.ogg");
+		musicinexecution[musiclevel] = Mix_LoadMUS("assets/Audio/sea.ogg");
 		Mix_PlayMusic(musicinexecution[musiclevel], -1);
 		break;
 	case music_welcome:
@@ -65,7 +65,7 @@ bool ModuleAudio::LoadMusic(music musiclevel) {
 bool ModuleAudio::UnLoadMusic(music musiclevel) {
 	/*switch (musiclevel) {
 	case music_level1:
-		musicinexecution[musiclevel] = Mix_LoadMUS("assets/Audio/mine.ogg");
+		musicinexecution[musiclevel] = Mix_LoadMUS("assets/Audio/sea.ogg");
 		Mix_FreeMusic(musicinexecution[musiclevel]);
 		musicinexecution[musiclevel] = NULL;
 		break;

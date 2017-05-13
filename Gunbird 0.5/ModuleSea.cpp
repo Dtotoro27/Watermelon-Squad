@@ -4,7 +4,7 @@
 #include "ModulePlayer.h"
 #include "ModulePlayer2.h"
 #include "ModuleRender.h"
-#include "ModuleMine.h"
+#include "ModuleSea.h"
 #include "ModuleAudio.h"
 #include "ModuleParticles.h"
 #include "ModuleCollision.h"
@@ -16,7 +16,7 @@
 
 
 
-ModuleMine::ModuleMine()
+ModuleSea::ModuleSea()
 {
 	// Background 
 
@@ -54,11 +54,11 @@ ModuleMine::ModuleMine()
 
 }
 
-ModuleMine::~ModuleMine()
+ModuleSea::~ModuleSea()
 {}
 
 // Load assets
-bool ModuleMine::Start()
+bool ModuleSea::Start()
 {
 	LOG("Loading background assets");
 
@@ -99,7 +99,7 @@ bool ModuleMine::Start()
 	return true;
 }
 
-bool ModuleMine::CleanUp()
+bool ModuleSea::CleanUp()
 {
 
 	App->enemies->Disable();
@@ -111,14 +111,14 @@ bool ModuleMine::CleanUp()
 	App->textures->Unload(rocktexture);
 	App->textures->Unload(startplayer2texture);
 	//App->audio->UnLoadMusic(music_level1);
-	App->mine->Disable();
+	App->sea->Disable();
 	
 	LOG("Unloading stage");
 	return true;
 }
 
 // Update: draw background
-update_status ModuleMine::Update()
+update_status ModuleSea::Update()
 {
 
 	// -------------------------------------- Draw everything --------------------------------------

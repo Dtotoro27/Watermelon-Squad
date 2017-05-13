@@ -7,7 +7,7 @@
 #include "ModuleFadeToBlack.h"
 #include "ModulePlayer2.h"
 #include "ModulePlayer.h"
-#include "ModuleMine.h"
+#include "ModuleSea.h"
 #include "ModuleParticles.h"
 #include "ModuleAudio.h"
 #include "ModuleFonts.h"
@@ -79,7 +79,7 @@ update_status ModulePlayer2::Update()
 	position.y -= 1;
 	camera_limitsp2 = App->player->camera_limits;
 
-	if (App->mine->pause == false) {
+	if (App->sea->pause == false) {
 
 		if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT)
 		{
@@ -231,7 +231,7 @@ void  ModulePlayer2::OnCollision(Collider *c1, Collider *c2) {
 				if (lives == 0) {
 					App->particles->AddParticle(App->particles->dead, position.x - 5, position.y - 25, 0, 0, COLLIDER_NONE, 150);
 					App->textures->Unload(graphics);
-					App->fade->FadeToBlack((Module*)App->mine, (Module*)App->congrats);
+					App->fade->FadeToBlack((Module*)App->sea, (Module*)App->congrats);
 					destroyed = true;
 				}
 				else {

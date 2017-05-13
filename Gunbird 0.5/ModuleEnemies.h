@@ -47,12 +47,13 @@ private:
 	void SpawnEnemy(const EnemyInfo& info);
 
 private:
-
-	int big_enemy_life = 4;
 	EnemyInfo queue[MAX_ENEMIES];
 	Enemy* enemies[MAX_ENEMIES];
 	SDL_Texture* sprites;
 	SDL_Texture* pw_sprites;
+
+public: 
+	int balloon_live;
 };
 
 #endif // __ModuleEnemies_H__

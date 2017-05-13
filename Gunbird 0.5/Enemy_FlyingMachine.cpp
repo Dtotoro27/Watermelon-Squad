@@ -4,7 +4,7 @@
 #include "ModuleTextures.h"
 #include "ModuleParticles.h"
 #include "ModulePlayer.h"
-#include "ModuleMine.h"
+#include "ModuleSea.h"
 #include "SDL/include/SDL_timer.h"
 
 #include <math.h>
@@ -49,13 +49,13 @@ Enemy_FlyingMachine::Enemy_FlyingMachine(int x, int y) : Enemy(x, y)
 
 void Enemy_FlyingMachine::Move()
 {
-	if (App->mine->pause == false) {
+	if (App->sea->pause == false) {
 		position = originalpos + movement.GetCurrentPosition();
 	}
 }
 
 void Enemy_FlyingMachine::Shoot() {
-	if (App->mine->pause == false) {
+	if (App->sea->pause == false) {
 	now = SDL_GetTicks() - start_time;
 	if (now > 3000) {
 		shootspeed_x = (App->player->position.x - (position.x));

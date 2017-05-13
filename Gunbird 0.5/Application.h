@@ -12,7 +12,7 @@ class ModuleTextures;
 class ModuleFonts;
 class ModuleWelcome;
 class ModuleCharacterSelect;
-class ModuleMine;
+class ModuleSea;
 class ModulePlayer;
 class ModulePlayer2;
 class ModuleEnemies;
@@ -37,7 +37,7 @@ public:
 	ModuleFonts* fonts;
 	ModuleWelcome* welcome;
 	ModuleCharacterSelect* characterselect;
-	ModuleMine* mine;
+	ModuleSea* sea;
 	ModulePlayer* player;
 	ModulePlayer2* player2;
 	ModuleEnemies* enemies;

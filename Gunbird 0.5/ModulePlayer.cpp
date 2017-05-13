@@ -6,7 +6,7 @@
 #include "ModuleWelcome.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleCollision.h"
-#include "ModuleMine.h"
+#include "ModuleSea.h"
 #include "ModulePlayer.h"
 #include "ModulePlayer2.h"
 #include "ModuleParticles.h"
@@ -205,7 +205,7 @@ update_status ModulePlayer::Update()
 	position.y -= 1;
 	camera_limits.y -= 1;
 
-	if (App->mine->pause == false) {
+	if (App->sea->pause == false) {
 		//BOMB ----------------------
 		if (bomb == false && max_bomb>0) {
 			bomb_position.y = position.y;
@@ -501,7 +501,7 @@ update_status ModulePlayer::Update()
 void  ModulePlayer::OnCollision(Collider *c1, Collider *c2) {
 
 
-	if (App->mine->pause == false) {
+	if (App->sea->pause == false) {
 		if (c1 == playerhitbox && destroyed == false && App->fade->IsFading() == false)
 		{
 
@@ -515,7 +515,7 @@ void  ModulePlayer::OnCollision(Collider *c1, Collider *c2) {
 					if (lives == 0) {
 						App->particles->AddParticle(App->particles->dead, position.x - 5, position.y - 25, 0, 0, COLLIDER_NONE, 150);
 						App->textures->Unload(graphics);
-						App->fade->FadeToBlack((Module*)App->mine, (Module*)App->congrats);
+						App->fade->FadeToBlack((Module*)App->sea, (Module*)App->congrats);
 						destroyed = true;
 					}
 					else {
