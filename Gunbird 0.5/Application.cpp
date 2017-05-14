@@ -28,9 +28,9 @@ Application::Application()
 	modules[i++] = welcome = new ModuleWelcome();
 	modules[i++] = characterselect = new ModuleCharacterSelect();
 	modules[i++] = sea = new ModuleSea();
+	modules[i++] = enemies = new ModuleEnemies();
 	modules[i++] = player = new ModulePlayer();
 	modules[i++] = player2 = new ModulePlayer2();
-	modules[i++] = enemies = new ModuleEnemies();
 	modules[i++] = congrats = new ModuleCongrats();
 	modules[i++] = particles = new ModuleParticles();
 	modules[i++] = collision = new ModuleCollision();

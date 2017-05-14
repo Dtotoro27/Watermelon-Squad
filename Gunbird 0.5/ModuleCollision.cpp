@@ -193,6 +193,7 @@ void ModuleCollision::DebugDraw()
 		case COLLIDER_ASH_BOMB: // pink
 			App->render->DrawQuad(colliders[i]->rect, 247, 191, 191, alpha);
 		}
+	
 	}
 }
 

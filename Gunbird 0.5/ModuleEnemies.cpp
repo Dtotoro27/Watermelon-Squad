@@ -212,7 +212,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 
 			else if (c1->type == COLLIDER_BALLOON) {
 
-				if (balloon_live == 0) {
+				if (balloon_live <= 0) {
 					App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x - 25, enemies[i]->position.y - 25, 0, 0);
 					//App->audio->PlayFX(audio_explosion);
 					if (c2->type == COLLIDER_PLAYER_2_SHOT) {
@@ -226,18 +226,24 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 				}
 
 				if (balloon_live > 0) {
+					if (App->player->powerUps == 0) { damage = 1; }
+					if (App->player->powerUps == 1) { damage = 2; }
+					if (App->player->powerUps == 2) { damage = 3; }
+					if (App->player->powerUps == 3) { damage = 4; }
 					App->particles->AddParticle(App->particles->damage_balloon, enemies[i]->position.x, enemies[i]->position.y, 0, -1);
-					balloon_live--;
+					balloon_live = balloon_live - damage;
 				}
 				break;
 			}
 			else {
-				if (c2->type == COLLIDER_PLAYER_2_SHOT) {
-					App->player2->score += 200;
-				}
-				if (c2->type == COLLIDER_PLAYER_SHOT) {
-					App->player->score += 200;
-				}
+					if (c2->type == COLLIDER_PLAYER_2_SHOT) {
+						App->player2->score += 200;
+					}
+					if (c2->type == COLLIDER_PLAYER_SHOT) {
+						App->player->score += 200;
+					}
+				
+			
 
 
 				App->particles->AddParticle(App->particles->littleexplosion, enemies[i]->position.x, enemies[i]->position.y - 5, 0, 0);

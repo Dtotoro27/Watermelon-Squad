@@ -26,9 +26,9 @@ ModuleCongrats::ModuleCongrats()
 	p1.PushBack({ 8,30,55,20 });
 	p2.PushBack({ 8,53,55,20 });
 
-	gameover.PushBack({ 2,91,124,31 });
+	gameover.PushBack({ 0,30,124,16 });
 	gameover.PushBack({ 0,0,0,0 });
-	gameover.speed = 0.013f;
+	gameover.speed = 0.05f;
 
 	score_ranking.PushBack({ 6,3,114,21 });
 }

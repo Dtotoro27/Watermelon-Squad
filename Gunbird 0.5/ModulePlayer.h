@@ -57,6 +57,7 @@ public:
 	bool godmode = false;
 	iPoint position;
 	iPoint bomb_position;
+	iPoint pause_position;
 	iPoint camera_limits;
 	iPoint time;
 	iPoint position_immortal;

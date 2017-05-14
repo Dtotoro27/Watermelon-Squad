@@ -42,15 +42,16 @@ ModuleSea::ModuleSea()
 	rock2.PushBack({ 206,187,68,155 });
 	rock2.speed = 0.06;
 
-	p1.PushBack({ 10, 68, 15, 12 });
-	p2.PushBack({ 30,67,16,12 });
+	p1.PushBack({ 71, 17, 15, 12 });
+	p2.PushBack({ 90,17,16,12 });
 
-	startplayer2animation.PushBack({ 6, 5, 68, 15 });
-	startplayer2animation.PushBack({ 6, 28,68, 13 });
+	startplayer2animation.PushBack({ 0,15,68,15 });
+	startplayer2animation.PushBack({ 0,0,68,15 });;
 	startplayer2animation.PushBack({ 0,0,0,0 });
-	startplayer2animation.speed = 0.02;
+	startplayer2animation.PushBack({ 0,0,0,0 });
+	startplayer2animation.speed = 0.05;
 
-	bomb_indicator.PushBack({ 59,67,12,15 });
+	bomb_indicator.PushBack({ 107,0,12,15 });
 
 }
 
@@ -254,9 +255,6 @@ update_status ModuleSea::Update()
 		App->enemies->AddEnemy(ENEMY_TYPES::BOMB2, 192, -4614);
 
 	}
-
-
-
 
 
 

@@ -22,9 +22,11 @@ ModuleWelcome::ModuleWelcome()
 	welcome.h = 320;
 
 	//start animation
-	gameover.PushBack({ 2,91,124,31 });
+	gameover.PushBack({ 0,15,68,15 });
+	gameover.PushBack({ 0,0,68,15 });
 	gameover.PushBack({ 0,0,0,0 });
-	gameover.speed = 0.013f;
+	gameover.PushBack({ 0,0,0,0 });
+	gameover.speed = 0.05f;
 
 
 }
@@ -65,7 +67,7 @@ update_status ModuleWelcome::Update()
 
 	App->render->Blit(welcometexture, 0, -320 + SCREEN_HEIGHT, &welcome, 0.75f);
 
-	App->render->Blit(gameovertexture, 50, 200, &(gameover.GetCurrentFrame()), 0.22f);
+	App->render->Blit(gameovertexture, 75, 224, &(gameover.GetCurrentFrame()), 0.22f);
 
 	
 

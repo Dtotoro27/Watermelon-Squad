@@ -54,6 +54,7 @@ private:
 
 public: 
 	int balloon_live;
+	int damage;
 };
 
 #endif // __ModuleEnemies_H__
