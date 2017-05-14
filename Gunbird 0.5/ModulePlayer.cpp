@@ -27,6 +27,7 @@ ModulePlayer::ModulePlayer()
 	score = 0;
 
 	camera_limits.y = 0;
+	pause_position.y = 0;
 
 	// idle animation
 	idle.PushBack({ 14, 13, 19, 32 });
@@ -141,7 +142,6 @@ ModulePlayer::ModulePlayer()
 	ash_bomb_animation.PushBack({ 1280,769,254,254 });
 	ash_bomb_animation.PushBack({ 0,0,0,0 });
 	ash_bomb_animation.PushBack({ 1536,769,254,254 });
-	ash_bomb_animation.PushBack({ 0,0,0,0 });
 	ash_bomb_animation.speed = 0.7f;
 
 	bomb_throw.PushBack({ 1868,428,10,14 });
@@ -399,6 +399,16 @@ update_status ModulePlayer::Update()
 			}
 		}
 
+		if (App->input->keyboard[SDL_SCANCODE_F5] == KEY_STATE::KEY_DOWN) {
+			if (max_bomb > 0) {
+				max_bomb--;
+			}
+		}
+		if (App->input->keyboard[SDL_SCANCODE_F6] == KEY_STATE::KEY_DOWN) {
+			if (max_bomb < 2) {
+				max_bomb++;
+			}
+		}
 		if (App->player2->IsEnabled()) {}
 
 		else {
@@ -437,7 +447,7 @@ update_status ModulePlayer::Update()
 
 		}
 
-		if (delay2 == 205) {
+		if (delay2 == 209) {
 			bomb = false;
 			delay2 = 0;
 			App->collision->EraseCollider(bombhitbox);
@@ -480,8 +490,6 @@ update_status ModulePlayer::Update()
 		time.x++;
 	}
 
-	
-
 	// PLAYER LIVES
 
 	if (lives == 2) {
@@ -493,7 +501,13 @@ update_status ModulePlayer::Update()
 	}
 
 
-	
+	//Pause 
+	if (App->sea->pause == true) {
+		App->render->DrawQuad({ 0,pause_position.y,SCREEN_WIDTH,SCREEN_HEIGHT }, 0, 0, 0,100);
+	}
+	else {
+		pause_position.y--;
+	}
 
 	return UPDATE_CONTINUE;
 }
