@@ -72,7 +72,7 @@ bool ModuleSea::Start()
 	rocktexture = App->textures->Load("assets/background_sea_2.png");
 	startplayer2texture = App->textures->Load("assets/ui.png");
 
-	//App->audio->LoadMusic(music_level1);
+	App->audio->LoadMusic("assets/Audio/mine.ogg");
 
 
 	App->player->Enable();
@@ -110,8 +110,10 @@ bool ModuleSea::CleanUp()
 	App->textures->Unload(seatexture);	
 	App->textures->Unload(rocktexture);
 	App->textures->Unload(startplayer2texture);
-	//App->audio->UnLoadMusic(music_level1);
+	App->audio->UnloadMusic();
 	App->sea->Disable();
+
+
 	
 	LOG("Unloading stage");
 	return true;

@@ -173,6 +173,8 @@ bool ModuleCharacterSelect::Start()
 	p1_x = 56;
 	cloud1_x = 0;
 	cloud2_x = 417;
+
+	App->audio->LoadMusic("assets/Audio/characterselection.ogg");
 	return ret;
 }
 
@@ -186,6 +188,7 @@ bool ModuleCharacterSelect::CleanUp()
 	App->textures->Unload(characteranimation1);
 	App->textures->Unload(characteranimation2);
 	App->textures->Unload(ash_texture);
+	App->audio->UnloadMusic();
 	App->textures->Unload(marion_texture);
 	App->textures->Unload(tetsu_texture);
 	App->textures->Unload(valnus_texture);

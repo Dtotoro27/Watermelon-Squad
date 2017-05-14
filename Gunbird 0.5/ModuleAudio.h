@@ -8,14 +8,8 @@
 #pragma comment( lib, "SDL_mixer/libx86/SDL2_mixer.lib" )
 
 
-#define MAX_AUDIO 50
 #define MAX_FX 500
 
-enum music {
-	music_welcome,
-	music_level1,
-	music_congrats
-};
 
 class ModuleAudio : public Module
 {
@@ -26,18 +20,20 @@ public:
 	bool Init();
 	bool CleanUp();
 
-	bool LoadMusic(music musiclevel);
-	bool UnLoadMusic(music musiclevel);
+	bool LoadMusic(const char* musicName);
+	bool UnloadMusic();
 
 	uint LoadFX(const char* path);
-	bool PlayFX(uint fx);
+	bool PlayFX(uint FXname);
 
 private:
-	Mix_Music* musicinexecution[MAX_AUDIO];
-	Mix_Chunk* fx_sound[MAX_FX];
+
+	Mix_Music* music = nullptr;
+	Mix_Chunk* fx[MAX_FX];
 	uint ret = 0;
 	uint last_fx = 1;
 };
 
 #endif
+
 
