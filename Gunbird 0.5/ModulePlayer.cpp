@@ -24,8 +24,7 @@ ModulePlayer::ModulePlayer()
 	position.x = 100;
 	position.y = 220;
 
-	score = 0;
-
+	
 	camera_limits.y = 0;
 	pause_position.y = 0;
 
@@ -152,6 +151,27 @@ ModulePlayer::ModulePlayer()
 	bomb_throw.PushBack({ 1933,428,10,5 });
 	bomb_throw.speed = 0.08;
 
+	game_over.PushBack({0,30,124,16});
+	cont.PushBack({ 0,59,71,12 });
+
+	time_background.PushBack({ 0,71,15,16 });
+	time_background.PushBack({ 15,71,15,16 });
+	time_background.PushBack({ 30,71,15,16 });
+	time_background.PushBack({ 45,71,15,16 });
+	time_background.PushBack({ 60,71,15,16 });
+	time_background.PushBack({ 75,71,15,16 });
+	time_background.PushBack({ 90,71,15,16 });
+	time_background.PushBack({ 105,71,15,16 });
+	time_background.PushBack({ 0,87,15,16 });
+	time_background.PushBack({ 15,87,15,16 });
+	time_background.PushBack({ 30,87,15,16 });
+	time_background.PushBack({ 45,87,15,16 });
+	time_background.PushBack({ 60,87,15,16 });
+	time_background.PushBack({ 75,87,15,16 });
+	time_background.PushBack({ 90,87,15,16 });
+	time_background.PushBack({ 105,87,15,16 });
+	time_background.speed = 0.217;
+
 	life_indicator.PushBack({ 146,21,11,13 });
 }
 
@@ -166,14 +186,18 @@ bool ModulePlayer::Start()
 	position.x = 100;
 	position_lives = 21;
 	position.y = (camera_limits.y + 300);
+	pause_position.y = 0;
 	lives = 2;
-
+	delay3 = 0;
 	graphics = App->textures->Load("assets/characters/ash.png");
 	ash_bomb_texture = App->textures->Load("assets/ash_bomb.png");
+	ui = App->textures->Load("assets/ui.png");
 	playerhitbox = App->collision->AddCollider({ position.x, position.y, 19, 32 }, COLLIDER_PLAYER, this);
 	font_score = App->fonts->Load("assets/numbers.png", "0123456789", 1);
+	font_time = App->fonts->Load("assets/numbers_time.png", "0123456789", 1);
 	audio_shot = App->audio->LoadFX("assets/Audio/shoot_ash.wav");
 	score = 0;
+	timer = 9;
 	time.x = 0;
 	max_bomb = 2;
 
@@ -188,6 +212,8 @@ bool ModulePlayer::CleanUp()
 	App->textures->Unload(ash_bomb_texture);
 	App->collision->EraseCollider(playerhitbox);
 	App->fonts->UnLoad(font_score);
+	App->fonts->UnLoad(font_time);
+
 
 	return true;
 }
@@ -200,6 +226,7 @@ update_status ModulePlayer::Update()
 	char str[10];
 	sprintf_s(str, "%i", score);
 	App->fonts->BlitText(44, 7, font_score, str);
+
 
     float speed = 3.5f;
 	position.y -= 1;
@@ -457,28 +484,10 @@ update_status ModulePlayer::Update()
 
 	}
 
-	if (dead == true) {
-		if (delay2 < 100) {
-			App->render->Blit(graphics, 100, position_immortal.y, &(immortal.GetCurrentFrame()));
-			if (position_immortal.y != camera_limits.y + 266) {
-				position_immortal.y -= 2;
-			}
-		}
-		if (delay2 == 100) {
-			position.x = 100;
-			position.y =camera_limits.y + 300;
-			App->render->Blit(graphics, position.x, position.y - r.h, &(immortal.GetCurrentFrame()));
-		}
-		if (delay2 == 300) {
-			playerhitbox = App->collision->AddCollider({ position.x, position.y, 19, 32 }, COLLIDER_PLAYER, this);
-			delay2 = 0;
-			dead = false;
-		}
-		else
-			delay2++;
-	}
 
 	sprintf_s(score_text, 10, "%7d", score);
+	sprintf_s(gameover_time, 10, "%7d", timer);
+
 
 	//IMMORTAL ANIMATION---------------------
 
@@ -509,6 +518,68 @@ update_status ModulePlayer::Update()
 		pause_position.y--;
 	}
 
+
+	//DEAD
+	if (dead == true) {
+		if (lives == -1) {
+			if (delay3 > 100) {
+				App->particles->AddParticle(App->particles->dead, position.x - 5, position.y - 25, 0, 0, COLLIDER_NONE, 150);
+				position.y = camera_limits.y + 800;
+				position_immortal.y = camera_limits.y + 350;
+				char str2[10];
+				sprintf_s(str2, "%i", timer);
+				App->render->Blit(ui, 50, pause_position.y + 104, &(game_over.GetCurrentFrame()));
+				App->render->Blit(ui, 145, pause_position.y + 136, &(time_background.GetCurrentFrame()));
+				App->render->Blit(ui, 50, pause_position.y + 140, &(cont.GetCurrentFrame()));
+				App->fonts->BlitText(146, 137, font_time, str2);
+				App->sea->pause = true;
+				delay3++;
+			}
+			if (delay3 == 250) { timer--; }
+			if (delay3 == 400) { timer--; }
+			if (delay3 == 550) { timer--; }
+			if (delay3 == 700) { timer--; }
+			if (delay3 == 850) { timer--; }
+			if (delay3 == 1000) { timer--; }
+			if (delay3 == 1150) { timer--; }
+			if (delay3 == 1300) { timer--; }
+			if (delay3 == 1450){ timer--; }
+			if (delay3 == 1600) {
+				App->textures->Unload(graphics);
+				App->fade->FadeToBlack((Module*)App->sea, (Module*)App->congrats);
+				destroyed = true;
+			}
+			delay3++;
+			 if (App->input->keyboard[SDL_SCANCODE_1] == KEY_STATE::KEY_DOWN) {
+				lives = 2;
+				score += 1;
+				delay3 = 0;
+				timer = 9;
+				App->sea->pause = false;
+			}
+		}
+		else {
+			if (delay2 < 100) {
+				App->render->Blit(graphics, 100, position_immortal.y, &(immortal.GetCurrentFrame()));
+				if (position_immortal.y != camera_limits.y + 266) {
+					position_immortal.y -= 2;
+				}
+			}
+			if (delay2 == 100) {
+				position.x = 100;
+				position.y = camera_limits.y + 300;
+				App->render->Blit(graphics, position.x, position.y - r.h, &(immortal.GetCurrentFrame()));
+			}
+			if (delay2 == 300) {
+				playerhitbox = App->collision->AddCollider({ position.x, position.y, 19, 32 }, COLLIDER_PLAYER, this);
+				delay2 = 0;
+				dead = false;
+			}
+			else
+				delay2++;
+		}
+	}
+
 	return UPDATE_CONTINUE;
 }
 
@@ -526,20 +597,13 @@ void  ModulePlayer::OnCollision(Collider *c1, Collider *c2) {
 
 			else {
 				if (godmode == false) {
-					if (lives == 0) {
-						App->particles->AddParticle(App->particles->dead, position.x - 5, position.y - 25, 0, 0, COLLIDER_NONE, 150);
-						App->textures->Unload(graphics);
-						App->fade->FadeToBlack((Module*)App->sea, (Module*)App->congrats);
-						destroyed = true;
-					}
-					else {
 						lives--;
 						App->particles->AddParticle(App->particles->dead, position.x - 5, position.y - 25, 0, 0, COLLIDER_NONE, 150);
 						position.y = camera_limits.y + 800;
 						position_immortal.y = camera_limits.y + 350;
 						App->collision->EraseCollider(playerhitbox);
 						dead = true;
-					}
+					
 				}
 			}
 		}

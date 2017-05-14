@@ -126,16 +126,16 @@ update_status ModuleSea::Update()
 
 	// -------------------------------------- Draw everything --------------------------------------
 
-
-	if (App->input->keyboard[SDL_SCANCODE_O] == KEY_STATE::KEY_DOWN || App->input->buttonStart == KEY_STATE::KEY_DOWN) {
-		if (pause == false) {
-			pause = true;
-		}
-		else if (pause == true) {
-			pause = false;
+	if (App->player->dead == false) {
+		if (App->input->keyboard[SDL_SCANCODE_O] == KEY_STATE::KEY_DOWN || App->input->buttonStart == KEY_STATE::KEY_DOWN) {
+			if (pause == false) {
+				pause = true;
+			}
+			else if (pause == true) {
+				pause = false;
+			}
 		}
 	}
-
 	if (pause == true) {
 		App->render->camera.y -= SCROLL_SPEED;
 		App->player->position.y += 1;
