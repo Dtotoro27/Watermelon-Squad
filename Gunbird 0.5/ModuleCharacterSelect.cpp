@@ -147,6 +147,8 @@ ModuleCharacterSelect::ModuleCharacterSelect()
 	tetsu.PushBack({ 151,205,30,37 });
 	tetsu.speed = 0.5f;
 
+	coins_indicator.PushBack({ 69,8,38,8 });
+	time_indicator.PushBack({ 71,0,29,8 });
 }
 
 ModuleCharacterSelect::~ModuleCharacterSelect()
@@ -157,6 +159,8 @@ bool ModuleCharacterSelect::Start()
 {
 	LOG("Loading background assets");
 	bool ret = true;
+	font_time = App->fonts->Load("assets/numbers_time.png", "0123456789", 1);
+	change_selection= App->audio->LoadFX("assets/Audio/change_character.wav"); 
 	characterselecttexture = App->textures->Load("assets/character_selection/characterselection.png");
 	characterfaces = App->textures->Load("assets/character_selection/character_faces.png");
 	clouds = App->textures->Load("assets/character_selection/clouds.png");
@@ -168,11 +172,17 @@ bool ModuleCharacterSelect::Start()
 	tetsu_texture= App->textures->Load("assets/characters/tetsu_idle.png");
 	valnus_texture= App->textures->Load("assets/characters/valnus.png");
 	yuan_texture= App->textures->Load("assets/characters/yuan_nang.png");
+
+	font_coins = App->fonts->Load("assets/numbers_score.png", "0123456789", 1);
+	ui= App->textures->Load("assets/ui.png");
+
 	characterselected1 = 2;
 	characterselected2 = 4;
 	p1_x = 56;
 	cloud1_x = 0;
 	cloud2_x = 417;
+	timer = 9;
+	delay3 = 0;
 
 	App->audio->LoadMusic("assets/Audio/characterselection.ogg");
 	return ret;
@@ -181,6 +191,7 @@ bool ModuleCharacterSelect::Start()
 bool ModuleCharacterSelect::CleanUp()
 {
 	LOG("Unloading stage");
+	App->fonts->UnLoad(font_time);
 	App->textures->Unload(characterselecttexture);
 	App->textures->Unload(characterfaces);
 	App->textures->Unload(clouds);
@@ -188,6 +199,8 @@ bool ModuleCharacterSelect::CleanUp()
 	App->textures->Unload(characteranimation1);
 	App->textures->Unload(characteranimation2);
 	App->textures->Unload(ash_texture);
+	App->textures->Unload(ui);
+	App->fonts->UnLoad(font_coins);
 	App->audio->UnloadMusic();
 	App->textures->Unload(marion_texture);
 	App->textures->Unload(tetsu_texture);
@@ -243,6 +256,7 @@ update_status ModuleCharacterSelect::Update()
 			else if (characterselected1 == 5) {
 				characterselected1 = 1;
 			}
+			App->audio->PlayFX(change_selection);
 		}
 		if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_DOWN || App->input->dpadLeft == KEY_STATE::KEY_DOWN || App->input->joy_left == KEY_STATE::KEY_DOWN) {
 			if (characterselected1 > 1) {
@@ -251,6 +265,8 @@ update_status ModuleCharacterSelect::Update()
 			else {
 				characterselected1 = 5;
 			}
+			App->audio->PlayFX(change_selection);
+
 		}
 	}
 	//Player2
@@ -484,6 +500,34 @@ update_status ModuleCharacterSelect::Update()
 	if (coop == true) {
 		App->render->Blit(p1select, p2_x, 244, &(p2.GetCurrentFrame()), 0.22f);
 	}
+
+
+	char str[10];
+	sprintf_s(str, "%i", App->welcome->coins);
+	App->fonts->BlitText(194, 303, font_coins, str);
+	App->render->Blit(ui, 155, 306, &(coins_indicator.GetCurrentFrame()), 0.22f);
+	App->render->Blit(ui, 89, 306, &(time_indicator.GetCurrentFrame()), 0.22f);
+
+	char str2[10];
+	sprintf_s(str2, "%i", timer);
+	App->fonts->BlitText(122, 301, font_time, str2);
+
+	if (delay3 == 150) { timer--; }
+	if (delay3 == 300) { timer--; }
+	if (delay3 == 450) { timer--; }
+	if (delay3 == 600) { timer--; }
+	if (delay3 == 750) { timer--; }
+	if (delay3 == 900) { timer--; }
+	if (delay3 == 1050) { timer--; }
+	if (delay3 == 1200) { timer--; }
+	if (delay3 == 1350) {
+		timer--;
+		change = false;
+		App->fade->FadeToBlack(this, App->sea, 1);
+		change = true;
+	}
+	delay3++;
+
 
 	return UPDATE_CONTINUE;
 }

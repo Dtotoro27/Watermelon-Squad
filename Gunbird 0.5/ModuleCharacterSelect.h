@@ -36,6 +36,14 @@ public:
 	Animation ash_name, marion_name, valnus_name, yuan_name,yuan_name_coop, tetsu_name;
 	Animation ash_anim, marion_anim, valnus_anim, yuan_anim, tetsu_anim1,tetsu_anim2;
 	Animation ash, marion, valnus, yuan, tetsu;
+	
+	Animation coins_indicator;
+	Animation time_indicator;
+	SDL_Texture* ui = nullptr;
+
+	int font_time = -1;
+	uint timer;
+
 	int p1_x;
 	int p2_x;
 	int characterselected1;
@@ -43,6 +51,10 @@ public:
 	float cloud1_x;
 	float cloud2_x;
 	bool coop = false;
+	uint change_selection;
+
+	int font_coins = -1;
+	int delay3 = 0;
 	
 
 

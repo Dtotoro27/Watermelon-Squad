@@ -23,6 +23,13 @@ public:
 	SDL_Texture* gameovertexture= nullptr;
 	SDL_Rect welcome;
 	Animation gameover;
+	Animation coins_indicator;
+
+	uint coins;
+	int font_coins = -1;
+	
+
+
 
 
 };
