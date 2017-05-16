@@ -53,6 +53,7 @@ bool Application::Init()
 	bool ret = true;
 
 	sea->Disable();
+	ui->Disable();
 	characterselect->Disable();
 	congrats->Disable();
 	player->Disable();

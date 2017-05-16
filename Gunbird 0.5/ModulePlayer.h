@@ -17,13 +17,8 @@ class ModulePlayer : public Module
 private:
 	int delay = 0;
 	bool shooting;
-	int delay2 = 0;
-	int delay3 = 0;
-	
+	int delay2 = 0;	
 	bool bomb = false;
-
-
-
 public:
 	ModulePlayer();
 	~ModulePlayer();
@@ -39,34 +34,24 @@ public:
 	SDL_Texture* graphics = nullptr;
 	SDL_Texture* ash_bomb_texture = nullptr;
 	SDL_Texture* ui = nullptr;
-	int font_score = -1;
-	int font_time = -1;
-	char score_text[10];
-	char gameover_time[10];
 	uint score = 0;
-	uint timer;
+
 
 	Animation* current_animation = nullptr;
 	Animation idle;
 	Animation immortal;
 	Animation left;
 	Animation right;
-	Animation life_indicator;
 
 	Animation ash_bomb_animation;
 	Animation bomb_throw;
 	
-	Animation game_over;
-	Animation cont;
-	Animation time_background;
 
 	Collider* playerhitbox;
 	Collider* bombhitbox;
-	bool destroyed = false;
 	bool godmode = false;
 	iPoint position;
 	iPoint bomb_position;
-	iPoint pause_position;
 	iPoint camera_limits;
 	iPoint time;
 	iPoint position_immortal;
@@ -74,12 +59,6 @@ public:
 	int lives = 2;
 	int max_bomb = 2;
 	bool dead = false;
-
-	int font_coins = -1;
-	Animation coins_indicator;
-
-	Animation bomb_indicator;
-
 
 };
 

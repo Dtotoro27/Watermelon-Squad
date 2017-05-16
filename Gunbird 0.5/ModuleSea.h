@@ -24,18 +24,13 @@ public:
 
 public:
 	bool change = true;
-	bool player2 = false;
 	SDL_Texture* seatexture = nullptr;
 	SDL_Texture* rocktexture = nullptr;
 	SDL_Texture* startplayer2texture= nullptr;
-	Animation startplayer2animation;
 	Animation sea_animation;
-	Animation p1, p2;
 	Animation rock1;
 	Animation rock2;
-
 	bool pause = false;
-	Animation insert_coin;
 
 
 };

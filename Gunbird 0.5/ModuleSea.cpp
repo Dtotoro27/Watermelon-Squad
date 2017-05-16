@@ -14,7 +14,7 @@
 #include "ModuleEnemies.h"
 #include "ModuleCongrats.h"
 #include "ModuleCharacterSelect.h"
-
+#include "ModuleUI.h"
 
 
 ModuleSea::ModuleSea()
@@ -43,17 +43,6 @@ ModuleSea::ModuleSea()
 	rock2.PushBack({ 206,187,68,155 });
 	rock2.speed = 0.06;
 
-	p1.PushBack({ 71, 17, 15, 12 });
-	p2.PushBack({ 90,17,16,12 });
-
-	startplayer2animation.PushBack({ 0,15,68,15 });
-	startplayer2animation.PushBack({ 0,0,68,15 });;
-	startplayer2animation.PushBack({ 0,0,0,0 });
-	startplayer2animation.PushBack({ 0,0,0,0 });
-	startplayer2animation.speed = 0.05;
-
-	insert_coin.PushBack({});
-
 }
 
 ModuleSea::~ModuleSea()
@@ -80,12 +69,12 @@ bool ModuleSea::Start()
 	App->player->Enable();
 	if (App->characterselect->coop == true) {
 		App->player2->Enable();
-		player2 = true;
 	}
-	App->player->destroyed = false;
+	App->ui->destroyed = false;
 	App->particles->Enable();
 	App->collision->Enable();
 	App->enemies->Enable();
+	App->ui->Enable();
 	
 
 
@@ -109,6 +98,7 @@ bool ModuleSea::CleanUp()
 	App->particles->Disable();
 	App->player->Disable();
 	App->player2->Disable();
+	App->ui->Disable();
 	App->textures->Unload(seatexture);	
 	App->textures->Unload(rocktexture);
 	App->textures->Unload(startplayer2texture);
@@ -161,24 +151,6 @@ update_status ModuleSea::Update()
 
 
 	//UI--------------------------
-
-	if (App->input->keyboard[SDL_SCANCODE_Q] == KEY_STATE::KEY_DOWN) {
-		player2 = true;
-	}
-
-	if (player2 == true) {
-		App->render->Blit(startplayer2texture, 116, 6, &(p2.GetCurrentFrame()), 0);
-	}
-	else {
-		if (App->welcome->coins > 0) {
-			App->render->Blit(startplayer2texture, 118, 4, &(startplayer2animation.GetCurrentFrame()), 0);
-		}
-		else {
-
-		}
-	}
-
-	App->render->Blit(startplayer2texture, 5, 6, &(p1.GetCurrentFrame()), 0);
 
 
 	if (App->render->camera.y <= 100000) {
