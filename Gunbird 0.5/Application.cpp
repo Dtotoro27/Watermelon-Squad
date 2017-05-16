@@ -10,6 +10,7 @@
 #include "ModulePlayer.h"
 #include "ModulePlayer2.h"
 #include "ModuleParticles.h"
+#include "ModuleUI.h"
 #include "ModuleCollision.h"
 #include "ModuleEnemies.h"
 #include "ModuleFonts.h"
@@ -33,6 +34,7 @@ Application::Application()
 	modules[i++] = player2 = new ModulePlayer2();
 	modules[i++] = congrats = new ModuleCongrats();
 	modules[i++] = particles = new ModuleParticles();
+	modules[i++] = ui = new ModuleUI();
 	modules[i++] = collision = new ModuleCollision();
 	modules[i++] = audio = new ModuleAudio();
 	modules[i++] = fade = new ModuleFadeToBlack();
