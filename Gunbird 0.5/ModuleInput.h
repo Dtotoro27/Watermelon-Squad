@@ -34,7 +34,10 @@ public:
 public:
 	KEY_STATE keyboard[MAX_KEYS];
 	SDL_GameController *controller = nullptr;
+	SDL_GameController *controller2 = nullptr;
 	SDL_Joystick *joy = nullptr;
+	SDL_Joystick *joy2 = nullptr;
+
 	KEY_STATE buttonA;
 	KEY_STATE buttonB;
 	KEY_STATE buttonStart;
@@ -46,6 +49,18 @@ public:
 	KEY_STATE joy_down;
 	KEY_STATE joy_left;
 	KEY_STATE joy_right;
+
+	KEY_STATE buttonA2;
+	KEY_STATE buttonB2;
+	KEY_STATE buttonStart2;
+	KEY_STATE dpadUp2;
+	KEY_STATE dpadDown2;
+	KEY_STATE dpadLeft2;
+	KEY_STATE dpadRight2;
+	KEY_STATE joy_up2;
+	KEY_STATE joy_down2;
+	KEY_STATE joy_left2;
+	KEY_STATE joy_right2;
 
 };
 

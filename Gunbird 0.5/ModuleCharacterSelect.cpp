@@ -219,7 +219,7 @@ update_status ModuleCharacterSelect::Update()
 
 	// Draw everything --------------------------------------
 
-	if (App->input->keyboard[SDL_SCANCODE_2] == KEY_STATE::KEY_DOWN) {
+	if (App->input->keyboard[SDL_SCANCODE_Q] == KEY_STATE::KEY_DOWN || App->input->buttonStart2 == KEY_STATE::KEY_DOWN) {
 		coop = true;
 		if (characterselected1 == 4) {
 			characterselected2 = 2;
@@ -314,7 +314,7 @@ update_status ModuleCharacterSelect::Update()
 
 		//Player 2
 
-		if(App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_DOWN) {
+		if(App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_DOWN || App->input->dpadRight2 == KEY_STATE::KEY_DOWN || App->input->joy_right2 == KEY_STATE::KEY_DOWN) {
 			if (characterselected2 < 5) {
 				if (characterselected2 == characterselected1 - 1) {
 					characterselected2 += 2;
@@ -333,7 +333,7 @@ update_status ModuleCharacterSelect::Update()
 			}
 			
 		}
-		if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_DOWN) {
+		if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_DOWN || App->input->dpadLeft2 == KEY_STATE::KEY_DOWN || App->input->joy_left2 == KEY_STATE::KEY_DOWN) {
 			if (characterselected2 > 1) {
 				if (characterselected2 == characterselected1 + 1) {
 					characterselected2 -= 2;

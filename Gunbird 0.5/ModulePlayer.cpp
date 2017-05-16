@@ -427,24 +427,20 @@ update_status ModulePlayer::Update()
 			if (powerUps < 3) {
 				powerUps++;
 			}
-		}
-
-		if (App->input->keyboard[SDL_SCANCODE_F3] == KEY_STATE::KEY_DOWN) {
-			if (powerUps > 0) {
-				powerUps--;
+			else if (powerUps == 3) {
+				powerUps = 0;
 			}
 		}
 
 		if (App->input->keyboard[SDL_SCANCODE_F5] == KEY_STATE::KEY_DOWN) {
-			if (max_bomb > 0) {
-				max_bomb--;
-			}
-		}
-		if (App->input->keyboard[SDL_SCANCODE_F6] == KEY_STATE::KEY_DOWN) {
 			if (max_bomb < 2) {
 				max_bomb++;
 			}
+			else if (max_bomb == 2) {
+				max_bomb = 0;
+			}
 		}
+
 		if (App->player2->IsEnabled()) {}
 
 		else {
