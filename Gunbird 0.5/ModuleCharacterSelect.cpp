@@ -501,6 +501,12 @@ update_status ModuleCharacterSelect::Update()
 		App->render->Blit(p1select, p2_x, 244, &(p2.GetCurrentFrame()), 0.22f);
 	}
 
+	if (App->input->keyboard[SDL_SCANCODE_5] == KEY_STATE::KEY_DOWN) {
+		if (App->welcome->coins < 9) {
+			App->welcome->coins++;
+		}
+	}
+
 
 	char str[10];
 	sprintf_s(str, "%i", App->welcome->coins);

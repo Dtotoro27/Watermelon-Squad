@@ -76,7 +76,8 @@ public:
 	int max_bomb = 2;
 	bool dead = false;
 
-
+	int font_coins = -1;
+	Animation coins_indicator;
 
 
 };

@@ -173,6 +173,9 @@ ModulePlayer::ModulePlayer()
 	time_background.speed = 0.217;
 
 	life_indicator.PushBack({ 146,21,11,13 });
+
+	coins_indicator.PushBack({ 69,8,38,8 });
+
 }
 
 ModulePlayer::~ModulePlayer()
@@ -195,6 +198,7 @@ bool ModulePlayer::Start()
 	playerhitbox = App->collision->AddCollider({ position.x, position.y, 19, 32 }, COLLIDER_PLAYER, this);
 	font_score = App->fonts->Load("assets/numbers.png", "0123456789", 1);
 	font_time = App->fonts->Load("assets/numbers_time.png", "0123456789", 1);
+	font_coins = App->fonts->Load("assets/numbers_score.png", "0123456789", 1);
 	audio_shot = App->audio->LoadFX("assets/Audio/shoot_ash.wav");
 	score = 0;
 	timer = 9;
@@ -213,6 +217,7 @@ bool ModulePlayer::CleanUp()
 	App->collision->EraseCollider(playerhitbox);
 	App->fonts->UnLoad(font_score);
 	App->fonts->UnLoad(font_time);
+	App->fonts->UnLoad(font_coins);
 
 
 	return true;
@@ -516,6 +521,25 @@ update_status ModulePlayer::Update()
 	}
 	else {
 		pause_position.y--;
+	}
+
+	//COINS
+	if (App->input->keyboard[SDL_SCANCODE_5] == KEY_STATE::KEY_DOWN) {
+		if (App->welcome->coins < 9) {
+			App->welcome->coins++;
+		}
+	}
+
+	char str3[10];
+	sprintf_s(str3, "%i", App->welcome->coins);
+
+	if (App->sea->pause == false) {
+		App->fonts->BlitText(194, 303, font_coins, str3);
+		App->render->Blit(ui, 155, 306, &(coins_indicator.GetCurrentFrame()), 0);
+	}
+	else {
+		App->fonts->BlitText(120, 303, font_coins, str3);
+		App->render->Blit(ui, 81, 306, &(coins_indicator.GetCurrentFrame()), 0);
 	}
 
 
