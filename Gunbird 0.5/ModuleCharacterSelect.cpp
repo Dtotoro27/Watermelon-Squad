@@ -183,6 +183,7 @@ bool ModuleCharacterSelect::Start()
 	cloud2_x = 417;
 	timer = 9;
 	delay3 = 0;
+	App->welcome->coins--;
 
 	App->audio->LoadMusic("assets/Audio/characterselection.ogg");
 	return ret;
@@ -501,32 +502,36 @@ update_status ModuleCharacterSelect::Update()
 		App->render->Blit(p1select, p2_x, 244, &(p2.GetCurrentFrame()), 0.22f);
 	}
 
+	
+	//COINS
 	if (App->input->keyboard[SDL_SCANCODE_5] == KEY_STATE::KEY_DOWN) {
 		if (App->welcome->coins < 9) {
 			App->welcome->coins++;
 		}
 	}
-
-
 	char str[10];
 	sprintf_s(str, "%i", App->welcome->coins);
-	App->fonts->BlitText(194, 303, font_coins, str);
-	App->render->Blit(ui, 155, 306, &(coins_indicator.GetCurrentFrame()), 0.22f);
-	App->render->Blit(ui, 89, 306, &(time_indicator.GetCurrentFrame()), 0.22f);
+	if (App->welcome->coins > 0) {
+		App->fonts->BlitText(194, 303, font_coins, str);
+		App->render->Blit(ui, 155, 306, &(coins_indicator.GetCurrentFrame()), 0.22f);
+	}
 
+	//TIME 
+
+	App->render->Blit(ui, 89, 306, &(time_indicator.GetCurrentFrame()), 0.22f);
 	char str2[10];
 	sprintf_s(str2, "%i", timer);
 	App->fonts->BlitText(122, 301, font_time, str2);
 
-	if (delay3 == 150) { timer--; }
+	if (delay3 == 100) { timer--; }
+	if (delay3 == 200) { timer--; }
 	if (delay3 == 300) { timer--; }
-	if (delay3 == 450) { timer--; }
+	if (delay3 == 400) { timer--; }
+	if (delay3 == 500) { timer--; }
 	if (delay3 == 600) { timer--; }
-	if (delay3 == 750) { timer--; }
-	if (delay3 == 900) { timer--; }
-	if (delay3 == 1050) { timer--; }
-	if (delay3 == 1200) { timer--; }
-	if (delay3 == 1350) {
+	if (delay3 == 700) { timer--; }
+	if (delay3 == 800) { timer--; }
+	if (delay3 == 900) {
 		timer--;
 		change = false;
 		App->fade->FadeToBlack(this, App->sea, 1);

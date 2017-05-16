@@ -176,6 +176,9 @@ ModulePlayer::ModulePlayer()
 
 	coins_indicator.PushBack({ 69,8,38,8 });
 
+	bomb_indicator.PushBack({ 107,0,12,15 });
+
+
 }
 
 ModulePlayer::~ModulePlayer()
@@ -187,7 +190,6 @@ bool ModulePlayer::Start()
 	LOG("Loading player textures");
 	bool ret = true;
 	position.x = 100;
-	position_lives = 21;
 	position.y = (camera_limits.y + 300);
 	pause_position.y = 0;
 	lives = 2;
@@ -248,6 +250,8 @@ update_status ModulePlayer::Update()
 			}
 		}
 
+		//MOVEMENT
+
 		if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT || App->input->dpadRight == KEY_STATE::KEY_REPEAT || App->input->joy_right == KEY_STATE::KEY_REPEAT)
 		{
 			current_animation = &right;
@@ -260,7 +264,7 @@ update_status ModulePlayer::Update()
 		{
 			current_animation = &left;
 			if (position.x > 0) {
-				position.x -= speed;
+				position.x -= 3;
 			}
 		}
 
@@ -273,7 +277,7 @@ update_status ModulePlayer::Update()
 
 		if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT || App->input->dpadDown == KEY_STATE::KEY_REPEAT || App->input->joy_down == KEY_STATE::KEY_REPEAT)
 		{
-			if (position.y < camera_limits.y + SCREEN_HEIGHT) {
+			if (position.y < camera_limits.y + 273+ASH_HEIGHT) {
 				position.y += speed;
 			}
 		}
@@ -532,16 +536,31 @@ update_status ModulePlayer::Update()
 
 	char str3[10];
 	sprintf_s(str3, "%i", App->welcome->coins);
-
-	if (App->sea->pause == false) {
-		App->fonts->BlitText(194, 303, font_coins, str3);
-		App->render->Blit(ui, 155, 306, &(coins_indicator.GetCurrentFrame()), 0);
+	if (App->welcome->coins > 0) {
+		if (App->sea->pause == false) {
+			if (App->player2->IsEnabled()) {
+				App->fonts->BlitText(120, 303, font_coins, str3);
+				App->render->Blit(ui, 81, 306, &(coins_indicator.GetCurrentFrame()), 0);
+			}
+			else {
+				App->fonts->BlitText(194, 303, font_coins, str3);
+				App->render->Blit(ui, 155, 306, &(coins_indicator.GetCurrentFrame()), 0);
+			}
+		}
+		else {
+			App->fonts->BlitText(120, 303, font_coins, str3);
+			App->render->Blit(ui, 81, 306, &(coins_indicator.GetCurrentFrame()), 0);
+		}
 	}
-	else {
-		App->fonts->BlitText(120, 303, font_coins, str3);
-		App->render->Blit(ui, 81, 306, &(coins_indicator.GetCurrentFrame()), 0);
-	}
 
+	//BOMBS
+	if (App->player->max_bomb == 1) {
+		App->render->Blit(ui, 6, 300, &(bomb_indicator.GetCurrentFrame()), 0);
+	}
+	if (App->player->max_bomb == 2) {
+		App->render->Blit(ui, 6, 300, &(bomb_indicator.GetCurrentFrame()), 0);
+		App->render->Blit(ui, 22, 300, &(bomb_indicator.GetCurrentFrame()), 0);
+	}
 
 	//DEAD
 	if (dead == true) {
@@ -579,19 +598,20 @@ update_status ModulePlayer::Update()
 				score += 1;
 				delay3 = 0;
 				timer = 9;
+				App->welcome->coins--;
 				App->sea->pause = false;
 			}
 		}
 		else {
-			if (delay2 < 100) {
-				App->render->Blit(graphics, 100, position_immortal.y, &(immortal.GetCurrentFrame()));
-				if (position_immortal.y != camera_limits.y + 266) {
+			if (delay2 < 150) {
+				App->render->Blit(graphics, 55, position_immortal.y, &(immortal.GetCurrentFrame()));
+				if (position_immortal.y != camera_limits.y + 243) {
 					position_immortal.y -= 2;
 				}
 			}
-			if (delay2 == 100) {
-				position.x = 100;
-				position.y = camera_limits.y + 300;
+			if (delay2 == 150) {
+				position.x = 55;
+				position.y = camera_limits.y + 277;
 				App->render->Blit(graphics, position.x, position.y - r.h, &(immortal.GetCurrentFrame()));
 			}
 			if (delay2 == 300) {

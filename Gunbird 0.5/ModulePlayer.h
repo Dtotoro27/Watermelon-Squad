@@ -72,12 +72,13 @@ public:
 	iPoint position_immortal;
 	int powerUps = 0;
 	int lives = 2;
-	int position_lives;
 	int max_bomb = 2;
 	bool dead = false;
 
 	int font_coins = -1;
 	Animation coins_indicator;
+
+	Animation bomb_indicator;
 
 
 };

@@ -1,6 +1,7 @@
 #include "Globals.h"
 #include "Application.h"
 #include "ModuleTextures.h"
+#include "ModuleWelcome.h"
 #include "ModulePlayer.h"
 #include "ModulePlayer2.h"
 #include "ModuleRender.h"
@@ -51,7 +52,7 @@ ModuleSea::ModuleSea()
 	startplayer2animation.PushBack({ 0,0,0,0 });
 	startplayer2animation.speed = 0.05;
 
-	bomb_indicator.PushBack({ 107,0,12,15 });
+	insert_coin.PushBack({});
 
 }
 
@@ -169,15 +170,12 @@ update_status ModuleSea::Update()
 		App->render->Blit(startplayer2texture, 116, 6, &(p2.GetCurrentFrame()), 0);
 	}
 	else {
-		App->render->Blit(startplayer2texture, 118, 4, &(startplayer2animation.GetCurrentFrame()), 0);
-	}
+		if (App->welcome->coins > 0) {
+			App->render->Blit(startplayer2texture, 118, 4, &(startplayer2animation.GetCurrentFrame()), 0);
+		}
+		else {
 
-	if (App->player->max_bomb == 1) {
-		App->render->Blit(startplayer2texture, 6, 300, &(bomb_indicator.GetCurrentFrame()),0);
-	}
-	if (App->player->max_bomb == 2) {
-		App->render->Blit(startplayer2texture, 6, 300, &(bomb_indicator.GetCurrentFrame()),0);
-		App->render->Blit(startplayer2texture, 22, 300, &(bomb_indicator.GetCurrentFrame()), 0);
+		}
 	}
 
 	App->render->Blit(startplayer2texture, 5, 6, &(p1.GetCurrentFrame()), 0);
