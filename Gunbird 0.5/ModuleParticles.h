@@ -62,13 +62,30 @@ public:
 	Particle laser4_1;
 	Particle laser4_2;
 	Particle laser4_3;
+	Particle laser1_valnus_1;
+	Particle laser1_valnus_2;
+	Particle laser1_valnus_3;
+	Particle laser2_valnus_1;
+	Particle laser2_valnus_2;
+	Particle laser2_valnus_3;
+	Particle laser3_valnus_1;
+	Particle laser3_valnus_2;
+	Particle laser3_valnus_3;
+	Particle laser4_valnus_1;
+	Particle laser4_valnus_2;
+	Particle laser4_valnus_3;
 	Particle AshShootWave1;
 	Particle AshShootWave2;
+	Particle ValnusWave1_1;
+	Particle ValnusWave1_2;
+	Particle ValnusWave2_1;
+	Particle ValnusWave2_2;
 	Particle explosion;
 	Particle littleexplosion;
 	Particle damage_balloon;
 	Particle enemy_shoot;
 	Particle dead;
+	Particle dead_valnus;
 };
 
 #endif // __MODULEPARTICLES_H__

@@ -35,7 +35,7 @@ public:
 	Animation game_over;
 	Animation cont;
 	Animation time_background;
-
+	
 	//Fonts
 	int font_score;
 	int font_coins;

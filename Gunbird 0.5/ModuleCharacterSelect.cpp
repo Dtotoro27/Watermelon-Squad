@@ -93,8 +93,8 @@ ModuleCharacterSelect::ModuleCharacterSelect()
 
 	//Ash
 
-	ash.PushBack({ 14, 13, 19, 32 });
-	ash.PushBack({ 43, 13, 19, 32 });
+	ash.PushBack({ 0, 0, 31, 32 });
+	ash.PushBack({ 31, 0, 31, 32 });
 	ash.speed = 0.2f;
 
 	//Marion
@@ -105,8 +105,8 @@ ModuleCharacterSelect::ModuleCharacterSelect()
 	marion.speed = 0.2f;
 
 	//Valnus
-	valnus.PushBack({ 0,0,31,30 });
-	valnus.PushBack({ 38,0, 31,30 });
+	valnus.PushBack({ 0, 0, 31, 32 });
+	valnus.PushBack({ 31, 0, 31, 32 });
 	valnus.speed = 0.4f;
 
 	//Yuan_Nang
@@ -491,7 +491,7 @@ update_status ModuleCharacterSelect::Update()
 
 
 	//Characters
-	App->render->Blit(ash_texture, 23, 256, &(ash.GetCurrentFrame()), 0.22f);
+	App->render->Blit(ash_texture, 17, 256, &(ash.GetCurrentFrame()), 0.22f);
 	App->render->Blit(marion_texture, 63, 254, &(marion.GetCurrentFrame()), 0.22f);
 	App->render->Blit(valnus_texture, 97, 255, &(valnus.GetCurrentFrame()), 0.22f);
 	App->render->Blit(yuan_texture, 137, 249, &(yuan.GetCurrentFrame()), 0.22f);

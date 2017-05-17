@@ -18,6 +18,7 @@
 
 ModuleUI::ModuleUI(){
 	life_indicator_ash.PushBack({ 77,46,11,13 });
+	life_indicator_valnus.PushBack({ 88,47,15,12 });
 
 	start_player.PushBack({ 0,15,68,15 });
 	start_player.PushBack({ 0,0,68,15 });;
@@ -126,7 +127,7 @@ update_status ModuleUI::Update() {
 		}
 	}
 
-
+	if (App->characterselect->characterselected1 == 1) {
 		if (App->player->lives == 2) {
 			App->render->Blit(ui, 6, 21, &(life_indicator_ash.GetCurrentFrame()), 0);
 			App->render->Blit(ui, 22, 21, &(life_indicator_ash.GetCurrentFrame()), 0);
@@ -134,7 +135,16 @@ update_status ModuleUI::Update() {
 		if (App->player->lives == 1) {
 			App->render->Blit(ui, 6, 21, &(life_indicator_ash.GetCurrentFrame()), 0);
 		}
-
+	}
+	else {
+		if (App->player->lives == 2) {
+			App->render->Blit(ui, 6, 21, &(life_indicator_valnus.GetCurrentFrame()), 0);
+			App->render->Blit(ui, 22, 21, &(life_indicator_valnus.GetCurrentFrame()), 0);
+		}
+		if (App->player->lives == 1) {
+			App->render->Blit(ui, 6, 21, &(life_indicator_valnus.GetCurrentFrame()), 0);
+		}
+	}
 	//BOMB-----------------
 
 		if (App->player->max_bomb == 1) {

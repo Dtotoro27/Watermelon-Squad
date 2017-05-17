@@ -19,7 +19,7 @@ ModuleParticles::ModuleParticles()
 	damage_balloon.anim.speed = 1;
 	damage_balloon.anim.loop = false;
 
-
+	//LASER ASH
 	laser1_1.anim.PushBack({ 537, 38, 15, 29 });
 	laser1_2.anim.PushBack({ 574,38,15,29 });
 	laser1_3.anim.PushBack({ 503, 38, 15, 29 });
@@ -65,6 +65,37 @@ ModuleParticles::ModuleParticles()
 	AshShootWave2.anim.speed = 0.2f;
 	AshShootWave2.anim.loop = false;
 	AshShootWave2.life = 500;
+
+	//LASER VALNUS 
+
+	laser1_valnus_1.anim.PushBack({ 37, 386, 15, 19 });
+	laser1_valnus_2.anim.PushBack({ 16,386,15,19 });
+	laser1_valnus_3.anim.PushBack({ 55, 386, 15, 19 });
+
+	laser1_valnus_1.anim.loop = laser1_valnus_2.anim.loop = laser1_valnus_3.anim.loop = true;
+	laser1_valnus_1.anim.speed = laser1_valnus_2.anim.speed = laser1_valnus_3.anim.speed = 0.3f;
+	laser1_valnus_1.life = laser1_valnus_2.life = laser1_valnus_3.life = 500;
+
+	laser2_valnus_1.anim.PushBack({ 109, 386, 25, 28 });
+	laser2_valnus_2.anim.PushBack({ 76, 386, 25, 28 });
+	laser2_valnus_3.anim.PushBack({ 140, 386, 25, 28 });
+	laser2_valnus_1.anim.speed = laser2_valnus_2.anim.speed = laser2_valnus_3.anim.speed = 0.3f;
+	laser2_valnus_1.anim.loop = laser2_valnus_2.anim.loop = laser2_valnus_3.anim.loop = true;
+	laser2_valnus_1.life = laser2_valnus_2.life = laser2_valnus_3.life = 500;
+
+	laser3_valnus_1.anim.PushBack({ 55, 424, 31, 32 });
+	laser3_valnus_2.anim.PushBack({ 17, 424, 31, 32 });
+	laser3_valnus_3.anim.PushBack({ 90, 424, 31, 32 });
+	laser3_valnus_1.anim.speed = laser3_2.anim.speed = laser3_valnus_3.anim.speed = 0.3f;
+	laser3_valnus_1.anim.loop = laser3_valnus_2.anim.loop = laser3_valnus_3.anim.loop = true;
+	laser3_valnus_1.life = laser3_valnus_2.life = laser3_valnus_3.life = 500;
+
+	laser4_valnus_1.anim.PushBack({ 17, 462, 45,42 });
+	laser4_valnus_2.anim.PushBack({ 66, 462, 45, 42 });
+	laser4_valnus_3.anim.PushBack({ 113, 462, 45, 42 });
+	laser4_valnus_1.anim.speed = laser4_valnus_2.anim.speed = laser4_valnus_3.anim.speed = 0.3f;
+	laser4_valnus_1.anim.loop = laser4_valnus_2.anim.loop = laser4_valnus_3.anim.loop = true;
+	laser4_valnus_1.life = laser4_valnus_2.life = laser4_valnus_3.life = 500;
 
 	enemy_shoot.anim.PushBack({ 502, 235, 6,6 });
 	enemy_shoot.anim.PushBack({ 517, 235, 6,6 });
@@ -121,6 +152,10 @@ ModuleParticles::ModuleParticles()
 	littleexplosion.anim.PushBack({ 982,105,48,38 });
 	littleexplosion.anim.speed = 0.8f;
 	littleexplosion.anim.loop = false;
+
+	dead_valnus.anim.PushBack({632,202,32,38});
+	dead_valnus.anim.speed = 0.1f;
+	dead_valnus.anim.loop = true;
 	
 }
 

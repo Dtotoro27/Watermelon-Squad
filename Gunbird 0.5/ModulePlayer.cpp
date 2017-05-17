@@ -30,22 +30,23 @@ ModulePlayer::ModulePlayer()
 	camera_limits.y = 0;
 
 	// idle animation
-		idle.PushBack({ 14, 13, 19, 32 });
-		idle.PushBack({ 43, 13, 19, 32 });
+		idle.PushBack({ 0, 0, 31, 32 });
+		idle.PushBack({ 31, 0, 31, 32 });
 		idle.speed = 0.1f;
 	
 
 	// move left animation 
-	left.PushBack({ 16, 55, 17, 32 });
-	left.PushBack({ 43, 55, 17, 32 });
+	left.PushBack({ 62, 0, 21, 32 });
+	left.PushBack({ 83, 0, 21, 32 });
 	left.speed = 0.1f;
 
 	// move right animation
-	right.PushBack({ 63, 97, 17, 32 });
-	right.PushBack({ 90, 97, 17, 32 });
+	right.PushBack({ 104, 0, 21, 32 });
+	right.PushBack({ 125, 0, 21, 32 });
 	right.speed = 0.1f;
 
-	immortal.PushBack({ 14, 13, 19, 32 });
+	immortal.PushBack({ 0, 0, 31, 32 });
+	immortal.PushBack({ 31, 0, 31, 32 });
 	immortal.PushBack({ 0,0,0,0 });
 	immortal.speed = 0.1;
 
@@ -170,7 +171,7 @@ bool ModulePlayer::Start()
 		graphics = App->textures->Load("assets/characters/ash.png");
 	}
 	else {
-		graphics = App->textures->Load("assets/ash_bomb.png");
+		graphics = App->textures->Load("assets/characters/valnus.png");
 	}
 	ash_bomb_texture = App->textures->Load("assets/ash_bomb.png");
 	ui = App->textures->Load("assets/ui.png");
@@ -258,124 +259,242 @@ update_status ModulePlayer::Update()
 		{
 			shooting = true;
 			if (powerUps == 0) {
-				if (delay == 0) {
-					App->particles->AddParticle(App->particles->laser1_1, position.x + 2, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
-					App->audio->PlayFX(audio_shot);
-					//App->input->buttonA = false;
+				if (App->characterselect->characterselected1 == 1) {
+					if (delay == 0) {
+						App->particles->AddParticle(App->particles->laser1_1, position.x + 8, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+						App->audio->PlayFX(audio_shot);
+						//App->input->buttonA = false;
+					}
+					if (delay == 7) {
+						App->particles->AddParticle(App->particles->laser1_2, position.x + 8, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+						App->audio->PlayFX(audio_shot);
+						//App->input->buttonA = false;
+					}
+					if (delay == 14) {
+						App->particles->AddParticle(App->particles->laser1_3, position.x + 8, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+						App->audio->PlayFX(audio_shot);
+						//App->input->buttonA = false;
+					}
+					if (delay == 21) {
+						App->particles->AddParticle(App->particles->laser1_1, position.x + 8, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+						App->audio->PlayFX(audio_shot);
+						//App->input->buttonA = false;
+						shooting = false;
+						delay = 0;
+					}
+					if (shooting == true) {
+						delay++;
+					}
+					//App->audio->LoadFX("Audio/shoot_ash.wav");
 				}
-				if (delay == 7) {
-					App->particles->AddParticle(App->particles->laser1_2, position.x + 2, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
-					App->audio->PlayFX(audio_shot);
-					//App->input->buttonA = false;
+				else{
+					if (delay == 0) {
+						App->particles->AddParticle(App->particles->laser1_valnus_1, position.x + 9, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+						App->audio->PlayFX(audio_shot);
+						//App->input->buttonA = false;
+					}
+					if (delay == 7) {
+						App->particles->AddParticle(App->particles->laser1_valnus_2, position.x + 9, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+						App->audio->PlayFX(audio_shot);
+						//App->input->buttonA = false;
+					}
+					if (delay == 14) {
+						App->particles->AddParticle(App->particles->laser1_valnus_3, position.x + 9, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+						App->audio->PlayFX(audio_shot);
+						//App->input->buttonA = false;
+					}
+					if (delay == 21) {
+						App->particles->AddParticle(App->particles->laser1_valnus_1, position.x + 9, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+						App->audio->PlayFX(audio_shot);
+						//App->input->buttonA = false;
+						shooting = false;
+						delay = 0;
+					}
+					if (shooting == true) {
+						delay++;
+					}
+					//App->audio->LoadFX("Audio/shoot_ash.wav");
 				}
-				if (delay == 14) {
-					App->particles->AddParticle(App->particles->laser1_3, position.x + 2, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
-					App->audio->PlayFX(audio_shot);
-					//App->input->buttonA = false;
-				}
-				if (delay == 21) {
-					App->particles->AddParticle(App->particles->laser1_1, position.x + 2, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
-					App->audio->PlayFX(audio_shot);
-					//App->input->buttonA = false;
-					shooting = false;
-					delay = 0;
-				}
-				if (shooting == true) {
-					delay++;
-				}
-				//App->audio->LoadFX("Audio/shoot_ash.wav");
 			}
 			if (powerUps == 1) {
 				//App->audio->LoadFX("Audio/shoot_ash.wav");
-
-				if (delay == 0) {
-					App->particles->AddParticle(App->particles->laser2_1, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
-					App->audio->PlayFX(audio_shot);
-					//App->input->buttonA = false;
+				if (App->characterselect->characterselected1 == 1) {
+					if (delay == 0) {
+						App->particles->AddParticle(App->particles->laser2_1, position.x+3, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+						App->audio->PlayFX(audio_shot);
+						//App->input->buttonA = false;
+					}
+					if (delay == 7) {
+						App->particles->AddParticle(App->particles->laser2_2, position.x+3, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+						App->audio->PlayFX(audio_shot);
+						//App->input->buttonA = false;
+					}
+					if (delay == 14) {
+						App->particles->AddParticle(App->particles->laser2_3, position.x+3, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+						App->audio->PlayFX(audio_shot);
+						//App->input->buttonA = false;
+					}
+					if (delay == 21) {
+						App->particles->AddParticle(App->particles->laser2_1, position.x+3, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+						App->audio->PlayFX(audio_shot);
+						//App->input->buttonA = false;
+						shooting = false;
+						delay = 0;
+					}
+					if (shooting == true) {
+						delay++;
+					}
 				}
-				if (delay == 7) {
-					App->particles->AddParticle(App->particles->laser2_2, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
-					App->audio->PlayFX(audio_shot);
-					//App->input->buttonA = false;
-				}
-				if (delay == 14) {
-					App->particles->AddParticle(App->particles->laser2_3, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
-					App->audio->PlayFX(audio_shot);
-					//App->input->buttonA = false;
-				}
-				if (delay == 21) {
-					App->particles->AddParticle(App->particles->laser2_1, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
-					App->audio->PlayFX(audio_shot);
-					//App->input->buttonA = false;
-					shooting = false;
-					delay = 0;
-				}
-				if (shooting == true) {
-					delay++;
+				else {
+					if (delay == 0) {
+						App->particles->AddParticle(App->particles->laser2_valnus_1, position.x + 4, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+						App->audio->PlayFX(audio_shot);
+						//App->input->buttonA = false;
+					}
+					if (delay == 7) {
+						App->particles->AddParticle(App->particles->laser2_valnus_2, position.x + 4, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+						App->audio->PlayFX(audio_shot);
+						//App->input->buttonA = false;
+					}
+					if (delay == 14) {
+						App->particles->AddParticle(App->particles->laser2_valnus_3, position.x+4, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+						App->audio->PlayFX(audio_shot);
+						//App->input->buttonA = false;
+					}
+					if (delay == 21) {
+						App->particles->AddParticle(App->particles->laser2_valnus_1, position.x+4, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+						App->audio->PlayFX(audio_shot);
+						//App->input->buttonA = false;
+						shooting = false;
+						delay = 0;
+					}
+					if (shooting == true) {
+						delay++;
+					}
 				}
 			}
 
 			if (powerUps == 2) {
 				//App->audio->LoadFX("Audio/shoot_ash.wav");
-
-				if (delay == 0) {
-					App->particles->AddParticle(App->particles->laser3_1, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
-					App->audio->PlayFX(audio_shot);
-					//App->input->buttonA = false;
+				if (App->characterselect->characterselected1 == 1) {
+					if (delay == 0) {
+						App->particles->AddParticle(App->particles->laser3_1, position.x+3, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+						App->audio->PlayFX(audio_shot);
+						//App->input->buttonA = false;
+					}
+					if (delay == 7) {
+						App->particles->AddParticle(App->particles->laser3_2, position.x+3, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+						App->audio->PlayFX(audio_shot);
+						//App->input->buttonA = false;
+					}
+					if (delay == 14) {
+						App->particles->AddParticle(App->particles->laser3_3, position.x+3, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+						App->audio->PlayFX(audio_shot);
+						App->particles->AddParticle(App->particles->AshShootWave1, position.x + 15, position.y - 50, 0, -15, COLLIDER_PLAYER_SHOT);
+						App->particles->AddParticle(App->particles->AshShootWave1, position.x - 8, position.y - 50, 0, -15, COLLIDER_PLAYER_SHOT);
+						//App->input->buttonA = false;
+					}
+					if (delay == 21) {
+						App->particles->AddParticle(App->particles->laser3_1, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+						App->audio->PlayFX(audio_shot);
+						//App->input->buttonA = false;
+						shooting = false;
+						delay = 0;
+					}
+					if (shooting == true) {
+						delay++;
+					}
 				}
-				if (delay == 7) {
-					App->particles->AddParticle(App->particles->laser3_2, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
-					App->audio->PlayFX(audio_shot);
-					//App->input->buttonA = false;
-				}
-				if (delay == 14) {
-					App->particles->AddParticle(App->particles->laser3_3, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
-					App->audio->PlayFX(audio_shot);
-					App->particles->AddParticle(App->particles->AshShootWave1, position.x + 15, position.y - 50, 0, -15, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->AshShootWave1, position.x - 8, position.y - 50, 0, -15, COLLIDER_PLAYER_SHOT);
-					//App->input->buttonA = false;
-				}
-				if (delay == 21) {
-					App->particles->AddParticle(App->particles->laser3_1, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
-					App->audio->PlayFX(audio_shot);
-					//App->input->buttonA = false;
-					shooting = false;
-					delay = 0;
-				}
-				if (shooting == true) {
-					delay++;
+				else {
+					if (delay == 0) {
+						App->particles->AddParticle(App->particles->laser3_valnus_1, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+						App->audio->PlayFX(audio_shot);
+						//App->input->buttonA = false;
+					}
+					if (delay == 7) {
+						App->particles->AddParticle(App->particles->laser3_valnus_2, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+						App->audio->PlayFX(audio_shot);
+						//App->input->buttonA = false;
+					}
+					if (delay == 14) {
+						App->particles->AddParticle(App->particles->laser3_valnus_3, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+						App->audio->PlayFX(audio_shot);
+						App->particles->AddParticle(App->particles->AshShootWave1, position.x + 15, position.y - 50, 0, -15, COLLIDER_PLAYER_SHOT);
+						App->particles->AddParticle(App->particles->AshShootWave1, position.x - 8, position.y - 50, 0, -15, COLLIDER_PLAYER_SHOT);
+						//App->input->buttonA = false;
+					}
+					if (delay == 21) {
+						App->particles->AddParticle(App->particles->laser3_valnus_1, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+						App->audio->PlayFX(audio_shot);
+						//App->input->buttonA = false;
+						shooting = false;
+						delay = 0;
+					}
+					if (shooting == true) {
+						delay++;
+					}
 				}
 			}
 
 			if (powerUps == 3) {
 				//App->audio->LoadFX("Audio/shoot_ash.wav");
-
-				if (delay == 0) {
-					App->particles->AddParticle(App->particles->laser4_1, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
-					App->audio->PlayFX(audio_shot);
-					//App->input->buttonA = false;
+				if (App->characterselect->characterselected1 == 1) {
+					if (delay == 0) {
+						App->particles->AddParticle(App->particles->laser4_1, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+						App->audio->PlayFX(audio_shot);
+						//App->input->buttonA = false;
+					}
+					if (delay == 7) {
+						App->particles->AddParticle(App->particles->laser4_2, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+						App->audio->PlayFX(audio_shot);
+						//App->input->buttonA = false;
+					}
+					if (delay == 14) {
+						App->particles->AddParticle(App->particles->laser4_3, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+						App->audio->PlayFX(audio_shot);
+						App->particles->AddParticle(App->particles->AshShootWave2, position.x + 16, position.y - 50, 0, -15, COLLIDER_PLAYER_SHOT);
+						App->particles->AddParticle(App->particles->AshShootWave2, position.x - 20, position.y - 50, 0, -15, COLLIDER_PLAYER_SHOT);
+						//App->input->buttonA = false;
+					}
+					if (delay == 21) {
+						App->particles->AddParticle(App->particles->laser4_1, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+						App->audio->PlayFX(audio_shot);
+						//App->input->buttonA = false;
+						shooting = false;
+						delay = 0;
+					}
+					if (shooting == true) {
+						delay++;
+					}
 				}
-				if (delay == 7) {
-					App->particles->AddParticle(App->particles->laser4_2, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
-					App->audio->PlayFX(audio_shot);
-					//App->input->buttonA = false;
-				}
-				if (delay == 14) {
-					App->particles->AddParticle(App->particles->laser4_3, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
-					App->audio->PlayFX(audio_shot);
-					App->particles->AddParticle(App->particles->AshShootWave2, position.x + 16, position.y - 50, 0, -15, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->AshShootWave2, position.x - 20, position.y - 50, 0, -15, COLLIDER_PLAYER_SHOT);
-					//App->input->buttonA = false;
-				}
-				if (delay == 21) {
-					App->particles->AddParticle(App->particles->laser4_1, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
-					App->audio->PlayFX(audio_shot);
-					//App->input->buttonA = false;
-					shooting = false;
-					delay = 0;
-				}
-				if (shooting == true) {
-					delay++;
+				else {
+					if (delay == 0) {
+						App->particles->AddParticle(App->particles->laser4_valnus_1, position.x - 7, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+						App->audio->PlayFX(audio_shot);
+						//App->input->buttonA = false;
+					}
+					if (delay == 7) {
+						App->particles->AddParticle(App->particles->laser4_valnus_2, position.x - 7, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+						App->audio->PlayFX(audio_shot);
+						//App->input->buttonA = false;
+					}
+					if (delay == 14) {
+						App->particles->AddParticle(App->particles->laser4_valnus_3, position.x - 7, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+						App->audio->PlayFX(audio_shot);
+						App->particles->AddParticle(App->particles->AshShootWave2, position.x + 16, position.y - 50, 0, -15, COLLIDER_PLAYER_SHOT);
+						App->particles->AddParticle(App->particles->AshShootWave2, position.x - 20, position.y - 50, 0, -15, COLLIDER_PLAYER_SHOT);
+						//App->input->buttonA = false;
+					}
+					if (delay == 21) {
+						App->particles->AddParticle(App->particles->laser4_valnus_1, position.x - 7, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+						App->audio->PlayFX(audio_shot);
+						//App->input->buttonA = false;
+						shooting = false;
+						delay = 0;
+					}
+					if (shooting == true) {
+						delay++;
+					}
 				}
 			}
 			if (powerUps == 4) {
@@ -525,7 +644,12 @@ void  ModulePlayer::OnCollision(Collider *c1, Collider *c2) {
 			else {
 				if (godmode == false) {
 						lives--;
-						App->particles->AddParticle(App->particles->dead, position.x - 5, position.y - 25, 0, 0, COLLIDER_NONE, 150);
+						if (App->characterselect->characterselected1 == 1) {
+							App->particles->AddParticle(App->particles->dead, position.x - 5, position.y - 25, 0, 0, COLLIDER_NONE, 150);
+						}
+						else {
+							App->particles->AddParticle(App->particles->dead_valnus, position.x - 5, position.y - 25, 0, 0, COLLIDER_NONE, 150);
+						}
 						position.y = camera_limits.y + 800;
 						position_immortal.y = camera_limits.y + 350;
 						App->collision->EraseCollider(playerhitbox);
