@@ -53,8 +53,8 @@ private:
 	SDL_Texture* pw_sprites;
 
 public: 
-	int balloon_live;
-	int damage;
+	float balloon_live;
+	float damage;
 };
 
 #endif // __ModuleEnemies_H__

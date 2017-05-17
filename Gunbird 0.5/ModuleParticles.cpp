@@ -97,6 +97,67 @@ ModuleParticles::ModuleParticles()
 	laser4_valnus_1.anim.loop = laser4_valnus_2.anim.loop = laser4_valnus_3.anim.loop = true;
 	laser4_valnus_1.life = laser4_valnus_2.life = laser4_valnus_3.life = 500;
 
+	ValnusWave1_1.anim.PushBack({179,390,52,281});
+	ValnusWave1_1.anim.PushBack({284 ,390,52,281 });
+	ValnusWave1_1.anim.PushBack({389 ,390,52,281 });
+	ValnusWave1_1.anim.PushBack({ 494,390,52,281 });
+	ValnusWave1_1.anim.PushBack({ 599,390,52,281 });
+	ValnusWave1_1.anim.PushBack({ 704,390,52,281 });
+	ValnusWave1_1.anim.PushBack({ 809,390,52,281 });
+	ValnusWave1_1.anim.PushBack({ 914,390,52,281 });
+	ValnusWave1_1.anim.PushBack({ 1019,390,52,281 });
+	ValnusWave1_1.anim.PushBack({ 1124,390,52,281 });
+	ValnusWave1_1.anim.PushBack({1229 ,390,52,281 });
+	ValnusWave1_1.anim.PushBack({1334 ,390,52,281 });
+	ValnusWave1_1.anim.speed = 0.5f;
+	ValnusWave1_1.anim.loop = false;
+
+	ValnusWave1_2.anim.PushBack({ 231,390,52,281 });
+	ValnusWave1_2.anim.PushBack({ 336,390,52,281 });
+	ValnusWave1_2.anim.PushBack({ 441,390,52,281 });
+	ValnusWave1_2.anim.PushBack({ 546,390,52,281 });
+	ValnusWave1_2.anim.PushBack({ 651,390,52,281 });
+	ValnusWave1_2.anim.PushBack({ 756,390,52,281 });
+	ValnusWave1_2.anim.PushBack({ 861,390,52,281 });
+	ValnusWave1_2.anim.PushBack({ 966,390,52,281 });
+	ValnusWave1_2.anim.PushBack({ 1071,390,52,281 });
+	ValnusWave1_2.anim.PushBack({ 1176,390,52,281 });
+	ValnusWave1_2.anim.PushBack({ 1281,390,52,281 });
+	ValnusWave1_2.anim.PushBack({ 1386,390,52,281 });
+	ValnusWave1_2.anim.speed = 0.5f;
+	ValnusWave1_2.anim.loop = false;
+
+	ValnusWave2_1.anim.PushBack({ 179,675,67,287 });
+	ValnusWave2_1.anim.PushBack({ 315,675,67,287 });
+	ValnusWave2_1.anim.PushBack({ 451,675,67,287 });
+	ValnusWave2_1.anim.PushBack({ 587,675,67,287 });
+	ValnusWave2_1.anim.PushBack({ 723,675,67,287 });
+	ValnusWave2_1.anim.PushBack({ 859,675,67,287 });
+	ValnusWave2_1.anim.PushBack({ 995,675,67,287 });
+	ValnusWave2_1.anim.PushBack({ 1131,675,67,287 });
+	ValnusWave2_1.anim.PushBack({ 1267,675,67,287 });
+	ValnusWave2_1.anim.PushBack({ 1403,675,67,287 });
+	ValnusWave2_1.anim.PushBack({ 1539,675,67,287 });
+	ValnusWave2_1.anim.PushBack({ 1675,675,67,287 });
+	ValnusWave2_1.anim.speed = 0.5f;
+	ValnusWave2_1.anim.loop = false;
+
+	ValnusWave2_2.anim.PushBack({ 244,675,67,287 });
+	ValnusWave2_2.anim.PushBack({ 379,675,67,287 });
+	ValnusWave2_2.anim.PushBack({ 514,675,67,287 });
+	ValnusWave2_2.anim.PushBack({ 649,675,67,287 });
+	ValnusWave2_2.anim.PushBack({ 784,675,67,287 });
+	ValnusWave2_2.anim.PushBack({ 919,675,67,287 });
+	ValnusWave2_2.anim.PushBack({ 1054,675,67,287 });
+	ValnusWave2_2.anim.PushBack({ 1189,675,67,287 });
+	ValnusWave2_2.anim.PushBack({ 1324,675,67,287 });
+	ValnusWave2_2.anim.PushBack({ 1459,675,67,287 });
+	ValnusWave2_2.anim.PushBack({ 1594,675,67,287 });
+	ValnusWave2_2.anim.PushBack({ 1729,675,67,287 });
+	ValnusWave2_2.anim.speed = 0.5f;
+	ValnusWave2_2.anim.loop = false;
+
+
 	enemy_shoot.anim.PushBack({ 502, 235, 6,6 });
 	enemy_shoot.anim.PushBack({ 517, 235, 6,6 });
 	enemy_shoot.anim.PushBack({ 532, 235, 6,6 });

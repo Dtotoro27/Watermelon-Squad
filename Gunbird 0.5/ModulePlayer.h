@@ -17,7 +17,7 @@ class ModulePlayer : public Module
 private:
 	int delay = 0;
 	bool shooting;
-	int delay2 = 0;	
+	float delay2 = 0;	
 	bool bomb = false;
 public:
 	ModulePlayer();
@@ -33,7 +33,7 @@ public:
 
 	SDL_Texture* graphics = nullptr;
 	SDL_Texture* ash_bomb_texture = nullptr;
-	SDL_Texture* ui = nullptr;
+	SDL_Texture* valnus_bomb_texture = nullptr;
 	uint score = 0;
 
 
@@ -45,10 +45,13 @@ public:
 
 	Animation ash_bomb_animation;
 	Animation bomb_throw;
+	Animation valnus_bomb_animation;
+	Animation valnus_bomb;
 	
 
 	Collider* playerhitbox;
 	Collider* bombhitbox;
+	Collider* bombhitbox2;
 	bool godmode = false;
 	iPoint position;
 	iPoint bomb_position;

@@ -146,6 +146,64 @@ ModulePlayer::ModulePlayer()
 	ash_bomb_animation.PushBack({ 1536,769,254,254 });
 	ash_bomb_animation.speed = 0.7f;
 
+	valnus_bomb_animation.PushBack({1,1,580,576});
+	valnus_bomb_animation.PushBack({ 1,1,580,576 });
+	valnus_bomb_animation.PushBack({ 582,1,580,576 });
+	valnus_bomb_animation.PushBack({ 582,1,580,576 });
+	valnus_bomb_animation.PushBack({ 1163,1,580,576 });
+	valnus_bomb_animation.PushBack({ 1163,1,580,576 });
+	valnus_bomb_animation.PushBack({ 1744,1,580,576 });
+	valnus_bomb_animation.PushBack({ 1744,1,580,576 });
+
+	valnus_bomb_animation.PushBack({ 2325,1,580,576 });
+	valnus_bomb_animation.PushBack({ 2325,1,580,576 });
+	valnus_bomb_animation.PushBack({ 2906,1,580,576 });
+	valnus_bomb_animation.PushBack({ 2906,1,580,576 });
+
+	valnus_bomb_animation.PushBack({ 2325,1,580,576 });
+	valnus_bomb_animation.PushBack({ 2325,1,580,576 });
+	valnus_bomb_animation.PushBack({ 2906,1,580,576 });
+	valnus_bomb_animation.PushBack({ 2906,1,580,576 });
+
+	valnus_bomb_animation.PushBack({ 2325,1,580,576 });
+	valnus_bomb_animation.PushBack({ 2325,1,580,576 });
+	valnus_bomb_animation.PushBack({ 2906,1,580,576 });
+	valnus_bomb_animation.PushBack({ 2906,1,580,576 });
+
+	valnus_bomb_animation.PushBack({ 2325,1,580,576 });
+	valnus_bomb_animation.PushBack({ 2325,1,580,576 });
+	valnus_bomb_animation.PushBack({ 2906,1,580,576 });
+	valnus_bomb_animation.PushBack({ 2906,1,580,576 });
+
+	valnus_bomb_animation.PushBack({ 2325,1,580,576 });
+	valnus_bomb_animation.PushBack({ 2325,1,580,576 });
+	valnus_bomb_animation.PushBack({ 2906,1,580,576 });
+	valnus_bomb_animation.PushBack({ 2906,1,580,576 });
+
+	valnus_bomb_animation.PushBack({ 2325,1,580,576 });
+	valnus_bomb_animation.PushBack({ 2325,1,580,576 });
+	valnus_bomb_animation.PushBack({ 2906,1,580,576 });
+	valnus_bomb_animation.PushBack({ 2906,1,580,576 });
+
+
+	valnus_bomb_animation.PushBack({ 2906,1,580,576 });
+	valnus_bomb_animation.PushBack({ 2906,1,580,576 });
+	valnus_bomb_animation.PushBack({ 1,578,580,576});
+	valnus_bomb_animation.PushBack({ 1,578,580,576 });
+	valnus_bomb_animation.PushBack({ 582,578,580,576 });
+	valnus_bomb_animation.PushBack({ 582,578,580,576 });
+	valnus_bomb_animation.PushBack({ 1163,578,580,576 });
+	valnus_bomb_animation.PushBack({ 1163,578,580,576 });
+	valnus_bomb_animation.PushBack({ 1744,578,580,576 });
+	valnus_bomb_animation.PushBack({ 1744,578,580,576 });
+	valnus_bomb_animation.speed = 0.4;
+
+	valnus_bomb.PushBack({2331,638,43,39});
+	valnus_bomb.PushBack({ 2376,638,43,39 });
+	valnus_bomb.PushBack({ 2421,638,43,39 });
+	valnus_bomb.PushBack({ 2464,638,43,39 });
+	valnus_bomb.speed = 0.1f;
+
 	bomb_throw.PushBack({ 1868,428,10,14 });
 	bomb_throw.PushBack({ 1881,428,10,13 });
 	bomb_throw.PushBack({ 1894,428,10,11 });
@@ -169,12 +227,12 @@ bool ModulePlayer::Start()
 	lives = 2;
 	if (App->characterselect->characterselected1 == 1) {
 		graphics = App->textures->Load("assets/characters/ash.png");
+		ash_bomb_texture = App->textures->Load("assets/ash_bomb.png");
 	}
 	else {
 		graphics = App->textures->Load("assets/characters/valnus.png");
+		valnus_bomb_texture = App->textures->Load("assets/valnus_bomb.png");
 	}
-	ash_bomb_texture = App->textures->Load("assets/ash_bomb.png");
-	ui = App->textures->Load("assets/ui.png");
 	if (App->characterselect->characterselected1 == 1) {
 		playerhitbox = App->collision->AddCollider({ position.x, position.y, 19, 32 }, COLLIDER_PLAYER, this);
 	}
@@ -223,6 +281,9 @@ update_status ModulePlayer::Update()
 			}
 		}
 
+		if (App->characterselect->characterselected1 == 3 && bomb == true) {
+			speed = 1.5f;
+		}
 		//MOVEMENT
 
 		if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT || App->input->dpadRight == KEY_STATE::KEY_REPEAT || App->input->joy_right == KEY_STATE::KEY_REPEAT)
@@ -237,7 +298,7 @@ update_status ModulePlayer::Update()
 		{
 			current_animation = &left;
 			if (position.x > 0) {
-				position.x -= 3;
+				position.x -= speed - 0.5;
 			}
 		}
 
@@ -405,7 +466,7 @@ update_status ModulePlayer::Update()
 						delay++;
 					}
 				}
-				else {
+				else{
 					if (delay == 0) {
 						App->particles->AddParticle(App->particles->laser3_valnus_1, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
 						App->audio->PlayFX(audio_shot);
@@ -419,8 +480,8 @@ update_status ModulePlayer::Update()
 					if (delay == 14) {
 						App->particles->AddParticle(App->particles->laser3_valnus_3, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
 						App->audio->PlayFX(audio_shot);
-						App->particles->AddParticle(App->particles->AshShootWave1, position.x + 15, position.y - 50, 0, -15, COLLIDER_PLAYER_SHOT);
-						App->particles->AddParticle(App->particles->AshShootWave1, position.x - 8, position.y - 50, 0, -15, COLLIDER_PLAYER_SHOT);
+						App->particles->AddParticle(App->particles->ValnusWave1_1, position.x - 39, position.y-320, 0, 0, COLLIDER_VALNUS_LASER);
+						App->particles->AddParticle(App->particles->ValnusWave1_2, position.x + 23, position.y - 320, 0, 0, COLLIDER_VALNUS_LASER);
 						//App->input->buttonA = false;
 					}
 					if (delay == 21) {
@@ -481,8 +542,8 @@ update_status ModulePlayer::Update()
 					if (delay == 14) {
 						App->particles->AddParticle(App->particles->laser4_valnus_3, position.x - 7, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
 						App->audio->PlayFX(audio_shot);
-						App->particles->AddParticle(App->particles->AshShootWave2, position.x + 16, position.y - 50, 0, -15, COLLIDER_PLAYER_SHOT);
-						App->particles->AddParticle(App->particles->AshShootWave2, position.x - 20, position.y - 50, 0, -15, COLLIDER_PLAYER_SHOT);
+						App->particles->AddParticle(App->particles->ValnusWave2_1, position.x -54, position.y -326, 0, 0, COLLIDER_VALNUS_LASER);
+						App->particles->AddParticle(App->particles->ValnusWave2_2, position.x + 25, position.y - 326, 0, 0, COLLIDER_VALNUS_LASER);
 						//App->input->buttonA = false;
 					}
 					if (delay == 21) {
@@ -554,38 +615,35 @@ update_status ModulePlayer::Update()
 	SDL_Rect r = current_animation->GetCurrentFrame();
 	
 	//BOMB------------------------
+	if (App->characterselect->characterselected1 == 1) {
+		if (bomb == true) {
+			if (delay2 < 75) {
+				App->render->Blit(ash_bomb_texture, bomb_position.x, bomb_position.y - 10, &(bomb_throw.GetCurrentFrame()));
+				delay2++;
+				bomb_position.y -= 1;
+			}
+			if (delay2 == 75) {
+				bombhitbox = App->collision->AddCollider({ bomb_position.x, bomb_position.y, 254, 254 }, COLLIDER_ASH_BOMB, this);
+			}
+			if (delay2 >= 75) {
+				bombhitbox->SetPos(bomb_position.x - 124, bomb_position.y - 124);
+				App->render->Blit(ash_bomb_texture, bomb_position.x - 124, bomb_position.y - 124, &(ash_bomb_animation.GetCurrentFrame()));
+				delay2++;
 
-	if (bomb == true) {
-		if (delay2 < 75) {
-			App->render->Blit(ash_bomb_texture, bomb_position.x, bomb_position.y - 10, &(bomb_throw.GetCurrentFrame()));
-			delay2++;
-			bomb_position.y -= 1;
-		}
-		if (delay2 == 75) {
-			bombhitbox = App->collision->AddCollider({ bomb_position.x, bomb_position.y, 254, 254 }, COLLIDER_ASH_BOMB, this);
-		}
-		if (delay2 >= 75) {
-			bombhitbox->SetPos(bomb_position.x - 124, bomb_position.y - 124);
-			App->render->Blit(ash_bomb_texture, bomb_position.x - 124, bomb_position.y - 124, &(ash_bomb_animation.GetCurrentFrame()));
-			delay2++;
+			}
+
+			if (delay2 == 209) {
+				bomb = false;
+				delay2 = 0;
+				App->collision->EraseCollider(bombhitbox);
+
+			}
+			if (App->sea->pause == false) {
+				bomb_position.y -= 1;
+			}
 
 		}
-
-		if (delay2 == 209) {
-			bomb = false;
-			delay2 = 0;
-			App->collision->EraseCollider(bombhitbox);
-
-		}
-		if (App->sea->pause == false) {
-			bomb_position.y -= 1;
-		}
-
 	}
-
-
-
-
 
 	//IMMORTAL ANIMATION---------------------
 
@@ -624,6 +682,35 @@ update_status ModulePlayer::Update()
 			else
 				delay2++;
 		
+	}
+
+	//BOMB VALNUS 
+
+	if (App->characterselect->characterselected1 == 3) {
+		if (bomb == true) {
+			speed = 1.5;
+			if (bomb == true) {
+				if (delay2 == 0) {
+					bombhitbox = App->collision->AddCollider({ position.x, position.y, 580, 150 }, COLLIDER_ASH_BOMB, this);
+					bombhitbox2 = App->collision->AddCollider({ position.x, position.y, 150, 580}, COLLIDER_ASH_BOMB, this);
+					delay2++;
+				}
+				if (delay2 < 105) {
+					bombhitbox->SetPos(position.x - 275, position.y - 90);
+					bombhitbox2->SetPos(position.x - 60, position.y - 275);
+					App->render->Blit(valnus_bomb_texture, position.x -275 , position.y - 303 , &(valnus_bomb_animation.GetCurrentFrame()));
+					App->render->Blit(valnus_bomb_texture, position.x - 5.5f, position.y - 37, &(valnus_bomb.GetCurrentFrame()));
+					delay2++;
+				}
+				if (delay2 == 105) {
+					bomb = false;
+					delay2 = 0;
+					App->collision->EraseCollider(bombhitbox);
+					App->collision->EraseCollider(bombhitbox2);
+				}
+			}
+
+		}
 	}
 
 	return UPDATE_CONTINUE;

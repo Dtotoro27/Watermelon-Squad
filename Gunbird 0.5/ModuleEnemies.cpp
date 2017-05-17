@@ -218,7 +218,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 					if (c2->type == COLLIDER_PLAYER_2_SHOT) {
 						App->player2->score+= 500;
 					}
-					if (c2->type == COLLIDER_PLAYER_SHOT) {
+					if (c2->type == COLLIDER_PLAYER_SHOT|| c2->type == COLLIDER_VALNUS_LASER) {
 						App->player->score += 500;
 					}
 					delete enemies[i];
@@ -231,7 +231,12 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 					if (App->player->powerUps == 2) { damage = 3; }
 					if (App->player->powerUps == 3) { damage = 4; }
 					App->particles->AddParticle(App->particles->damage_balloon, enemies[i]->position.x, enemies[i]->position.y, 0, -1);
-					balloon_live = balloon_live - damage;
+					if (c2->type == COLLIDER_VALNUS_LASER) {
+						balloon_live = balloon_live - (damage/10);
+					}
+					else {
+						balloon_live = balloon_live - damage;
+					}
 				}
 				break;
 			}
