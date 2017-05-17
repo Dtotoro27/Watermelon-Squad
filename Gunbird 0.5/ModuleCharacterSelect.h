@@ -46,8 +46,8 @@ public:
 
 	int p1_x;
 	int p2_x;
-	int characterselected1;
-	int characterselected2;
+	int characterselected1 = 2;
+	int characterselected2 = 4;
 	float cloud1_x;
 	float cloud2_x;
 	bool coop = false;

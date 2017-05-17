@@ -6,6 +6,7 @@
 #include "ModuleWelcome.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleCollision.h"
+#include "ModuleCharacterSelect.h"
 #include "ModuleSea.h"
 #include "ModulePlayer.h"
 #include "ModulePlayer2.h"
@@ -29,9 +30,10 @@ ModulePlayer::ModulePlayer()
 	camera_limits.y = 0;
 
 	// idle animation
-	idle.PushBack({ 14, 13, 19, 32 });
-	idle.PushBack({ 43, 13, 19, 32 });
-	idle.speed = 0.1f;
+		idle.PushBack({ 14, 13, 19, 32 });
+		idle.PushBack({ 43, 13, 19, 32 });
+		idle.speed = 0.1f;
+	
 
 	// move left animation 
 	left.PushBack({ 16, 55, 17, 32 });
@@ -164,10 +166,20 @@ bool ModulePlayer::Start()
 	position.x = 100;
 	position.y = (camera_limits.y + 300);
 	lives = 2;
-	graphics = App->textures->Load("assets/characters/ash.png");
+	if (App->characterselect->characterselected1 == 1) {
+		graphics = App->textures->Load("assets/characters/ash.png");
+	}
+	else {
+		graphics = App->textures->Load("assets/ash_bomb.png");
+	}
 	ash_bomb_texture = App->textures->Load("assets/ash_bomb.png");
 	ui = App->textures->Load("assets/ui.png");
-	playerhitbox = App->collision->AddCollider({ position.x, position.y, 19, 32 }, COLLIDER_PLAYER, this);
+	if (App->characterselect->characterselected1 == 1) {
+		playerhitbox = App->collision->AddCollider({ position.x, position.y, 19, 32 }, COLLIDER_PLAYER, this);
+	}
+	else {
+		playerhitbox = App->collision->AddCollider({ position.x, position.y, 31, 32 }, COLLIDER_PLAYER, this);
+	}
 	audio_shot = App->audio->LoadFX("assets/Audio/shoot_ash.wav");
 	score = 0;
 	time.x = 0;
@@ -192,7 +204,8 @@ bool ModulePlayer::CleanUp()
 // Update: draw background
 update_status ModulePlayer::Update()
 {
-	Animation* current_animation = &idle;
+
+		Animation* current_animation = &idle;
 
     float speed = 3.5f;
 	position.y -= 1;
@@ -318,8 +331,8 @@ update_status ModulePlayer::Update()
 				if (delay == 14) {
 					App->particles->AddParticle(App->particles->laser3_3, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
 					App->audio->PlayFX(audio_shot);
-					App->particles->AddParticle(App->particles->AshShootWave1, position.x + 15, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->AshShootWave1, position.x - 8, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->AshShootWave1, position.x + 15, position.y - 50, 0, -15, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->AshShootWave1, position.x - 8, position.y - 50, 0, -15, COLLIDER_PLAYER_SHOT);
 					//App->input->buttonA = false;
 				}
 				if (delay == 21) {
@@ -350,8 +363,8 @@ update_status ModulePlayer::Update()
 				if (delay == 14) {
 					App->particles->AddParticle(App->particles->laser4_3, position.x, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
 					App->audio->PlayFX(audio_shot);
-					App->particles->AddParticle(App->particles->AshShootWave2, position.x + 16, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
-					App->particles->AddParticle(App->particles->AshShootWave2, position.x - 20, position.y - 50, 0, -10, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->AshShootWave2, position.x + 16, position.y - 50, 0, -15, COLLIDER_PLAYER_SHOT);
+					App->particles->AddParticle(App->particles->AshShootWave2, position.x - 20, position.y - 50, 0, -15, COLLIDER_PLAYER_SHOT);
 					//App->input->buttonA = false;
 				}
 				if (delay == 21) {
@@ -418,8 +431,9 @@ update_status ModulePlayer::Update()
 
 
 	// Draw everything --------------------------------------
-	SDL_Rect r = current_animation->GetCurrentFrame();
 
+	SDL_Rect r = current_animation->GetCurrentFrame();
+	
 	//BOMB------------------------
 
 	if (bomb == true) {
@@ -444,7 +458,9 @@ update_status ModulePlayer::Update()
 			App->collision->EraseCollider(bombhitbox);
 
 		}
-		bomb_position.y -= 1;
+		if (App->sea->pause == false) {
+			bomb_position.y -= 1;
+		}
 
 	}
 
@@ -454,13 +470,16 @@ update_status ModulePlayer::Update()
 
 	//IMMORTAL ANIMATION---------------------
 
-	if (time.x > 150 && dead == false) {
-		App->render->Blit(graphics, position.x, position.y - r.h, &r);
-	}
-	else {
-		App->render->Blit(graphics, position.x, position.y - r.h, &(immortal.GetCurrentFrame()));
-		time.x++;
-	}
+		if (time.x > 150 && dead == false) {
+			App->render->Blit(graphics, position.x, position.y - r.h, &r);
+		}
+		else {
+			App->render->Blit(graphics, position.x, position.y - r.h, &(immortal.GetCurrentFrame()));
+			time.x++;
+		}
+	
+
+	
 
 
 
