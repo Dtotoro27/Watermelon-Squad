@@ -30,9 +30,9 @@ ModulePlayer::ModulePlayer()
 	camera_limits.y = 0;
 
 	// idle animation
-		idle.PushBack({ 0, 0, 31, 32 });
-		idle.PushBack({ 31, 0, 31, 32 });
-		idle.speed = 0.1f;
+	idle.PushBack({ 0, 0, 31, 32 });
+	idle.PushBack({ 31, 0, 31, 32 });
+	idle.speed = 0.1f;
 	
 
 	// move left animation 
@@ -253,6 +253,7 @@ bool ModulePlayer::CleanUp()
 
 	App->textures->Unload(graphics);
 	App->textures->Unload(ash_bomb_texture);
+	App->textures->Unload(valnus_bomb_texture);
 	App->collision->EraseCollider(playerhitbox);
 
 
@@ -675,7 +676,12 @@ update_status ModulePlayer::Update()
 				App->render->Blit(graphics, position.x, position.y - r.h, &(immortal.GetCurrentFrame()));
 			}
 			if (delay2 == 300) {
-				playerhitbox = App->collision->AddCollider({ position.x, position.y, 19, 32 }, COLLIDER_PLAYER, this);
+				if (App->characterselect->characterselected1 == 1) {
+					playerhitbox = App->collision->AddCollider({ position.x, position.y, 19, 32 }, COLLIDER_PLAYER, this);
+				}
+				else {
+					playerhitbox = App->collision->AddCollider({ position.x, position.y, 31, 32 }, COLLIDER_PLAYER, this);
+				}
 				delay2 = 0;
 				dead = false;
 			}
