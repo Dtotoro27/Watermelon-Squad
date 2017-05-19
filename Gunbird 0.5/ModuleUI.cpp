@@ -225,7 +225,7 @@ update_status ModuleUI::Update() {
 				destroyed = true;
 			}
 			delay3++;
-			if (delay3 > 1600) {
+			if (delay3 < 1600) {
 				if (App->input->keyboard[SDL_SCANCODE_1] == KEY_STATE::KEY_DOWN) {
 					App->player->lives = 2;
 					App->player->score += 1;

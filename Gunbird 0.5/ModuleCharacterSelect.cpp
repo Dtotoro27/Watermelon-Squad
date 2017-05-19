@@ -24,8 +24,13 @@ ModuleCharacterSelect::ModuleCharacterSelect()
 	background.h = 320;
 
 	//UI
-	p1.PushBack({ 19,2,32,52 });
+	p1.PushBack({ 0,0,38,55 });
 	p2.PushBack({ 76,2,32,52 });
+	p1_error.PushBack({ 0,0,38,55 });
+	p1_error.PushBack({ 41,0,38,55 });
+	p1_error.PushBack({ 0,0,38,55 });
+	p1_error.PushBack({ 81,0,38,55 });
+	p1_error.speed = 0.4;
 	cloud1.PushBack({ 0,0,417,96 });
 	cloud2.PushBack({ 0,0,417,96 });
 	
@@ -98,11 +103,11 @@ ModuleCharacterSelect::ModuleCharacterSelect()
 	ash.speed = 0.2f;
 
 	//Marion
-	marion.PushBack({ 4, 67, 20, 30 });
-	marion.PushBack({ 36, 67, 20, 30 });
-	marion.PushBack({ 67, 67, 20, 30 });
-	marion.PushBack({ 100, 67, 20, 30 });
-	marion.speed = 0.2f;
+	marion.PushBack({ 1, 67, 25, 30 });
+	marion.PushBack({ 33, 67, 25, 30 });
+	marion.PushBack({ 64, 67, 25, 30 });
+	marion.PushBack({ 97, 67, 25, 30 });
+	marion.speed = 0.1f;
 
 	//Valnus
 	valnus.PushBack({ 0, 0, 31, 32 });
@@ -149,6 +154,8 @@ ModuleCharacterSelect::ModuleCharacterSelect()
 
 	coins_indicator.PushBack({ 69,8,38,8 });
 	time_indicator.PushBack({ 71,0,29,8 });
+
+	available_soon.PushBack({234,159,117,22});
 }
 
 ModuleCharacterSelect::~ModuleCharacterSelect()
@@ -184,6 +191,9 @@ bool ModuleCharacterSelect::Start()
 	timer = 9;
 	delay3 = 0;
 	App->welcome->coins--;
+
+	errorp1 = false;
+	delay4 = 0;
 
 	App->audio->LoadMusic("assets/Audio/characterselection.ogg");
 	return ret;
@@ -249,69 +259,71 @@ update_status ModuleCharacterSelect::Update()
 	// MOVEMENT
 
 	//Player1
-	if (coop == false) {
-		if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_DOWN || App->input->dpadRight == KEY_STATE::KEY_DOWN || App->input->joy_right == KEY_STATE::KEY_DOWN) {
-			if (characterselected1 < 5) {
-				characterselected1 += 1;
+	if (errorp1 == false) {
+		if (coop == false) {
+			if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_DOWN || App->input->dpadRight == KEY_STATE::KEY_DOWN || App->input->joy_right == KEY_STATE::KEY_DOWN) {
+				if (characterselected1 < 5) {
+					characterselected1 += 1;
+				}
+				else if (characterselected1 == 5) {
+					characterselected1 = 1;
+				}
+				App->audio->PlayFX(change_selection);
 			}
-			else if (characterselected1 == 5) {
-				characterselected1 = 1;
-			}
-			App->audio->PlayFX(change_selection);
-		}
-		if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_DOWN || App->input->dpadLeft == KEY_STATE::KEY_DOWN || App->input->joy_left == KEY_STATE::KEY_DOWN) {
-			if (characterselected1 > 1) {
-				characterselected1 -= 1;				
-			}
-			else {
-				characterselected1 = 5;
-			}
-			App->audio->PlayFX(change_selection);
+			if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_DOWN || App->input->dpadLeft == KEY_STATE::KEY_DOWN || App->input->joy_left == KEY_STATE::KEY_DOWN) {
+				if (characterselected1 > 1) {
+					characterselected1 -= 1;
+				}
+				else {
+					characterselected1 = 5;
+				}
+				App->audio->PlayFX(change_selection);
 
+			}
 		}
 	}
 	//Player2
 
 	if (coop == true) {
 		//Player 1
-
-		if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_DOWN || App->input->dpadRight == KEY_STATE::KEY_DOWN || App->input->joy_right == KEY_STATE::KEY_DOWN) {
-			if (characterselected1 < 5) {
-				if (characterselected1 == characterselected2 - 1) {
-					characterselected1 += 2;
+		if (errorp1 == false) {
+			if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_DOWN || App->input->dpadRight == KEY_STATE::KEY_DOWN || App->input->joy_right == KEY_STATE::KEY_DOWN) {
+				if (characterselected1 < 5) {
+					if (characterselected1 == characterselected2 - 1) {
+						characterselected1 += 2;
+					}
+					else {
+						characterselected1 += 1;
+					}
 				}
-				else {
-					characterselected1 += 1;
+				else if (characterselected1 == 5) {
+					if (characterselected2 == 1) {
+						characterselected1 = 2;
+					}
+					else {
+						characterselected1 = 1;
+					}
 				}
 			}
-			else if (characterselected1 == 5) {
-				if (characterselected2 == 1) {
-					characterselected1 = 2;
+			if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_DOWN || App->input->dpadLeft == KEY_STATE::KEY_DOWN || App->input->joy_left == KEY_STATE::KEY_DOWN) {
+				if (characterselected1 > 1) {
+					if (characterselected1 == characterselected2 + 1) {
+						characterselected1 -= 2;
+					}
+					else {
+						characterselected1 -= 1;
+					}
 				}
-				else {
-					characterselected1 = 1;
+				else if (characterselected1 == 1) {
+					if (characterselected2 == 5) {
+						characterselected1 = 4;
+					}
+					else {
+						characterselected1 = 5;
+					}
 				}
 			}
 		}
-		if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_DOWN || App->input->dpadLeft == KEY_STATE::KEY_DOWN || App->input->joy_left == KEY_STATE::KEY_DOWN) {
-			if (characterselected1 > 1) {
-				if (characterselected1 == characterselected2 + 1) {
-					characterselected1 -= 2;
-				}
-				else {
-					characterselected1 -= 1;
-				}
-			}
-			else if (characterselected1 == 1) {
-				if (characterselected2 == 5) {
-					characterselected1 = 4;
-				}
-				else {
-					characterselected1 = 5;
-				}
-			}
-		}
-
 		//Player 2
 
 		if(App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_DOWN || App->input->dpadRight2 == KEY_STATE::KEY_DOWN || App->input->joy_right2 == KEY_STATE::KEY_DOWN) {
@@ -369,11 +381,11 @@ update_status ModuleCharacterSelect::Update()
 
 	// SELECTOR POSITION
 
-	if (characterselected1 == 1) { p1_x =16; }
-	if (characterselected1 == 2) { p1_x = 56; }
-	if (characterselected1 == 3) { p1_x = 96; }
-	if (characterselected1 == 4) { p1_x = 136; }
-	if (characterselected1 == 5) { p1_x =176; }
+	if (characterselected1 == 1) { p1_x =14; }
+	if (characterselected1 == 2) { p1_x = 54; }
+	if (characterselected1 == 3) { p1_x = 94; }
+	if (characterselected1 == 4) { p1_x = 134; }
+	if (characterselected1 == 5) { p1_x =174; }
 
 	if (characterselected2 == 1) { p2_x = 16; }
 	if (characterselected2 == 2) { p2_x = 56; }
@@ -381,15 +393,22 @@ update_status ModuleCharacterSelect::Update()
 	if (characterselected2 == 4) { p2_x = 136; }
 	if (characterselected2 == 5) { p2_x = 176; }
 
-	if (App->input->keyboard[SDL_SCANCODE_P] && change || App->input->buttonA == KEY_STATE::KEY_DOWN && change) {
+	if (characterselected1 == 1 || characterselected1 == 3) {
+		if (App->input->keyboard[SDL_SCANCODE_P] && change || App->input->buttonA == KEY_STATE::KEY_DOWN && change) {
 
-		change = false;
-		App->fade->FadeToBlack(this, App->sea, 1);
-		change = true;
-		//App->input->buttonA = false;
-		
+			change = false;
+			App->fade->FadeToBlack(this, App->sea, 1);
+			change = true;
+			//App->input->buttonA = false;
+
+		}
 	}
 
+	else {
+		if (App->input->keyboard[SDL_SCANCODE_P] && change || App->input->buttonA == KEY_STATE::KEY_DOWN && change) {
+			errorp1 = true;
+		}
+	}
 
 
 
@@ -400,30 +419,33 @@ update_status ModuleCharacterSelect::Update()
 	if (coop == false) {
 
 		if (characterselected1 == 1) {
-			App->render->Blit(characterfaces, 12, 32, &(ash_face.GetCurrentFrame()), 0.22f);
-			App->render->Blit(characterfaces, 51, 165, &(ash_name.GetCurrentFrame()), 0.22f);
-			App->render->Blit(characteranimation1, 96, 129, &(ash_anim.GetCurrentFrame()), 0.22f);
+			App->render->Blit(characterfaces, 12, 32, &(ash_face.GetCurrentFrame()));
+			App->render->Blit(characterfaces, 51, 165, &(ash_name.GetCurrentFrame()));
+			App->render->Blit(characteranimation1, 96, 129, &(ash_anim.GetCurrentFrame()));
 		}
 		if (characterselected1 == 2) {
-			App->render->Blit(characterfaces, 12, 32, &(marion_face.GetCurrentFrame()), 0.22f);
-			App->render->Blit(characterfaces, 21, 165, &(marion_name.GetCurrentFrame()), 0.22f);
-			App->render->Blit(characteranimation1, 80, 132, &(marion_anim.GetCurrentFrame()), 0.22f);
+			App->render->Blit(characterfaces, 12, 32, &(marion_face.GetCurrentFrame()));
+			App->render->Blit(characterfaces, 21, 165, &(marion_name.GetCurrentFrame()));
+			App->render->Blit(characteranimation1, 80, 132, &(marion_anim.GetCurrentFrame()));
+			App->render->Blit(characterfaces, 50, 200, &(available_soon.GetCurrentFrame()));
 		}
 		if (characterselected1 == 3) {
-			App->render->Blit(characterfaces, 12, 32, &(valnus_face.GetCurrentFrame()), 0.22f);
-			App->render->Blit(characterfaces, 22, 165, &(valnus_name.GetCurrentFrame()), 0.22f);
-			App->render->Blit(characteranimation1, 90, 117, &(valnus_anim.GetCurrentFrame()), 0.22f);
+			App->render->Blit(characterfaces, 12, 32, &(valnus_face.GetCurrentFrame()));
+			App->render->Blit(characterfaces, 22, 165, &(valnus_name.GetCurrentFrame()));
+			App->render->Blit(characteranimation1, 90, 117, &(valnus_anim.GetCurrentFrame()));
 		}
 		if (characterselected1 == 4) {
-			App->render->Blit(characterfaces, 12, 32, &(yuan_face.GetCurrentFrame()), 0.22f);
-			App->render->Blit(characterfaces, 19, 165, &(yuan_name.GetCurrentFrame()), 0.22f);
-			App->render->Blit(characteranimation2, 72, 117, &(yuan_anim.GetCurrentFrame()), 0.22f);
+			App->render->Blit(characterfaces, 12, 32, &(yuan_face.GetCurrentFrame()));
+			App->render->Blit(characterfaces, 19, 165, &(yuan_name.GetCurrentFrame()));
+			App->render->Blit(characteranimation2, 72, 117, &(yuan_anim.GetCurrentFrame()));
+			App->render->Blit(characterfaces, 50, 210, &(available_soon.GetCurrentFrame()));
 		}
 		if (characterselected1 == 5) {
-			App->render->Blit(characterfaces, 12, 32, &(tetsu_face.GetCurrentFrame()), 0.22f);
-			App->render->Blit(characterfaces, 43, 166, &(tetsu_name.GetCurrentFrame()), 0.22f);
-			App->render->Blit(characteranimation2, 91, 140, &(tetsu_anim2.GetCurrentFrame()), 0.22f);
-			App->render->Blit(characteranimation2, 99, 129, &(tetsu_anim1.GetCurrentFrame()), 0.22f);
+			App->render->Blit(characterfaces, 12, 32, &(tetsu_face.GetCurrentFrame()));
+			App->render->Blit(characterfaces, 43, 166, &(tetsu_name.GetCurrentFrame()));
+			App->render->Blit(characteranimation2, 91, 140, &(tetsu_anim2.GetCurrentFrame()));
+			App->render->Blit(characteranimation2, 99, 129, &(tetsu_anim1.GetCurrentFrame()));
+			App->render->Blit(characterfaces, 50, 200, &(available_soon.GetCurrentFrame()));
 
 		}
 	}
@@ -492,12 +514,24 @@ update_status ModuleCharacterSelect::Update()
 
 	//Characters
 	App->render->Blit(ash_texture, 17, 256, &(ash.GetCurrentFrame()), 0.22f);
-	App->render->Blit(marion_texture, 63, 254, &(marion.GetCurrentFrame()), 0.22f);
+	App->render->Blit(marion_texture, 60, 254, &(marion.GetCurrentFrame()), 0.22f);
 	App->render->Blit(valnus_texture, 97, 255, &(valnus.GetCurrentFrame()), 0.22f);
 	App->render->Blit(yuan_texture, 137, 249, &(yuan.GetCurrentFrame()), 0.22f);
 	App->render->Blit(tetsu_texture, 178, 254, &(tetsu.GetCurrentFrame()), 0.22f);
 	//Selectors
-	App->render->Blit(p1select, p1_x, 244, &(p1.GetCurrentFrame()), 0.22f);
+	if (errorp1 == false) {
+		App->render->Blit(p1select, p1_x, 242, &(p1.GetCurrentFrame()), 0.22f);
+	}
+	else {
+		if (delay4 == 30) {
+			errorp1 = false;
+			delay4 = 0;
+		}
+		else {
+			App->render->Blit(p1select, p1_x, 242, &(p1_error.GetCurrentFrame()), 0.22f);
+			delay4++;
+		}
+	}
 	if (coop == true) {
 		App->render->Blit(p1select, p2_x, 244, &(p2.GetCurrentFrame()), 0.22f);
 	}
@@ -533,6 +567,22 @@ update_status ModuleCharacterSelect::Update()
 	if (delay3 == 800) { timer--; }
 	if (delay3 == 900) {
 		timer--;
+		if (characterselected1 != 1 && characterselected1 != 3) {
+			if (characterselected2 == 1) {
+				characterselected1 = 3;
+			}
+			else {
+				characterselected1 = 1;
+			}
+		}
+		if (characterselected2 != 1 && characterselected2 != 3) {
+			if (characterselected1 == 3) {
+				characterselected2 = 1;
+			}
+			else {
+				characterselected2 = 3;
+			}
+		}
 		change = false;
 		App->fade->FadeToBlack(this, App->sea, 1);
 		change = true;
