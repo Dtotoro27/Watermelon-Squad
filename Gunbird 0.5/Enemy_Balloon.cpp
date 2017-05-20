@@ -8,6 +8,8 @@
 #include "ModuleEnemies.h"
 #include "SDL/include/SDL_timer.h"
 
+#include <math.h>
+
 
 Enemy_Balloon::Enemy_Balloon(int x, int y) : Enemy(x, y)
 {
@@ -22,9 +24,9 @@ Enemy_Balloon::Enemy_Balloon(int x, int y) : Enemy(x, y)
 
 
 	movement.PushBack({ 0.0f,-1.0f }, 350, &fly);
-	movement.PushBack({ 0.0f,-0.5f }, 175, &fly);
+	/*movement.PushBack({ 0.0f,-0.5f }, 175, &fly);
 	movement.PushBack({ 0.0f,-1.0f }, 650, &fly);
-	movement.PushBack({ 0.0f,-0.35f }, 1000, &fly);
+	movement.PushBack({ 0.0f,-0.35f }, 1000, &fly);*/
 
 	collider = App->collision->AddCollider({ 0, 0, 42,53 }, COLLIDER_TYPE::COLLIDER_BALLOON, (Module*)App->enemies);
 
@@ -48,11 +50,14 @@ void Enemy_Balloon::Shoot() {
 	if (App->sea->pause == false) {
 		now = SDL_GetTicks() - start_time;
 		if (now > 3000) {
-			App->particles->AddParticle(App->particles->enemy_shoot, position.x + 21, position.y + 26, 2, 1, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->enemy_shoot, position.x + 21, position.y + 26, -2, 1, COLLIDER_ENEMY_SHOT);
+			pos_x = (App->player->position.x + (ASH_WIDTH / 2)) - position.x;
+			pos_y = App->player->position.y - position.y;
+			module = sqrt((pos_x*pos_x) + (pos_y*pos_y));
+			v_x = 3 * (pos_x / module);
+			v_y = 3 * (pos_y / module);
+
+			App->particles->AddParticle(App->particles->enemy_shoot, position.x + 21, position.y + 26, v_x, v_y - 1.5f, COLLIDER_ENEMY_SHOT);
 			start_time = SDL_GetTicks();
-			
 		}
 	}
-
 }
