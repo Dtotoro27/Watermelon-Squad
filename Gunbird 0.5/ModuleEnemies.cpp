@@ -218,7 +218,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 					if (c2->type == COLLIDER_PLAYER_2_SHOT) {
 						App->player2->score+= 500;
 					}
-					if (c2->type == COLLIDER_PLAYER_SHOT|| c2->type == COLLIDER_VALNUS_LASER) {
+					if (c2->type == COLLIDER_PLAYER_SHOT|| c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_ASH_BOMB) {
 						App->player->score += 500;
 					}
 					delete enemies[i];
@@ -244,7 +244,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 					if (c2->type == COLLIDER_PLAYER_2_SHOT) {
 						App->player2->score += 200;
 					}
-					if (c2->type == COLLIDER_PLAYER_SHOT) {
+					if (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_ASH_BOMB) {
 						App->player->score += 200;
 					}
 				

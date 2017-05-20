@@ -32,7 +32,7 @@ public:
 	SDL_Texture* tetsu_texture;
 	SDL_Rect background;
 	Animation p1,p2,cloud1,cloud2;
-	Animation p1_error;
+	Animation p1_error,p2_error;
 	Animation ash_face,marion_face,valnus_face,yuan_face,tetsu_face;
 	Animation ash_name, marion_name, valnus_name, yuan_name,yuan_name_coop, tetsu_name;
 	Animation ash_anim, marion_anim, valnus_anim, yuan_anim, tetsu_anim1,tetsu_anim2;
@@ -52,15 +52,22 @@ public:
 	float cloud1_x;
 	float cloud2_x;
 	bool coop = false;
+	
 	uint change_selection;
+	uint selection_fail;
+	uint select_ash;
+	uint select_valnus;
 
 	int font_coins = -1;
 	int delay3 = 0;
 
 	bool errorp1;
-	int delay4;
+	bool errorp2;
+	bool character1_selected;
+	bool character2_selected;
+	uint delay4;
+	uint delay5;
 	Animation available_soon;
-
 
 };
 

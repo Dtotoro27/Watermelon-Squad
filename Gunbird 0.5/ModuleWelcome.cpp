@@ -78,8 +78,7 @@ update_status ModuleWelcome::Update()
 
 	
 
-	if (App->input->keyboard[SDL_SCANCODE_P] && change || App->input->buttonA == KEY_STATE::KEY_DOWN && change) {
-
+	if (App->input->keyboard[SDL_SCANCODE_1] && change || App->input->buttonA == KEY_STATE::KEY_DOWN && change || App->input->keyboard [SDL_SCANCODE_F7] && change) {
 		change = false;
 		App->fade->FadeToBlack(this, App->characterselect, 1);
 		change = true;

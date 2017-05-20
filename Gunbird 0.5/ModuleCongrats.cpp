@@ -45,7 +45,7 @@ bool ModuleCongrats::Start()
 	congratstexture = App->textures->Load("assets/background_congrats.png");
 	gameovertexture = App->textures->Load("assets/ui.png");
 	rankingtexture = App->textures->Load("assets/game_over_ui.png");
-	App->audio->LoadMusic("assets/Audio/characterselection.ogg");
+	App->audio->LoadMusic("assets/Audio/stageclear.ogg");
 	font_score = App->fonts->Load("assets/numbers_score.png", "0123456789", 1);
 
 	return ret;
@@ -91,7 +91,7 @@ update_status ModuleCongrats::Update()
 	App->fonts->BlitText(136, 82, font_score, str2);
 
 
-	if (App->input->keyboard[SDL_SCANCODE_P] && change || App->input->buttonA == KEY_STATE::KEY_DOWN && change) {
+	if (App->input->keyboard[SDL_SCANCODE_F7] && change || App->input->buttonA == KEY_STATE::KEY_DOWN && change) {
 
 		change = false;
 		App->fade->FadeToBlack(this, App->welcome, 1);

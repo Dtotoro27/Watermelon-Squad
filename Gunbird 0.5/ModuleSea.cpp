@@ -118,7 +118,7 @@ update_status ModuleSea::Update()
 	// -------------------------------------- Draw everything --------------------------------------
 
 	if (App->player->dead == false) {
-		if (App->input->keyboard[SDL_SCANCODE_O] == KEY_STATE::KEY_DOWN || App->input->buttonStart == KEY_STATE::KEY_DOWN) {
+		if (App->input->keyboard[SDL_SCANCODE_P] == KEY_STATE::KEY_DOWN || App->input->buttonStart == KEY_STATE::KEY_DOWN) {
 			if (pause == false) {
 				pause = true;
 			}
@@ -163,7 +163,7 @@ update_status ModuleSea::Update()
 		change = true;		
 
 	}
-	if (App->input->keyboard[SDL_SCANCODE_P] == KEY_STATE::KEY_DOWN) {
+	if (App->input->keyboard[SDL_SCANCODE_F7] == KEY_STATE::KEY_DOWN) {
 		change = false;
 		App->fade->FadeToBlack(this, App->congrats, 1);
 		change = true;

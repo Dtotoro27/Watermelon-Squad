@@ -276,7 +276,7 @@ update_status ModulePlayer::Update()
 			//BOMB ----------------------
 			if (bomb == false && max_bomb > 0) {
 				bomb_position.y = position.y;
-				if (App->input->keyboard[SDL_SCANCODE_RCTRL] == KEY_STATE::KEY_DOWN || App->input->buttonB == KEY_STATE::KEY_DOWN) {
+				if (App->input->keyboard[SDL_SCANCODE_LALT] == KEY_STATE::KEY_DOWN || App->input->buttonB == KEY_STATE::KEY_DOWN) {
 					bomb = true;
 					bomb_position.x = position.x;
 					max_bomb--;
@@ -319,7 +319,7 @@ update_status ModulePlayer::Update()
 			}
 		}
 
-		if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN || 0 < delay || App->input->buttonA == KEY_STATE::KEY_DOWN)
+		if (App->input->keyboard[SDL_SCANCODE_LCTRL] == KEY_STATE::KEY_DOWN || 0 < delay || App->input->buttonA == KEY_STATE::KEY_DOWN)
 		{
 			shooting = true;
 			if (powerUps == 0) {
