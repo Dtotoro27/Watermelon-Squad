@@ -608,8 +608,12 @@ update_status ModulePlayer::Update()
 		}
 
 	}
-
-	playerhitbox->SetPos(position.x, position.y - ASH_HEIGHT);
+	if (App->characterselect->characterselected1 == 1) {
+		playerhitbox->SetPos(position.x + 6, position.y - ASH_HEIGHT);
+	}
+	else{
+		playerhitbox->SetPos(position.x, position.y - ASH_HEIGHT);
+	}
 	
 
 

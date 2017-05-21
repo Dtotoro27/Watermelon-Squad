@@ -68,7 +68,8 @@ public:
 	uint delay4;
 	uint delay5;
 	Animation available_soon;
-
+	Animation start_player;
+	Animation insert_coin;
 };
 
 #endif

@@ -164,6 +164,16 @@ ModuleCharacterSelect::ModuleCharacterSelect()
 	time_indicator.PushBack({ 71,0,29,8 });
 
 	available_soon.PushBack({234,159,117,22});
+
+	start_player.PushBack({ 0,15,68,15 });
+	start_player.PushBack({ 0,0,68,15 });;
+	start_player.PushBack({ 0,0,0,0 });
+	start_player.PushBack({ 0,0,0,0 });
+	start_player.speed = 0.05;
+
+	insert_coin.PushBack({ 0,46,73,13 });
+	insert_coin.PushBack({ 0,0,0,0 });
+	insert_coin.speed = 0.05;
 }
 
 ModuleCharacterSelect::~ModuleCharacterSelect()
@@ -641,6 +651,14 @@ update_status ModuleCharacterSelect::Update()
 		App->render->Blit(ui, 155, 306, &(coins_indicator.GetCurrentFrame()));
 	}
 
+
+	// INSERT COIN
+	if (App->welcome->coins > 0) {
+		App->render->Blit(ui, 118, 4, &(start_player.GetCurrentFrame()), 0);
+	}
+	else {
+		App->render->Blit(ui, 118, 4, &(insert_coin.GetCurrentFrame()), 0);
+	}
 	//TIME 
 
 	App->render->Blit(ui, 89, 306, &(time_indicator.GetCurrentFrame()));
