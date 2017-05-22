@@ -30,6 +30,7 @@ public:
 	Animation sea_animation;
 	Animation rock1;
 	Animation rock2;
+	Animation rock3;
 	bool pause = false;
 
 

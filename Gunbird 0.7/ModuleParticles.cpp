@@ -217,7 +217,25 @@ ModuleParticles::ModuleParticles()
 	dead_valnus.anim.PushBack({632,202,32,38});
 	dead_valnus.anim.speed = 0.1f;
 	dead_valnus.anim.loop = true;
-	
+
+	collision.anim.PushBack({ 1057,10,31,31 });
+	collision.anim.PushBack({ 1094,10,31,31 });
+	collision.anim.PushBack({ 1132,13,31,31 });
+	collision.anim.PushBack({ 1168,14,31,31 });
+	collision.anim.PushBack({ 1209,14,31,31 });
+	collision.anim.PushBack({ 1246,15,31,31 });
+	collision.anim.PushBack({ 1058,49,31,31 });
+	collision.anim.PushBack({ 1094,51,31,31 });
+	collision.anim.PushBack({ 1133,52,31,31 });
+	collision.anim.PushBack({ 1174,55,31,31 });
+	collision.anim.PushBack({ 1211,54,31,31 });
+	collision.anim.PushBack({ 1249,54,31,31 });
+	collision.anim.PushBack({ 1059,92,31,31 });
+	collision.anim.PushBack({ 1097,92,31,31 });
+	collision.anim.PushBack({ 1135,92,31,31 });
+	collision.anim.PushBack({ 1173,92,31,31 });
+	collision.anim.speed = 0.5f;
+		
 }
 
 ModuleParticles::~ModuleParticles()

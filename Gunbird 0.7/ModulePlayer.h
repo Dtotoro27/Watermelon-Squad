@@ -19,6 +19,8 @@ private:
 	bool shooting;
 	float delay2 = 0;	
 	bool bomb = false;
+	bool collision = false;
+	int timer2 = 0;
 public:
 	ModulePlayer();
 	~ModulePlayer();
@@ -42,6 +44,7 @@ public:
 	Animation immortal;
 	Animation left;
 	Animation right;
+	Animation collision_animation;
 
 	Animation ash_bomb_animation;
 	Animation bomb_throw;

@@ -43,6 +43,19 @@ ModuleSea::ModuleSea()
 	rock2.PushBack({ 206,187,68,155 });
 	rock2.speed = 0.06;
 
+	rock3.PushBack({ 320,5,14,117 });
+	rock3.PushBack({ 337,5,14,117 });
+	rock3.PushBack({ 353,5,14,117 });
+	rock3.PushBack({ 367,5,14,117 });
+	rock3.PushBack({ 382,5,14,117 });
+	rock3.PushBack({ 398,5,14,117 });
+	rock3.PushBack({ 413,5,14,117 });
+	rock3.PushBack({ 398,5,14,117 });
+	rock3.PushBack({ 382,5,14,117 });
+	rock3.PushBack({ 367,5,14,117 });
+	rock3.PushBack({ 353,5,14,117 });
+	rock3.PushBack({ 337,5,14,117 });
+	rock3.speed = 0.1;
 }
 
 ModuleSea::~ModuleSea()
@@ -137,6 +150,7 @@ update_status ModuleSea::Update()
 	App->render->Blit(seatexture, sea_x, -2372 + SCREEN_HEIGHT, &(sea_animation.GetCurrentFrame()), sea_speed);
 	App->render->Blit(rocktexture, 0, 44, &(rock1.GetCurrentFrame()), sea_speed);
 	App->render->Blit(rocktexture, 156, 163, &(rock2.GetCurrentFrame()), sea_speed);
+	App->render->Blit(rocktexture, sea_x + 128,-874, &(rock3.GetCurrentFrame()), sea_speed);
 
 	if (delay > 5200) {
 		if (sea_x < 0) {

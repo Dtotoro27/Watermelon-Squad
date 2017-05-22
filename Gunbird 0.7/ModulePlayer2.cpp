@@ -644,6 +644,9 @@ update_status ModulePlayer2::Update()
 			else
 				delay2++;
 		}
+		else {
+			this->Disable();
+		}
 	}
 
 	//BOMB VALNUS 
@@ -693,7 +696,7 @@ void  ModulePlayer2::OnCollision(Collider *c1, Collider *c2) {
 			else {
 				if (godmode2 == false) {
 					lives--;
-					if (App->characterselect->characterselected1 == 1) {
+					if (App->characterselect->characterselected2 == 1) {
 						App->particles->AddParticle(App->particles->dead, position.x - 5, position.y - 25, 0, 0, COLLIDER_NONE, 150);
 					}
 					else {

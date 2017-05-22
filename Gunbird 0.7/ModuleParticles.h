@@ -86,6 +86,7 @@ public:
 	Particle enemy_shoot;
 	Particle dead;
 	Particle dead_valnus;
+	Particle collision;
 };
 
 #endif // __MODULEPARTICLES_H__
