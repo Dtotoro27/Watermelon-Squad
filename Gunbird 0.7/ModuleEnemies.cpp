@@ -14,6 +14,7 @@
 #include "Enemy_FlyingMachine4.h"
 #include "Enemy_Bomb.h"
 #include "Enemy_Bomb2.h"
+#include "Enemy_Tower.h"
 #include "PowerUp.h"
 
 
@@ -190,7 +191,11 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 		case ENEMY_TYPES::POWER_UP:
 			enemies[i] = new PowerUp(info.x, info.y);
 			break;
+		case ENEMY_TYPES::TOWER:
+			enemies[i] = new  Enemy_Tower(info.x, info.y);
+			break;
 		}
+		
 
 	}
 }
@@ -215,7 +220,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 				if (balloon_live <= 0) {
 					App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x - 25, enemies[i]->position.y - 25, 0, 0);
 					//App->audio->PlayFX(audio_explosion);
-					if (c2->type == COLLIDER_PLAYER_2_SHOT) {
+					if (c2->type == COLLIDER_PLAYER_2_SHOT || c2->type == COLLIDER_VALNUS_2_LASER || c2->type == COLLIDER_ASH_BOMB_2){
 						App->player2->score+= 500;
 					}
 					if (c2->type == COLLIDER_PLAYER_SHOT|| c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_ASH_BOMB) {
@@ -241,7 +246,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 				break;
 			}
 			else {
-					if (c2->type == COLLIDER_PLAYER_2_SHOT) {
+					if (c2->type == COLLIDER_PLAYER_2_SHOT || c2->type == COLLIDER_VALNUS_2_LASER || c2->type == COLLIDER_ASH_BOMB_2) {
 						App->player2->score += 200;
 					}
 					if (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_ASH_BOMB) {
