@@ -1,5 +1,5 @@
 #include "Application.h"
-#include "Enemy_SurfingTower.h"
+#include "Enemy_SurfingTower2.h"
 #include "ModuleCollision.h"
 #include "ModuleTextures.h"
 #include "ModuleParticles.h"
@@ -11,7 +11,7 @@
 #include <math.h>
 
 
-Enemy_SurfingTower::Enemy_SurfingTower(int x, int y) : Enemy(x, y)
+Enemy_SurfingTower2::Enemy_SurfingTower2(int x, int y) : Enemy(x, y)
 {
 	fly.PushBack({ 495,254,29,33 });
 
@@ -20,7 +20,7 @@ Enemy_SurfingTower::Enemy_SurfingTower(int x, int y) : Enemy(x, y)
 	animation = &fly;
 
 
-	movement.PushBack({ -0.35f,-0.775f }, 1250, &fly);
+	movement.PushBack({ 1.0f,-0.775f }, 1250, &fly);
 
 
 	collider = App->collision->AddCollider({ 0, 0, 29, 33 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
@@ -31,14 +31,14 @@ Enemy_SurfingTower::Enemy_SurfingTower(int x, int y) : Enemy(x, y)
 
 }
 
-void Enemy_SurfingTower::Move()
+void Enemy_SurfingTower2::Move()
 {
 	if (App->sea->pause == false) {
 		position = originalpos + movement.GetCurrentPosition();
 	}
 }
 
-void Enemy_SurfingTower::Shoot() {
+void Enemy_SurfingTower2::Shoot() {
 	if (App->sea->pause == false) {
 		now = SDL_GetTicks() - start_time;
 		if (now > 3000) {

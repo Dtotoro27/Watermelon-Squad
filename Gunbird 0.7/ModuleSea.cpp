@@ -186,10 +186,75 @@ update_status ModuleSea::Update()
 
 	//ENEMIES--------------------------
 
-	if (App->render->camera.y == 500) {
-		App->enemies->AddEnemy(ENEMY_TYPES::SURFINGTOWER, 214, -250);
+	if (App->render->camera.y == 560) {
+		App->enemies->AddEnemy(ENEMY_TYPES::VERTICALBOMB, 164, -340);
 	}
 
+	if (App->render->camera.y == 590) {
+		App->enemies->AddEnemy(ENEMY_TYPES::VERTICALBOMB, 55, -360);
+	}
+
+	if (App->render->camera.y == 620) {
+		App->enemies->AddEnemy(ENEMY_TYPES::VERTICALBOMB, 95, -390);
+	}
+	
+	if (App->render->camera.y == 680) {
+		App->enemies->AddEnemy(ENEMY_TYPES::VERTICALBOMB, 194, -420);
+	}
+
+	if (App->render->camera.y == 740) {
+		App->enemies->AddEnemy(ENEMY_TYPES::VERTICALBOMB, 10, -450);
+	}
+
+	if (App->render->camera.y == 800) {
+		App->enemies->AddEnemy(ENEMY_TYPES::VERTICALBOMB, 122, -470);
+	}
+
+	if (App->render->camera.y == 860) {
+		App->enemies->AddEnemy(ENEMY_TYPES::VERTICALBOMB, 30, -490);
+		App->enemies->AddEnemy(ENEMY_TYPES::VERTICALBOMB, 184, -490);
+	}
+
+	if (App->render->camera.y == 890) {
+		App->enemies->AddEnemy(ENEMY_TYPES::VERTICALBOMB, 60, -510);
+	}
+
+	if (App->render->camera.y == 920) {
+		App->enemies->AddEnemy(ENEMY_TYPES::VERTICALBOMB, 90, -530);
+	}
+
+	if (App->render->camera.y == 950) {
+		App->enemies->AddEnemy(ENEMY_TYPES::VERTICALBOMB, 194, -550);
+	}
+
+	if (App->render->camera.y == 980) {
+		App->enemies->AddEnemy(ENEMY_TYPES::VERTICALBOMB, 0, -570);
+	}
+
+	if (App->render->camera.y == 1010) {
+		App->enemies->AddEnemy(ENEMY_TYPES::VERTICALBOMB, 112, -590);
+	}
+
+	if (App->render->camera.y == 1040) {
+		App->enemies->AddEnemy(ENEMY_TYPES::VERTICALBOMB, 30, -610);
+	}
+
+	if (App->render->camera.y == 600) {
+		App->enemies->AddEnemy(ENEMY_TYPES::SURFINGTOWER, 224, -240);
+		App->enemies->AddEnemy(ENEMY_TYPES::SURFINGTOWER, 304, -274);
+		App->enemies->AddEnemy(ENEMY_TYPES::SURFINGTOWER, 384, -308);
+	}
+
+	if (App->render->camera.y == 900) {
+		App->enemies->AddEnemy(ENEMY_TYPES::SURFINGTOWER2, -30, -475);
+		App->enemies->AddEnemy(ENEMY_TYPES::SURFINGTOWER2, -130, -475);
+		App->enemies->AddEnemy(ENEMY_TYPES::SURFINGTOWER2, -230, -475);
+		App->enemies->AddEnemy(ENEMY_TYPES::SURFINGTOWER2, -330, -475);
+	}
+
+
+	
+	/*
 	if (App->render->camera.y == 1200) {
 		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 127, -650);
 		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 157, -670);
@@ -230,8 +295,9 @@ update_status ModuleSea::Update()
 		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 127, -2774);
 		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 157, -2794);
 		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 187, -2774);
+		
 	}
-
+	*/
 	if (App->render->camera.y == 9100) {
 		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 90, -4554);
 		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 60, -4574);

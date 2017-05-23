@@ -14,8 +14,10 @@
 #include "Enemy_FlyingMachine4.h"
 #include "Enemy_Bomb.h"
 #include "Enemy_Bomb2.h"
+#include "Enemy_VerticalBomb.h"
 #include "Enemy_Tower.h"
 #include "Enemy_SurfingTower.h"
+#include "Enemy_SurfingTower2.h"
 #include "PowerUp.h"
 
 
@@ -189,6 +191,10 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			enemies[i] = new Enemy_Bomb2(info.x, info.y);
 			break;
 
+		case ENEMY_TYPES::VERTICALBOMB:
+			enemies[i] = new Enemy_VerticalBomb(info.x, info.y);
+			break;
+
 		case ENEMY_TYPES::POWER_UP:
 			enemies[i] = new PowerUp(info.x, info.y);
 			break;
@@ -199,6 +205,10 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 
 		case ENEMY_TYPES::SURFINGTOWER:
 			enemies[i] = new  Enemy_SurfingTower(info.x, info.y);
+			break;
+
+		case ENEMY_TYPES::SURFINGTOWER2:
+			enemies[i] = new  Enemy_SurfingTower2(info.x, info.y);
 			break;
 		}
 		
