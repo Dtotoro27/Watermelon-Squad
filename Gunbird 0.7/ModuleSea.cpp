@@ -170,7 +170,13 @@ update_status ModuleSea::Update()
 	}
 
 	//ENEMIES--------------------------
-	
+
+	if (App->render->camera.y == 570) {
+		App->enemies->AddEnemy(ENEMY_TYPES::SURFINGTOWER, 214, -115);
+		App->enemies->AddEnemy(ENEMY_TYPES::SURFINGTOWER, 264, -115);
+		App->enemies->AddEnemy(ENEMY_TYPES::SURFINGTOWER, 304, -115);
+	}
+
 	if (App->render->camera.y == 1200) {
 		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 127, -650);
 		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 157, -670);

@@ -15,6 +15,7 @@
 #include "Enemy_Bomb.h"
 #include "Enemy_Bomb2.h"
 #include "Enemy_Tower.h"
+#include "Enemy_SurfingTower.h"
 #include "PowerUp.h"
 
 
@@ -191,7 +192,12 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 		case ENEMY_TYPES::POWER_UP:
 			enemies[i] = new PowerUp(info.x, info.y);
 			break;
+
 		case ENEMY_TYPES::TOWER:
+			enemies[i] = new  Enemy_Tower(info.x, info.y);
+			break;
+
+		case ENEMY_TYPES::SURFINGTOWER:
 			enemies[i] = new  Enemy_Tower(info.x, info.y);
 			break;
 		}
