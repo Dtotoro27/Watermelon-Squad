@@ -50,14 +50,11 @@ void Enemy_Balloon::Shoot() {
 	if (App->sea->pause == false) {
 		now = SDL_GetTicks() - start_time;
 		if (now > 3000) {
-			pos_x = (App->player->position.x + (ASH_WIDTH / 2)) - position.x;
-			pos_y = App->player->position.y - position.y;
-			module = sqrt((pos_x*pos_x) + (pos_y*pos_y));
-			v_x = 3 * (pos_x / module);
-			v_y = 3 * (pos_y / module);
-
-			App->particles->AddParticle(App->particles->enemy_shoot, position.x + 21, position.y + 26, v_x, v_y - 1.5f, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->enemy_shoot, position.x + 21, position.y + 26, 2, 1, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->enemy_shoot, position.x + 21, position.y + 26, -2, 1, COLLIDER_ENEMY_SHOT);
 			start_time = SDL_GetTicks();
+
 		}
 	}
+
 }

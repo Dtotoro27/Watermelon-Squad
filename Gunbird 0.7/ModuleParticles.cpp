@@ -303,6 +303,7 @@ void ModuleParticles::AddParticle(const Particle& particle, int x, int y, float 
 	{
 		if (active[i] == nullptr)
 		{
+			
 			Particle* p = new Particle(particle);
 			p->born = SDL_GetTicks() + delay;
 			p->position.x = x;
