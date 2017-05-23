@@ -198,7 +198,7 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			break;
 
 		case ENEMY_TYPES::SURFINGTOWER:
-			enemies[i] = new  Enemy_Tower(info.x, info.y);
+			enemies[i] = new  Enemy_SurfingTower(info.x, info.y);
 			break;
 		}
 		

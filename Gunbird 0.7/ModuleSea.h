@@ -29,6 +29,7 @@ public:
 	SDL_Texture* startplayer2texture= nullptr;
 	Animation sea_animation;
 	Animation rock1;
+	int polla = 0;
 	Animation rock2;
 	Animation rock3;
 	bool pause = false;

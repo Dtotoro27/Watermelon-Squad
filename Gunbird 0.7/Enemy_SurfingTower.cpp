@@ -20,7 +20,7 @@ Enemy_SurfingTower::Enemy_SurfingTower(int x, int y) : Enemy(x, y)
 	animation = &fly;
 
 
-	movement.PushBack({ -0.25f,-1.0f }, 1250, &fly);
+	movement.PushBack({ -0.5f,-0.775f }, 1250, &fly);
 
 
 	collider = App->collision->AddCollider({ 0, 0, 29, 33 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);

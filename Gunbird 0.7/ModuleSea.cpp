@@ -178,6 +178,7 @@ update_status ModuleSea::Update()
 
 	}
 	if (App->input->keyboard[SDL_SCANCODE_F7] == KEY_STATE::KEY_DOWN) {
+		polla = App->render->camera.y;
 		change = false;
 		App->fade->FadeToBlack(this, App->congrats, 1);
 		change = true;
@@ -185,10 +186,8 @@ update_status ModuleSea::Update()
 
 	//ENEMIES--------------------------
 
-	if (App->render->camera.y == 570) {
-		App->enemies->AddEnemy(ENEMY_TYPES::SURFINGTOWER, 214, -115);
-		App->enemies->AddEnemy(ENEMY_TYPES::SURFINGTOWER, 264, -115);
-		App->enemies->AddEnemy(ENEMY_TYPES::SURFINGTOWER, 304, -115);
+	if (App->render->camera.y == 500) {
+		App->enemies->AddEnemy(ENEMY_TYPES::SURFINGTOWER, 214, -250);
 	}
 
 	if (App->render->camera.y == 1200) {
