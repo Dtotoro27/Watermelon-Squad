@@ -132,7 +132,6 @@ void Enemy_FlyingMachine2::Move()
 
 void Enemy_FlyingMachine2::Shoot() {
 
-	//no dispara bien hacia arriba, hay que hacer un if up y sumar/restar 1.88
 	if (App->sea->pause == false) {
 		now = SDL_GetTicks() - start_time;
 		if (now > 3000) {
@@ -140,7 +139,15 @@ void Enemy_FlyingMachine2::Shoot() {
 			pos_y = App->player->position.y - position.y;
 			module = sqrt((pos_x*pos_x) + (pos_y*pos_y));
 			v_x = 4 * (pos_x / module);
-			v_y = (4 * (pos_y / module) - 1.88f);
+
+			if (position.y >= App->player->position.y) {
+				v_y = (4 * (pos_y / module) - 1.88f);
+			}
+
+			else {
+				v_y = (4 * (pos_y / module) + 1.88f);
+			}
+
 
 			App->particles->AddParticle(App->particles->enemy_shoot, position.x + 21, position.y + 26, v_x, v_y, COLLIDER_ENEMY_SHOT);
 			start_time = SDL_GetTicks();
