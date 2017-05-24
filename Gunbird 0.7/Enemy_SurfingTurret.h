@@ -9,7 +9,7 @@ class Enemy_SurfingTurret : public Enemy
 private:
 	iPoint originalpos;
 	Animation fly;
-	Animation enemy_position;
+	Animation water;
 	Path movement;
 	Uint32 start_time = 0;
 	Uint32 now = 0;

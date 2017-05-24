@@ -14,6 +14,8 @@ class Enemy
 protected:
 	Animation* animation = nullptr;
 	Animation* animation2 = nullptr;
+	Animation* animation3 = nullptr;
+	Animation* animation4 = nullptr;
 	Collider* collider = nullptr;
 
 public:

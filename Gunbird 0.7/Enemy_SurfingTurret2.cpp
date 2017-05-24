@@ -20,6 +20,19 @@ Enemy_SurfingTurret2::Enemy_SurfingTurret2(int x, int y) : Enemy(x, y)
 	animation = &fly;
 
 
+	water.PushBack({ 9, 582,32,32 });
+	water.PushBack({ 50, 582,32,32 });
+	water.PushBack({ 87, 582,32,32 });
+	water.PushBack({ 125, 582,32,32 });
+	water.PushBack({ 163, 582,32,32 });
+	water.PushBack({ 197, 582,32,32 });
+	
+
+
+	water.speed = 0.1f;
+	animation4 = &water;
+
+
 	movement.PushBack({ 1.0f,-0.775f }, 1250, &fly);
 
 

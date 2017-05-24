@@ -187,7 +187,7 @@ update_status ModuleSea::Update()
 	//ENEMIES--------------------------
 
 	
-	/*
+	
 	if (App->render->camera.y == 560) {
 		App->enemies->AddEnemy(ENEMY_TYPES::VERTICALBOMB, 164, -340);
 	}
@@ -274,7 +274,7 @@ update_status ModuleSea::Update()
 		App->enemies->AddEnemy(ENEMY_TYPES::SURFINGTURRET2, -345, -1475);
 	}
 
-	*/
+
 	
 	/*
 	if (App->render->camera.y == 1200) {
