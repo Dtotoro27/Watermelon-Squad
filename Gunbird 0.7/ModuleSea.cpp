@@ -318,6 +318,13 @@ update_status ModuleSea::Update()
 		
 	}
 	*/
+
+	if (App->render->camera.y == 1550) {
+		App->enemies->AddEnemy(ENEMY_TYPES::TOWER, 96, -882);
+	}
+
+
+
 	if (App->render->camera.y == 9100) {
 		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 90, -4554);
 		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 60, -4574);

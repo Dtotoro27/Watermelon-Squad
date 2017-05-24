@@ -13,6 +13,7 @@ private:
 	Path movement;
 	Uint32 start_time = 0;
 	Uint32 now = 0;
+	uint time = 0;
 
 public:
 

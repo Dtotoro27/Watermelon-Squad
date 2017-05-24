@@ -657,7 +657,7 @@ update_status ModulePlayer::Update()
 		}
 	}
 	if (App->input->keyboard[SDL_SCANCODE_T] == KEY_STATE::KEY_DOWN) {
-		App->particles->AddParticle(App->particles->collision, position.x, position.y - 40, 0, 0);
+		App->particles->AddParticle(App->particles->collision, position.x, position.y - 50, 0, 0);
 	}
 
 
@@ -672,8 +672,13 @@ update_status ModulePlayer::Update()
 					if (powerUps != 0) {
 						powerUps--;
 					}
+					if (powerUps == 1) {
+						powerUps = 0;
+					}
 					timer2++;
-					App->particles->AddParticle(App->particles->collision, position.x, position.y-40, 0, 0);
+				}
+				if (timer2 == 1) {
+					App->particles->AddParticle(App->particles->collision, position.x, position.y - 50, 0, 0);
 				}
 				if (timer2 == 50) {
 					collision = false;
