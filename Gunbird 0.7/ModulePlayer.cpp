@@ -240,10 +240,10 @@ bool ModulePlayer::Start()
 		valnus_bomb_texture = App->textures->Load("assets/valnus_bomb.png");
 	}
 	if (App->characterselect->characterselected1 == 1) {
-		playerhitbox = App->collision->AddCollider({ position.x, position.y, 19, 32 }, COLLIDER_PLAYER, this);
+		playerhitbox = App->collision->AddCollider({ position.x + 1, position.y, 13, 32 }, COLLIDER_PLAYER, this);
 	}
 	else {
-		playerhitbox = App->collision->AddCollider({ position.x, position.y, 31, 32 }, COLLIDER_PLAYER, this);
+		playerhitbox = App->collision->AddCollider({ position.x + 10, position.y, 19, 32 }, COLLIDER_PLAYER, this);
 	}
 	audio_shot = App->audio->LoadFX("assets/Audio/shoot_ash.wav");
 	score = 0;
@@ -614,10 +614,10 @@ update_status ModulePlayer::Update()
 
 	}
 	if (App->characterselect->characterselected1 == 1) {
-		playerhitbox->SetPos(position.x + 6, position.y - ASH_HEIGHT);
+		playerhitbox->SetPos(position.x + 9, position.y - ASH_HEIGHT);
 	}
 	else{
-		playerhitbox->SetPos(position.x, position.y - ASH_HEIGHT);
+		playerhitbox->SetPos(position.x + 6, position.y - ASH_HEIGHT);
 	}
 	
 
