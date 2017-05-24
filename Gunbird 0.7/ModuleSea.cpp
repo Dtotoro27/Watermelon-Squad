@@ -167,7 +167,7 @@ update_status ModuleSea::Update()
 	//UI--------------------------
 
 
-	if (App->render->camera.y <= 100000) {
+	if (App->render->camera.y <= 10000000) {
 		App->render->camera.y += SCROLL_SPEED;
 	}
 
@@ -240,16 +240,36 @@ update_status ModuleSea::Update()
 	}
 
 	if (App->render->camera.y == 600) {
-		App->enemies->AddEnemy(ENEMY_TYPES::SURFINGTOWER, 224, -240);
-		App->enemies->AddEnemy(ENEMY_TYPES::SURFINGTOWER, 304, -274);
-		App->enemies->AddEnemy(ENEMY_TYPES::SURFINGTOWER, 384, -308);
+		App->enemies->AddEnemy(ENEMY_TYPES::SURFINGTURRET, 224, -240);
+		App->enemies->AddEnemy(ENEMY_TYPES::SURFINGTURRET, 304, -274);
+		App->enemies->AddEnemy(ENEMY_TYPES::SURFINGTURRET, 384, -308);
 	}
 
 	if (App->render->camera.y == 900) {
-		App->enemies->AddEnemy(ENEMY_TYPES::SURFINGTOWER2, -30, -475);
-		App->enemies->AddEnemy(ENEMY_TYPES::SURFINGTOWER2, -130, -475);
-		App->enemies->AddEnemy(ENEMY_TYPES::SURFINGTOWER2, -230, -475);
-		App->enemies->AddEnemy(ENEMY_TYPES::SURFINGTOWER2, -330, -475);
+		App->enemies->AddEnemy(ENEMY_TYPES::SURFINGTURRET2, -30, -475);
+		App->enemies->AddEnemy(ENEMY_TYPES::SURFINGTURRET2, -130, -475);
+		App->enemies->AddEnemy(ENEMY_TYPES::SURFINGTURRET2, -230, -475);
+		App->enemies->AddEnemy(ENEMY_TYPES::SURFINGTURRET2, -330, -475);
+	}
+
+	if (App->render->camera.y == 1270) {
+		App->enemies->AddEnemy(ENEMY_TYPES::STATICTURRET, 188, -665);
+		App->enemies->AddEnemy(ENEMY_TYPES::STATICTURRET, 188, -700);
+		App->enemies->AddEnemy(ENEMY_TYPES::STATICTURRET, 188, -735);
+	}
+
+	if (App->render->camera.y == 2770) {
+		App->enemies->AddEnemy(ENEMY_TYPES::SURFINGTURRET2, -30, -1400);
+		App->enemies->AddEnemy(ENEMY_TYPES::SURFINGTURRET2, -130, -1400);
+		App->enemies->AddEnemy(ENEMY_TYPES::SURFINGTURRET2, -230, -1400);
+		App->enemies->AddEnemy(ENEMY_TYPES::SURFINGTURRET2, -330, -1400);
+	}
+
+	if (App->render->camera.y == 2850) {
+		App->enemies->AddEnemy(ENEMY_TYPES::SURFINGTURRET2, -45, -1475);
+		App->enemies->AddEnemy(ENEMY_TYPES::SURFINGTURRET2, -145, -1475);
+		App->enemies->AddEnemy(ENEMY_TYPES::SURFINGTURRET2, -245, -1475);
+		App->enemies->AddEnemy(ENEMY_TYPES::SURFINGTURRET2, -345, -1475);
 	}
 
 

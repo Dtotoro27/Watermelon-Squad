@@ -1,10 +1,10 @@
-#ifndef __ENEMY_SURFINGTOWER_H__
-#define __ENEMY_SURFINGTOWER_H__
+#ifndef __ENEMY_SURFINGTURRET2_H__
+#define __ENEMY_SURFINGTURRET2_H__
 
 #include "Enemy.h"
 #include "Path.h"
 
-class Enemy_SurfingTower : public Enemy
+class Enemy_SurfingTurret2 : public Enemy
 {
 private:
 	iPoint originalpos;
@@ -16,7 +16,7 @@ private:
 
 public:
 
-	Enemy_SurfingTower(int x, int y);
+	Enemy_SurfingTurret2(int x, int y);
 
 	void Move();
 	void Shoot();
