@@ -9,31 +9,59 @@
 
 #include <math.h>
 
+#define PI 3.14159265
+#define ANGLE_CONVERT (180.0 / PI)
+#define ANGLE_CONVERT_REVERSE (PI / 180.0)
+
 
 
 Enemy_FlyingMachine4::Enemy_FlyingMachine4(int x, int y) : Enemy(x, y)
 {
-	enemy_position.PushBack({ 629,105,32,34 });
-	enemy_position.speed = 0.2f;
-	animation = &enemy_position;
+	enemy_position_s.PushBack({ 629,105,32,34 });
+	enemy_position_s.speed = 0.2f;
 
+	enemy_position_sa.PushBack({ 551,116,32,34 });
+	enemy_position_sa.speed = 0.2f;
 
-	fly.PushBack({ 531,154,32,32 });
-	fly.PushBack({ 568,152,32,32 });
-	fly.PushBack({ 601,152,32,32 });
-	fly.PushBack({ 638,151,32,32 });
-	fly.PushBack({ 684,152,32,32 });
-	fly.PushBack({ 737,153,32,32 });
+	enemy_position_a.PushBack({ 628,79,32,34 });
+	enemy_position_a.speed = 0.2f;
+
+	enemy_position_wa.PushBack({ 551,81,32,34 });
+	enemy_position_wa.speed = 0.2f;
+
+	enemy_position_w.PushBack({ 630,44,32,34 });
+	enemy_position_w.speed = 0.2f;
+
+	enemy_position_wd.PushBack({ 557,44,32,34 });
+	enemy_position_wd.speed = 0.2f;
+
+	enemy_position_d.PushBack({ 632,10,32,34 });
+	enemy_position_d.speed = 0.2f;
+
+	enemy_position_sd.PushBack({ 559,12,32,34 });
+	enemy_position_sd.speed = 0.2f;
+
+	fly.PushBack({ 533,154,32,32 });
+	fly.PushBack({ 570,152,32,32 });
+	fly.PushBack({ 603,152,32,32 });
+	fly.PushBack({ 640,151,32,32 });
+	fly.PushBack({ 686,152,32,32 });
+	fly.PushBack({ 739,153,32,32 });
 
 	fly.speed = 0.5f;
 	animation2 = &fly;
 
 
 
+
+
 	collider = App->collision->AddCollider({ 0, 0,26,33 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
-	movement.PushBack({ 0.0f,-0.775f }, 250, &enemy_position);
-	movement.PushBack({ -0.15f,-0.1f }, 650, &enemy_position);
+	movement.PushBack({ 0.0f,-0.35f }, 225, &enemy_position_s);
+	movement.PushBack({ 0.0f,-0.6f }, 50, &enemy_position_s);
+	movement.PushBack({ 0.0f,-0.775f }, 100, &enemy_position_s);
+	movement.PushBack({ 0.0f, -2.0f }, 10000, &enemy_position_s);
+
 
 	originalpos.x = x;
 	originalpos.y = y;
@@ -43,12 +71,68 @@ Enemy_FlyingMachine4::Enemy_FlyingMachine4(int x, int y) : Enemy(x, y)
 
 void Enemy_FlyingMachine4::Move()
 {
+	bool left;
+	float angle;
+
+
+	if (App->player->position.x >= position.x) {
+		left = false;
+	}
+	else {
+		left = true;
+	}
+
+	angle = ((float)acos((((App->player->position.x - position.x) * 0) + ((App->player->position.y - position.y) * 1)) / (sqrt((double)((App->player->position.x - position.x)*(App->player->position.x - position.x) + (App->player->position.y - position.y)*(App->player->position.y - position.y)))*sqrt((double)(0 * 0 + 1 * 1))))) * ANGLE_CONVERT;
+	if (left == false) {
+		if (angle < 22.5) {
+			animation = &enemy_position_s;
+		}
+		else if (angle >= 22.5 && angle < 67.5) {
+			animation = &enemy_position_sd;
+		}
+
+		else if (angle >= 67.5 && angle < 112.5) {
+			animation = &enemy_position_d;
+		}
+		else if (angle >= 112.5 && angle < 157.5) {
+			animation = &enemy_position_wd;
+		}
+		else if (angle >= 157.5) {
+			animation = &enemy_position_w;
+		}
+	}
+	//Left
+
+	else {
+		if (angle < 22.5) {
+			animation = &enemy_position_s;
+		}
+
+		else if (angle >= 22.5 && angle < 67.5) {
+			animation = &enemy_position_sa;
+		}
+
+		else if (angle >= 67.5 && angle < 112.5) {
+			animation = &enemy_position_a;
+		}
+
+		else if (angle >= 112.5 && angle < 157.5) {
+			animation = &enemy_position_wa;
+		}
+
+		else if (angle >= 157.5) {
+			animation = &enemy_position_w;
+		}
+
+	}
 	if (App->sea->pause == false) {
 		position = originalpos + movement.GetCurrentPosition();
 	}
 }
 
 void Enemy_FlyingMachine4::Shoot() {
+
+	//no dispara bien hacia arriba, hay que hacer un if up y sumar/restar 1.88
 	if (App->sea->pause == false) {
 		now = SDL_GetTicks() - start_time;
 		if (now > 3000) {
