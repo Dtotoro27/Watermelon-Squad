@@ -17,6 +17,8 @@ private:
 	float module;
 	float v_x;
 	float v_y;
+	int shoots=0;
+	bool shooting=false;
 
 public:
 

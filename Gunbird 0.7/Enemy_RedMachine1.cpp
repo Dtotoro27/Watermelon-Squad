@@ -40,25 +40,31 @@ void Enemy_RedMachine1::Move()
 void Enemy_RedMachine1::Shoot() {
 	if (App->sea->pause == false) {
 		now = SDL_GetTicks() - start_time;
-		if (now > 3000) {
-			pos_x = (App->player->position.x - (ASH_WIDTH / 2)) - position.x;
-			pos_y = App->player->position.y - position.y;
-			module = sqrt((pos_x*pos_x) + (pos_y*pos_y));
-			v_x = 4 * (pos_x / module);
+		if (now > 6000) {
+			shooting = true;
+		}
+		if (now > 1000) {
+			if (shooting && shoots < 2) {
+				pos_x = (App->player->position.x - (ASH_WIDTH / 2)) - position.x;
+				pos_y = App->player->position.y - position.y;
+				module = sqrt((pos_x*pos_x) + (pos_y*pos_y));
+				v_x = 4 * (pos_x / module);
 
-			if (position.y >= App->player->position.y) {
-				v_y = (3 * (pos_y / module) - 1.88f);
+				if (position.y >= App->player->position.y) {
+					v_y = (3 * (pos_y / module) - 1.88f);
+				}
+
+				else {
+					v_y = (3 * (pos_y / module) + 1.88f);
+				}
+
+
+				App->particles->AddParticle(App->particles->enemy_shoot, position.x + 21, position.y + 26, v_x, v_y, COLLIDER_ENEMY_SHOT);
+				start_time = SDL_GetTicks();
+				shoots++;
 			}
-
-			else {
-				v_y = (3 * (pos_y / module) + 1.88f);
-			}
-
-
-			App->particles->AddParticle(App->particles->enemy_shoot, position.x + 21, position.y + 26, v_x, v_y, COLLIDER_ENEMY_SHOT);
-			start_time = SDL_GetTicks();
-
+		}
 		}
 	}
-}
+
 
