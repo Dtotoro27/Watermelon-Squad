@@ -165,8 +165,21 @@ ModuleParticles::ModuleParticles()
 	enemy_shoot.anim.PushBack({ 561, 235, 6,6 });
 	enemy_shoot.anim.speed = 0.3f;
 	enemy_shoot.anim.loop = true;
-
 	enemy_shoot.life = 2000;
+
+	big_enemy_shoot.anim.PushBack({501,243,8,8});
+	big_enemy_shoot.anim.PushBack({ 501,243,8,8 });
+	big_enemy_shoot.anim.PushBack({ 501,243,8,8 });
+	big_enemy_shoot.anim.PushBack({ 501,243,8,8 });
+	big_enemy_shoot.anim.speed = 0.3f;
+	big_enemy_shoot.anim.loop = true;
+	big_enemy_shoot.life = 2000;
+
+	big_enemy_shoot_born.anim.PushBack({ 515,254,12,12 });
+	big_enemy_shoot_born.life = 10;
+	enemy_shoot_born.anim.PushBack({ 501, 256, 8,8 });
+	enemy_shoot_born.life = 70;
+
 
 	dead.anim.PushBack({ 631, 170, 31,26 });
 	dead.anim.PushBack({ 631, 170, 31,26 });

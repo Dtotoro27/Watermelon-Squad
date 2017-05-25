@@ -84,6 +84,9 @@ public:
 	Particle littleexplosion;
 	Particle damage_balloon;
 	Particle enemy_shoot;
+	Particle big_enemy_shoot;
+	Particle enemy_shoot_born;
+	Particle big_enemy_shoot_born;
 	Particle dead;
 	Particle dead_valnus;
 	Particle collision;
