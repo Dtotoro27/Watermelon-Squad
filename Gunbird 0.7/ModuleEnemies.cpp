@@ -22,6 +22,7 @@
 #include "Enemy_BlueTurret.h"
 #include "Enemy_BlueRobot.h"
 #include "Enemy_BlueRobot2.h"
+#include "Enemy_RedMachine1.h"
 #include "PowerUp.h"
 
 
@@ -230,6 +231,11 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 		case ENEMY_TYPES::BLUEROBOT2:
 			enemies[i] = new  Enemy_BlueRobot2(info.x, info.y);
 			break;
+
+		case ENEMY_TYPES::REDMACHINE1:
+			enemies[i] = new  Enemy_RedMachine1(info.x, info.y);
+			break;
+
 		}
 		
 
