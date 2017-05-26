@@ -20,6 +20,14 @@ ModuleParticles::ModuleParticles()
 	damage_balloon.anim.speed = 1;
 	damage_balloon.anim.loop = false;
 
+	damage_bomb.anim.PushBack({ 790,177, 16, 31 });
+	damage_bomb.anim.speed = 0.75f;
+	damage_bomb.anim.loop = false;
+
+	damage_turret.anim.PushBack({ 814,182,17,25 });
+	damage_turret.anim.speed = 0.75f;
+	damage_turret.anim.loop = false;
+
 	//LASER ASH
 	laser1_1.anim.PushBack({ 537, 38, 15, 29 });
 	laser1_2.anim.PushBack({ 574,38,15,29 });
@@ -166,7 +174,7 @@ ModuleParticles::ModuleParticles()
 	enemy_shoot.anim.PushBack({ 561, 235, 6,6 });
 	enemy_shoot.anim.speed = 0.3f;
 	enemy_shoot.anim.loop = true;
-	enemy_shoot.life = 2000;
+	enemy_shoot.life = 500;
 
 	big_enemy_shoot.anim.PushBack({501,243,8,8});
 	big_enemy_shoot.anim.PushBack({ 501,243,8,8 });

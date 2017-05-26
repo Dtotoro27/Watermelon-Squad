@@ -27,12 +27,9 @@
 #include "Enemy_RedMachine2.h"
 #include "Enemy_ShipTurret.h"
 #include "Enemy_BigShipStatic.h"
-<<<<<<< HEAD
 #include "Enemy_BigShipMove.h"
-=======
 #include "Enemy_ShipHorizontalCanon.h"
 #include "Enemy_ShipVerticalCanon.h"
->>>>>>> origin/master
 #include "PowerUp.h"
 
 
@@ -260,10 +257,9 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 		case ENEMY_TYPES::BIGSHIPSTATIC:
 			enemies[i] = new  Enemy_BigShipStatic(info.x, info.y);
 			break;
-<<<<<<< HEAD
+
 		case ENEMY_TYPES::BIGSHIPMOVE:
 			enemies[i] = new  Enemy_BigShipMove(info.x, info.y);
-=======
 
 		case ENEMY_TYPES::SHIPHORIZONTALCANON:
 			enemies[i] = new  Enemy_ShipHorizontalCanon(info.x, info.y);
@@ -271,7 +267,7 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 
 		case ENEMY_TYPES::SHIPVERTICALCANON:
 			enemies[i] = new  Enemy_ShipVerticalCanon(info.x, info.y);
->>>>>>> origin/master
+
 			break;
 		}
 
@@ -344,7 +340,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 					if (App->player->powerUps == 1) { damage = 2; }
 					if (App->player->powerUps == 2) { damage = 3; }
 					if (App->player->powerUps == 3) { damage = 4; }
-					App->particles->AddParticle(App->particles->damage_balloon, enemies[i]->position.x, enemies[i]->position.y, 0, -1);
+					App->particles->AddParticle(App->particles->damage_bomb, enemies[i]->position.x + 6, enemies[i]->position.y + 3, 0, -1);
 					if (c2->type == COLLIDER_VALNUS_LASER) {
 						enemies[i]->live = enemies[i]->live - (damage / 10);
 					}
@@ -388,7 +384,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 			else if (c1->type == COLLIDER_SURFINGTURRET) {
 
 				if (enemies[i]->live <= 0) {
-					App->particles->AddParticle(App->particles->littleexplosion, enemies[i]->position.x, enemies[i]->position.y - 5, 0, 0);
+					App->particles->AddParticle(App->particles->littleexplosion, enemies[i]->position.x, enemies[i]->position.y, 0, 0);
 					//App->audio->PlayFX(audio_explosion);
 					if (c2->type == COLLIDER_PLAYER_2_SHOT || c2->type == COLLIDER_VALNUS_2_LASER || c2->type == COLLIDER_ASH_BOMB_2) {
 						App->player2->score += 500;
@@ -405,7 +401,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 					if (App->player->powerUps == 1) { damage = 2; }
 					if (App->player->powerUps == 2) { damage = 3; }
 					if (App->player->powerUps == 3) { damage = 4; }
-					App->particles->AddParticle(App->particles->damage_balloon, enemies[i]->position.x, enemies[i]->position.y, 0, -1);
+					App->particles->AddParticle(App->particles->damage_turret, enemies[i]->position.x + 5, enemies[i]->position.y - 5, 0, -1);
 					if (c2->type == COLLIDER_VALNUS_LASER) {
 						enemies[i]->live = enemies[i]->live - (damage / 10);
 					}
