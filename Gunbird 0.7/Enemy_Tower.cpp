@@ -13,6 +13,8 @@
 
 Enemy_Tower::Enemy_Tower(int x, int y) : Enemy(x, y)
 {
+	live = 40; 
+
 	stand.PushBack({ 5,259,64,100});
 	stand.PushBack({ 70,259,64,100 });
 	stand.PushBack({ 135,259,64,100 });
@@ -35,7 +37,7 @@ Enemy_Tower::Enemy_Tower(int x, int y) : Enemy(x, y)
 	movement.PushBack({ 0.0f,-0.782f },350, &stand);
 
 
-	collider = App->collision->AddCollider({ 0, 0, 64,100 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
+	collider = App->collision->AddCollider({ 0, 0, 64,100 }, COLLIDER_TYPE::COLLIDER_TOWER, (Module*)App->enemies);
 
 	originalpos.x = x;
 	originalpos.y = y;

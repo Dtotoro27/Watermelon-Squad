@@ -16,6 +16,8 @@
 
 Enemy_SurfingTurret2::Enemy_SurfingTurret2(int x, int y) : Enemy(x, y)
 {
+	live = 3;
+
 	base.PushBack({ 711,357,30,30 });
 
 	turret1.PushBack({ 494,257,30,32 });
@@ -69,7 +71,7 @@ Enemy_SurfingTurret2::Enemy_SurfingTurret2(int x, int y) : Enemy(x, y)
 	movement.PushBack({ 1,-0.782f }, 1250, &base);
 
 
-	collider = App->collision->AddCollider({ 0, 0, 29, 33 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
+	collider = App->collision->AddCollider({ 0, 0, 25, 27 }, COLLIDER_TYPE::COLLIDER_SURFINGTURRET, (Module*)App->enemies);
 
 	originalpos.x = x;
 	originalpos.y = y;

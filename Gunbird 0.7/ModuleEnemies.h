@@ -63,6 +63,7 @@ private:
 
 public: 
 	float balloon_live;
+	float bomb_live;
 	float damage;
 };
 

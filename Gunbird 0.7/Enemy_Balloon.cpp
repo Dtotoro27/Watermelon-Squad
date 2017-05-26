@@ -4,6 +4,7 @@
 #include "ModuleTextures.h"
 #include "ModuleParticles.h"
 #include "ModulePlayer.h"
+#include "ModulePlayer2.h"
 #include "ModuleSea.h"
 #include "ModuleEnemies.h"
 #include "SDL/include/SDL_timer.h"
@@ -13,6 +14,9 @@
 
 Enemy_Balloon::Enemy_Balloon(int x, int y) : Enemy(x, y)
 {
+
+	live = 25; 
+
 	fly.PushBack({ 26,17,42,53 });
 	fly.PushBack({ 79,17,42,53 });
 	fly.PushBack({ 131,17,42,53 });
@@ -58,3 +62,4 @@ void Enemy_Balloon::Shoot() {
 	}
 
 }
+

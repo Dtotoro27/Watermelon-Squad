@@ -14,6 +14,7 @@ ModuleParticles::ModuleParticles()
 	//handouts tienen aqui las animaciones
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 		active[i] = nullptr;
+
 	damage_balloon.anim.PushBack({ 684,157,42,53 });
 	damage_balloon.anim.PushBack({ 735,157,42,53 });
 	damage_balloon.anim.speed = 1;
