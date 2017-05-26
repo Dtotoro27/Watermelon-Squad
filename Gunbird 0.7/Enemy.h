@@ -18,6 +18,7 @@ protected:
 	Animation* animation4 = nullptr;
 	Animation* animation5 = nullptr;
 	Animation* animation6 = nullptr;
+	Animation* animation7 = nullptr;
 	Animation* animation8 = nullptr;
 	Collider* collider = nullptr;
 

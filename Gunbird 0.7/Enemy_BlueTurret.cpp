@@ -63,8 +63,7 @@ Enemy_BlueTurret::Enemy_BlueTurret(int x, int y) : Enemy(x, y)
 	enemy_position_32.PushBack({ 875,251,30,32 });
 
 
-	movement.PushBack({ 0.0f,-1 }, 350, &appear);
-
+	movement.PushBack({ 0.0f,-0.782f }, 350, &appear);
 
 	collider = App->collision->AddCollider({ 0, 0, 30,32 }, COLLIDER_TYPE::COLLIDER_SURFINGTURRET, (Module*)App->enemies);
 

@@ -18,6 +18,7 @@
 #include "Enemy_Tower.h"
 #include "Enemy_SurfingTurret.h"
 #include "Enemy_SurfingTurret2.h"
+#include "Enemy_VerticalSurfingTurret.h"
 #include "Enemy_StaticTurret.h"
 #include "Enemy_BlueTurret.h"
 #include "Enemy_BlueRobot.h"
@@ -218,6 +219,10 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 
 		case ENEMY_TYPES::SURFINGTURRET2:
 			enemies[i] = new  Enemy_SurfingTurret2(info.x, info.y);
+			break;
+
+		case ENEMY_TYPES::VERTICALSURFINGTURRET:
+			enemies[i] = new  Enemy_VerticalSurfingTurret(info.x, info.y);
 			break;
 
 		case ENEMY_TYPES::STATICTURRET:
