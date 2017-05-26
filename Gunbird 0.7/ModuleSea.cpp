@@ -95,7 +95,7 @@ bool ModuleSea::Start()
 	//Enemy
 
 	App->enemies->AddEnemy(ENEMY_TYPES::BIGSHIPSTATIC, 51, 50);
-	App->enemies->AddEnemy(ENEMY_TYPES::POWER_UP, 150, 10);
+	App->enemies->AddEnemy(ENEMY_TYPES::EXTRABOMB, 150, 10);
 	
 
 	

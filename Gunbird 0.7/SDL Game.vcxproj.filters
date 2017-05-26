@@ -136,6 +136,9 @@
     <ClCompile Include="Enemy_ShipVerticalCanon.cpp">
       <Filter>Modules\Enemies\Boss\Ship</Filter>
     </ClCompile>
+    <ClCompile Include="ExtraBomb.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -284,6 +287,9 @@
     </ClInclude>
     <ClInclude Include="Enemy_ShipVerticalCanon.h">
       <Filter>Modules\Enemies\Boss\Ship</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtraBomb.h">
+      <Filter>Modules\Enemies</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
