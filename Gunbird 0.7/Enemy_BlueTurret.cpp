@@ -65,7 +65,7 @@ Enemy_BlueTurret::Enemy_BlueTurret(int x, int y) : Enemy(x, y)
 
 	movement.PushBack({ 0.0f,-0.782f }, 350, &appear);
 
-	collider = App->collision->AddCollider({ 0, 0, 30,32 }, COLLIDER_TYPE::COLLIDER_SURFINGTURRET, (Module*)App->enemies);
+	collider = App->collision->AddCollider({ 10, 0, 30, 27}, COLLIDER_TYPE::COLLIDER_SURFINGTURRET, (Module*)App->enemies);
 
 	originalpos.x = x;
 	originalpos.y = y;
@@ -209,18 +209,31 @@ void Enemy_BlueTurret::Move()
 void Enemy_BlueTurret::Shoot() {
 	if (App->sea->pause == false) {
 
-			now = SDL_GetTicks() - start_time;
-			if (now > 3000) {
 				pos_x = (App->player->position.x - (ASH_WIDTH / 2)) - position.x;
 				pos_y = App->player->position.y - position.y;
 				module = sqrt((pos_x*pos_x) + (pos_y*pos_y));
 				v_x = 4 * (pos_x / module);
 				v_y = (4 * (pos_y / module) - 1.88f);
 
-				App->particles->AddParticle(App->particles->enemy_shoot, position.x + 21, position.y + 26, v_x, v_y, COLLIDER_ENEMY_SHOT);
-				start_time = SDL_GetTicks();
+				if (time == 0) {
+					App->particles->AddParticle(App->particles->big_enemy_shoot, position.x + 21, position.y + 26, v_x, v_y, COLLIDER_ENEMY_SHOT);
+					App->particles->AddParticle(App->particles->big_enemy_shoot_born, position.x + 21, position.y + 26, v_x, v_y, COLLIDER_ENEMY_SHOT);
+					time++;
+				}
+				if (time == 10) {
+					App->particles->AddParticle(App->particles->big_enemy_shoot, position.x + 21, position.y + 26, v_x, v_y, COLLIDER_ENEMY_SHOT);
+					App->particles->AddParticle(App->particles->big_enemy_shoot_born, position.x + 21, position.y + 26, v_x, v_y, COLLIDER_ENEMY_SHOT);
+					time++;
+				}
+				if (time == 350) {
+					time = 0;
+				}
 
-			
-		}
+				else {
+					time++;
+				}
+				
+	
+	
 	}
 }

@@ -85,6 +85,7 @@ public:
 	Particle damage_balloon;
 	Particle damage_bomb;
 	Particle damage_turret;
+	Particle damage_tower;
 	Particle enemy_shoot;
 	Particle big_enemy_shoot;
 	Particle enemy_shoot_born;

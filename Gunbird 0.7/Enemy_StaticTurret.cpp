@@ -61,7 +61,7 @@ Enemy_StaticTurret::Enemy_StaticTurret(int x, int y) : Enemy(x, y)
 	movement.PushBack({ 0.0f,-0.715f }, 50, &base);
 
 
-	collider = App->collision->AddCollider({ 7, 0, 16, 24 }, COLLIDER_TYPE::COLLIDER_SURFINGTURRET, (Module*)App->enemies);
+	collider = App->collision->AddCollider({ 7, 0, 26, 24 }, COLLIDER_TYPE::COLLIDER_SURFINGTURRET, (Module*)App->enemies);
 
 	originalpos.x = x;
 	originalpos.y = y;
