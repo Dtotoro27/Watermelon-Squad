@@ -10,6 +10,9 @@ private:
 	iPoint originalpos;
 	Animation fly;
 	Path movement;
+	bool onscreen = true;
+	bool left = true;
+	bool up = false;
 
 public:
 
