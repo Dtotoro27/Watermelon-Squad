@@ -40,11 +40,20 @@ void Enemy_RedMachine1::Move()
 void Enemy_RedMachine1::Shoot() {
 	
 	if (App->sea->pause == false) {
+		
+		if (start_time == 0) {
+			start_time = SDL_GetTicks();
+		}
+
 		now = SDL_GetTicks() - start_time;
-		if (now > 6000) {
+
+		if (now > 2000) {
 			if (shoots<2)
 			shooting = true;
 		}
+
+		
+
 		if (now > 1000) {
 			if (shooting && shoots < 2) {
 				pos_x = (App->player->position.x - (ASH_WIDTH / 2)) - position.x;
