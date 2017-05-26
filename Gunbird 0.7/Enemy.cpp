@@ -45,6 +45,9 @@ void Enemy::Draw(SDL_Texture* sprites)
 	if (animation8 != nullptr) {
 		App->render->Blit(sprites, position.x + 6, position.y + 15, &(animation8->GetCurrentFrame()));
 	}
+	if (animation9 != nullptr) {
+		App->render->Blit(sprites, position.x + 9, position.y + 107, &(animation9->GetCurrentFrame()));
+	}
 
 
 }

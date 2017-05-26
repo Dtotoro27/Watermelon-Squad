@@ -1,5 +1,5 @@
 #include "Application.h"
-#include "Enemy_BigShipStatic.h"
+#include "Enemy_BigShipMove.h"
 #include "ModuleCollision.h"
 #include "ModuleTextures.h"
 #include "ModuleParticles.h"
@@ -11,7 +11,7 @@
 #include <math.h>
 
 
-Enemy_BigShipStatic::Enemy_BigShipStatic(int x, int y) : Enemy(x, y)
+Enemy_BigShipMove::Enemy_BigShipMove(int x, int y) : Enemy(x, y)
 {
 	base.PushBack({ 6,382,64,112 });
 	base.speed = 0.2;
@@ -33,10 +33,17 @@ Enemy_BigShipStatic::Enemy_BigShipStatic(int x, int y) : Enemy(x, y)
 	shootclose.speed = 0.1;
 	shootclose.loop = false;
 
+	water.PushBack({337,369,48,37});
+	water.PushBack({ 337,412,48,37 });
+	water.PushBack({ 337,450,48,37 });
+	water.PushBack({ 337,493,48,37 });
+	water.speed = 0.1f;
+
+	animation9 = &water;
 
 	animation = &base;
 
-	movement.PushBack({ 0,-0.782f }, 75, &base);
+	movement.PushBack({ 0,-0.85f }, 75, &base);
 
 	collider = App->collision->AddCollider({ 0, 0, 63, 63 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
@@ -45,14 +52,14 @@ Enemy_BigShipStatic::Enemy_BigShipStatic(int x, int y) : Enemy(x, y)
 
 }
 
-void Enemy_BigShipStatic::Move()
+void Enemy_BigShipMove::Move()
 {
 	if (App->sea->pause == false) {
 		position = originalpos + movement.GetCurrentPosition();
 	}
 }
 
-void Enemy_BigShipStatic::Shoot() {
+void Enemy_BigShipMove::Shoot() {
 	if (App->sea->pause == false) {
 
 		if (position.x < SCREEN_WIDTH && position.x > 0) {
@@ -67,11 +74,11 @@ void Enemy_BigShipStatic::Shoot() {
 			}
 			if (timer > 190) {
 				if (timer == 200) {
-					App->particles->AddParticle(App->particles->big_enemy_shoot, position.x + 28, position.y + 49, v_x-0.5f , v_y , COLLIDER_ENEMY_SHOT);
+					App->particles->AddParticle(App->particles->big_enemy_shoot, position.x + 28, position.y + 49, v_x - 0.5f, v_y, COLLIDER_ENEMY_SHOT);
 					App->particles->AddParticle(App->particles->big_enemy_shoot, position.x + 28, position.y + 42, v_x + 0.5f, v_y, COLLIDER_ENEMY_SHOT);
 
-					App->particles->AddParticle(App->particles->big_enemy_shoot_born, position.x + 28, position.y + 49, v_x -0.5f, v_y, COLLIDER_ENEMY_SHOT);
-					App->particles->AddParticle(App->particles->big_enemy_shoot_born, position.x + 28, position.y + 42, v_x+0.5f, v_y, COLLIDER_ENEMY_SHOT);
+					App->particles->AddParticle(App->particles->big_enemy_shoot_born, position.x + 28, position.y + 49, v_x - 0.5f, v_y, COLLIDER_ENEMY_SHOT);
+					App->particles->AddParticle(App->particles->big_enemy_shoot_born, position.x + 28, position.y + 42, v_x + 0.5f, v_y, COLLIDER_ENEMY_SHOT);
 
 					timer++;
 				}
@@ -95,15 +102,15 @@ void Enemy_BigShipStatic::Shoot() {
 					App->particles->AddParticle(App->particles->big_enemy_shoot_born, position.x + 14, position.y + 42, v_x, v_y, COLLIDER_ENEMY_SHOT);
 					timer++;
 				}
-					if (timer == 240) {
-				App->particles->AddParticle(App->particles->enemy_shoot, position.x + 31, position.y + 75, 0, 3, COLLIDER_ENEMY_SHOT);
-				App->particles->AddParticle(App->particles->enemy_shoot, position.x + 45, position.y + 70, 3, 2, COLLIDER_ENEMY_SHOT);
-				App->particles->AddParticle(App->particles->enemy_shoot, position.x + 16, position.y + 70, -3, 2, COLLIDER_ENEMY_SHOT);
-				App->particles->AddParticle(App->particles->enemy_shoot, position.x + 45, position.y + 25, 2,-2, COLLIDER_ENEMY_SHOT);
-				App->particles->AddParticle(App->particles->enemy_shoot, position.x + 16, position.y + 25,-2,-2, COLLIDER_ENEMY_SHOT);
+				if (timer == 240) {
+					App->particles->AddParticle(App->particles->enemy_shoot, position.x + 31, position.y + 75, 0, 3, COLLIDER_ENEMY_SHOT);
+					App->particles->AddParticle(App->particles->enemy_shoot, position.x + 45, position.y + 70, 3, 2, COLLIDER_ENEMY_SHOT);
+					App->particles->AddParticle(App->particles->enemy_shoot, position.x + 16, position.y + 70, -3, 2, COLLIDER_ENEMY_SHOT);
+					App->particles->AddParticle(App->particles->enemy_shoot, position.x + 45, position.y + 25, 2, -2, COLLIDER_ENEMY_SHOT);
+					App->particles->AddParticle(App->particles->enemy_shoot, position.x + 16, position.y + 25, -2, -2, COLLIDER_ENEMY_SHOT);
 
-				
-				timer++;
+
+					timer++;
 				}
 				else {
 					timer++;
