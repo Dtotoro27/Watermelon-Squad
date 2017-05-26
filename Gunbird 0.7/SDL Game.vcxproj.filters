@@ -103,15 +103,6 @@
     <ClCompile Include="Enemy_RedMachine2.cpp">
       <Filter>Modules\Enemies</Filter>
     </ClCompile>
-    <ClCompile Include="Enemy_ShipHorizontalCanon.cpp">
-      <Filter>Modules\Enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_ShipTurret.cpp">
-      <Filter>Modules\Enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_ShipVerticalCanon.cpp">
-      <Filter>Modules\Enemies</Filter>
-    </ClCompile>
     <ClCompile Include="Enemy_StaticTurret.cpp">
       <Filter>Modules\Enemies</Filter>
     </ClCompile>
@@ -134,7 +125,16 @@
       <Filter>Modules\Enemies</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_ShipBigMiddleTurret.cpp">
-      <Filter>Modules\Enemies</Filter>
+      <Filter>Modules\Enemies\Boss\Ship</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_ShipHorizontalCanon.cpp">
+      <Filter>Modules\Enemies\Boss\Ship</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_ShipTurret.cpp">
+      <Filter>Modules\Enemies\Boss\Ship</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_ShipVerticalCanon.cpp">
+      <Filter>Modules\Enemies\Boss\Ship</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -252,15 +252,6 @@
     <ClInclude Include="Enemy_RedMachine2.h">
       <Filter>Modules\Enemies</Filter>
     </ClInclude>
-    <ClInclude Include="Enemy_ShipHorizontalCanon.h">
-      <Filter>Modules\Enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_ShipTurret.h">
-      <Filter>Modules\Enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_ShipVerticalCanon.h">
-      <Filter>Modules\Enemies</Filter>
-    </ClInclude>
     <ClInclude Include="Enemy_StaticTurret.h">
       <Filter>Modules\Enemies</Filter>
     </ClInclude>
@@ -283,7 +274,16 @@
       <Filter>Modules\Enemies</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_ShipBigMiddleTurret.h">
-      <Filter>Modules\Enemies</Filter>
+      <Filter>Modules\Enemies\Boss\Ship</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_ShipHorizontalCanon.h">
+      <Filter>Modules\Enemies\Boss\Ship</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_ShipTurret.h">
+      <Filter>Modules\Enemies\Boss\Ship</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_ShipVerticalCanon.h">
+      <Filter>Modules\Enemies\Boss\Ship</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -298,6 +298,15 @@
     </Filter>
     <Filter Include="Modules\Enemies">
       <UniqueIdentifier>{94271d76-62d4-4fd6-ad23-fb07af0e9411}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\Enemies\Boss">
+      <UniqueIdentifier>{8cb1008f-3597-44d4-bcaa-d0f50ab51499}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\Enemies\Boss\Ship">
+      <UniqueIdentifier>{e10fc748-0f9e-4298-80b1-92eb9ad614c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\Enemies\Boss\Bird">
+      <UniqueIdentifier>{10598a4c-b7a2-4bd2-955f-0365a78467d9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

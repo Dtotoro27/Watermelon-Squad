@@ -118,12 +118,23 @@ update_status ModuleUI::Update() {
 	//PLAYERS LIVES-----------------
 
 	if (App->player2->IsEnabled()) {
-		if (App->player2->lives == 2) {
-			App->render->Blit(ui, 117, 21, &(life_indicator_ash.GetCurrentFrame()), 0);
-			App->render->Blit(ui, 133, 21, &(life_indicator_ash.GetCurrentFrame()), 0);
+		if (App->characterselect->characterselected2 == 1) {
+			if (App->player2->lives == 2) {
+				App->render->Blit(ui, 117, 21, &(life_indicator_ash.GetCurrentFrame()), 0);
+				App->render->Blit(ui, 133, 21, &(life_indicator_ash.GetCurrentFrame()), 0);
+			}
+			if (App->player2->lives == 1) {
+				App->render->Blit(ui, 117, 21, &(life_indicator_ash.GetCurrentFrame()), 0);
+			}
 		}
-		if (App->player2->lives == 1) {
-			App->render->Blit(ui, 117, 21, &(life_indicator_ash.GetCurrentFrame()), 0);
+		else {
+			if (App->player2->lives == 2) {
+				App->render->Blit(ui, 117, 21, &(life_indicator_valnus.GetCurrentFrame()), 0);
+				App->render->Blit(ui, 133, 21, &(life_indicator_valnus.GetCurrentFrame()), 0);
+			}
+			if (App->player2->lives == 1) {
+				App->render->Blit(ui, 117, 21, &(life_indicator_valnus.GetCurrentFrame()), 0);
+			}
 		}
 	}
 

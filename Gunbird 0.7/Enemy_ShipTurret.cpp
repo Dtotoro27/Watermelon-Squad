@@ -17,39 +17,43 @@
 
 Enemy_ShipTurret::Enemy_ShipTurret(int x, int y) : Enemy(x, y)
 {
-	enemy_position_s.PushBack({ 497,423,33,37 });
-	enemy_position_s.speed = 0.2f;
 
-	enemy_position_sa.PushBack({ 497,423,33,37 });
-	enemy_position_sa.speed = 0.2f;
+	turret1.PushBack({ 419,480,39,40 });
+	turret2.PushBack({ 458,480,39,40 });
+	turret3.PushBack({ 497,480,39,40 });
+	turret4.PushBack({ 536,480,39,40 });
+	turret5.PushBack({ 575,480,39,40 });
+	turret6.PushBack({ 614,480,39,40 });
+	turret7.PushBack({ 653,480,39,40 });
+	turret8.PushBack({ 692,480,39,40 });
+	turret9.PushBack({ 419,521,39,40 });
+	turret10.PushBack({ 458,521,39,40 });
+	turret11.PushBack({ 497,521,39,40 });
+	turret12.PushBack({ 536,521,39,40 });
+	turret13.PushBack({ 575,521,39,40 });
+	turret14.PushBack({ 614,521,39,40 });
+	turret15.PushBack({ 653,521,39,40 });
+	turret16.PushBack({ 692,521,39,40 });
+	turret17.PushBack({ 419,562,39,40 });
+	turret18.PushBack({ 458,562,39,40 });
+	turret19.PushBack({ 497,562,39,40 });
+	turret20.PushBack({ 536,562,39,40 });
+	turret21.PushBack({ 575,562,39,40 });
+	turret22.PushBack({ 614,562,39,40 });
+	turret23.PushBack({ 653,562,39,40 });
+	turret24.PushBack({ 692,562,39,40 });
+	turret25.PushBack({ 419,603,39,40 });
+	turret26.PushBack({ 458,603,39,40 });
+	turret27.PushBack({ 497,603,39,40 });
+	turret28.PushBack({ 536,603,39,40 });
+	turret29.PushBack({ 575,603,39,40 });
 
-	enemy_position_a.PushBack({ 497,423,33,37 });
-	enemy_position_a.speed = 0.2f;
 
-	enemy_position_wa.PushBack({ 497,423,33,37 });
-	enemy_position_wa.speed = 0.2f;
+	animation = &turret1;
 
-	enemy_position_w.PushBack({ 497,423,33,37 });
-	enemy_position_w.speed = 0.2f;
+	movement.PushBack({ 0.0f,-0.825f }, 50, &turret1);
 
-	enemy_position_wd.PushBack({ 497,423,33,37 });
-	enemy_position_wd.speed = 0.2f;
-
-	enemy_position_d.PushBack({ 497,423,33,37 });
-	enemy_position_d.speed = 0.2f;
-
-	enemy_position_sd.PushBack({ 497,423,33,37 });
-	enemy_position_sd.speed = 0.2f;
-
-
-
-
-	collider = App->collision->AddCollider({ 0, 0,26,33 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
-
-
-	movement.PushBack({ 0.0f,-0.782f }, 100, &enemy_position_s);
-
-
+	collider = App->collision->AddCollider({ 0, 0,39,40 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
 	originalpos.x = x;
 	originalpos.y = y;
@@ -72,49 +76,113 @@ void Enemy_ShipTurret::Move()
 
 	angle = ((float)acos((((App->player->position.x - position.x) * 0) + ((App->player->position.y - position.y) * 1)) / (sqrt((double)((App->player->position.x - position.x)*(App->player->position.x - position.x) + (App->player->position.y - position.y)*(App->player->position.y - position.y)))*sqrt((double)(0 * 0 + 1 * 1))))) * ANGLE_CONVERT;
 	if (left == false) {
-		if (angle < 22.5) {
-			animation = &enemy_position_s;
+		if (angle < 5.625) {
+			animation = &turret1;
 		}
-		else if (angle >= 22.5 && angle < 67.5) {
-			animation = &enemy_position_sd;
+		else if (angle >= 5.625 && angle < 16.875) {
+			animation = &turret29;
 		}
-
-		else if (angle >= 67.5 && angle < 112.5) {
-			animation = &enemy_position_d;
+		else if (angle >= 16.875 && angle < 28.125) {
+			animation = &turret29;
 		}
-		else if (angle >= 112.5 && angle < 157.5) {
-			animation = &enemy_position_wd;
+		else if (angle >= 28.125 && angle < 39.375) {
+			animation = &turret28;
 		}
-		else if (angle >= 157.5) {
-			animation = &enemy_position_w;
+		else if (angle >= 39.375 && angle <50.625) {
+			animation = &turret27;
+		}
+		else if (angle >= 50.625 && angle < 61.875) {
+			animation = &turret26;
+		}
+		else if (angle >= 61.875 && angle < 73.125) {
+			animation = &turret25;
+		}
+		else if (angle >= 73.125 && angle < 84.375) {
+			animation = &turret24;
+		}
+		else if (angle >= 84.375 && angle < 95.625) {
+			animation = &turret23;
+		}
+		else if (angle >= 95.625 && angle < 106.875) {
+			animation = &turret22;
+		}
+		else if (angle >= 106.875&& angle < 118.125) {
+			animation = &turret21;
+		}
+		else if (angle >= 118.125 && angle < 129.375) {
+			animation = &turret20;
+		}
+		else if (angle >= 129.375 && angle < 140.625) {
+			animation = &turret19;
+		}
+		else if (angle >= 140.625 && angle < 151.875) {
+			animation = &turret18;
+		}
+		else if (angle >= 151.875 && angle < 163.125) {
+			animation = &turret17;
+		}
+		else if (angle >= 163.125 && angle < 174.375) {
+			animation = &turret16;
+		}
+		else if (angle >= 163.125 && angle <= 180) {
+			animation = &turret16;
 		}
 	}
 	//Left
 
 	else {
-		if (angle < 22.5) {
-			animation = &enemy_position_s;
+		if (angle < 5.625) {
+			animation = &turret1;
+		}
+		else if (angle >= 5.625 && angle < 16.875) {
+			animation = &turret2;
+		}
+		else if (angle >= 16.875 && angle < 28.125) {
+			animation = &turret3;
+		}
+		else if (angle >= 28.125 && angle < 39.375) {
+			animation = &turret4;
+		}
+		else if (angle >= 39.375 && angle <50.625) {
+			animation = &turret5;
+		}
+		else if (angle >= 50.625 && angle < 61.875) {
+			animation = &turret6;
+		}
+		else if (angle >= 61.875 && angle < 73.125) {
+			animation = &turret7;
+		}
+		else if (angle >= 73.125 && angle < 84.375) {
+			animation = &turret8;
+		}
+		else if (angle >= 84.375 && angle < 95.625) {
+			animation = &turret9;
+		}
+		else if (angle >= 95.625 && angle < 106.875) {
+			animation = &turret10;
+		}
+		else if (angle >= 106.875&& angle < 118.125) {
+			animation = &turret11;
+		}
+		else if (angle >= 118.125 && angle < 129.375) {
+			animation = &turret12;
+		}
+		else if (angle >= 129.375 && angle < 140.625) {
+			animation = &turret13;
+		}
+		else if (angle >= 140.625 && angle < 151.875) {
+			animation = &turret14;
+		}
+		else if (angle >= 151.875 && angle < 163.125) {
+			animation = &turret15;
+		}
+		else if (angle >= 163.125 && angle < 174.375) {
+			animation = &turret16;
+		}
+		else if (angle >= 163.125 && angle <= 180) {
+			animation = &turret16;
 		}
 
-		else if (angle >= 22.5 && angle < 67.5) {
-			animation = &enemy_position_sa;
-		}
-
-		else if (angle >= 67.5 && angle < 112.5) {
-			animation = &enemy_position_a;
-		}
-
-		else if (angle >= 112.5 && angle < 157.5) {
-			animation = &enemy_position_wa;
-		}
-
-		else if (angle >= 157.5) {
-			animation = &enemy_position_w;
-		}
-
-	}
-	if (App->sea->pause == false) {
-		position = originalpos + movement.GetCurrentPosition();
 	}
 }
 
