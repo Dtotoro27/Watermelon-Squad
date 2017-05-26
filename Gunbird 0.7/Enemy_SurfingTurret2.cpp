@@ -71,7 +71,7 @@ Enemy_SurfingTurret2::Enemy_SurfingTurret2(int x, int y) : Enemy(x, y)
 	movement.PushBack({ 1,-0.782f }, 1250, &base);
 
 
-	collider = App->collision->AddCollider({ 0, 0, 25, 27 }, COLLIDER_TYPE::COLLIDER_SURFINGTURRET, (Module*)App->enemies);
+	collider = App->collision->AddCollider({ 0, 0, 26, 24 }, COLLIDER_TYPE::COLLIDER_SURFINGTURRET, (Module*)App->enemies);
 
 	originalpos.x = x;
 	originalpos.y = y;

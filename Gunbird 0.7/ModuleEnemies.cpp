@@ -368,10 +368,10 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 
 				else {
 					if (App->player->powerUps == 0) { damage = 1; }
-					if (App->player->powerUps == 1) { damage = 2; }
-					if (App->player->powerUps == 2) { damage = 3; }
-					if (App->player->powerUps == 3) { damage = 4; }
-					App->particles->AddParticle(App->particles->damage_balloon, enemies[i]->position.x, enemies[i]->position.y, 0, -1);
+					if (App->player->powerUps == 1) { damage = 1.5; }
+					if (App->player->powerUps == 2) { damage = 2; }
+					if (App->player->powerUps == 3) { damage = 3; }
+					App->particles->AddParticle(App->particles->damage_tower, enemies[i]->position.x, enemies[i]->position.y, 0, -1);
 					if (c2->type == COLLIDER_VALNUS_LASER) {
 						enemies[i]->live = enemies[i]->live - (damage / 10);
 					}
@@ -401,7 +401,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 					if (App->player->powerUps == 1) { damage = 2; }
 					if (App->player->powerUps == 2) { damage = 3; }
 					if (App->player->powerUps == 3) { damage = 4; }
-					App->particles->AddParticle(App->particles->damage_turret, enemies[i]->position.x + 5, enemies[i]->position.y - 5, 0, -1);
+					App->particles->AddParticle(App->particles->damage_turret, enemies[i]->position.x + 7, enemies[i]->position.y - 3, 0, -1);
 					if (c2->type == COLLIDER_VALNUS_LASER) {
 						enemies[i]->live = enemies[i]->live - (damage / 10);
 					}

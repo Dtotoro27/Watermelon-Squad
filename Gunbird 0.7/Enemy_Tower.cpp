@@ -37,7 +37,7 @@ Enemy_Tower::Enemy_Tower(int x, int y) : Enemy(x, y)
 	movement.PushBack({ 0.0f,-0.782f },350, &stand);
 
 
-	collider = App->collision->AddCollider({ 0, 0, 64,100 }, COLLIDER_TYPE::COLLIDER_TOWER, (Module*)App->enemies);
+	collider = App->collision->AddCollider({ 0, 0, 64,50 }, COLLIDER_TYPE::COLLIDER_TOWER, (Module*)App->enemies);
 
 	originalpos.x = x;
 	originalpos.y = y;

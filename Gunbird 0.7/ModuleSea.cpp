@@ -259,6 +259,9 @@ update_status ModuleSea::Update()
 		App->enemies->AddEnemy(ENEMY_TYPES::STATICTURRET, 188, -700);
 		App->enemies->AddEnemy(ENEMY_TYPES::STATICTURRET, 188, -735);
 	}
+	if (App->render->camera.y == 1500) {
+		App->enemies->AddEnemy(ENEMY_TYPES::BIGSHIPSTATIC, 10, -850);
+	}
 
 	if (App->render->camera.y == 2770) {
 		App->enemies->AddEnemy(ENEMY_TYPES::SURFINGTURRET2, -30, -1400);
@@ -295,6 +298,9 @@ update_status ModuleSea::Update()
 	}
 	if (App->render->camera.y == 6390) {
 		App->enemies->AddEnemy(ENEMY_TYPES::BLUETURRET, 66, -3222);
+	}
+	if (App->render->camera.y == 6330) {
+		App->enemies->AddEnemy(ENEMY_TYPES::VERTICALSURFINGTURRET, 10, -3150);
 	}
 	
 	/*

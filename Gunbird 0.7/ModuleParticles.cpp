@@ -28,6 +28,10 @@ ModuleParticles::ModuleParticles()
 	damage_turret.anim.speed = 0.75f;
 	damage_turret.anim.loop = false;
 
+	damage_tower.anim.PushBack({ 837,140,64,100 });
+	damage_tower.anim.speed = 0.75f;
+	damage_tower.anim.loop = false;
+
 	//LASER ASH
 	laser1_1.anim.PushBack({ 537, 38, 15, 29 });
 	laser1_2.anim.PushBack({ 574,38,15,29 });
@@ -174,7 +178,7 @@ ModuleParticles::ModuleParticles()
 	enemy_shoot.anim.PushBack({ 561, 235, 6,6 });
 	enemy_shoot.anim.speed = 0.3f;
 	enemy_shoot.anim.loop = true;
-	enemy_shoot.life = 500;
+	enemy_shoot.life = 1500;
 
 	big_enemy_shoot.anim.PushBack({501,243,8,8});
 	big_enemy_shoot.anim.PushBack({ 501,243,8,8 });
