@@ -1,5 +1,5 @@
 #include "Application.h"
-#include "Enemy_RedMachine1.h"
+#include "Enemy_RedMachine2.h"
 #include "ModuleCollision.h"
 #include "ModuleTextures.h"
 #include "ModuleParticles.h"
@@ -11,16 +11,16 @@
 #include <math.h>
 
 
-Enemy_RedMachine1::Enemy_RedMachine1(int x, int y) : Enemy(x, y)
+Enemy_RedMachine2::Enemy_RedMachine2(int x, int y) : Enemy(x, y)
 {
 	machine.PushBack({ 766,287,26,36 });
 
 	machine.speed = 0.2f;
 	animation = &machine;
 
-	movement.PushBack({0.9f,-0.775f }, 100, &machine);
+	movement.PushBack({ -0.9f,-0.775f }, 100, &machine);
 	movement.PushBack({ 0,-0.775f }, 150, &machine);
-	movement.PushBack({ -0.9f,-0.775f }, 10000, &machine);
+	movement.PushBack({ 0.9f,-0.775f }, 10000, &machine);
 
 	collider = App->collision->AddCollider({ 0, 0, 63, 63 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
@@ -30,20 +30,20 @@ Enemy_RedMachine1::Enemy_RedMachine1(int x, int y) : Enemy(x, y)
 
 }
 
-void Enemy_RedMachine1::Move()
+void Enemy_RedMachine2::Move()
 {
 	if (App->sea->pause == false) {
 		position = originalpos + movement.GetCurrentPosition();
 	}
 }
 
-void Enemy_RedMachine1::Shoot() {
-	
+void Enemy_RedMachine2::Shoot() {
+
 	if (App->sea->pause == false) {
 		now = SDL_GetTicks() - start_time;
 		if (now > 6000) {
 			if (shoots<2)
-			shooting = true;
+				shooting = true;
 		}
 		if (now > 1000) {
 			if (shooting && shoots < 2) {
@@ -66,7 +66,5 @@ void Enemy_RedMachine1::Shoot() {
 				shoots++;
 			}
 		}
-		}
 	}
-
-
+}

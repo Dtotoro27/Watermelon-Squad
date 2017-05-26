@@ -85,6 +85,7 @@
     <ClInclude Include="Enemy_FlyingMachine2.h" />
     <ClInclude Include="Enemy_FlyingMachine4.h" />
     <ClInclude Include="Enemy_RedMachine1.h" />
+    <ClInclude Include="Enemy_ShipTurret.h" />
     <ClInclude Include="Enemy_StaticTurret.h" />
     <ClInclude Include="Enemy_SurfingTurret.h" />
     <ClInclude Include="Enemy_SurfingTurret2.h" />
@@ -113,6 +114,7 @@
     <ClInclude Include="p2Point.h" />
     <ClInclude Include="Path.h" />
     <ClInclude Include="PowerUp.h" />
+    <ClInclude Include="Enemy_RedMachine2.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
@@ -127,6 +129,7 @@
     <ClCompile Include="Enemy_FlyingMachine2.cpp" />
     <ClCompile Include="Enemy_FlyingMachine4.cpp" />
     <ClCompile Include="Enemy_RedMachine1.cpp" />
+    <ClCompile Include="Enemy_ShipTurret.cpp" />
     <ClCompile Include="Enemy_StaticTurret.cpp" />
     <ClCompile Include="Enemy_SurfingTurret.cpp" />
     <ClCompile Include="Enemy_SurfingTurret2.cpp" />
@@ -152,6 +155,7 @@
     <ClCompile Include="ModuleWelcome.cpp" />
     <ClCompile Include="ModuleWindow.cpp" />
     <ClCompile Include="PowerUp.cpp" />
+    <ClCompile Include="Enemy_RedMachine2.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

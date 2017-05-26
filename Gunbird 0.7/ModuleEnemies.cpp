@@ -23,6 +23,8 @@
 #include "Enemy_BlueRobot.h"
 #include "Enemy_BlueRobot2.h"
 #include "Enemy_RedMachine1.h"
+#include "Enemy_RedMachine2.h"
+#include "Enemy_ShipTurret.h"
 #include "PowerUp.h"
 
 
@@ -233,6 +235,14 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 
 		case ENEMY_TYPES::REDMACHINE1:
 			enemies[i] = new  Enemy_RedMachine1(info.x, info.y);
+			break;
+
+		case ENEMY_TYPES::REDMACHINE2:
+			enemies[i] = new  Enemy_RedMachine2(info.x, info.y);
+			break;
+
+		case ENEMY_TYPES::SHIPTURRET:
+			enemies[i] = new  Enemy_ShipTurret(info.x, info.y);
 			break;
 
 		}
