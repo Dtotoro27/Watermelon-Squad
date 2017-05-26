@@ -18,6 +18,7 @@
 #include "Enemy_Tower.h"
 #include "Enemy_SurfingTurret.h"
 #include "Enemy_SurfingTurret2.h"
+#include "Enemy_VerticalSurfingTurret.h"
 #include "Enemy_StaticTurret.h"
 #include "Enemy_BlueTurret.h"
 #include "Enemy_BlueRobot.h"
@@ -26,7 +27,12 @@
 #include "Enemy_RedMachine2.h"
 #include "Enemy_ShipTurret.h"
 #include "Enemy_BigShipStatic.h"
+<<<<<<< HEAD
 #include "Enemy_BigShipMove.h"
+=======
+#include "Enemy_ShipHorizontalCanon.h"
+#include "Enemy_ShipVerticalCanon.h"
+>>>>>>> origin/master
 #include "PowerUp.h"
 
 
@@ -219,6 +225,10 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			enemies[i] = new  Enemy_SurfingTurret2(info.x, info.y);
 			break;
 
+		case ENEMY_TYPES::VERTICALSURFINGTURRET:
+			enemies[i] = new  Enemy_VerticalSurfingTurret(info.x, info.y);
+			break;
+
 		case ENEMY_TYPES::STATICTURRET:
 			enemies[i] = new  Enemy_StaticTurret(info.x, info.y);
 			break;
@@ -250,8 +260,18 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 		case ENEMY_TYPES::BIGSHIPSTATIC:
 			enemies[i] = new  Enemy_BigShipStatic(info.x, info.y);
 			break;
+<<<<<<< HEAD
 		case ENEMY_TYPES::BIGSHIPMOVE:
 			enemies[i] = new  Enemy_BigShipMove(info.x, info.y);
+=======
+
+		case ENEMY_TYPES::SHIPHORIZONTALCANON:
+			enemies[i] = new  Enemy_ShipHorizontalCanon(info.x, info.y);
+			break;
+
+		case ENEMY_TYPES::SHIPVERTICALCANON:
+			enemies[i] = new  Enemy_ShipVerticalCanon(info.x, info.y);
+>>>>>>> origin/master
 			break;
 		}
 
