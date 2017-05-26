@@ -61,9 +61,6 @@
     <ClCompile Include="ModuleWindow.cpp">
       <Filter>Modules</Filter>
     </ClCompile>
-    <ClCompile Include="PowerUp.cpp">
-      <Filter>Modules</Filter>
-    </ClCompile>
     <ClCompile Include="Enemy.cpp">
       <Filter>Modules\Enemies</Filter>
     </ClCompile>
@@ -131,6 +128,12 @@
       <Filter>Modules\Enemies</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_VerticalSurfingTurret.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="PowerUp.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_ShipBigMiddleTurret.cpp">
       <Filter>Modules\Enemies</Filter>
     </ClCompile>
   </ItemGroup>
@@ -207,9 +210,6 @@
     <ClInclude Include="ModuleWindow.h">
       <Filter>Modules</Filter>
     </ClInclude>
-    <ClInclude Include="PowerUp.h">
-      <Filter>Modules</Filter>
-    </ClInclude>
     <ClInclude Include="Enemy.h">
       <Filter>Modules\Enemies</Filter>
     </ClInclude>
@@ -277,6 +277,12 @@
       <Filter>Modules\Enemies</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_VerticalSurfingTurret.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="PowerUp.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_ShipBigMiddleTurret.h">
       <Filter>Modules\Enemies</Filter>
     </ClInclude>
   </ItemGroup>
