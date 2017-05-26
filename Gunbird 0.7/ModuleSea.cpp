@@ -299,8 +299,8 @@ update_status ModuleSea::Update()
 	if (App->render->camera.y == 6390) {
 		App->enemies->AddEnemy(ENEMY_TYPES::BLUETURRET, 66, -3222);
 	}
-	if (App->render->camera.y == 6330) {
-		App->enemies->AddEnemy(ENEMY_TYPES::VERTICALSURFINGTURRET, 10, -3150);
+	if (App->render->camera.y == 6350) {
+		App->enemies->AddEnemy(ENEMY_TYPES::VERTICALSURFINGTURRET, 10, -3175);
 	}
 	
 	/*

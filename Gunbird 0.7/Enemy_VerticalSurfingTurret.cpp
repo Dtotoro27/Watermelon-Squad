@@ -17,6 +17,8 @@
 
 Enemy_VerticalSurfingTurret::Enemy_VerticalSurfingTurret(int x, int y) : Enemy(x, y)
 {
+	live = 3;
+
 	base.PushBack({ 711,357,30,30 });
 
 	turret1.PushBack({ 494,257,30,32 });
