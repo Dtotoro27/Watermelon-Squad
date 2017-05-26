@@ -25,6 +25,7 @@
 #include "Enemy_RedMachine1.h"
 #include "Enemy_RedMachine2.h"
 #include "Enemy_ShipTurret.h"
+#include "Enemy_BigShipStatic.h"
 #include "PowerUp.h"
 
 
@@ -245,8 +246,10 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			enemies[i] = new  Enemy_ShipTurret(info.x, info.y);
 			break;
 
+		case ENEMY_TYPES::BIGSHIPSTATIC:
+			enemies[i] = new  Enemy_BigShipStatic(info.x, info.y);
+			break;
 		}
-		
 
 	}
 }

@@ -146,6 +146,9 @@
     <ClInclude Include="Enemy_ShipTurret.h">
       <Filter>Modules\Enemies</Filter>
     </ClInclude>
+    <ClInclude Include="Enemy_BigShipStatic.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -263,6 +266,9 @@
       <Filter>Modules\Enemies</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_ShipTurret.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_BigShipStatic.cpp">
       <Filter>Modules\Enemies</Filter>
     </ClCompile>
   </ItemGroup>
