@@ -94,7 +94,7 @@ bool ModuleSea::Start()
 
 	//Enemy
 
-	App->enemies->AddEnemy(ENEMY_TYPES::SHIPVERTICALCANONLITTLE, 51, 50);
+	App->enemies->AddEnemy(ENEMY_TYPES::SHIPBIGMIDDLETURRET, 51, 50);
 	App->enemies->AddEnemy(ENEMY_TYPES::POWER_UP, 150, 10);
 	
 

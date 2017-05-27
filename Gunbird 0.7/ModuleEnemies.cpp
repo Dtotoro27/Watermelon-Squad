@@ -429,9 +429,14 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 				break;
 			}
 
+			if (enemies[i]->enemy == 1) {
+				enemies[i]->live--;
+				App->particles->AddParticle(App->particles->damage_turret, enemies[i]->position.x + 7, enemies[i]->position.y - 3, 0, -1);
+			}
 
 
 			else {
+				
 					if (c2->type == COLLIDER_PLAYER_2_SHOT || c2->type == COLLIDER_VALNUS_2_LASER || c2->type == COLLIDER_ASH_BOMB_2) {
 						App->player2->score += 200;
 					}

@@ -32,6 +32,7 @@ public:
 	float shootspeed_y_u;
 	float vmodule;
 	float live;
+	uint enemy;
 
 public:
 	Enemy(int x, int y);
