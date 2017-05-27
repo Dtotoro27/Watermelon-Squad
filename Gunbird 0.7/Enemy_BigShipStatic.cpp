@@ -123,6 +123,7 @@ void Enemy_BigShipStatic::Shoot() {
 			}
 			if (timer == 300) {
 				animation8 = nullptr;
+				timer = 0;
 			}
 		}
 	}

@@ -1,5 +1,5 @@
 #include "Application.h"
-#include "Enemy_SurfingTurret2.h"
+#include "Enemy_UpSurfingTurret.h"
 #include "ModuleCollision.h"
 #include "ModuleTextures.h"
 #include "ModuleParticles.h"
@@ -14,9 +14,9 @@
 #define ANGLE_CONVERT (180.0 / PI)
 #define ANGLE_CONVERT_REVERSE (PI / 180.0)
 
-Enemy_SurfingTurret2::Enemy_SurfingTurret2(int x, int y) : Enemy(x, y)
+
+Enemy_UpSurfingTurret::Enemy_UpSurfingTurret(int x, int y) : Enemy(x, y)
 {
-	hitpoints = 3;
 
 	base.PushBack({ 711,357,30,30 });
 
@@ -55,23 +55,25 @@ Enemy_SurfingTurret2::Enemy_SurfingTurret2(int x, int y) : Enemy(x, y)
 
 	animation = &base;
 
-	water.PushBack({ 9, 582,32,32 });
-	water.PushBack({ 50, 582,32,32 });
-	water.PushBack({ 87, 582,32,32 });
-	water.PushBack({ 125, 582,32,32 });
-	water.PushBack({ 163, 582,32,32 });
-	water.PushBack({ 197, 582,32,32 });
-	
+	water.PushBack({ 285, 509,32,38 });
+	water.PushBack({ 285, 545,32,38 });
+	water.PushBack({ 285, 579,32,38 });
+	water.PushBack({ 285, 617,32,38 });
+	water.PushBack({ 285, 654,32,38 });
+	water.PushBack({ 285, 691,32,38 });
+
 
 
 	water.speed = 0.1f;
-	animation4 = &water;
+	animation11 = &water;
+	animation5 = &turret1;
+
+	movement.PushBack({ 0.0f,-1.45f }, 600, &base);
+	movement.PushBack({ 0.0f,-0.5f }, 1000, &base);
 
 
-	movement.PushBack({ 0.75f,-0.782f }, 1250, &base);
 
-
-	collider = App->collision->AddCollider({ 0, 0, 26, 24 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
+	collider = App->collision->AddCollider({ 100, 0, 26, 24 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
 	originalpos.x = x;
 	originalpos.y = y;
@@ -81,7 +83,7 @@ Enemy_SurfingTurret2::Enemy_SurfingTurret2(int x, int y) : Enemy(x, y)
 	score = 500;
 }
 
-void Enemy_SurfingTurret2::Move()
+void Enemy_UpSurfingTurret::Move()
 {
 
 	bool left;
@@ -211,7 +213,7 @@ void Enemy_SurfingTurret2::Move()
 	}
 }
 
-void Enemy_SurfingTurret2::Shoot() {
+void Enemy_UpSurfingTurret::Shoot() {
 	if (App->sea->pause == false) {
 
 		now = SDL_GetTicks() - start_time;

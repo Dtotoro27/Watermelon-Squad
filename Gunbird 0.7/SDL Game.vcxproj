@@ -100,6 +100,7 @@
     <ClInclude Include="Enemy_SurfingTurret.h" />
     <ClInclude Include="Enemy_SurfingTurret2.h" />
     <ClInclude Include="Enemy_Tower.h" />
+    <ClInclude Include="Enemy_UpSurfingTurret.h" />
     <ClInclude Include="Enemy_VerticalBomb.h" />
     <ClInclude Include="Enemy_VerticalSurfingTurret.h" />
     <ClInclude Include="ExtraBomb.h" />
@@ -158,6 +159,7 @@
     <ClCompile Include="Enemy_SurfingTurret.cpp" />
     <ClCompile Include="Enemy_SurfingTurret2.cpp" />
     <ClCompile Include="Enemy_Tower.cpp" />
+    <ClCompile Include="Enemy_UpSurfingTurret.cpp" />
     <ClCompile Include="Enemy_VerticalBomb.cpp" />
     <ClCompile Include="Enemy_VerticalSurfingTurret.cpp" />
     <ClCompile Include="ExtraBomb.cpp" />

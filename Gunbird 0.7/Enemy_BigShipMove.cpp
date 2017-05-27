@@ -33,17 +33,11 @@ Enemy_BigShipMove::Enemy_BigShipMove(int x, int y) : Enemy(x, y)
 	shootclose.speed = 0.1;
 	shootclose.loop = false;
 
-	water.PushBack({337,369,48,37});
-	water.PushBack({ 337,412,48,37 });
-	water.PushBack({ 337,450,48,37 });
-	water.PushBack({ 337,493,48,37 });
-	water.speed = 0.1f;
-
-	animation9 = &water;
 
 	animation = &base;
 
-	movement.PushBack({ 0,-0.85f }, 75, &base);
+	movement.PushBack({ 0.0f,-0.9f }, 150, &base);
+	movement.PushBack({ 0.0f,-0.782f }, 5000, &base);
 
 	collider = App->collision->AddCollider({ 0, 0, 63, 63 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
@@ -53,7 +47,6 @@ Enemy_BigShipMove::Enemy_BigShipMove(int x, int y) : Enemy(x, y)
 	enemy = 1;
 	hitpoints = 60;
 	score = 1000;
-
 }
 
 void Enemy_BigShipMove::Move()

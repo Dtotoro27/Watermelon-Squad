@@ -151,6 +151,7 @@
     <ClCompile Include="Enemy_ShipBackTurret.cpp">
       <Filter>Modules\Enemies\Boss\Ship</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="Enemy_StaticTurret2.cpp">
       <Filter>Modules\Enemies</Filter>
     </ClCompile>
@@ -158,6 +159,9 @@
       <Filter>Modules\Enemies</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_StaticTurret4.cpp">
+=======
+    <ClCompile Include="Enemy_UpSurfingTurret.cpp">
+>>>>>>> origin/master
       <Filter>Modules\Enemies</Filter>
     </ClCompile>
   </ItemGroup>
@@ -324,6 +328,7 @@
     <ClInclude Include="Enemy_ShipBackTurret.h">
       <Filter>Modules\Enemies\Boss\Ship</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="Enemy_StaticTurret2.h">
       <Filter>Modules\Enemies</Filter>
     </ClInclude>
@@ -331,6 +336,9 @@
       <Filter>Modules\Enemies</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_StaticTurret4.h">
+=======
+    <ClInclude Include="Enemy_UpSurfingTurret.h">
+>>>>>>> origin/master
       <Filter>Modules\Enemies</Filter>
     </ClInclude>
   </ItemGroup>

@@ -20,6 +20,7 @@ enum ENEMY_TYPES
 	SURFINGTURRET,
 	SURFINGTURRET2,
 	VERTICALSURFINGTURRET,
+	UPSURFINGTURRET,
 	STATICTURRET,
 	STATICTURRET2,
 	STATICTURRET3,
@@ -74,7 +75,7 @@ private:
 	Enemy* enemies[MAX_ENEMIES];
 	SDL_Texture* sprites;
 	SDL_Texture* pw_sprites;
-
+	
 public: 
 	float damage;
 };
