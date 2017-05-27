@@ -94,7 +94,7 @@ bool ModuleSea::Start()
 
 	//Enemy
 
-	App->enemies->AddEnemy(ENEMY_TYPES::BIGSHIPSTATIC, 51, 50);
+	App->enemies->AddEnemy(ENEMY_TYPES::SHIPVERTICALCANONLITTLE, 51, 50);
 	App->enemies->AddEnemy(ENEMY_TYPES::POWER_UP, 150, 10);
 	
 
@@ -186,7 +186,7 @@ update_status ModuleSea::Update()
 
 	//ENEMIES--------------------------
 
-	
+	/*
 	
 	if (App->render->camera.y == 560) {
 		App->enemies->AddEnemy(ENEMY_TYPES::VERTICALBOMB, 164, -340);
@@ -312,56 +312,9 @@ update_status ModuleSea::Update()
 		App->enemies->AddEnemy(ENEMY_TYPES::VERTICALSURFINGTURRET, 10, -3820);
 	}
 	
-	/*
-	if (App->render->camera.y == 1200) {
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 127, -650);
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 157, -670);
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 187, -650);
-
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE2, 1, -630);
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE2, 30, -650);
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE2, 60, -630);
-
-	}
-
-	if (App->render->camera.y == 2850) {
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 1, -1502);
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 30, -1522);
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 60, -1502);
-
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 127, -1462);
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 157, -1482);
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 187, -1462);
-	}
-
-
-	if (App->render->camera.y == 4120) {
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 127, -2114);
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 157, -2134);
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 187, -2114);
-
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE2, 1, -2094);
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE2, 30, -2114);
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE2, 60, -2094);
-	}
-
-	if (App->render->camera.y == 5500) {
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 1, -2774);
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 30, -2794);
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 60, -2774);
-
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 127, -2774);
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 157, -2794);
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 187, -2774);
-		
-	}
-	*/
-
 	if (App->render->camera.y == 1550) {
 		App->enemies->AddEnemy(ENEMY_TYPES::TOWER, 96, -882);
 	}
-
-
 
 	if (App->render->camera.y == 9100) {
 		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 90, -4554);
@@ -375,7 +328,7 @@ update_status ModuleSea::Update()
 		App->enemies->AddEnemy(ENEMY_TYPES::BOMB2, 192, -4614);
 
 	}
-
+	*/
 
 
 

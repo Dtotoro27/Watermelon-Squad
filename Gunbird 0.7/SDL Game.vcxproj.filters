@@ -136,6 +136,14 @@
     <ClCompile Include="Enemy_ShipVerticalCanon.cpp">
       <Filter>Modules\Enemies\Boss\Ship</Filter>
     </ClCompile>
+<<<<<<< HEAD
+    <ClCompile Include="Enemy_ShipVerticalCanonLittle.cpp">
+      <Filter>Modules\Enemies\Boss\Ship</Filter>
+=======
+    <ClCompile Include="ExtraBomb.cpp">
+      <Filter>Modules\Enemies</Filter>
+>>>>>>> origin/master
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -284,6 +292,14 @@
     </ClInclude>
     <ClInclude Include="Enemy_ShipVerticalCanon.h">
       <Filter>Modules\Enemies\Boss\Ship</Filter>
+    </ClInclude>
+<<<<<<< HEAD
+    <ClInclude Include="Enemy_ShipVerticalCanonLittle.h">
+      <Filter>Modules\Enemies\Boss\Ship</Filter>
+=======
+    <ClInclude Include="ExtraBomb.h">
+      <Filter>Modules\Enemies</Filter>
+>>>>>>> origin/master
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
