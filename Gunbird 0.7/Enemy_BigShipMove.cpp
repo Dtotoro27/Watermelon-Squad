@@ -36,7 +36,7 @@ Enemy_BigShipMove::Enemy_BigShipMove(int x, int y) : Enemy(x, y)
 
 	animation = &base;
 
-	movement.PushBack({ 0.0f,-0.9f }, 150, &base);
+	movement.PushBack({ 0.0f,-0.875f }, 1450, &base);
 	movement.PushBack({ 0.0f,-0.782f }, 5000, &base);
 
 	collider = App->collision->AddCollider({ 0, 0, 63, 63 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);

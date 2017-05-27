@@ -41,7 +41,7 @@
 #include "PowerUp.h"
 
 
-#define SPAWN_MARGIN 120
+#define SPAWN_MARGIN 140
 
 ModuleEnemies::ModuleEnemies()
 {
