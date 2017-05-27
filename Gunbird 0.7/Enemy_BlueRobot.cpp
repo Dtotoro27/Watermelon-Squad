@@ -56,7 +56,7 @@ Enemy_BlueRobot::Enemy_BlueRobot(int x, int y) : Enemy(x, y)
 	originalpos.y = y;
 
 	enemy = 2;
-	live = 92;
+	hitpoints = 92;
 	score = 5400;
 
 }

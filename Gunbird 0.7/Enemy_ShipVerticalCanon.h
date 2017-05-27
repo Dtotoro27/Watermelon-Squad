@@ -8,7 +8,7 @@ class Enemy_ShipVerticalCanon : public Enemy
 {
 private:
 	iPoint originalpos;
-	Animation enemy;
+	Animation enemypos;
 	Animation shootopen_left;
 	Animation shootopen_right;
 	Animation shootclose_left;

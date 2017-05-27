@@ -58,6 +58,9 @@ Enemy_ShipTurret::Enemy_ShipTurret(int x, int y) : Enemy(x, y)
 	originalpos.x = x;
 	originalpos.y = y;
 
+	enemy = 12;
+	hitpoints = 30;
+	score = 800;
 
 }
 

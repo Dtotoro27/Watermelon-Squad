@@ -17,9 +17,7 @@
 
 Enemy_ShipHorizontalCanon::Enemy_ShipHorizontalCanon(int x, int y) : Enemy(x, y)
 {
-	
-
-	enemy.PushBack({ 11,627,35,16 });
+	enemypos.PushBack({ 11,627,35,16 });
 
 	shootopen.PushBack({ 49,627,35,16 });
 	shootopen.PushBack({ 93,627,35,16 });
@@ -35,18 +33,21 @@ Enemy_ShipHorizontalCanon::Enemy_ShipHorizontalCanon(int x, int y) : Enemy(x, y)
 	
 
 
-	animation = &enemy;
+	animation = &enemypos;
 
 	collider = App->collision->AddCollider({ 0, 0,28,15 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
 
-	movement.PushBack({ 0.0f,-0.782f }, 100, &enemy);
+	movement.PushBack({ 0.0f,-0.782f }, 100, &enemypos);
 
 
 
 	originalpos.x = x;
 	originalpos.y = y;
 
+	enemy = 11;
+	hitpoints = 28;
+	score = 2000;
 
 }
 
@@ -87,7 +88,7 @@ void Enemy_ShipHorizontalCanon::Shoot() {
 			timer++;
 		}
 		if (timer == 330) {
-			animation = &enemy;
+			animation = &enemypos;
 			timer = 0;
 		}
 		else {

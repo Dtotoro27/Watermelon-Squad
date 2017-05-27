@@ -38,6 +38,10 @@ Enemy_ShipBigMiddleTurret::Enemy_ShipBigMiddleTurret(int x, int y) : Enemy(x, y)
 	originalpos.x = x;
 	originalpos.y = y;
 
+	enemy = 10;
+	hitpoints = 165;
+	score = 5000;
+
 }
 
 void Enemy_ShipBigMiddleTurret::Move()

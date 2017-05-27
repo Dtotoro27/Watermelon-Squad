@@ -19,7 +19,7 @@ Enemy_ShipVerticalCanon::Enemy_ShipVerticalCanon(int x, int y) : Enemy(x, y)
 {
 
 
-	enemy.PushBack({ 5,647,18,33 });
+	enemypos.PushBack({ 5,647,18,33 });
 
 	shootopen_left.PushBack({ 27,647,16,35 });
 	shootopen_left.PushBack({ 49,647,16,35 });
@@ -45,15 +45,18 @@ Enemy_ShipVerticalCanon::Enemy_ShipVerticalCanon(int x, int y) : Enemy(x, y)
 	shootclose_right.loop = false;
 	shootclose_right.speed = 0.1f;
 
-	animation = &enemy;
+	animation = &enemypos;
 
-	movement.PushBack({ 0.0f,-1 }, 100, &enemy);
+	movement.PushBack({ 0.0f,-1 }, 100, &enemypos);
 
 
 
 	originalpos.x = x;
 	originalpos.y = y;
 
+	enemy = 13;
+	hitpoints = 28;
+	score = 2000;
 
 }
 
@@ -104,7 +107,7 @@ void Enemy_ShipVerticalCanon::Shoot() {
 			timer++;
 		}
 		if (timer == 330) {
-			animation = &enemy;
+			animation = &enemypos;
 			timer = 0;
 			App->collision->EraseCollider(collider);
 		}

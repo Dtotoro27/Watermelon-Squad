@@ -39,7 +39,7 @@ Enemy_Balloon::Enemy_Balloon(int x, int y) : Enemy(x, y)
 	originalpos.y = y;
 
 	enemy = 0;
-	live = 25;
+	hitpoints = 25;
 	score = 500;
 
 }

@@ -17,7 +17,7 @@
 
 Enemy_SurfingTurret::Enemy_SurfingTurret(int x, int y) : Enemy(x, y)
 {
-	live = 3;
+	hitpoints = 3;
 
 	base.PushBack({ 711,357,30,30 });
 
@@ -78,7 +78,7 @@ Enemy_SurfingTurret::Enemy_SurfingTurret(int x, int y) : Enemy(x, y)
 	originalpos.y = y;
 
 	enemy = 7;
-	live = 3;
+	hitpoints = 3;
 	score = 500;
 
 }

@@ -66,7 +66,7 @@ Enemy_StaticTurret::Enemy_StaticTurret(int x, int y) : Enemy(x, y)
 	originalpos.y = y;
 
 	enemy = 7;
-	live = 3;
+	hitpoints = 3;
 	score = 500;
 
 }

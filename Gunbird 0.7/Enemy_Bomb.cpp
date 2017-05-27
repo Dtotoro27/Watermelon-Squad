@@ -30,7 +30,7 @@ Enemy_Bomb::Enemy_Bomb(int x, int y) : Enemy(x, y)
 	originalpos.y = y;
 
 	enemy = 4;
-	live = 5;
+	hitpoints = 5;
 	score = 200;
 
 }

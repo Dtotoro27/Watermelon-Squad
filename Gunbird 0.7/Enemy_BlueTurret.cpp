@@ -16,7 +16,7 @@
 
 Enemy_BlueTurret::Enemy_BlueTurret(int x, int y) : Enemy(x, y)
 {
-	live = 20;
+	hitpoints = 20;
 	appear.PushBack({1000,0,18,29});
 	appear.PushBack({ 1000,33,18,29 });
 	appear.PushBack({ 1000,66,18,29 });
@@ -71,7 +71,7 @@ Enemy_BlueTurret::Enemy_BlueTurret(int x, int y) : Enemy(x, y)
 	originalpos.y = y;
 
 	enemy = 3;
-	live = 15;
+	hitpoints = 15;
 	score = 400;
 }
 

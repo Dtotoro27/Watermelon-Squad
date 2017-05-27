@@ -32,6 +32,7 @@ enum ENEMY_TYPES
 	SHIPVERTICALCANON,
 	SHIPVERTICALCANONLITTLE,
 	SHIPBIGMIDDLETURRET,
+	SHIPBACKTURRET,
 	EXTRABOMB,
 	POWER_UP
 };
@@ -72,8 +73,6 @@ private:
 	SDL_Texture* pw_sprites;
 
 public: 
-	float balloon_live;
-	float bomb_live;
 	float damage;
 };
 

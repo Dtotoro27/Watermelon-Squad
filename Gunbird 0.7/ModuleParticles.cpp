@@ -15,22 +15,28 @@ ModuleParticles::ModuleParticles()
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 		active[i] = nullptr;
 
+	//Damages
+
 	damage_balloon.anim.PushBack({ 684,157,42,53 });
-	damage_balloon.anim.PushBack({ 735,157,42,53 });
-	damage_balloon.anim.speed = 1;
-	damage_balloon.anim.loop = false;
 
 	damage_bomb.anim.PushBack({ 790,177, 16, 31 });
-	damage_bomb.anim.speed = 0.75f;
-	damage_bomb.anim.loop = false;
 
 	damage_turret.anim.PushBack({ 814,182,17,25 });
-	damage_turret.anim.speed = 0.75f;
-	damage_turret.anim.loop = false;
 
-	damage_tower.anim.PushBack({ 837,140,64,100 });
-	damage_tower.anim.speed = 0.75f;
-	damage_tower.anim.loop = false;
+	damage_tower.anim.PushBack({ 837,150,64,100 });
+
+	damage_blue_robot.anim.PushBack({1243,104,70,66});
+
+	
+
+	Particle damage_red_machine;
+	Particle damage_big_ship;
+	Particle damage_shipbackturret;
+	Particle damage_shipbigmiddleturret;
+	Particle damage_horizontalcanon;
+	Particle damage_shipturret;
+	Particle damage_shipverticalcanon;
+
 
 	//LASER ASH
 	laser1_1.anim.PushBack({ 537, 38, 15, 29 });

@@ -13,7 +13,7 @@
 
 Enemy_Tower::Enemy_Tower(int x, int y) : Enemy(x, y)
 {
-	live = 40; 
+	hitpoints = 40; 
 
 	stand.PushBack({ 5,259,64,100});
 	stand.PushBack({ 70,259,64,100 });
@@ -43,7 +43,7 @@ Enemy_Tower::Enemy_Tower(int x, int y) : Enemy(x, y)
 	originalpos.y = y;
 
 	enemy = 8;
-	live = 50;
+	hitpoints = 50;
 	score = 2000;
 }
 

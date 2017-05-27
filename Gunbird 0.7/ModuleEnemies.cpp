@@ -32,6 +32,7 @@
 #include "Enemy_ShipVerticalCanon.h"
 #include "Enemy_ShipVerticalCanonLittle.h"
 #include "Enemy_ShipBigMiddleTurret.h"
+#include "Enemy_ShipBackTurret.h"
 #include "ExtraBomb.h"
 #include "PowerUp.h"
 
@@ -278,6 +279,10 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			enemies[i] = new  Enemy_ShipBigMiddleTurret(info.x, info.y);
 			break;
 
+		case ENEMY_TYPES::SHIPBACKTURRET:
+			enemies[i] = new  Enemy_ShipBackTurret(info.x, info.y);
+			break;
+
 		case ENEMY_TYPES::EXTRABOMB:
 			enemies[i] = new  ExtraBomb(info.x, info.y);
 			break;
@@ -316,12 +321,12 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 
 				//BALLOON
 				if (enemies[i]->enemy == 0) {
-					if (enemies[i]->live > 0) {
+					if (enemies[i]->hitpoints > 0) {
 						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
-							enemies[i]->live = enemies[i]->live - (damage / 10);
+							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 10);
 						}
 						else {
-							enemies[i]->live = enemies[i]->live - damage;
+							enemies[i]->hitpoints = enemies[i]->hitpoints - damage;
 						}
 					}
 					else {
@@ -338,12 +343,12 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 
 
 				else if(enemies[i]->enemy == 1) {
-					if (enemies[i]->live > 0) {
+					if (enemies[i]->hitpoints > 0) {
 						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
-							enemies[i]->live = enemies[i]->live - (damage / 10);
+							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 10);
 						}
 						else {
-							enemies[i]->live = enemies[i]->live - damage;
+							enemies[i]->hitpoints = enemies[i]->hitpoints - damage;
 						}
 					}
 					else {
@@ -358,12 +363,12 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 					}
 				}
 				else if (enemies[i]->enemy == 2) {
-					if (enemies[i]->live > 0) {
+					if (enemies[i]->hitpoints > 0) {
 						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
-							enemies[i]->live = enemies[i]->live - (damage / 10);
+							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 10);
 						}
 						else {
-							enemies[i]->live = enemies[i]->live - damage;
+							enemies[i]->hitpoints = enemies[i]->hitpoints - damage;
 						}
 					}
 					else {
@@ -378,12 +383,12 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 					}
 				}
 				else if (enemies[i]->enemy == 3) {
-					if (enemies[i]->live > 0) {
+					if (enemies[i]->hitpoints > 0) {
 						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
-							enemies[i]->live = enemies[i]->live - (damage / 10);
+							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 10);
 						}
 						else {
-							enemies[i]->live = enemies[i]->live - damage;
+							enemies[i]->hitpoints = enemies[i]->hitpoints - damage;
 						}
 					}
 					else {
@@ -398,12 +403,12 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 					}
 				}
 				else if (enemies[i]->enemy == 4) {
-					if (enemies[i]->live > 0) {
+					if (enemies[i]->hitpoints > 0) {
 						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
-							enemies[i]->live = enemies[i]->live - (damage / 10);
+							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 10);
 						}
 						else {
-							enemies[i]->live = enemies[i]->live - damage;
+							enemies[i]->hitpoints = enemies[i]->hitpoints - damage;
 						}
 					}
 					else {
@@ -418,12 +423,12 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 					}
 				}
 				else if (enemies[i]->enemy == 5) {
-					if (enemies[i]->live > 0) {
+					if (enemies[i]->hitpoints > 0) {
 						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
-							enemies[i]->live = enemies[i]->live - (damage / 10);
+							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 10);
 						}
 						else {
-							enemies[i]->live = enemies[i]->live - damage;
+							enemies[i]->hitpoints = enemies[i]->hitpoints - damage;
 						}
 					}
 					else {
@@ -438,12 +443,12 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 					}
 				}
 				else if (enemies[i]->enemy == 6) {
-					if (enemies[i]->live > 0) {
+					if (enemies[i]->hitpoints > 0) {
 						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
-							enemies[i]->live = enemies[i]->live - (damage / 10);
+							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 10);
 						}
 						else {
-							enemies[i]->live = enemies[i]->live - damage;
+							enemies[i]->hitpoints = enemies[i]->hitpoints - damage;
 						}
 					}
 					else {
@@ -458,12 +463,12 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 					}
 				}
 				else if (enemies[i]->enemy == 7) {
-					if (enemies[i]->live > 0) {
+					if (enemies[i]->hitpoints > 0) {
 						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
-							enemies[i]->live = enemies[i]->live - (damage / 10);
+							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 10);
 						}
 						else {
-							enemies[i]->live = enemies[i]->live - damage;
+							enemies[i]->hitpoints = enemies[i]->hitpoints - damage;
 						}
 					}
 					else {
@@ -478,12 +483,12 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 					}
 				}
 				else if (enemies[i]->enemy == 8) {
-					if (enemies[i]->live > 0) {
+					if (enemies[i]->hitpoints > 0) {
 						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
-							enemies[i]->live = enemies[i]->live - (damage / 10);
+							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 10);
 						}
 						else {
-							enemies[i]->live = enemies[i]->live - damage;
+							enemies[i]->hitpoints = enemies[i]->hitpoints - damage;
 						}
 					}
 					else {

@@ -51,7 +51,7 @@ Enemy_BigShipMove::Enemy_BigShipMove(int x, int y) : Enemy(x, y)
 	originalpos.y = y;
 
 	enemy = 1;
-	live = 60;
+	hitpoints = 60;
 	score = 1000;
 
 }

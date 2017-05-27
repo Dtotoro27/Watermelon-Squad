@@ -50,6 +50,7 @@ private:
 	uint last_particle = 0;
 
 public:
+	// Player Shoots
 	Particle laser1_1;
 	Particle laser1_2;
 	Particle laser1_3;
@@ -80,16 +81,33 @@ public:
 	Particle ValnusWave1_2;
 	Particle ValnusWave2_1;
 	Particle ValnusWave2_2;
+
+	// Explosions
 	Particle explosion;
 	Particle littleexplosion;
+
+	// Damage particle
 	Particle damage_balloon;
 	Particle damage_bomb;
 	Particle damage_turret;
 	Particle damage_tower;
+	Particle damage_blue_robot;
+	Particle damage_red_machine;
+	Particle damage_big_ship;
+	Particle damage_shipbackturret;
+	Particle damage_shipbigmiddleturret;
+	Particle damage_horizontalcanon;
+	Particle damage_shipturret;
+	Particle damage_shipverticalcanonleft;
+	Particle damage_shipverticalcanonright;
+
+	// Enemy Shoots
 	Particle enemy_shoot;
 	Particle big_enemy_shoot;
 	Particle enemy_shoot_born;
 	Particle big_enemy_shoot_born;
+
+	//Others
 	Particle dead;
 	Particle dead_valnus;
 	Particle collision;

@@ -28,7 +28,7 @@ Enemy_RedMachine1::Enemy_RedMachine1(int x, int y) : Enemy(x, y)
 	originalpos.y = y;
 
 	enemy = 6;
-	live = 8;
+	hitpoints = 8;
 	score = 400;
 }
 

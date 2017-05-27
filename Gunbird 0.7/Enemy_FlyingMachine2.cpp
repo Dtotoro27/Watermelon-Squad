@@ -67,7 +67,7 @@ Enemy_FlyingMachine2::Enemy_FlyingMachine2(int x, int y) : Enemy(x, y)
 	originalpos.y = y;
 
 	enemy = 5;
-	live = 2;
+	hitpoints = 0;
 	score = 200;
 }
 

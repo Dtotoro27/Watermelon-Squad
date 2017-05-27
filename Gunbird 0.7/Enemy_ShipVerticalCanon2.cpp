@@ -19,42 +19,44 @@ Enemy_ShipVerticalCanon2::Enemy_ShipVerticalCanon2(int x, int y) : Enemy(x, y)
 {
 
 
-	enemy.PushBack({ 6,878,18,31 });
+	enemypos.PushBack({ 6,878,18,31 });
 
-	shootopen_left.PushBack({ 27,647,16,35 });
-	shootopen_left.PushBack({ 49,647,16,35 });
-	shootopen_left.PushBack({ 71,647,16,35 });
+	shootopen_left.PushBack({ 79,918,18,31 });
+	shootopen_left.PushBack({ 79,955,18,31 });
+	shootopen_left.PushBack({ 79,992,18,31 });
 	shootopen_left.loop = false;
 	shootopen_left.speed = 0.1f;
 
-	shootclose_left.PushBack({ 71,647,16,35 });
-	shootclose_left.PushBack({ 49,647,16,35 });
-	shootclose_left.PushBack({ 27,647,16,35 });
+	shootclose_left.PushBack({ 79,992,18,31 });
+	shootclose_left.PushBack({ 79,955,18,31 });
+	shootclose_left.PushBack({ 79,918,18,31 });
 	shootclose_left.loop = false;
 	shootclose_left.speed = 0.1;
 
-	shootopen_right.PushBack({ 95,647,16,35 });
-	shootopen_right.PushBack({ 117,647,16,35 });
-	shootopen_right.PushBack({ 139,647,16,35 });
+	shootopen_right.PushBack({ 6,918,18,31 });
+	shootopen_right.PushBack({ 6,955,18,31 });
+	shootopen_right.PushBack({ 6,992,18,31 });
 	shootopen_right.loop = false;
 	shootopen_right.speed = 0.1f;
 
-	shootclose_right.PushBack({ 139,647,16,35 });
-	shootclose_right.PushBack({ 117,647,16,35 });
-	shootclose_right.PushBack({ 95,647,16,35 });
+	shootclose_right.PushBack({ 6,992,18,31 });
+	shootclose_right.PushBack({ 6,955,18,31 });
+	shootclose_right.PushBack({ 6,918,18,31 });
 	shootclose_right.loop = false;
 	shootclose_right.speed = 0.1f;
 
-	animation = &enemy;
+	animation = &enemypos;
 
-	movement.PushBack({ 0.0f,-1 }, 100, &enemy);
+	movement.PushBack({ 0.0f,-1 }, 100, &enemypos);
 
 
 
 	originalpos.x = x;
 	originalpos.y = y;
-
-
+	
+	enemy = 13;
+	hitpoints = 28;
+	score = 2000;
 }
 
 void Enemy_ShipVerticalCanon2::Move()
@@ -86,10 +88,8 @@ void Enemy_ShipVerticalCanon2::Shoot() {
 				v_x = 4 * (pos_x / module);
 				v_y = (4 * (pos_y / module) - 1.88f);
 
-				App->particles->AddParticle(App->particles->enemy_shoot, position.x + 25, position.y + 26, v_x, v_y, COLLIDER_ENEMY_SHOT);
-				App->particles->AddParticle(App->particles->enemy_shoot, position.x + 7, position.y + 26, v_x, v_y, COLLIDER_ENEMY_SHOT);
-				App->particles->AddParticle(App->particles->enemy_shoot_born, position.x + 25, position.y + 26, v_x, v_y, COLLIDER_ENEMY_SHOT);
-				App->particles->AddParticle(App->particles->enemy_shoot_born, position.x + 7, position.y + 26, v_x, v_y, COLLIDER_ENEMY_SHOT);
+				App->particles->AddParticle(App->particles->big_enemy_shoot, position.x + 7, position.y + 26, v_x, v_y, COLLIDER_ENEMY_SHOT);
+				App->particles->AddParticle(App->particles->big_enemy_shoot_born, position.x + 7, position.y + 26, v_x, v_y, COLLIDER_ENEMY_SHOT);
 				timer++;
 			}
 		}
@@ -104,7 +104,7 @@ void Enemy_ShipVerticalCanon2::Shoot() {
 			timer++;
 		}
 		if (timer == 330) {
-			animation = &enemy;
+			animation = &enemypos;
 			timer = 0;
 			App->collision->EraseCollider(collider);
 		}

@@ -27,7 +27,7 @@ Enemy_Bomb2::Enemy_Bomb2(int x, int y) : Enemy(x, y)
 	originalpos.y = y;
 
 	enemy = 4;
-	live = 5;
+	hitpoints = 5;
 	score = 200;
 
 }
