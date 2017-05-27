@@ -348,9 +348,37 @@ update_status ModuleSea::Update()
 	}
 
 	if (App->render->camera.y == 11100) {
-		App->enemies->AddEnemy(ENEMY_TYPES::UPSURFINGTURRET, 70, -5220);
-		App->enemies->AddEnemy(ENEMY_TYPES::UPSURFINGTURRET, 105, -5210);
-		App->enemies->AddEnemy(ENEMY_TYPES::UPSURFINGTURRET, 140, -5200);
+		App->enemies->AddEnemy(ENEMY_TYPES::UPSURFINGTURRET, 60, -5220);
+		App->enemies->AddEnemy(ENEMY_TYPES::UPSURFINGTURRET, 95, -5210);
+		App->enemies->AddEnemy(ENEMY_TYPES::UPSURFINGTURRET, 130, -5200);
+	}
+	if (App->render->camera.y == 11400) {
+		App->enemies->AddEnemy(ENEMY_TYPES::VERTICALBOMB, 15, -5700);
+		App->enemies->AddEnemy(ENEMY_TYPES::VERTICALBOMB, 50, -5720);
+		App->enemies->AddEnemy(ENEMY_TYPES::VERTICALBOMB, 85, -5740);
+		App->enemies->AddEnemy(ENEMY_TYPES::VERTICALBOMB, 120, -5760);
+		App->enemies->AddEnemy(ENEMY_TYPES::VERTICALBOMB, 155, -5780);
+		App->enemies->AddEnemy(ENEMY_TYPES::VERTICALBOMB, 190, -5800);
+	}
+
+	if (App->render->camera.y == 11850) {
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB2, 224, -5850);
+	}
+	if (App->render->camera.y == 11900) {
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB2, 254, -5890);
+	}
+	if (App->render->camera.y == 11950) {
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB2, 284, -5930);
+	}
+
+	if (App->render->camera.y == 12150) {
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, -10, -5950);
+	}
+	if (App->render->camera.y == 12200) {
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, -40, -5990);
+	}
+	if (App->render->camera.y == 12250) {
+		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, -70, -6030);
 	}
 
 	/*
