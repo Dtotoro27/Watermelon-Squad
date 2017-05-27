@@ -281,17 +281,17 @@ update_status ModuleSea::Update()
 		App->enemies->AddEnemy(ENEMY_TYPES::BLUETURRET, 66, -2327);
 		App->enemies->AddEnemy(ENEMY_TYPES::VERTICALSURFINGTURRET, 10, -2327);
 	}
-	if (App->render->camera.y == 4650) {
-		App->enemies->AddEnemy(ENEMY_TYPES::VERTICALSURFINGTURRET, 10, -2437);
+	if (App->render->camera.y == 4700) {
+		App->enemies->AddEnemy(ENEMY_TYPES::VERTICALSURFINGTURRET, 10, -2457);
 	}
 	if (App->render->camera.y == 4700) {
 		App->enemies->AddEnemy(ENEMY_TYPES::BLUETURRET, 66, -2430);
 	}
-	if (App->render->camera.y == 5350) {
-		App->enemies->AddEnemy(ENEMY_TYPES::VERTICALSURFINGTURRET, 10, -2720);
+	if (App->render->camera.y == 5400) {
+		App->enemies->AddEnemy(ENEMY_TYPES::VERTICALSURFINGTURRET, 10, -2745);
 	}
 	if (App->render->camera.y == 5600) {
-		App->enemies->AddEnemy(ENEMY_TYPES::VERTICALSURFINGTURRET, 10, -2880);
+		App->enemies->AddEnemy(ENEMY_TYPES::VERTICALSURFINGTURRET, 10, -2900);
 	}
 	if (App->render->camera.y == 5800) {
 		App->enemies->AddEnemy(ENEMY_TYPES::BLUETURRET, 66, -2927);
@@ -299,8 +299,17 @@ update_status ModuleSea::Update()
 	if (App->render->camera.y == 6390) {
 		App->enemies->AddEnemy(ENEMY_TYPES::BLUETURRET, 66, -3222);
 	}
-	if (App->render->camera.y == 6350) {
-		App->enemies->AddEnemy(ENEMY_TYPES::VERTICALSURFINGTURRET, 10, -3175);
+	if (App->render->camera.y == 6150) {
+		App->enemies->AddEnemy(ENEMY_TYPES::VERTICALSURFINGTURRET, 10, -3157);
+	}
+	if (App->render->camera.y == 6800) {
+		App->enemies->AddEnemy(ENEMY_TYPES::VERTICALSURFINGTURRET, 10, -3435);
+	}
+	if (App->render->camera.y == 7200) {
+		App->enemies->AddEnemy(ENEMY_TYPES::VERTICALSURFINGTURRET, 10, -3645);
+	}
+	if (App->render->camera.y == 7500) {
+		App->enemies->AddEnemy(ENEMY_TYPES::VERTICALSURFINGTURRET, 10, -3820);
 	}
 	
 	/*
