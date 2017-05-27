@@ -100,6 +100,7 @@ public:
 	Particle damage_shipturret;
 	Particle damage_shipverticalcanonleft;
 	Particle damage_shipverticalcanonright;
+	Particle big_ship_dead;
 
 	// Enemy Shoots
 	Particle enemy_shoot;
