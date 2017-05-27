@@ -1,5 +1,5 @@
 #include "Application.h"
-#include "Enemy_ShipVerticalCanon.h"
+#include "Enemy_ShipVerticalCanonLittle.h"
 #include "ModuleCollision.h"
 #include "ModuleTextures.h"
 #include "ModuleParticles.h"
@@ -15,37 +15,37 @@
 
 
 
-Enemy_ShipVerticalCanon::Enemy_ShipVerticalCanon(int x, int y) : Enemy(x, y)
+Enemy_ShipVerticalCanonLittle::Enemy_ShipVerticalCanonLittle(int x, int y) : Enemy(x, y)
 {
 
 
-	enemy.PushBack({ 5,647,18,33 });
+	enemy.PushBack({ 29,879,17,30 });
 
-	shootopen_left.PushBack({ 27,647,16,35 });
-	shootopen_left.PushBack({ 49,647,16,35 });
-	shootopen_left.PushBack({ 71,647,16,35 });
+	shootopen_left.PushBack({ 102,919,16,35 });
+	shootopen_left.PushBack({ 102,956,16,35 });
+	shootopen_left.PushBack({ 102,993,16,35 });
 	shootopen_left.loop = false;
 	shootopen_left.speed = 0.1f;
 
-	shootclose_left.PushBack({ 71,647,16,35 });
-	shootclose_left.PushBack({ 49,647,16,35 });
-	shootclose_left.PushBack({ 27,647,16,35 });
+	shootclose_left.PushBack({ 102,993,16,35 });
+	shootclose_left.PushBack({ 102,956,16,35 });
+	shootclose_left.PushBack({ 102,919,16,35 });
 	shootclose_left.loop = false;
 	shootclose_left.speed = 0.1;
 
-	shootopen_right.PushBack({95,647,16,35 });
-	shootopen_right.PushBack({ 117,647,16,35 });
-	shootopen_right.PushBack({ 139,647,16,35 });
+	shootopen_right.PushBack({ 29,919,16,35 });
+	shootopen_right.PushBack({ 29,956,16,35 });
+	shootopen_right.PushBack({ 29,993,16,35 });
 	shootopen_right.loop = false;
 	shootopen_right.speed = 0.1f;
 
-	shootclose_right.PushBack({ 139,647,16,35 });
-	shootclose_right.PushBack({ 117,647,16,35 });
-	shootclose_right.PushBack({ 95,647,16,35 });
+	shootclose_right.PushBack({ 29,993,16,35 });
+	shootclose_right.PushBack({ 29,956,16,35 });
+	shootclose_right.PushBack({ 29,919,16,35 });
 	shootclose_right.loop = false;
 	shootclose_right.speed = 0.1f;
 
-	collider = App->collision->AddCollider({ 0, 0,18,29 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
+	collider = App->collision->AddCollider({ 0, 0,17,25 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
 	animation = &enemy;
 
@@ -59,7 +59,7 @@ Enemy_ShipVerticalCanon::Enemy_ShipVerticalCanon(int x, int y) : Enemy(x, y)
 
 }
 
-void Enemy_ShipVerticalCanon::Move()
+void Enemy_ShipVerticalCanonLittle::Move()
 {
 
 	if (App->sea->pause == false) {
@@ -67,9 +67,9 @@ void Enemy_ShipVerticalCanon::Move()
 	}
 }
 
-void Enemy_ShipVerticalCanon::Shoot() {
+void Enemy_ShipVerticalCanonLittle::Shoot() {
 	if (App->sea->pause == false) {
-		
+
 		if (timer == 200) {
 			if (App->player->position.x > position.x) {
 				animation = &shootopen_right;
@@ -98,10 +98,10 @@ void Enemy_ShipVerticalCanon::Shoot() {
 			if (animation == &shootopen_left) {
 				animation = &shootclose_left;
 			}
-			if (animation == &shootopen_right){
+			if (animation == &shootopen_right) {
 				animation = &shootclose_right;
 			}
-			
+
 			timer++;
 		}
 		if (timer == 330) {

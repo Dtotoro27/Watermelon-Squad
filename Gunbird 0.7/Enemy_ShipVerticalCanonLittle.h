@@ -1,10 +1,10 @@
-#ifndef __ENEMY_SHIPVERTICALCANON_H__
-#define __ENEMY_SHIPVERTICALCANON_H__
+#ifndef __ENEMY_SHIPVERTICALCANONLITTLE_H__
+#define __ENEMY_SHIPVERTICALCANONLITTLE_H__
 
 #include "Enemy.h"
 #include "Path.h"
 
-class Enemy_ShipVerticalCanon : public Enemy
+class Enemy_ShipVerticalCanonLittle : public Enemy
 {
 private:
 	iPoint originalpos;
@@ -25,11 +25,12 @@ private:
 
 public:
 
-	Enemy_ShipVerticalCanon(int x, int y);
+	Enemy_ShipVerticalCanonLittle(int x, int y);
 
 	void Move();
 	void Shoot();
 };
 
 #endif
+
 
