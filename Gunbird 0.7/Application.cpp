@@ -30,10 +30,10 @@ Application::Application()
 	modules[i++] = characterselect = new ModuleCharacterSelect();
 	modules[i++] = sea = new ModuleSea();
 	modules[i++] = enemies = new ModuleEnemies();
+	modules[i++] = particles = new ModuleParticles();
 	modules[i++] = player = new ModulePlayer();
 	modules[i++] = player2 = new ModulePlayer2();
 	modules[i++] = congrats = new ModuleCongrats();
-	modules[i++] = particles = new ModuleParticles();
 	modules[i++] = ui = new ModuleUI();
 	modules[i++] = collision = new ModuleCollision();
 	modules[i++] = audio = new ModuleAudio();

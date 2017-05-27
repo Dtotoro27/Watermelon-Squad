@@ -48,6 +48,7 @@ private:
 	SDL_Texture* graphics = nullptr;
 	Particle* active[MAX_ACTIVE_PARTICLES];
 	uint last_particle = 0;
+	
 
 public:
 	// Player Shoots

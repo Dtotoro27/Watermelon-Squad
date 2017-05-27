@@ -25,7 +25,7 @@ ModuleParticles::ModuleParticles()
 
 	damage_tower.anim.PushBack({ 837,150,64,100 });
 
-	damage_blue_robot.anim.PushBack({1243,104,70,66});
+	damage_blue_robot.anim.PushBack({1241,104,74,66});
 
 	damage_red_machine.anim.PushBack({1326,159,25,36});
 
@@ -43,6 +43,10 @@ ModuleParticles::ModuleParticles()
 
 	damage_shipturret.anim.PushBack({1326,108,31,29});
 
+	big_ship_dead.anim.PushBack({929, 152,62,105 });
+	big_ship_dead.anim.PushBack({ 998, 152,62,105 });
+	big_ship_dead.anim.speed = 0.3f;
+	big_ship_dead.life = 50000;
 
 
 	//LASER ASH

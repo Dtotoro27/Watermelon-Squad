@@ -72,7 +72,7 @@ private:
 	Enemy* enemies[MAX_ENEMIES];
 	SDL_Texture* sprites;
 	SDL_Texture* pw_sprites;
-
+	
 public: 
 	float damage;
 };

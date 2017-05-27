@@ -270,6 +270,7 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 
 		case ENEMY_TYPES::BIGSHIPMOVE:
 			enemies[i] = new  Enemy_BigShipMove(info.x, info.y);
+			break;
 
 		case ENEMY_TYPES::SHIPHORIZONTALCANON:
 			enemies[i] = new  Enemy_ShipHorizontalCanon(info.x, info.y);
@@ -322,9 +323,9 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 			if (c1->type == COLLIDER_ENEMY) {
 
 				if (App->player->powerUps == 0) { damage = 1; }
-				if (App->player->powerUps == 1) { damage = 2; }
-				if (App->player->powerUps == 2) { damage = 3; }
-				if (App->player->powerUps == 3) { damage = 4; }
+				if (App->player->powerUps == 1) { damage = 1.25f; }
+				if (App->player->powerUps == 2) { damage = 1.50f; }
+				if (App->player->powerUps == 3) { damage = 1.75f; }
 
 
 				//BALLOON
@@ -336,6 +337,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						else {
 							enemies[i]->hitpoints = enemies[i]->hitpoints - damage;
 						}
+						App->particles->AddParticle(App->particles->damage_balloon, enemies[i]->position.x, enemies[i]->position.y, 0 , 0 , COLLIDER_NONE);
 					}
 					else {
 						if (c2->type == COLLIDER_PLAYER_2_SHOT || c2->type == COLLIDER_VALNUS_2_LASER || c2->type == COLLIDER_ASH_BOMB_2) {
@@ -344,12 +346,13 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						if (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_ASH_BOMB) {
 							App->player->score += enemies[i]->score;
 						}
+						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y, 0, 0, COLLIDER_NONE);
 						delete enemies[i];
 						enemies[i] = nullptr;
 					}
 				}
 
-
+				//BIG SHIP
 				else if(enemies[i]->enemy == 1) {
 					if (enemies[i]->hitpoints > 0) {
 						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
@@ -358,6 +361,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						else {
 							enemies[i]->hitpoints = enemies[i]->hitpoints - damage;
 						}
+						App->particles->AddParticle(App->particles->damage_big_ship, enemies[i]->position.x+7, enemies[i]->position.y+16, 0, 0, COLLIDER_NONE);
 					}
 					else {
 						if (c2->type == COLLIDER_PLAYER_2_SHOT || c2->type == COLLIDER_VALNUS_2_LASER || c2->type == COLLIDER_ASH_BOMB_2) {
@@ -366,10 +370,17 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						if (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_ASH_BOMB) {
 							App->player->score += enemies[i]->score;
 						}
+						App->particles->AddParticle(App->particles->big_ship_dead, enemies[i]->position.x, enemies[i]->position.y, 0, -0.782, COLLIDER_NONE);
+						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x -15, enemies[i]->position.y +10, 0, 0, COLLIDER_NONE);
+						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y, 0, 0, COLLIDER_NONE);
+						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x + 5, enemies[i]->position.y-10, 0, 0, COLLIDER_NONE);
+
 						delete enemies[i];
 						enemies[i] = nullptr;
 					}
 				}
+
+				//BLUE ROBOT
 				else if (enemies[i]->enemy == 2) {
 					if (enemies[i]->hitpoints > 0) {
 						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
@@ -378,6 +389,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						else {
 							enemies[i]->hitpoints = enemies[i]->hitpoints - damage;
 						}
+						App->particles->AddParticle(App->particles->damage_blue_robot, enemies[i]->position.x, enemies[i]->position.y-1, 0, 0, COLLIDER_NONE);
 					}
 					else {
 						if (c2->type == COLLIDER_PLAYER_2_SHOT || c2->type == COLLIDER_VALNUS_2_LASER || c2->type == COLLIDER_ASH_BOMB_2) {
@@ -386,10 +398,17 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						if (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_ASH_BOMB) {
 							App->player->score += enemies[i]->score;
 						}
+						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x - 15, enemies[i]->position.y + 10, 0, 0, COLLIDER_NONE);
+						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y, 0, 0, COLLIDER_NONE);
+						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x + 5, enemies[i]->position.y - 10, 0, 0, COLLIDER_NONE);
+						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x -15, enemies[i]->position.y - 10, 0, 0, COLLIDER_NONE);
+
 						delete enemies[i];
 						enemies[i] = nullptr;
 					}
 				}
+
+				//BLUE TURRET
 				else if (enemies[i]->enemy == 3) {
 					if (enemies[i]->hitpoints > 0) {
 						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
@@ -398,6 +417,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						else {
 							enemies[i]->hitpoints = enemies[i]->hitpoints - damage;
 						}
+						App->particles->AddParticle(App->particles->damage_turret, enemies[i]->position.x+6, enemies[i]->position.y+3, 0, 0, COLLIDER_NONE);
 					}
 					else {
 						if (c2->type == COLLIDER_PLAYER_2_SHOT || c2->type == COLLIDER_VALNUS_2_LASER || c2->type == COLLIDER_ASH_BOMB_2) {
@@ -406,10 +426,13 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						if (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_ASH_BOMB) {
 							App->player->score += enemies[i]->score;
 						}
+						App->particles->AddParticle(App->particles->littleexplosion, enemies[i]->position.x, enemies[i]->position.y, 0, 0, COLLIDER_NONE);
 						delete enemies[i];
 						enemies[i] = nullptr;
 					}
 				}
+
+				//BOMB
 				else if (enemies[i]->enemy == 4) {
 					if (enemies[i]->hitpoints > 0) {
 						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
@@ -418,6 +441,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						else {
 							enemies[i]->hitpoints = enemies[i]->hitpoints - damage;
 						}
+						App->particles->AddParticle(App->particles->damage_bomb, enemies[i]->position.x + 6, enemies[i]->position.y, 0, 0, COLLIDER_NONE);
 					}
 					else {
 						if (c2->type == COLLIDER_PLAYER_2_SHOT || c2->type == COLLIDER_VALNUS_2_LASER || c2->type == COLLIDER_ASH_BOMB_2) {
@@ -426,10 +450,13 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						if (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_ASH_BOMB) {
 							App->player->score += enemies[i]->score;
 						}
+						App->particles->AddParticle(App->particles->littleexplosion, enemies[i]->position.x, enemies[i]->position.y, 0, 0, COLLIDER_NONE);
 						delete enemies[i];
 						enemies[i] = nullptr;
 					}
 				}
+
+				//FLYING MACHINES
 				else if (enemies[i]->enemy == 5) {
 					if (enemies[i]->hitpoints > 0) {
 						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
@@ -446,10 +473,13 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						if (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_ASH_BOMB) {
 							App->player->score += enemies[i]->score;
 						}
+						App->particles->AddParticle(App->particles->littleexplosion, enemies[i]->position.x, enemies[i]->position.y, 0, 0, COLLIDER_NONE);
 						delete enemies[i];
 						enemies[i] = nullptr;
 					}
 				}
+
+				//RED MACHINES
 				else if (enemies[i]->enemy == 6) {
 					if (enemies[i]->hitpoints > 0) {
 						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
@@ -458,6 +488,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						else {
 							enemies[i]->hitpoints = enemies[i]->hitpoints - damage;
 						}
+						App->particles->AddParticle(App->particles->damage_red_machine, enemies[i]->position.x, enemies[i]->position.y, 0, 0, COLLIDER_NONE);
 					}
 					else {
 						if (c2->type == COLLIDER_PLAYER_2_SHOT || c2->type == COLLIDER_VALNUS_2_LASER || c2->type == COLLIDER_ASH_BOMB_2) {
@@ -466,10 +497,14 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						if (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_ASH_BOMB) {
 							App->player->score += enemies[i]->score;
 						}
+						App->particles->AddParticle(App->particles->littleexplosion, enemies[i]->position.x, enemies[i]->position.y, 0, 0, COLLIDER_NONE);
+
 						delete enemies[i];
 						enemies[i] = nullptr;
 					}
 				}
+
+				//SURFING TURRETS
 				else if (enemies[i]->enemy == 7) {
 					if (enemies[i]->hitpoints > 0) {
 						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
@@ -478,6 +513,8 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						else {
 							enemies[i]->hitpoints = enemies[i]->hitpoints - damage;
 						}
+						App->particles->AddParticle(App->particles->damage_turret, enemies[i]->position.x + 6, enemies[i]->position.y-5, 0, 0, COLLIDER_NONE);
+
 					}
 					else {
 						if (c2->type == COLLIDER_PLAYER_2_SHOT || c2->type == COLLIDER_VALNUS_2_LASER || c2->type == COLLIDER_ASH_BOMB_2) {
@@ -486,10 +523,13 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						if (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_ASH_BOMB) {
 							App->player->score += enemies[i]->score;
 						}
+						App->particles->AddParticle(App->particles->littleexplosion, enemies[i]->position.x, enemies[i]->position.y, 0, 0, COLLIDER_NONE);
 						delete enemies[i];
 						enemies[i] = nullptr;
 					}
 				}
+
+				//TOWER
 				else if (enemies[i]->enemy == 8) {
 					if (enemies[i]->hitpoints > 0) {
 						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
@@ -498,6 +538,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						else {
 							enemies[i]->hitpoints = enemies[i]->hitpoints - damage;
 						}
+						App->particles->AddParticle(App->particles->damage_tower, enemies[i]->position.x, enemies[i]->position.y - 5, 0, 0, COLLIDER_NONE);
 					}
 					else {
 						if (c2->type == COLLIDER_PLAYER_2_SHOT || c2->type == COLLIDER_VALNUS_2_LASER || c2->type == COLLIDER_ASH_BOMB_2) {
@@ -506,6 +547,10 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						if (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_ASH_BOMB) {
 							App->player->score += enemies[i]->score;
 						}
+						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x - 15, enemies[i]->position.y + 10, 0, 0, COLLIDER_NONE);
+						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y, 0, 0, COLLIDER_NONE);
+						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x + 5, enemies[i]->position.y - 10, 0, 0, COLLIDER_NONE);
+						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x - 15, enemies[i]->position.y - 10, 0, 0, COLLIDER_NONE);
 						delete enemies[i];
 						enemies[i] = nullptr;
 					}

@@ -94,7 +94,7 @@ bool ModuleSea::Start()
 
 	//Enemy
 
-	App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 51, 50);
+	App->enemies->AddEnemy(ENEMY_TYPES::BIGSHIPMOVE, 51, 50);
 	App->enemies->AddEnemy(ENEMY_TYPES::POWER_UP, 150, 10);
 	
 
@@ -161,7 +161,6 @@ update_status ModuleSea::Update()
 	else {
 		delay++;
 	}
-
 
 
 	//UI--------------------------
