@@ -21,11 +21,13 @@ Enemy_BlueRobot2::Enemy_BlueRobot2(int x, int y) : Enemy(x, y)
 	robot.speed = 0.2f;
 	animation = &robot;
 
-	movement.PushBack({- 1.0f,-0.775f }, 75, &robot);
-	movement.PushBack({ -0.25f,-0.775f }, 75, &robot);
-	movement.PushBack({ 0,-0.775f }, 150, &robot);
-	movement.PushBack({- 0.25f,-0.775f }, 75, &robot);
-	movement.PushBack({ -1.0f,-0.775f }, 75000, &robot);
+
+
+	movement.PushBack({ -1.5f,-1 }, 55, &robot);
+	movement.PushBack({ -0.5f,-1 }, 65, &robot);
+	movement.PushBack({ 0,-1 }, 150, &robot);
+	movement.PushBack({ -0.5f,-1 }, 75, &robot);
+	movement.PushBack({ -1.5f,-1 }, 75000, &robot);
 
 
 	collider = App->collision->AddCollider({ 0, 0, 63, 63 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);

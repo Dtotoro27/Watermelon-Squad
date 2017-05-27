@@ -186,7 +186,7 @@ update_status ModuleSea::Update()
 
 	//ENEMIES--------------------------
 
-	/*
+	
 	
 	if (App->render->camera.y == 560) {
 		App->enemies->AddEnemy(ENEMY_TYPES::VERTICALBOMB, 164, -340);
@@ -315,6 +315,36 @@ update_status ModuleSea::Update()
 	if (App->render->camera.y == 1550) {
 		App->enemies->AddEnemy(ENEMY_TYPES::TOWER, 96, -882);
 	}
+	if (App->render->camera.y == 7100) {
+		App->enemies->AddEnemy(ENEMY_TYPES::BLUEROBOT, -80, -3475);
+	}
+	if (App->render->camera.y == 8890) {
+		App->enemies->AddEnemy(ENEMY_TYPES::STATICTURRET, 110, -4480);
+		App->enemies->AddEnemy(ENEMY_TYPES::STATICTURRET, 110, -4512);
+	}
+	if (App->render->camera.y == 10050) {
+		App->enemies->AddEnemy(ENEMY_TYPES::STATICTURRET, 110, -5083);
+		App->enemies->AddEnemy(ENEMY_TYPES::STATICTURRET, 110, -5052);
+	}
+	if (App->render->camera.y == 9100) {
+		App->enemies->AddEnemy(ENEMY_TYPES::STATICTURRET, 110, -4625);
+		App->enemies->AddEnemy(ENEMY_TYPES::STATICTURRET, 110, -4657);
+	
+	}
+	if (App->render->camera.y == 9200) {
+		App->enemies->AddEnemy(ENEMY_TYPES::REDMACHINE1, -45, -4610);
+		App->enemies->AddEnemy(ENEMY_TYPES::REDMACHINE1, -30, -4650);
+		App->enemies->AddEnemy(ENEMY_TYPES::REDMACHINE1, -60, -4650);
+		App->enemies->AddEnemy(ENEMY_TYPES::BLUEROBOT2, 230, -4585);
+	}
+
+	if (App->render->camera.y == 9350) {
+		App->enemies->AddEnemy(ENEMY_TYPES::REDMACHINE2, 245, -4670);
+		App->enemies->AddEnemy(ENEMY_TYPES::REDMACHINE2, 230, -4720);
+		App->enemies->AddEnemy(ENEMY_TYPES::REDMACHINE2, 260, -4720);
+	}
+
+	/*
 
 	if (App->render->camera.y == 9100) {
 		App->enemies->AddEnemy(ENEMY_TYPES::BOMB, 90, -4554);

@@ -43,11 +43,11 @@ Enemy_BlueRobot::Enemy_BlueRobot(int x, int y) : Enemy(x, y)
 
 	animation = &robot;
 
-	movement.PushBack({ 1.0f,-1 }, 75, &robot);
-	movement.PushBack({ 0.25f,-1 }, 75, &robot);
+	movement.PushBack({ 1.5f,-1 }, 55, &robot);
+	movement.PushBack({ 0.5f,-1 }, 65, &robot);
 	movement.PushBack({ 0,-1}, 150, &robot);
-	movement.PushBack({ 0.25f,- 1 }, 75, &robot);
-	movement.PushBack({ 1.0f,-1 }, 75000, &robot);
+	movement.PushBack({ 0.5f,- 1 }, 75, &robot);
+	movement.PushBack({ 1.5f,-1 }, 75000, &robot);
 
 
 	collider = App->collision->AddCollider({ 0, 0, 63, 63 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
