@@ -1,10 +1,10 @@
-#ifndef __POWERUP_H__
-#define __POWERUP_H__
+#ifndef __EXTRABOMB_H__
+#define __EXTRABOMB_H__
 
 #include "Enemy.h"
 #include "Path.h"
 
-class PowerUp : public Enemy
+class ExtraBomb : public Enemy
 {
 private:
 	iPoint originalpos;
@@ -16,7 +16,7 @@ private:
 
 public:
 
-	PowerUp(int x, int y);
+	ExtraBomb(int x, int y);
 	void Move();
 };
 

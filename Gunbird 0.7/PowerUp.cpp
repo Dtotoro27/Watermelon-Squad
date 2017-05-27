@@ -1,7 +1,9 @@
 #include "Application.h"
+#include "ModuleRender.h"
 #include "PowerUp.h"
 #include "ModuleSea.h"
 #include "ModuleCollision.h"
+#include "ModulePlayer.h"
 
 #include <time.h>
 #include <stdio.h>
@@ -24,17 +26,6 @@ PowerUp::PowerUp(int x, int y) : Enemy(x, y)
 
 	fly.speed = 0.1f;
 	animation = &fly;
-
-
-
-
-
-	movement.PushBack({ 1.0f,-0.1f }, 52, &fly);
-	movement.PushBack({ -1.0f,-0.1f }, 205, &fly);
-	movement.PushBack({ 1.0f, -0.1f }, 75, &fly);
-	movement.PushBack({ 1.0f, -2.0f }, 132, &fly);
-	movement.PushBack({ -1.0f, -2.0f }, 20005, &fly);
-	
 	
 
 
@@ -43,12 +34,33 @@ PowerUp::PowerUp(int x, int y) : Enemy(x, y)
 	originalpos.x = x;
 	originalpos.y = y;
 
+	
 
 }
 
 void PowerUp::Move()
 {
-	if (App->sea->pause == false) {
-		position = originalpos + movement.GetCurrentPosition();
-	}
+	if (up == true)
+		position.y -= 2; //si se cambia esta speed, por algun motivo desconocido deja de ir, NO TOCAR!
+	else
+		position.y += 1; 
+
+	if (left == true)
+		position.x -= 1;
+	else
+		position.x += 1;
+
+	if (position.x < App->render->camera.x)
+		left = false;
+
+	else if (position.x > SCREEN_WIDTH - 21)
+		left = true;
+
+	 if (position.y > App->player->camera_limits.y + (SCREEN_HEIGHT - 13))
+		up = true;
+
+	 else if (position.y  < App->player->camera_limits.y)
+		 up = false;
 }
+
+

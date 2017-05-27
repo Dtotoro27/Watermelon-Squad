@@ -32,6 +32,7 @@
 #include "Enemy_ShipVerticalCanon.h"
 #include "Enemy_ShipVerticalCanonLittle.h"
 #include "Enemy_ShipBigMiddleTurret.h"
+#include "ExtraBomb.h"
 #include "PowerUp.h"
 
 
@@ -276,6 +277,10 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 		case ENEMY_TYPES::SHIPBIGMIDDLETURRET:
 			enemies[i] = new  Enemy_ShipBigMiddleTurret(info.x, info.y);
 			break;
+
+		case ENEMY_TYPES::EXTRABOMB:
+			enemies[i] = new  ExtraBomb(info.x, info.y);
+			break;
 		}
 
 	}
@@ -296,6 +301,11 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 			else if ((c2->type == COLLIDER_POWER_UP && c1->type == COLLIDER_ENEMY_SHOT) || (c2->type == COLLIDER_POWER_UP && c1->type == COLLIDER_ENEMY)) {}
 			else if ((c1->type == COLLIDER_POWER_UP && c2->type == COLLIDER_BALLOON) || (c1->type == COLLIDER_POWER_UP && c2->type == COLLIDER_BALLOON)) {}
 			
+			if (c1->type == COLLIDER_EXTRA_BOMB) {
+				delete enemies[i];
+				enemies[i] = nullptr;
+				break;
+			}
 			
 			else if (c1->type == COLLIDER_BALLOON) {
 				

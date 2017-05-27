@@ -98,6 +98,7 @@
     <ClInclude Include="Enemy_Tower.h" />
     <ClInclude Include="Enemy_VerticalBomb.h" />
     <ClInclude Include="Enemy_VerticalSurfingTurret.h" />
+    <ClInclude Include="ExtraBomb.h" />
     <ClInclude Include="Globals.h" />
     <ClInclude Include="MemLeaks.h" />
     <ClInclude Include="Module.h" />
@@ -149,6 +150,7 @@
     <ClCompile Include="Enemy_Tower.cpp" />
     <ClCompile Include="Enemy_VerticalBomb.cpp" />
     <ClCompile Include="Enemy_VerticalSurfingTurret.cpp" />
+    <ClCompile Include="ExtraBomb.cpp" />
     <ClCompile Include="Globals.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="ModuleAudio.cpp" />
