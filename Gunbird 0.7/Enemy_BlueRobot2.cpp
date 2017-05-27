@@ -33,7 +33,9 @@ Enemy_BlueRobot2::Enemy_BlueRobot2(int x, int y) : Enemy(x, y)
 	originalpos.x = x;
 	originalpos.y = y;
 
-
+	enemy = 2;
+	live = 92;
+	score = 5400;
 }
 
 void Enemy_BlueRobot2::Move()

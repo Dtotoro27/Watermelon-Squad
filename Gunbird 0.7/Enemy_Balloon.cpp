@@ -15,7 +15,7 @@
 Enemy_Balloon::Enemy_Balloon(int x, int y) : Enemy(x, y)
 {
 
-	live = 25; 
+	
 
 	fly.PushBack({ 26,17,42,53 });
 	fly.PushBack({ 79,17,42,53 });
@@ -32,12 +32,15 @@ Enemy_Balloon::Enemy_Balloon(int x, int y) : Enemy(x, y)
 	movement.PushBack({ 0.0f,-1.0f }, 650, &fly);
 	movement.PushBack({ 0.0f,-0.35f }, 1000, &fly);*/
 
-	collider = App->collision->AddCollider({ 0, 0, 42,53 }, COLLIDER_TYPE::COLLIDER_BALLOON, (Module*)App->enemies);
-
+	collider = App->collision->AddCollider({ 0, 0, 42,53 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
 	start_time = SDL_GetTicks();
 	originalpos.x = x;
 	originalpos.y = y;
+
+	enemy = 0;
+	live = 25;
+	score = 500;
 
 }
 

@@ -123,6 +123,8 @@
     <ClInclude Include="Path.h" />
     <ClInclude Include="PowerUp.h" />
     <ClInclude Include="Enemy_RedMachine2.h" />
+    <ClInclude Include="Enemy_ShipVerticalCanon2.h" />
+    <ClInclude Include="Enemy_ShipVerticalCanon3.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
@@ -172,6 +174,8 @@
     <ClCompile Include="ModuleWindow.cpp" />
     <ClCompile Include="PowerUp.cpp" />
     <ClCompile Include="Enemy_RedMachine2.cpp" />
+    <ClCompile Include="Enemy_ShipVerticalCanon3.cpp" />
+    <ClCompile Include="Enemy_ShipVerticalCanon2.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

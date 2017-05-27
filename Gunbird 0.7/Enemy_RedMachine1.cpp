@@ -27,7 +27,9 @@ Enemy_RedMachine1::Enemy_RedMachine1(int x, int y) : Enemy(x, y)
 	originalpos.x = x;
 	originalpos.y = y;
 
-
+	enemy = 6;
+	live = 8;
+	score = 400;
 }
 
 void Enemy_RedMachine1::Move()

@@ -66,7 +66,9 @@ Enemy_FlyingMachine4::Enemy_FlyingMachine4(int x, int y) : Enemy(x, y)
 	originalpos.x = x;
 	originalpos.y = y;
 
-
+	enemy = 5;
+	live = 2;
+	score = 200;
 }
 
 void Enemy_FlyingMachine4::Move()

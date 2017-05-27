@@ -44,6 +44,9 @@ Enemy_BigShipStatic::Enemy_BigShipStatic(int x, int y) : Enemy(x, y)
 	originalpos.x = x;
 	originalpos.y = y;
 
+	enemy = 1;
+	live = 60;
+	score = 1000;
 }
 
 void Enemy_BigShipStatic::Move()

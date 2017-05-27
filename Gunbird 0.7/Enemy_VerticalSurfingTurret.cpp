@@ -72,12 +72,14 @@ Enemy_VerticalSurfingTurret::Enemy_VerticalSurfingTurret(int x, int y) : Enemy(x
 	movement.PushBack({ 0.0f,-0.55f }, 1250, &base);
 
 
-	collider = App->collision->AddCollider({ 100, 0, 26, 24 }, COLLIDER_TYPE::COLLIDER_SURFINGTURRET, (Module*)App->enemies);
+	collider = App->collision->AddCollider({ 100, 0, 26, 24 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
 	originalpos.x = x;
 	originalpos.y = y;
 
-
+	enemy = 7;
+	live = 3;
+	score = 500;
 }
 
 void Enemy_VerticalSurfingTurret::Move()

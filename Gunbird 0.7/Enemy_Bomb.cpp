@@ -24,11 +24,14 @@ Enemy_Bomb::Enemy_Bomb(int x, int y) : Enemy(x, y)
 	movement.PushBack({ 0.5f,1.0f }, 10000, &fly);
 	
 
-	collider = App->collision->AddCollider({ 0, 0, 28,41 }, COLLIDER_TYPE::COLLIDER_BOMB, (Module*)App->enemies);
+	collider = App->collision->AddCollider({ 0, 0, 28,41 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
 	originalpos.x = x;
 	originalpos.y = y;
 
+	enemy = 4;
+	live = 5;
+	score = 200;
 
 }
 

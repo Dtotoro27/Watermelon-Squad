@@ -55,6 +55,9 @@ Enemy_BlueRobot::Enemy_BlueRobot(int x, int y) : Enemy(x, y)
 	originalpos.x = x;
 	originalpos.y = y;
 
+	enemy = 2;
+	live = 92;
+	score = 5400;
 
 }
 

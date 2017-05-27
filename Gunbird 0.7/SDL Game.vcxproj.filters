@@ -142,6 +142,12 @@
     <ClCompile Include="PowerUp.cpp">
       <Filter>Modules\Enemies\PowerUps</Filter>
     </ClCompile>
+    <ClCompile Include="Enemy_ShipVerticalCanon3.cpp">
+      <Filter>Modules\Enemies\Boss\Ship</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_ShipVerticalCanon2.cpp">
+      <Filter>Modules\Enemies\Boss\Ship</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -296,6 +302,12 @@
     </ClInclude>
     <ClInclude Include="ExtraBomb.h">
       <Filter>Modules\Enemies\PowerUps</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_ShipVerticalCanon2.h">
+      <Filter>Modules\Enemies\Boss\Ship</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_ShipVerticalCanon3.h">
+      <Filter>Modules\Enemies\Boss\Ship</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

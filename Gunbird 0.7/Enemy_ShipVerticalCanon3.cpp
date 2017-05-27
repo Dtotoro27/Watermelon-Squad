@@ -1,5 +1,5 @@
 #include "Application.h"
-#include "Enemy_ShipVerticalCanon.h"
+#include "Enemy_ShipVerticalCanon3.h"
 #include "ModuleCollision.h"
 #include "ModuleTextures.h"
 #include "ModuleParticles.h"
@@ -15,7 +15,7 @@
 
 
 
-Enemy_ShipVerticalCanon::Enemy_ShipVerticalCanon(int x, int y) : Enemy(x, y)
+Enemy_ShipVerticalCanon3::Enemy_ShipVerticalCanon3(int x, int y) : Enemy(x, y)
 {
 
 
@@ -33,7 +33,7 @@ Enemy_ShipVerticalCanon::Enemy_ShipVerticalCanon(int x, int y) : Enemy(x, y)
 	shootclose_left.loop = false;
 	shootclose_left.speed = 0.1;
 
-	shootopen_right.PushBack({95,647,16,35 });
+	shootopen_right.PushBack({ 95,647,16,35 });
 	shootopen_right.PushBack({ 117,647,16,35 });
 	shootopen_right.PushBack({ 139,647,16,35 });
 	shootopen_right.loop = false;
@@ -57,7 +57,7 @@ Enemy_ShipVerticalCanon::Enemy_ShipVerticalCanon(int x, int y) : Enemy(x, y)
 
 }
 
-void Enemy_ShipVerticalCanon::Move()
+void Enemy_ShipVerticalCanon3::Move()
 {
 
 	if (App->sea->pause == false) {
@@ -65,9 +65,9 @@ void Enemy_ShipVerticalCanon::Move()
 	}
 }
 
-void Enemy_ShipVerticalCanon::Shoot() {
+void Enemy_ShipVerticalCanon3::Shoot() {
 	if (App->sea->pause == false) {
-		
+
 		if (timer == 200) {
 			collider = App->collision->AddCollider({ 0, 0,18,29 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 			if (App->player->position.x > position.x) {
@@ -97,10 +97,10 @@ void Enemy_ShipVerticalCanon::Shoot() {
 			if (animation == &shootopen_left) {
 				animation = &shootclose_left;
 			}
-			if (animation == &shootopen_right){
+			if (animation == &shootopen_right) {
 				animation = &shootclose_right;
 			}
-			
+
 			timer++;
 		}
 		if (timer == 330) {

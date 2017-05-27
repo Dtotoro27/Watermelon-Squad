@@ -45,7 +45,7 @@ Enemy_ShipVerticalCanonLittle::Enemy_ShipVerticalCanonLittle(int x, int y) : Ene
 	shootclose_right.loop = false;
 	shootclose_right.speed = 0.1f;
 
-	collider = App->collision->AddCollider({ 0, 0,17,25 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
+	
 
 	animation = &enemy;
 
@@ -73,6 +73,7 @@ void Enemy_ShipVerticalCanonLittle::Shoot() {
 		if (timer == 200) {
 			if (App->player->position.x > position.x) {
 				animation = &shootopen_right;
+				collider = App->collision->AddCollider({ 0, 0,17,25 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 			}
 			else {
 				animation = &shootopen_left;
@@ -107,6 +108,7 @@ void Enemy_ShipVerticalCanonLittle::Shoot() {
 		if (timer == 330) {
 			animation = &enemy;
 			timer = 0;
+			App->collision->EraseCollider(collider);
 		}
 		else {
 			timer++;

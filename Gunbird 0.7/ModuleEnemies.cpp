@@ -299,7 +299,6 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 			}
 			else if ((c1->type == COLLIDER_POWER_UP && c2->type == COLLIDER_ENEMY_SHOT) || (c1->type == COLLIDER_POWER_UP && c2->type == COLLIDER_ENEMY)) {}
 			else if ((c2->type == COLLIDER_POWER_UP && c1->type == COLLIDER_ENEMY_SHOT) || (c2->type == COLLIDER_POWER_UP && c1->type == COLLIDER_ENEMY)) {}
-			else if ((c1->type == COLLIDER_POWER_UP && c2->type == COLLIDER_BALLOON) || (c1->type == COLLIDER_POWER_UP && c2->type == COLLIDER_BALLOON)) {}
 			
 			if (c1->type == COLLIDER_EXTRA_BOMB) {
 				delete enemies[i];
@@ -307,152 +306,197 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 				break;
 			}
 			
-			else if (c1->type == COLLIDER_BALLOON) {
-				
-				if (enemies[i]->live <= 0) {
-					App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x - 25, enemies[i]->position.y - 25, 0, 0);
-					//App->audio->PlayFX(audio_explosion);
-					if (c2->type == COLLIDER_PLAYER_2_SHOT || c2->type == COLLIDER_VALNUS_2_LASER || c2->type == COLLIDER_ASH_BOMB_2){
-						App->player2->score+= 500;
-					}
-					if (c2->type == COLLIDER_PLAYER_SHOT|| c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_ASH_BOMB) {
-						App->player->score += 500;
-					}
-					delete enemies[i];
-					enemies[i] = nullptr;
-				}
+			if (c1->type == COLLIDER_ENEMY) {
 
-				else {
-					if (App->player->powerUps == 0) { damage = 1; }
-					if (App->player->powerUps == 1) { damage = 2; }
-					if (App->player->powerUps == 2) { damage = 3; }
-					if (App->player->powerUps == 3) { damage = 4; }
-					App->particles->AddParticle(App->particles->damage_balloon, enemies[i]->position.x, enemies[i]->position.y, 0, -1);
-					if (c2->type == COLLIDER_VALNUS_LASER) {
-						enemies[i]->live = enemies[i]->live - (damage/10);
+				if (App->player->powerUps == 0) { damage = 1; }
+				if (App->player->powerUps == 1) { damage = 2; }
+				if (App->player->powerUps == 2) { damage = 3; }
+				if (App->player->powerUps == 3) { damage = 4; }
+
+
+				//BALLOON
+				if (enemies[i]->enemy == 0) {
+					if (enemies[i]->live > 0) {
+						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
+							enemies[i]->live = enemies[i]->live - (damage / 10);
+						}
+						else {
+							enemies[i]->live = enemies[i]->live - damage;
+						}
 					}
 					else {
-						enemies[i]->live = enemies[i]->live - damage;
+						if (c2->type == COLLIDER_PLAYER_2_SHOT || c2->type == COLLIDER_VALNUS_2_LASER || c2->type == COLLIDER_ASH_BOMB_2) {
+							App->player2->score += enemies[i]->score;
+						}
+						if (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_ASH_BOMB) {
+							App->player->score += enemies[i]->score;
+						}
+						delete enemies[i];
+						enemies[i] = nullptr;
 					}
-				}
-				break;
-			}
-			else if (c1->type == COLLIDER_BOMB) {
-				
-				if (enemies[i]->live <= 0) {
-					App->particles->AddParticle(App->particles->littleexplosion, enemies[i]->position.x, enemies[i]->position.y - 5, 0, 0);
-					//App->audio->PlayFX(audio_explosion);
-					if (c2->type == COLLIDER_PLAYER_2_SHOT || c2->type == COLLIDER_VALNUS_2_LASER || c2->type == COLLIDER_ASH_BOMB_2) {
-						App->player2->score += 10;
-					}
-					if (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_ASH_BOMB) {
-						App->player->score += 10;
-					}
-					delete enemies[i];
-					enemies[i] = nullptr;
 				}
 
-				else {
-					if (App->player->powerUps == 0) { damage = 1; }
-					if (App->player->powerUps == 1) { damage = 2; }
-					if (App->player->powerUps == 2) { damage = 3; }
-					if (App->player->powerUps == 3) { damage = 4; }
-					App->particles->AddParticle(App->particles->damage_bomb, enemies[i]->position.x + 6, enemies[i]->position.y + 3, 0, -1);
-					if (c2->type == COLLIDER_VALNUS_LASER) {
-						enemies[i]->live = enemies[i]->live - (damage / 10);
+
+				else if(enemies[i]->enemy == 1) {
+					if (enemies[i]->live > 0) {
+						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
+							enemies[i]->live = enemies[i]->live - (damage / 10);
+						}
+						else {
+							enemies[i]->live = enemies[i]->live - damage;
+						}
 					}
 					else {
-						enemies[i]->live = enemies[i]->live - damage;
+						if (c2->type == COLLIDER_PLAYER_2_SHOT || c2->type == COLLIDER_VALNUS_2_LASER || c2->type == COLLIDER_ASH_BOMB_2) {
+							App->player2->score += enemies[i]->score;
+						}
+						if (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_ASH_BOMB) {
+							App->player->score += enemies[i]->score;
+						}
+						delete enemies[i];
+						enemies[i] = nullptr;
 					}
 				}
-				break;
-			}
-
-			else if (c1->type == COLLIDER_TOWER) {
-
-				if (enemies[i]->live <= 0) {
-					App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y - 5, 0, 0);
-					//App->audio->PlayFX(audio_explosion);
-					if (c2->type == COLLIDER_PLAYER_2_SHOT || c2->type == COLLIDER_VALNUS_2_LASER || c2->type == COLLIDER_ASH_BOMB_2) {
-						App->player2->score += 2000;
-					}
-					if (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_ASH_BOMB) {
-						App->player->score += 2000;
-					}
-					delete enemies[i];
-					enemies[i] = nullptr;
-				}
-
-				else {
-					if (App->player->powerUps == 0) { damage = 1; }
-					if (App->player->powerUps == 1) { damage = 1.5; }
-					if (App->player->powerUps == 2) { damage = 2; }
-					if (App->player->powerUps == 3) { damage = 3; }
-					App->particles->AddParticle(App->particles->damage_tower, enemies[i]->position.x, enemies[i]->position.y, 0, -1);
-					if (c2->type == COLLIDER_VALNUS_LASER) {
-						enemies[i]->live = enemies[i]->live - (damage / 10);
+				else if (enemies[i]->enemy == 2) {
+					if (enemies[i]->live > 0) {
+						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
+							enemies[i]->live = enemies[i]->live - (damage / 10);
+						}
+						else {
+							enemies[i]->live = enemies[i]->live - damage;
+						}
 					}
 					else {
-						enemies[i]->live = enemies[i]->live - damage;
+						if (c2->type == COLLIDER_PLAYER_2_SHOT || c2->type == COLLIDER_VALNUS_2_LASER || c2->type == COLLIDER_ASH_BOMB_2) {
+							App->player2->score += enemies[i]->score;
+						}
+						if (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_ASH_BOMB) {
+							App->player->score += enemies[i]->score;
+						}
+						delete enemies[i];
+						enemies[i] = nullptr;
 					}
 				}
-				break;
-			}
-			else if (c1->type == COLLIDER_SURFINGTURRET) {
-
-				if (enemies[i]->live <= 0) {
-					App->particles->AddParticle(App->particles->littleexplosion, enemies[i]->position.x, enemies[i]->position.y, 0, 0);
-					//App->audio->PlayFX(audio_explosion);
-					if (c2->type == COLLIDER_PLAYER_2_SHOT || c2->type == COLLIDER_VALNUS_2_LASER || c2->type == COLLIDER_ASH_BOMB_2) {
-						App->player2->score += 500;
-					}
-					if (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_ASH_BOMB) {
-						App->player->score += 500;
-					}
-					delete enemies[i];
-					enemies[i] = nullptr;
-				}
-
-				else {
-					if (App->player->powerUps == 0) { damage = 1; }
-					if (App->player->powerUps == 1) { damage = 2; }
-					if (App->player->powerUps == 2) { damage = 3; }
-					if (App->player->powerUps == 3) { damage = 4; }
-					App->particles->AddParticle(App->particles->damage_turret, enemies[i]->position.x + 7, enemies[i]->position.y - 3, 0, -1);
-					if (c2->type == COLLIDER_VALNUS_LASER) {
-						enemies[i]->live = enemies[i]->live - (damage / 10);
+				else if (enemies[i]->enemy == 3) {
+					if (enemies[i]->live > 0) {
+						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
+							enemies[i]->live = enemies[i]->live - (damage / 10);
+						}
+						else {
+							enemies[i]->live = enemies[i]->live - damage;
+						}
 					}
 					else {
-						enemies[i]->live = enemies[i]->live - damage;
+						if (c2->type == COLLIDER_PLAYER_2_SHOT || c2->type == COLLIDER_VALNUS_2_LASER || c2->type == COLLIDER_ASH_BOMB_2) {
+							App->player2->score += enemies[i]->score;
+						}
+						if (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_ASH_BOMB) {
+							App->player->score += enemies[i]->score;
+						}
+						delete enemies[i];
+						enemies[i] = nullptr;
 					}
 				}
-				break;
-			}
-
-			if (enemies[i]->enemy == 1) {
-				enemies[i]->live--;
-				App->particles->AddParticle(App->particles->damage_turret, enemies[i]->position.x + 7, enemies[i]->position.y - 3, 0, -1);
-			}
-
-
-			else {
-				
-					if (c2->type == COLLIDER_PLAYER_2_SHOT || c2->type == COLLIDER_VALNUS_2_LASER || c2->type == COLLIDER_ASH_BOMB_2) {
-						App->player2->score += 200;
+				else if (enemies[i]->enemy == 4) {
+					if (enemies[i]->live > 0) {
+						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
+							enemies[i]->live = enemies[i]->live - (damage / 10);
+						}
+						else {
+							enemies[i]->live = enemies[i]->live - damage;
+						}
 					}
-					if (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_ASH_BOMB) {
-						App->player->score += 200;
+					else {
+						if (c2->type == COLLIDER_PLAYER_2_SHOT || c2->type == COLLIDER_VALNUS_2_LASER || c2->type == COLLIDER_ASH_BOMB_2) {
+							App->player2->score += enemies[i]->score;
+						}
+						if (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_ASH_BOMB) {
+							App->player->score += enemies[i]->score;
+						}
+						delete enemies[i];
+						enemies[i] = nullptr;
 					}
-				
-			
-
-
-				App->particles->AddParticle(App->particles->littleexplosion, enemies[i]->position.x, enemies[i]->position.y - 5, 0, 0);
-				//App->audio->PlayFX(audio_explosion);
-
-				delete enemies[i];
-				enemies[i] = nullptr;
-				break;
+				}
+				else if (enemies[i]->enemy == 5) {
+					if (enemies[i]->live > 0) {
+						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
+							enemies[i]->live = enemies[i]->live - (damage / 10);
+						}
+						else {
+							enemies[i]->live = enemies[i]->live - damage;
+						}
+					}
+					else {
+						if (c2->type == COLLIDER_PLAYER_2_SHOT || c2->type == COLLIDER_VALNUS_2_LASER || c2->type == COLLIDER_ASH_BOMB_2) {
+							App->player2->score += enemies[i]->score;
+						}
+						if (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_ASH_BOMB) {
+							App->player->score += enemies[i]->score;
+						}
+						delete enemies[i];
+						enemies[i] = nullptr;
+					}
+				}
+				else if (enemies[i]->enemy == 6) {
+					if (enemies[i]->live > 0) {
+						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
+							enemies[i]->live = enemies[i]->live - (damage / 10);
+						}
+						else {
+							enemies[i]->live = enemies[i]->live - damage;
+						}
+					}
+					else {
+						if (c2->type == COLLIDER_PLAYER_2_SHOT || c2->type == COLLIDER_VALNUS_2_LASER || c2->type == COLLIDER_ASH_BOMB_2) {
+							App->player2->score += enemies[i]->score;
+						}
+						if (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_ASH_BOMB) {
+							App->player->score += enemies[i]->score;
+						}
+						delete enemies[i];
+						enemies[i] = nullptr;
+					}
+				}
+				else if (enemies[i]->enemy == 7) {
+					if (enemies[i]->live > 0) {
+						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
+							enemies[i]->live = enemies[i]->live - (damage / 10);
+						}
+						else {
+							enemies[i]->live = enemies[i]->live - damage;
+						}
+					}
+					else {
+						if (c2->type == COLLIDER_PLAYER_2_SHOT || c2->type == COLLIDER_VALNUS_2_LASER || c2->type == COLLIDER_ASH_BOMB_2) {
+							App->player2->score += enemies[i]->score;
+						}
+						if (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_ASH_BOMB) {
+							App->player->score += enemies[i]->score;
+						}
+						delete enemies[i];
+						enemies[i] = nullptr;
+					}
+				}
+				else if (enemies[i]->enemy == 8) {
+					if (enemies[i]->live > 0) {
+						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
+							enemies[i]->live = enemies[i]->live - (damage / 10);
+						}
+						else {
+							enemies[i]->live = enemies[i]->live - damage;
+						}
+					}
+					else {
+						if (c2->type == COLLIDER_PLAYER_2_SHOT || c2->type == COLLIDER_VALNUS_2_LASER || c2->type == COLLIDER_ASH_BOMB_2) {
+							App->player2->score += enemies[i]->score;
+						}
+						if (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_ASH_BOMB) {
+							App->player->score += enemies[i]->score;
+						}
+						delete enemies[i];
+						enemies[i] = nullptr;
+					}
+				}
 			}
 		}
 	}

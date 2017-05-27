@@ -34,9 +34,6 @@ Enemy_ShipBigMiddleTurret::Enemy_ShipBigMiddleTurret(int x, int y) : Enemy(x, y)
 
 	collider = App->collision->AddCollider({ 0, 0, 141,51 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
-	enemy = 1;
-	live = 10;
-
 	start_time = SDL_GetTicks();
 	originalpos.x = x;
 	originalpos.y = y;

@@ -33,6 +33,7 @@ public:
 	float vmodule;
 	float live;
 	uint enemy;
+	uint score;
 
 public:
 	Enemy(int x, int y);
