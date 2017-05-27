@@ -151,6 +151,9 @@
     <ClCompile Include="Enemy_ShipBackTurret.cpp">
       <Filter>Modules\Enemies\Boss\Ship</Filter>
     </ClCompile>
+    <ClCompile Include="Enemy_UpSurfingTurret.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -314,6 +317,9 @@
     </ClInclude>
     <ClInclude Include="Enemy_ShipBackTurret.h">
       <Filter>Modules\Enemies\Boss\Ship</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_UpSurfingTurret.h">
+      <Filter>Modules\Enemies</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
