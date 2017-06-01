@@ -23,6 +23,8 @@ protected:
 	Animation* animation9 = nullptr;
 	Animation* animation10 = nullptr;
 	Animation* animation11 = nullptr;
+	Animation* animation12 = nullptr;
+	Animation* animation13 = nullptr;
 	Collider* collider = nullptr;
 
 public:
@@ -35,6 +37,7 @@ public:
 	float hitpoints;
 	uint enemy;
 	uint score;
+
 
 public:
 	Enemy(int x, int y);

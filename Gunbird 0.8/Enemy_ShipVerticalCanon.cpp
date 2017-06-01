@@ -74,9 +74,11 @@ void Enemy_ShipVerticalCanon::Shoot() {
 		if (timer == 200) {
 			collider = App->collision->AddCollider({ 0, 0,18,29 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 			if (App->player->position.x > position.x) {
+				shootopen_right.current_frame = 0;
 				animation = &shootopen_right;
 			}
 			else {
+				shootopen_left.current_frame = 0;
 				animation = &shootopen_left;
 			}
 			timer++;
@@ -98,9 +100,11 @@ void Enemy_ShipVerticalCanon::Shoot() {
 		}
 		if (timer == 300) {
 			if (animation == &shootopen_left) {
+				shootclose_left.current_frame = 0;
 				animation = &shootclose_left;
 			}
 			if (animation == &shootopen_right){
+				shootclose_left.current_frame = 0;
 				animation = &shootclose_right;
 			}
 			

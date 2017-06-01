@@ -37,6 +37,7 @@
 #include "Enemy_ShipVerticalCanonLittle.h"
 #include "Enemy_ShipBigMiddleTurret.h"
 #include "Enemy_ShipBackTurret.h"
+#include "Enemy_BirdBody.h"
 #include "ExtraBomb.h"
 #include "PowerUp.h"
 
@@ -307,6 +308,10 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 
 		case ENEMY_TYPES::SHIPBACKTURRET:
 			enemies[i] = new  Enemy_ShipBackTurret(info.x, info.y);
+			break;
+
+		case ENEMY_TYPES::BIRDBODY:
+			enemies[i] = new  Enemy_BirdBody(info.x, info.y);
 			break;
 
 		case ENEMY_TYPES::EXTRABOMB:
