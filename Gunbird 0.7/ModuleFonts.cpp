@@ -100,7 +100,7 @@ void ModuleFonts::BlitText(int x, int y, int font_id, const char* text) const
 	rect.w = font->char_w;
 	rect.h = font->char_h;
 
-	int inTable;
+	int inTable=0;
 	for (uint i = 0; i < len; ++i)
 	{
 		for (int j = 0; j < strlen(font->table); j++)
