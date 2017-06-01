@@ -9,6 +9,7 @@
 #include "ModuleCharacterSelect.h"
 #include "ModuleSea.h"
 #include "ModulePlayer.h"
+#include "ModuleBoss.h"
 #include "ModulePlayer2.h"
 #include "ModuleParticles.h"
 #include "ModuleFonts.h"

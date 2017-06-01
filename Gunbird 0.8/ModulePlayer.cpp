@@ -8,6 +8,7 @@
 #include "ModuleCollision.h"
 #include "ModuleCharacterSelect.h"
 #include "ModuleSea.h"
+#include "ModuleBoss.h"
 #include "ModulePlayer.h"
 #include "ModulePlayer2.h"
 #include "ModuleParticles.h"

@@ -5,6 +5,7 @@
 #include "ModuleTextures.h"
 #include "ModuleSea.h"
 #include "ModuleWelcome.h"
+#include "ModuleBoss.h"
 #include "ModuleCongrats.h"
 #include "ModuleCharacterSelect.h"
 #include "ModulePlayer.h"
@@ -29,6 +30,7 @@ Application::Application()
 	modules[i++] = welcome = new ModuleWelcome();
 	modules[i++] = characterselect = new ModuleCharacterSelect();
 	modules[i++] = sea = new ModuleSea();
+	modules[i++] = boss = new ModuleBoss();
 	modules[i++] = enemies = new ModuleEnemies();
 	modules[i++] = particles = new ModuleParticles();
 	modules[i++] = player = new ModulePlayer();
@@ -56,11 +58,12 @@ bool Application::Init()
 	ui->Disable();
 	characterselect->Disable();
 	congrats->Disable();
+	boss->Disable();
 	player->Disable();
 	player2->Disable();
 	collision->Disable();
 	enemies->Disable();
-	//particles->Disable(); //diferente en handouts
+	particles->Disable(); //diferente en handouts
 
 	for (int i = 0; i < NUM_MODULES && ret == true; ++i)
 		ret = modules[i]->Init();

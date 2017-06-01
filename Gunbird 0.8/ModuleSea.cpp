@@ -6,6 +6,7 @@
 #include "ModulePlayer2.h"
 #include "ModuleRender.h"
 #include "ModuleSea.h"
+#include "ModuleBoss.h"
 #include "ModuleAudio.h"
 #include "ModuleParticles.h"
 #include "ModuleCollision.h"
@@ -180,6 +181,13 @@ update_status ModuleSea::Update()
 		polla = App->render->camera.y;
 		change = false;
 		App->fade->FadeToBlack(this, App->congrats, 1);
+		change = true;
+	}
+
+	if (App->input->keyboard[SDL_SCANCODE_F10] == KEY_STATE::KEY_DOWN) {
+		polla = App->render->camera.y;
+		change = false;
+		App->fade->FadeToBlack(this, App->boss, 0);
 		change = true;
 	}
 
