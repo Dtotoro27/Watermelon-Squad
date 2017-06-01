@@ -237,14 +237,17 @@ update_status ModuleUI::Update() {
 			}
 			delay3++;
 			if (delay3 < 1600) {
-				if (App->input->keyboard[SDL_SCANCODE_1] == KEY_STATE::KEY_DOWN) {
-					App->player->lives = 2;
-					App->player->score += 1;
-					delay3 = 0;
-					timer = 9;
-					App->welcome->coins--;
-					App->sea->pause = false;
+				if (App->welcome->coins > 0) {
+					if (App->input->keyboard[SDL_SCANCODE_1] == KEY_STATE::KEY_DOWN) {
+						App->player->lives = 2;
+						App->player->score += 1;
+						delay3 = 0;
+						timer = 9;
+						App->welcome->coins--;
+						App->sea->pause = false;
+					}
 				}
+			
 			}
 
 		}
