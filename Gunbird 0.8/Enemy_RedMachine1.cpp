@@ -22,7 +22,7 @@ Enemy_RedMachine1::Enemy_RedMachine1(int x, int y) : Enemy(x, y)
 	movement.PushBack({ 0,-0.775f }, 150, &machine);
 	movement.PushBack({ -0.9f,-0.775f }, 10000, &machine);
 
-	collider = App->collision->AddCollider({ 0, 0, 63, 63 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
+	collider = App->collision->AddCollider({ 0, 0, 26, 36 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
 	originalpos.x = x;
 	originalpos.y = y;

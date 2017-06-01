@@ -13,15 +13,35 @@
 
 Enemy_BlueRobot2::Enemy_BlueRobot2(int x, int y) : Enemy(x, y)
 {
-	robot.PushBack({ 275,82,63,63 });
-	robot.PushBack({ 343,81,74,71 });
-	robot.PushBack({ 275,82,63,63 });
-	robot.PushBack({ 421,82,70,66 });
+	robot.PushBack({ 269,82,74,69 });
+	robot.PushBack({ 419,82,74,69 });
+	robot.PushBack({ 269,82,74,69 });
+	robot.PushBack({ 193,133,74,69 });
+	robot.PushBack({ 269,82,74,69 });
+	robot.PushBack({ 343,82,74,69 });
+	robot.speed = 0.2;
 
-	robot.speed = 0.2f;
+
+	shootopen.PushBack({ 415,191,60,29 });
+	shootopen.PushBack({ 345,191,60,29 });
+	shootopen.PushBack({ 275,191,60,29 });
+	shootopen.PushBack({ 415,157,60,29 });
+	shootopen.PushBack({ 345,157,60,29 });
+	shootopen.PushBack({ 275,157,60,29 });
+	shootopen.speed = 0.1;
+	shootopen.loop = false;
+
+	shootclose.PushBack({ 275,157,60,29 });
+	shootclose.PushBack({ 345,157,60,29 });
+	shootclose.PushBack({ 415,157,60,29 });
+	shootclose.PushBack({ 275,191,60,29 });
+	shootclose.PushBack({ 345,191,60,29 });
+	shootclose.PushBack({ 415,191,60,29 });
+	shootclose.speed = 0.1;
+	shootclose.loop = false;
+
+
 	animation = &robot;
-
-
 
 	movement.PushBack({ -1.5f,-1 }, 55, &robot);
 	movement.PushBack({ -0.5f,-1 }, 65, &robot);
@@ -39,6 +59,8 @@ Enemy_BlueRobot2::Enemy_BlueRobot2(int x, int y) : Enemy(x, y)
 	hitpoints = 92;
 	score = 5400;
 }
+
+
 
 void Enemy_BlueRobot2::Move()
 {
