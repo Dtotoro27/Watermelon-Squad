@@ -720,10 +720,11 @@ update_status ModulePlayer::Update()
 			}
 			if (delay2 == 300) {
 				if (App->characterselect->characterselected1 == 1) {
-					playerhitbox = App->collision->AddCollider({ position.x, position.y, 19, 32 }, COLLIDER_PLAYER, this);
+					playerhitbox = App->collision->AddCollider({ position.x + 1, position.y, 13, 32 }, COLLIDER_PLAYER, this);
+
 				}
 				else {
-					playerhitbox = App->collision->AddCollider({ position.x, position.y, 31, 32 }, COLLIDER_PLAYER, this);
+					playerhitbox = App->collision->AddCollider({ position.x + 10, position.y, 19, 32 }, COLLIDER_PLAYER, this);
 				}
 				delay2 = 0;
 				dead = false;
