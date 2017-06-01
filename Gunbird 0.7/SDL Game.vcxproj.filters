@@ -64,105 +64,104 @@
     <ClCompile Include="Enemy.cpp">
       <Filter>Modules\Enemies</Filter>
     </ClCompile>
-    <ClCompile Include="Enemy_Balloon.cpp">
-      <Filter>Modules\Enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_BigShipMove.cpp">
-      <Filter>Modules\Enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_BigShipStatic.cpp">
-      <Filter>Modules\Enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_BlueRobot.cpp">
-      <Filter>Modules\Enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_BlueRobot2.cpp">
-      <Filter>Modules\Enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_BlueTurret.cpp">
-      <Filter>Modules\Enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_Bomb.cpp">
-      <Filter>Modules\Enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_Bomb2.cpp">
-      <Filter>Modules\Enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_FlyingMachine.cpp">
-      <Filter>Modules\Enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_FlyingMachine2.cpp">
-      <Filter>Modules\Enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_FlyingMachine4.cpp">
-      <Filter>Modules\Enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_RedMachine1.cpp">
-      <Filter>Modules\Enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_RedMachine2.cpp">
-      <Filter>Modules\Enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_StaticTurret.cpp">
-      <Filter>Modules\Enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_SurfingTurret.cpp">
-      <Filter>Modules\Enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_SurfingTurret2.cpp">
-      <Filter>Modules\Enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_Tower.cpp">
-      <Filter>Modules\Enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_VerticalBomb.cpp">
-      <Filter>Modules\Enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_VerticalSurfingTurret.cpp">
-      <Filter>Modules\Enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_ShipBigMiddleTurret.cpp">
-      <Filter>Modules\Enemies\Boss\Ship</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_ShipHorizontalCanon.cpp">
-      <Filter>Modules\Enemies\Boss\Ship</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_ShipTurret.cpp">
-      <Filter>Modules\Enemies\Boss\Ship</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_ShipVerticalCanon.cpp">
-      <Filter>Modules\Enemies\Boss\Ship</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_ShipVerticalCanonLittle.cpp">
-      <Filter>Modules\Enemies\Boss\Ship</Filter>
-    </ClCompile>
     <ClCompile Include="ExtraBomb.cpp">
-      <Filter>Modules\Enemies\PowerUps</Filter>
+      <Filter>Modules\Enemies\Power Ups</Filter>
     </ClCompile>
     <ClCompile Include="PowerUp.cpp">
-      <Filter>Modules\Enemies\PowerUps</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_ShipVerticalCanon3.cpp">
-      <Filter>Modules\Enemies\Boss\Ship</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy_ShipVerticalCanon2.cpp">
-      <Filter>Modules\Enemies\Boss\Ship</Filter>
+      <Filter>Modules\Enemies\Power Ups</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_ShipBackTurret.cpp">
-      <Filter>Modules\Enemies\Boss\Ship</Filter>
+      <Filter>Modules\Enemies\Boss</Filter>
     </ClCompile>
-<<<<<<< HEAD
+    <ClCompile Include="Enemy_ShipBigMiddleTurret.cpp">
+      <Filter>Modules\Enemies\Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_ShipHorizontalCanon.cpp">
+      <Filter>Modules\Enemies\Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_ShipTurret.cpp">
+      <Filter>Modules\Enemies\Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_ShipVerticalCanon.cpp">
+      <Filter>Modules\Enemies\Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_ShipVerticalCanon2.cpp">
+      <Filter>Modules\Enemies\Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_ShipVerticalCanon3.cpp">
+      <Filter>Modules\Enemies\Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_ShipVerticalCanonLittle.cpp">
+      <Filter>Modules\Enemies\Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Balloon.cpp">
+      <Filter>Modules\Enemies\Others</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_BigShipMove.cpp">
+      <Filter>Modules\Enemies\Others</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_BigShipStatic.cpp">
+      <Filter>Modules\Enemies\Others</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_BlueRobot.cpp">
+      <Filter>Modules\Enemies\Others</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_BlueRobot2.cpp">
+      <Filter>Modules\Enemies\Others</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_BlueTurret.cpp">
+      <Filter>Modules\Enemies\Others</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Bomb.cpp">
+      <Filter>Modules\Enemies\Others</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Bomb2.cpp">
+      <Filter>Modules\Enemies\Others</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_FlyingMachine.cpp">
+      <Filter>Modules\Enemies\Others</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_FlyingMachine2.cpp">
+      <Filter>Modules\Enemies\Others</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_FlyingMachine4.cpp">
+      <Filter>Modules\Enemies\Others</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_RedMachine1.cpp">
+      <Filter>Modules\Enemies\Others</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_RedMachine2.cpp">
+      <Filter>Modules\Enemies\Others</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_StaticTurret.cpp">
+      <Filter>Modules\Enemies\Others</Filter>
+    </ClCompile>
     <ClCompile Include="Enemy_StaticTurret2.cpp">
-      <Filter>Modules\Enemies</Filter>
+      <Filter>Modules\Enemies\Others</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_StaticTurret3.cpp">
-      <Filter>Modules\Enemies</Filter>
+      <Filter>Modules\Enemies\Others</Filter>
     </ClCompile>
     <ClCompile Include="Enemy_StaticTurret4.cpp">
-=======
+      <Filter>Modules\Enemies\Others</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_SurfingTurret.cpp">
+      <Filter>Modules\Enemies\Others</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_SurfingTurret2.cpp">
+      <Filter>Modules\Enemies\Others</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Tower.cpp">
+      <Filter>Modules\Enemies\Others</Filter>
+    </ClCompile>
     <ClCompile Include="Enemy_UpSurfingTurret.cpp">
->>>>>>> origin/master
-      <Filter>Modules\Enemies</Filter>
+      <Filter>Modules\Enemies\Others</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_VerticalBomb.cpp">
+      <Filter>Modules\Enemies\Others</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_VerticalSurfingTurret.cpp">
+      <Filter>Modules\Enemies\Others</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -238,134 +237,130 @@
     <ClInclude Include="ModuleWindow.h">
       <Filter>Modules</Filter>
     </ClInclude>
-    <ClInclude Include="PowerUp.h">
-      <Filter>Modules</Filter>
-    </ClInclude>
     <ClInclude Include="Enemy.h">
       <Filter>Modules\Enemies</Filter>
     </ClInclude>
-    <ClInclude Include="Enemy_Balloon.h">
-      <Filter>Modules\Enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_BigShipMove.h">
-      <Filter>Modules\Enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_BigShipStatic.h">
-      <Filter>Modules\Enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_BlueRobot.h">
-      <Filter>Modules\Enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_BlueRobot2.h">
-      <Filter>Modules\Enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_BlueTurret.h">
-      <Filter>Modules\Enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_Bomb.h">
-      <Filter>Modules\Enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_Bomb2.h">
-      <Filter>Modules\Enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_FlyingMachine.h">
-      <Filter>Modules\Enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_FlyingMachine2.h">
-      <Filter>Modules\Enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_FlyingMachine4.h">
-      <Filter>Modules\Enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_RedMachine1.h">
-      <Filter>Modules\Enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_RedMachine2.h">
-      <Filter>Modules\Enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_StaticTurret.h">
-      <Filter>Modules\Enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_SurfingTurret.h">
-      <Filter>Modules\Enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_SurfingTurret2.h">
-      <Filter>Modules\Enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_Tower.h">
-      <Filter>Modules\Enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_VerticalBomb.h">
-      <Filter>Modules\Enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_VerticalSurfingTurret.h">
-      <Filter>Modules\Enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_ShipBigMiddleTurret.h">
-      <Filter>Modules\Enemies\Boss\Ship</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_ShipHorizontalCanon.h">
-      <Filter>Modules\Enemies\Boss\Ship</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_ShipTurret.h">
-      <Filter>Modules\Enemies\Boss\Ship</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_ShipVerticalCanon.h">
-      <Filter>Modules\Enemies\Boss\Ship</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_ShipVerticalCanonLittle.h">
-      <Filter>Modules\Enemies\Boss\Ship</Filter>
+    <ClInclude Include="PowerUp.h">
+      <Filter>Modules\Enemies\Power Ups</Filter>
     </ClInclude>
     <ClInclude Include="ExtraBomb.h">
-      <Filter>Modules\Enemies\PowerUps</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_ShipVerticalCanon2.h">
-      <Filter>Modules\Enemies\Boss\Ship</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy_ShipVerticalCanon3.h">
-      <Filter>Modules\Enemies\Boss\Ship</Filter>
+      <Filter>Modules\Enemies\Power Ups</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_ShipBackTurret.h">
-      <Filter>Modules\Enemies\Boss\Ship</Filter>
+      <Filter>Modules\Enemies\Boss</Filter>
     </ClInclude>
-<<<<<<< HEAD
+    <ClInclude Include="Enemy_ShipBigMiddleTurret.h">
+      <Filter>Modules\Enemies\Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_ShipHorizontalCanon.h">
+      <Filter>Modules\Enemies\Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_ShipTurret.h">
+      <Filter>Modules\Enemies\Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_ShipVerticalCanon.h">
+      <Filter>Modules\Enemies\Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_ShipVerticalCanon2.h">
+      <Filter>Modules\Enemies\Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_ShipVerticalCanon3.h">
+      <Filter>Modules\Enemies\Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_ShipVerticalCanonLittle.h">
+      <Filter>Modules\Enemies\Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Balloon.h">
+      <Filter>Modules\Enemies\Others</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_BigShipMove.h">
+      <Filter>Modules\Enemies\Others</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_BigShipStatic.h">
+      <Filter>Modules\Enemies\Others</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_BlueRobot.h">
+      <Filter>Modules\Enemies\Others</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_BlueRobot2.h">
+      <Filter>Modules\Enemies\Others</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_BlueTurret.h">
+      <Filter>Modules\Enemies\Others</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Bomb.h">
+      <Filter>Modules\Enemies\Others</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Bomb2.h">
+      <Filter>Modules\Enemies\Others</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_FlyingMachine.h">
+      <Filter>Modules\Enemies\Others</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_FlyingMachine2.h">
+      <Filter>Modules\Enemies\Others</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_FlyingMachine4.h">
+      <Filter>Modules\Enemies\Others</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_RedMachine1.h">
+      <Filter>Modules\Enemies\Others</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_RedMachine2.h">
+      <Filter>Modules\Enemies\Others</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_StaticTurret.h">
+      <Filter>Modules\Enemies\Others</Filter>
+    </ClInclude>
     <ClInclude Include="Enemy_StaticTurret2.h">
-      <Filter>Modules\Enemies</Filter>
+      <Filter>Modules\Enemies\Others</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_StaticTurret3.h">
-      <Filter>Modules\Enemies</Filter>
+      <Filter>Modules\Enemies\Others</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_StaticTurret4.h">
-=======
+      <Filter>Modules\Enemies\Others</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_SurfingTurret.h">
+      <Filter>Modules\Enemies\Others</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_SurfingTurret2.h">
+      <Filter>Modules\Enemies\Others</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Tower.h">
+      <Filter>Modules\Enemies\Others</Filter>
+    </ClInclude>
     <ClInclude Include="Enemy_UpSurfingTurret.h">
->>>>>>> origin/master
-      <Filter>Modules\Enemies</Filter>
+      <Filter>Modules\Enemies\Others</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_VerticalBomb.h">
+      <Filter>Modules\Enemies\Others</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_VerticalSurfingTurret.h">
+      <Filter>Modules\Enemies\Others</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Containers">
-      <UniqueIdentifier>{1a068fa9-71b6-4179-bc38-ea561ca2e6b0}</UniqueIdentifier>
+      <UniqueIdentifier>{e3bace9c-8bc7-4eaa-97cc-38c3e098f154}</UniqueIdentifier>
     </Filter>
     <Filter Include="Core">
-      <UniqueIdentifier>{0f2aaedf-bda9-4eba-807a-c54248c59151}</UniqueIdentifier>
+      <UniqueIdentifier>{622d4a1c-95bb-4e32-ab97-8724c43f00d1}</UniqueIdentifier>
     </Filter>
     <Filter Include="Modules">
-      <UniqueIdentifier>{f9596349-bf33-4c8d-bbdd-63beaf2c6741}</UniqueIdentifier>
+      <UniqueIdentifier>{c7362e3c-316c-4706-8f18-db0bdab5d930}</UniqueIdentifier>
     </Filter>
     <Filter Include="Modules\Enemies">
-      <UniqueIdentifier>{b5ebd871-9f3e-4ec1-b138-0f1df815f5d1}</UniqueIdentifier>
+      <UniqueIdentifier>{b54b46ad-4f4e-4daa-b0ac-076bb2b11ffc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\Enemies\Power Ups">
+      <UniqueIdentifier>{50c2b995-dc22-4cde-9ebc-a60cfd565133}</UniqueIdentifier>
     </Filter>
     <Filter Include="Modules\Enemies\Boss">
-      <UniqueIdentifier>{0070c73c-38f5-4f03-ae4f-4d8fdb779d62}</UniqueIdentifier>
+      <UniqueIdentifier>{3126182b-815d-44af-9108-dd716b0ec728}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Modules\Enemies\Boss\Bird">
-      <UniqueIdentifier>{726cc51e-b20c-4666-a7f3-60598724f6ce}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Modules\Enemies\Boss\Ship">
-      <UniqueIdentifier>{8d3080f8-a861-4eb9-a941-5a498cf9f248}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Modules\Enemies\PowerUps">
-      <UniqueIdentifier>{adde5dd3-5cf6-4708-be30-c62eacb48019}</UniqueIdentifier>
+    <Filter Include="Modules\Enemies\Others">
+      <UniqueIdentifier>{453c07f1-cb20-4f85-8085-38ed59d694e1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
