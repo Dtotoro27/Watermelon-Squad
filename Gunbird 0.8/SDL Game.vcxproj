@@ -26,7 +26,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -87,6 +87,7 @@
     <ClInclude Include="Enemy_Bomb.h" />
     <ClInclude Include="Enemy_FlyingMachine2.h" />
     <ClInclude Include="Enemy_FlyingMachine4.h" />
+    <ClInclude Include="Enemy_LeftBirdWing.h" />
     <ClInclude Include="Enemy_ShipBackTurret.h" />
     <ClInclude Include="Enemy_ShipBigMiddleTurret.h" />
     <ClInclude Include="Enemy_ShipHorizontalCanon.h" />
@@ -132,6 +133,7 @@
     <ClInclude Include="Enemy_RedMachine2.h" />
     <ClInclude Include="Enemy_ShipVerticalCanon2.h" />
     <ClInclude Include="Enemy_ShipVerticalCanon3.h" />
+    <ClInclude Include="Enemy_RightBirdWing.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
@@ -148,6 +150,7 @@
     <ClCompile Include="Enemy_Bomb.cpp" />
     <ClCompile Include="Enemy_FlyingMachine2.cpp" />
     <ClCompile Include="Enemy_FlyingMachine4.cpp" />
+    <ClCompile Include="Enemy_LeftBirdWing.cpp" />
     <ClCompile Include="Enemy_ShipBackTurret.cpp" />
     <ClCompile Include="Enemy_ShipBigMiddleTurret.cpp" />
     <ClCompile Include="Enemy_ShipHorizontalCanon.cpp" />
@@ -190,6 +193,7 @@
     <ClCompile Include="Enemy_RedMachine2.cpp" />
     <ClCompile Include="Enemy_ShipVerticalCanon3.cpp" />
     <ClCompile Include="Enemy_ShipVerticalCanon2.cpp" />
+    <ClCompile Include="Enemy_RightBirdWing.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
