@@ -4,6 +4,7 @@
 #include "ModuleRender.h"
 #include "ModuleSea.h"
 #include "ModuleUI.h"
+#include "ModuleBoss.h"
 #include "ModulePlayer.h"
 #include "ModulePlayer2.h"
 #include "ModuleCharacterSelect.h"
@@ -58,6 +59,24 @@ ModuleUI::ModuleUI(){
 	time_background.PushBack({ 105,87,15,16 });
 	time_background.speed = 0.217;
 
+	trumpanimationo.PushBack({0,0,224,320});
+	trumpanimationo.PushBack({ 224,0,224,320 });
+	trumpanimationo.PushBack({ 448,0,224,320 });
+	trumpanimationo.PushBack({ 672,0,224,320 });
+	trumpanimationo.PushBack({ 0,320,224,321 });
+	trumpanimationo.speed = 0.3f;
+	trumpanimationo.loop = false;
+
+	trumpanimationc.PushBack({ 0,320,224,320 });
+	trumpanimationc.PushBack({ 672,0,224,320 });
+	trumpanimationc.PushBack({ 448,0,224,320 });
+	trumpanimationc.PushBack({ 224,0,224,320 });
+	trumpanimationc.PushBack({ 0,0,224,320 });
+	trumpanimationc.PushBack({ 0,0,0,0 });
+	trumpanimationc.loop = false;
+	trumpanimationc.speed = 0.3f;
+
+
 }
 
 ModuleUI::~ModuleUI()
@@ -67,6 +86,7 @@ bool ModuleUI::Start(){
 	bool ret = true;
 
 	ui = App->textures->Load("assets/ui.png");
+	trump = App->textures->Load("assets/trump.png");
 	font_score = App->fonts->Load("assets/numbers.png", "0123456789", 1);
 	font_coins = App->fonts->Load("assets/numbers_score.png", "0123456789", 1);
 	font_time = App->fonts->Load("assets/numbers_time.png", "0123456789", 1);
@@ -250,6 +270,22 @@ update_status ModuleUI::Update() {
 			
 			}
 
+		}
+
+		//Trump
+		if (App->sea->bossstart == true) {
+			if (timer2 < 300) {
+				App->render->Blit(trump, 0, pause_position.y, &(trumpanimationo.GetCurrentFrame()));
+				timer2++;
+			}
+			else if (timer2 >= 300){
+				App->render->Blit(trump, 0, pause_position.y, &(trumpanimationc.GetCurrentFrame()));
+				timer2++;
+			}
+			if (timer2 == 310) {
+				App->sea->bossstart = false;
+				App->boss->spawnship = true;
+			}
 		}
 	return UPDATE_CONTINUE;
 }

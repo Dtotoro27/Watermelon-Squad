@@ -99,55 +99,5 @@ void Enemy_BirdBody::Move()
 
 void Enemy_BirdBody::Shoot() {
 	if (App->sea->pause == false) {
-		pos_x = (App->player->position.x - (ASH_WIDTH / 2)) - position.x + 8;
-		pos_y = App->player->position.y - position.y + 66;
-		module = sqrt((pos_x*pos_x) + (pos_y*pos_y));
-		v_x = 4 * (pos_x / module);
-		v_y = (4 * (pos_y / module));
-
-		
-		if (timer == 450) {
-			App->particles->AddParticle(App->particles->big_enemy_shoot, position.x + 83, position.y + 66, v_x, v_y, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->big_enemy_shoot, position.x + 150, position.y + 66, v_x, v_y, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->big_enemy_shoot_born, position.x + 8, position.y + 66, v_x, v_y, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->big_enemy_shoot_born, position.x + 80, position.y + 66, v_x, v_y, COLLIDER_ENEMY_SHOT);
-			timer++;
-
-		}
-		if (timer == 460) {
-			App->particles->AddParticle(App->particles->big_enemy_shoot, position.x + 83, position.y + 66, v_x, v_y, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->big_enemy_shoot, position.x + 150, position.y + 66, v_x, v_y, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->big_enemy_shoot_born, position.x + 8, position.y + 66, v_x, v_y, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->big_enemy_shoot_born, position.x + 80, position.y + 66, v_x, v_y, COLLIDER_ENEMY_SHOT);
-			timer++;
-		}
-
-		if (timer == 490) {
-
-
-			App->particles->AddParticle(App->particles->big_enemy_shoot, position.x + 83, position.y + 66, v_x, v_y, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->big_enemy_shoot, position.x + 150, position.y + 66, v_x, v_y, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->big_enemy_shoot_born, position.x + 8, position.y + 66, v_x, v_y, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->big_enemy_shoot_born, position.x + 80, position.y + 66, v_x, v_y, COLLIDER_ENEMY_SHOT);
-			timer++;
-		}
-		if (timer == 500) {
-
-
-			App->particles->AddParticle(App->particles->big_enemy_shoot, position.x + 83, position.y + 66, v_x, v_y, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->big_enemy_shoot, position.x + 150, position.y + 66, v_x, v_y, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->big_enemy_shoot_born, position.x + 8, position.y + 66, v_x, v_y, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->big_enemy_shoot_born, position.x + 80, position.y + 66, v_x, v_y, COLLIDER_ENEMY_SHOT);
-			timer++;
-		}
-
-
-		if (timer == 580) {
-			timer = 0;
-		}
-
-		else {
-			timer++;
-		}
 	}
 }

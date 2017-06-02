@@ -23,6 +23,8 @@ public:
 public:
 	//Textures
 	SDL_Texture* ui = nullptr;
+	SDL_Texture* trump = nullptr;
+
 
 	//Animations
 	Animation life_indicator_ash;
@@ -35,6 +37,12 @@ public:
 	Animation game_over;
 	Animation cont;
 	Animation time_background;
+
+	Animation trumpanimationo;
+	Animation trumpanimationc;
+
+	uint timer2 = 0;
+
 	
 	//Fonts
 	int font_score;

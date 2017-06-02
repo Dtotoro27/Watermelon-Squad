@@ -24,12 +24,6 @@ private:
 	Path movement;
 	Uint32 start_time = 0;
 	Uint32 now = 0;
-	float pos_x;
-	float pos_y;
-	float module;
-	float v_x;
-	float v_y;
-	uint timer;
 
 public:
 

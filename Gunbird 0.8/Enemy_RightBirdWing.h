@@ -24,6 +24,12 @@ private:
 	Uint32 now = 0;
 	uint timer;
 
+	float pos_x;
+	float pos_y;
+	float module;
+	float v_x;
+	float v_y;
+
 public:
 
 	Enemy_RightBirdWing(int x, int y);
