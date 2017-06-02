@@ -24,6 +24,7 @@ bool ModuleAudio::Init()
 	SDL_InitSubSystem(SDL_INIT_AUDIO);
 	Mix_Init(MIX_INIT_OGG);
 	Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048);
+	Mix_AllocateChannels(MAX_FX);
 
 	return ret;
 }
@@ -42,20 +43,15 @@ bool ModuleAudio::CleanUp()
 bool ModuleAudio::LoadMusic(const char* path) {
 
 	music = Mix_LoadMUS(path);
-	Mix_PlayMusic(music, 0);
+	Mix_PlayMusic(music, -1);
 
 	return true;
 }
 
 bool ModuleAudio::UnloadMusic() {
-
-	if (music != nullptr) {
-		Mix_FreeMusic(music);
-		music = nullptr;
-	}
-	if (music != nullptr) {
-		LOG(SDL_GetError());
-	}
+	Mix_FreeMusic(music);
+	music = nullptr;
+	Mix_HaltMusic();
 	return true;
 }
 

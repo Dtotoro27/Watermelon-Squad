@@ -8,7 +8,7 @@
 #pragma comment( lib, "SDL_mixer/libx86/SDL2_mixer.lib" )
 
 
-#define MAX_FX 500
+#define MAX_FX 100
 
 
 class ModuleAudio : public Module
