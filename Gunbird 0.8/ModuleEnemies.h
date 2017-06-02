@@ -39,6 +39,7 @@ enum ENEMY_TYPES
 	SHIPBACKTURRET,
 	BIRDBODY,
 	LEFTWINGBIRD,
+	RIGHTWINGBIRD,
 	EXTRABOMB,
 	POWER_UP
 };
@@ -80,6 +81,7 @@ private:
 	
 public: 
 	float damage;
+	bool bossdefeated = false;
 };
 
 #endif // __ModuleEnemies_H__

@@ -38,6 +38,8 @@
 #include "Enemy_ShipBigMiddleTurret.h"
 #include "Enemy_ShipBackTurret.h"
 #include "Enemy_BirdBody.h"
+#include "Enemy_LeftBirdWing.h"
+#include "Enemy_RightBirdWing.h"
 #include "ExtraBomb.h"
 #include "PowerUp.h"
 
@@ -314,6 +316,13 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			enemies[i] = new  Enemy_BirdBody(info.x, info.y);
 			break;
 
+		case ENEMY_TYPES::LEFTWINGBIRD:
+			enemies[i] = new  Enemy_LeftBirdWing(info.x, info.y);
+			break;
+		case ENEMY_TYPES::RIGHTWINGBIRD:
+			enemies[i] = new  Enemy_RightBirdWing(info.x, info.y);
+			break;
+
 		case ENEMY_TYPES::EXTRABOMB:
 			enemies[i] = new  ExtraBomb(info.x, info.y);
 			break;
@@ -561,6 +570,87 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 							enemies[i]->hitpoints = enemies[i]->hitpoints - damage;
 						}
 						App->particles->AddParticle(App->particles->damage_tower, enemies[i]->position.x, enemies[i]->position.y - 5, 0, 0, COLLIDER_NONE);
+					}
+					else {
+						if (c2->type == COLLIDER_PLAYER_2_SHOT || c2->type == COLLIDER_VALNUS_2_LASER || c2->type == COLLIDER_ASH_BOMB_2) {
+							App->player2->score += enemies[i]->score;
+						}
+						if (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_ASH_BOMB) {
+							App->player->score += enemies[i]->score;
+						}
+						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x - 15, enemies[i]->position.y + 10, 0, 0, COLLIDER_NONE);
+						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y, 0, 0, COLLIDER_NONE);
+						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x + 5, enemies[i]->position.y - 10, 0, 0, COLLIDER_NONE);
+						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x - 15, enemies[i]->position.y - 10, 0, 0, COLLIDER_NONE);
+						delete enemies[i];
+						enemies[i] = nullptr;
+					}
+				}
+
+//	------------------------ BOSSS -------------------------
+				//BIRD BODY
+				else if (enemies[i]->enemy == 14) {
+					if (enemies[i]->hitpoints > 0) {
+						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
+							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 10);
+						}
+						else {
+							enemies[i]->hitpoints = enemies[i]->hitpoints - damage;
+						}
+						App->particles->AddParticle(App->particles->damage_bird_body, enemies[i]->position.x, enemies[i]->position.y, 0, 0, COLLIDER_NONE);
+					}
+					else {
+						if (c2->type == COLLIDER_PLAYER_2_SHOT || c2->type == COLLIDER_VALNUS_2_LASER || c2->type == COLLIDER_ASH_BOMB_2) {
+							App->player2->score += enemies[i]->score;
+						}
+						if (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_ASH_BOMB) {
+							App->player->score += enemies[i]->score;
+						}
+						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x - 15, enemies[i]->position.y + 10, 0, 0, COLLIDER_NONE);
+						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y, 0, 0, COLLIDER_NONE);
+						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x + 5, enemies[i]->position.y - 10, 0, 0, COLLIDER_NONE);
+						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x - 15, enemies[i]->position.y - 10, 0, 0, COLLIDER_NONE);
+						delete enemies[i];
+						enemies[i] = nullptr;
+					}
+				}
+
+				//BIRD LEFT WING
+				else if (enemies[i]->enemy == 15) {
+					if (enemies[i]->hitpoints > 0) {
+						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
+							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 10);
+						}
+						else {
+							enemies[i]->hitpoints = enemies[i]->hitpoints - damage;
+						}
+						App->particles->AddParticle(App->particles->damage_bird_lwing, enemies[i]->position.x, enemies[i]->position.y, 0, 0, COLLIDER_NONE);
+					}
+					else {
+						if (c2->type == COLLIDER_PLAYER_2_SHOT || c2->type == COLLIDER_VALNUS_2_LASER || c2->type == COLLIDER_ASH_BOMB_2) {
+							App->player2->score += enemies[i]->score;
+						}
+						if (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_ASH_BOMB) {
+							App->player->score += enemies[i]->score;
+						}
+						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x - 15, enemies[i]->position.y + 10, 0, 0, COLLIDER_NONE);
+						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y, 0, 0, COLLIDER_NONE);
+						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x + 5, enemies[i]->position.y - 10, 0, 0, COLLIDER_NONE);
+						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x - 15, enemies[i]->position.y - 10, 0, 0, COLLIDER_NONE);
+						delete enemies[i];
+						enemies[i] = nullptr;
+					}
+				}
+				//BIRD RIGHT WING
+				else if (enemies[i]->enemy == 16) {
+					if (enemies[i]->hitpoints > 0) {
+						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
+							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 10);
+						}
+						else {
+							enemies[i]->hitpoints = enemies[i]->hitpoints - damage;
+						}
+						App->particles->AddParticle(App->particles->damage_bird_rwing, enemies[i]->position.x, enemies[i]->position.y, 0, 0, COLLIDER_NONE);
 					}
 					else {
 						if (c2->type == COLLIDER_PLAYER_2_SHOT || c2->type == COLLIDER_VALNUS_2_LASER || c2->type == COLLIDER_ASH_BOMB_2) {

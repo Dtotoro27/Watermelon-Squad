@@ -102,6 +102,9 @@ public:
 	Particle damage_shipverticalcanonleft;
 	Particle damage_shipverticalcanonright;
 	Particle big_ship_dead;
+	Particle damage_bird_body;
+	Particle damage_bird_lwing;
+	Particle damage_bird_rwing;
 
 	// Enemy Shoots
 	Particle enemy_shoot;

@@ -19,7 +19,7 @@ Enemy_BirdBody::Enemy_BirdBody(int x, int y) : Enemy(x, y)
 {
 
 
-	enemypos.PushBack({ 325,536,87,150 });
+	enemypos.PushBack({ 326,657,245,150 });
 
 	motor.PushBack({ 420,608,64,48 });
 	motor.PushBack({ 486,608,64,48 });
@@ -51,7 +51,7 @@ Enemy_BirdBody::Enemy_BirdBody(int x, int y) : Enemy(x, y)
 	movement.PushBack({ 0.0f,-0.5f }, 50, &enemypos);
 	movement.PushBack({ 0.0f,-1 }, 100, &enemypos);
 
-	collider = App->collision->AddCollider({ 0, 0,87,80 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
+	collider = App->collision->AddCollider({ 0, 0,37,80 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
 
 	originalpos.x = x;
@@ -70,9 +70,9 @@ void Enemy_BirdBody::Move()
 		position = originalpos + movement.GetCurrentPosition();
 
 		if (left == true) {
-			if (originalpos.x > 10 && timermove == 0) {
+			if (originalpos.x > -74 && timermove == 0) {
 				originalpos.x--;
-				if (originalpos.x == 10) {
+				if (originalpos.x == -74) {
 					timermove = 1;
 				}
 			}
@@ -90,9 +90,9 @@ void Enemy_BirdBody::Move()
 		}
 
 		else if (right == true) {
-			if (originalpos.x < 130 && timermove == 0) {
+			if (originalpos.x < 46 && timermove == 0) {
 				originalpos.x++;
-				if (originalpos.x == 130) {
+				if (originalpos.x == 46) {
 					timermove = 1;
 				}
 			}
@@ -128,16 +128,16 @@ void Enemy_BirdBody::Shoot() {
 			timer++;
 		}
 		if (timer == 450) {
-			App->particles->AddParticle(App->particles->big_enemy_shoot, position.x + 8, position.y + 66, v_x, v_y, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->big_enemy_shoot, position.x + 80, position.y + 66, v_x, v_y, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->big_enemy_shoot, position.x + 83, position.y + 66, v_x, v_y, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->big_enemy_shoot, position.x + 150, position.y + 66, v_x, v_y, COLLIDER_ENEMY_SHOT);
 			App->particles->AddParticle(App->particles->big_enemy_shoot_born, position.x + 8, position.y + 66, v_x, v_y, COLLIDER_ENEMY_SHOT);
 			App->particles->AddParticle(App->particles->big_enemy_shoot_born, position.x + 80, position.y + 66, v_x, v_y, COLLIDER_ENEMY_SHOT);
 			timer++;
 
 		}
 		if (timer == 460) {
-			App->particles->AddParticle(App->particles->big_enemy_shoot, position.x + 8, position.y + 66, v_x, v_y, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->big_enemy_shoot, position.x + 80, position.y + 66, v_x, v_y, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->big_enemy_shoot, position.x + 83, position.y + 66, v_x, v_y, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->big_enemy_shoot, position.x + 150, position.y + 66, v_x, v_y, COLLIDER_ENEMY_SHOT);
 			App->particles->AddParticle(App->particles->big_enemy_shoot_born, position.x + 8, position.y + 66, v_x, v_y, COLLIDER_ENEMY_SHOT);
 			App->particles->AddParticle(App->particles->big_enemy_shoot_born, position.x + 80, position.y + 66, v_x, v_y, COLLIDER_ENEMY_SHOT);
 			timer++;
@@ -146,8 +146,8 @@ void Enemy_BirdBody::Shoot() {
 		if (timer == 490) {
 
 
-			App->particles->AddParticle(App->particles->big_enemy_shoot, position.x + 8, position.y + 66, v_x, v_y, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->big_enemy_shoot, position.x + 80, position.y + 66, v_x, v_y, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->big_enemy_shoot, position.x + 83, position.y + 66, v_x, v_y, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->big_enemy_shoot, position.x + 150, position.y + 66, v_x, v_y, COLLIDER_ENEMY_SHOT);
 			App->particles->AddParticle(App->particles->big_enemy_shoot_born, position.x + 8, position.y + 66, v_x, v_y, COLLIDER_ENEMY_SHOT);
 			App->particles->AddParticle(App->particles->big_enemy_shoot_born, position.x + 80, position.y + 66, v_x, v_y, COLLIDER_ENEMY_SHOT);
 			timer++;
@@ -155,8 +155,8 @@ void Enemy_BirdBody::Shoot() {
 		if (timer == 500) {
 
 
-			App->particles->AddParticle(App->particles->big_enemy_shoot, position.x + 8, position.y + 66, v_x, v_y, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->big_enemy_shoot, position.x + 80, position.y + 66, v_x, v_y, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->big_enemy_shoot, position.x + 83, position.y + 66, v_x, v_y, COLLIDER_ENEMY_SHOT);
+			App->particles->AddParticle(App->particles->big_enemy_shoot, position.x + 150, position.y + 66, v_x, v_y, COLLIDER_ENEMY_SHOT);
 			App->particles->AddParticle(App->particles->big_enemy_shoot_born, position.x + 8, position.y + 66, v_x, v_y, COLLIDER_ENEMY_SHOT);
 			App->particles->AddParticle(App->particles->big_enemy_shoot_born, position.x + 80, position.y + 66, v_x, v_y, COLLIDER_ENEMY_SHOT);
 			timer++;

@@ -43,6 +43,13 @@ ModuleParticles::ModuleParticles()
 
 	damage_shipturret.anim.PushBack({1326,108,31,29});
 
+	damage_bird_body.anim.PushBack({1386,5,86,157});
+
+	damage_bird_lwing.anim.PushBack({ 1486,8,112,75 });
+
+	damage_bird_rwing.anim.PushBack({ 1494,92,112,75 });
+
+
 	big_ship_dead.anim.PushBack({929, 152,62,105 });
 	big_ship_dead.anim.PushBack({ 998, 152,62,105 });
 	big_ship_dead.anim.speed = 0.3f;
