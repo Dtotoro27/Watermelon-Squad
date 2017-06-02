@@ -613,7 +613,36 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 
 //	------------------------ BOSSS -------------------------
 		// ----------SHIP------------
-				//BIG MIDDLE TOWER
+				
+				//ShipBackTurret
+
+				else if (enemies[i]->enemy == 9) {
+					if (enemies[i]->hitpoints > 0) {
+						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
+							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 10);
+						}
+						else {
+							enemies[i]->hitpoints = enemies[i]->hitpoints - damage;
+						}
+						App->particles->AddParticle(App->particles->damage_shipbackturret, enemies[i]->position.x, enemies[i]->position.y, 0, 0, COLLIDER_NONE);
+					}
+					else {
+						if (c2->type == COLLIDER_PLAYER_2_SHOT || c2->type == COLLIDER_VALNUS_2_LASER || c2->type == COLLIDER_ASH_BOMB_2) {
+							App->player2->score += enemies[i]->score;
+						}
+						if (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_ASH_BOMB) {
+							App->player->score += enemies[i]->score;
+						}
+						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y, 0, 0, COLLIDER_NONE);
+						App->collision->shipturret1 = true;
+						App->audio->PlayFX(audio_explosion);
+						delete enemies[i];
+						enemies[i] = nullptr;
+					}
+				}
+		
+		
+		//BIG MIDDLE TOWER
 				else if (enemies[i]->enemy == 10) {
 					if (enemies[i]->hitpoints > 0) {
 						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
@@ -639,6 +668,91 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						enemies[i] = nullptr;
 					}
 				}
+
+				//ShipHorizontalCanon
+				else if (enemies[i]->enemy == 11) {
+					if (enemies[i]->hitpoints > 0) {
+						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
+							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 10);
+						}
+						else {
+							enemies[i]->hitpoints = enemies[i]->hitpoints - damage;
+						}
+						App->particles->AddParticle(App->particles->damage_horizontalcanon, enemies[i]->position.x, enemies[i]->position.y, 0, 0, COLLIDER_NONE);
+					}
+					else {
+						if (c2->type == COLLIDER_PLAYER_2_SHOT || c2->type == COLLIDER_VALNUS_2_LASER || c2->type == COLLIDER_ASH_BOMB_2) {
+							App->player2->score += enemies[i]->score;
+						}
+						if (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_ASH_BOMB) {
+							App->player->score += enemies[i]->score;
+						}
+						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x - 15, enemies[i]->position.y + 10, 0, 0, COLLIDER_NONE);
+						App->audio->PlayFX(audio_explosion);
+						delete enemies[i];
+						enemies[i] = nullptr;
+					}
+				}
+
+				//ShipTurret
+
+				else if (enemies[i]->enemy == 12) {
+					if (enemies[i]->hitpoints > 0) {
+						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
+							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 10);
+						}
+						else {
+							enemies[i]->hitpoints = enemies[i]->hitpoints - damage;
+						}
+						App->particles->AddParticle(App->particles->damage_shipturret, enemies[i]->position.x, enemies[i]->position.y, 0, 0, COLLIDER_NONE);
+					}
+					else {
+						if (c2->type == COLLIDER_PLAYER_2_SHOT || c2->type == COLLIDER_VALNUS_2_LASER || c2->type == COLLIDER_ASH_BOMB_2) {
+							App->player2->score += enemies[i]->score;
+						}
+						if (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_ASH_BOMB) {
+							App->player->score += enemies[i]->score;
+						}
+						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x - 15, enemies[i]->position.y + 10, 0, 0, COLLIDER_NONE);
+						App->audio->PlayFX(audio_explosion);
+						delete enemies[i];
+						enemies[i] = nullptr;
+					}
+				}
+
+
+				//ShipVerticalCanon
+
+				else if (enemies[i]->enemy == 13) {
+					if (enemies[i]->hitpoints > 0) {
+						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
+							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 10);
+						}
+						else {
+							enemies[i]->hitpoints = enemies[i]->hitpoints - damage;
+						}
+						if (App->player->position.x < enemies[i]->position.x) {
+							App->particles->AddParticle(App->particles->damage_shipverticalcanonleft, enemies[i]->position.x, enemies[i]->position.y, 0, 0, COLLIDER_NONE);
+						}
+
+						else {
+							App->particles->AddParticle(App->particles->damage_shipverticalcanonright, enemies[i]->position.x, enemies[i]->position.y, 0, 0, COLLIDER_NONE);
+						}
+					}
+					else {
+						if (c2->type == COLLIDER_PLAYER_2_SHOT || c2->type == COLLIDER_VALNUS_2_LASER || c2->type == COLLIDER_ASH_BOMB_2) {
+							App->player2->score += enemies[i]->score;
+						}
+						if (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_ASH_BOMB) {
+							App->player->score += enemies[i]->score;
+						}
+						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x - 15, enemies[i]->position.y + 10, 0, 0, COLLIDER_NONE);
+						App->audio->PlayFX(audio_explosion);
+						delete enemies[i];
+						enemies[i] = nullptr;
+					}
+				}
+
 				//BIRD BODY
 				else if (enemies[i]->enemy == 14) {
 					if (enemies[i]->hitpoints > 0) {
@@ -723,6 +837,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						enemies[i] = nullptr;
 					}
 				}
+
 			}
 		}
 	}
