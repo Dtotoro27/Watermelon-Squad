@@ -45,7 +45,7 @@ bool ModuleCongrats::Start()
 	congratstexture = App->textures->Load("assets/background_congrats.png");
 	gameovertexture = App->textures->Load("assets/ui.png");
 	rankingtexture = App->textures->Load("assets/game_over_ui.png");
-	App->audio->LoadMusic("assets/Audio/stageclear.ogg");
+	App->audio->LoadMusic("assets/Audio/scoreboard.ogg");
 	font_score = App->fonts->Load("assets/numbers_score.png", "0123456789", 1);
 
 	return ret;

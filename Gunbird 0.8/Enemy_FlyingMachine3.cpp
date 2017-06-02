@@ -1,5 +1,5 @@
 #include "Application.h"
-#include "Enemy_FlyingMachine.h"
+#include "Enemy_FlyingMachine3.h"
 #include "ModuleCollision.h"
 #include "ModuleTextures.h"
 #include "ModuleParticles.h"
@@ -15,7 +15,7 @@
 
 
 
-Enemy_FlyingMachine::Enemy_FlyingMachine(int x, int y) : Enemy(x, y)
+Enemy_FlyingMachine3::Enemy_FlyingMachine3(int x, int y) : Enemy(x, y)
 {
 	enemy_position_s.PushBack({ 629,105,32,34 });
 	enemy_position_s.speed = 0.2f;
@@ -59,8 +59,7 @@ Enemy_FlyingMachine::Enemy_FlyingMachine(int x, int y) : Enemy(x, y)
 
 	movement.PushBack({ 0.0f, 0.35f }, 125, &enemy_position_s);
 	movement.PushBack({ 0.0f, -0.3f }, 40, &enemy_position_s);
-	movement.PushBack({ 1.0f,-1.0f }, 10000, &enemy_position_s);
-	
+	movement.PushBack({ -0.7f,-1.85f }, 10000, &enemy_position_s);
 
 
 	originalpos.x = x;
@@ -69,10 +68,9 @@ Enemy_FlyingMachine::Enemy_FlyingMachine(int x, int y) : Enemy(x, y)
 	enemy = 5;
 	hitpoints = 0;
 	score = 200;
-
 }
 
-void Enemy_FlyingMachine::Move()
+void Enemy_FlyingMachine3::Move()
 {
 	bool left;
 	float angle;
@@ -122,7 +120,7 @@ void Enemy_FlyingMachine::Move()
 		else if (angle >= 112.5 && angle < 157.5) {
 			animation = &enemy_position_wa;
 		}
-		
+
 		else if (angle >= 157.5) {
 			animation = &enemy_position_w;
 		}
@@ -133,8 +131,7 @@ void Enemy_FlyingMachine::Move()
 	}
 }
 
-void Enemy_FlyingMachine::Shoot() {
-
+void Enemy_FlyingMachine3::Shoot() {
 
 	if (App->sea->pause == false) {
 		now = SDL_GetTicks() - start_time;
@@ -153,7 +150,6 @@ void Enemy_FlyingMachine::Shoot() {
 			}
 
 
-			App->particles->AddParticle(App->particles->enemy_shoot, position.x + 21, position.y + 26, v_x, v_y, COLLIDER_ENEMY_SHOT);
 			App->particles->AddParticle(App->particles->enemy_shoot, position.x + 21, position.y + 26, v_x, v_y, COLLIDER_ENEMY_SHOT);
 			start_time = SDL_GetTicks();
 

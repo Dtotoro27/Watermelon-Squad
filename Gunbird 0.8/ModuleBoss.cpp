@@ -52,7 +52,7 @@ bool ModuleBoss::Start()
 	bosstexture = App->textures->Load("assets/background_sea_1.png");
 	startplayer2texture = App->textures->Load("assets/ui.png");
 
-	App->audio->LoadMusic("assets/Audio/mine.ogg");
+	App->audio->LoadMusic("assets/Audio/boss.ogg");
 
 
 
