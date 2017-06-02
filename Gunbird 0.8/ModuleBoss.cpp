@@ -93,6 +93,14 @@ bool ModuleBoss::Start()
 
 	App->enemies->AddEnemy(ENEMY_TYPES::SHIP, 10, -407);
 
+	//SECOND STATE
+
+	App->enemies->AddEnemy(ENEMY_TYPES::SHIPVERTICALCANON2, 67, -279);
+	App->enemies->AddEnemy(ENEMY_TYPES::SHIPVERTICALCANON3, 113, -280);
+	App->enemies->AddEnemy(ENEMY_TYPES::SHIPVERTICALCANONLITTLE, 91, -276);
+	App->enemies->AddEnemy(ENEMY_TYPES::SHIPBACKTURRET, 37, -438);
+	
+
 	//FIRST STATE
 
 	App->enemies->AddEnemy(ENEMY_TYPES::SHIPTURRET, 16, -288);
@@ -111,13 +119,7 @@ bool ModuleBoss::Start()
 
 	App->enemies->AddEnemy(ENEMY_TYPES::SHIPHORIZONTALCANON, 86, -144);
 
-	//SECOND STATE
-
-	App->enemies->AddEnemy(ENEMY_TYPES::SHIPVERTICALCANON2, 16, -288);
-	App->enemies->AddEnemy(ENEMY_TYPES::SHIPVERTICALCANON3, 146, -288);
-	App->enemies->AddEnemy(ENEMY_TYPES::SHIPVERTICALCANONLITTLE, 9, -177);
-	App->enemies->AddEnemy(ENEMY_TYPES::SHIPBACKTURRET, 35, -437);
-
+	
 
 
 

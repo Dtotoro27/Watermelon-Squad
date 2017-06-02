@@ -20,13 +20,13 @@ Enemy_ShipBackTurret::Enemy_ShipBackTurret(int x, int y) : Enemy(x, y)
 
 	animation = &base;
 
-	shootopen.PushBack({ 312,735,127,151 });
-	shootopen.PushBack({ 449,735,127,151 });
+	shootopen.PushBack({ 289,871,127,151 });
+	shootopen.PushBack({ 426,871,127,151 });
 	shootopen.speed = 0.1f;
 	shootopen.loop = false;
 
-	shootclose.PushBack({ 449,735,127,151 });
-	shootclose.PushBack({ 312,735,127,151 });
+	shootclose.PushBack({ 426,871,127,151 });
+	shootclose.PushBack({ 289,871,127,151 });
 	shootclose.speed = 0.1f;
 	shootclose.loop = false;
 

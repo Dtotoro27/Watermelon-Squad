@@ -71,6 +71,7 @@ private:
 
 public:
 	bool shipturret1 = false;
+	bool shipturret2= false;
 };
 
 #endif // __ModuleCollision_H__
