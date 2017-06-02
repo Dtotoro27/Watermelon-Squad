@@ -17,36 +17,36 @@
 
 Enemy_FlyingMachine2::Enemy_FlyingMachine2(int x, int y) : Enemy(x, y)
 {
-	enemy_position_s.PushBack({ 629,105,32,34 });
+	enemy_position_s.PushBack({ 629,113,26,26 });
 	enemy_position_s.speed = 0.2f;
 
-	enemy_position_sa.PushBack({ 551,116,32,34 });
+	enemy_position_sa.PushBack({ 551,116,24,23 });
 	enemy_position_sa.speed = 0.2f;
 
-	enemy_position_a.PushBack({ 628,79,32,34 });
+	enemy_position_a.PushBack({ 628,79,25,26 });
 	enemy_position_a.speed = 0.2f;
 
-	enemy_position_wa.PushBack({ 551,81,32,34 });
+	enemy_position_wa.PushBack({ 551,81,22,24 });
 	enemy_position_wa.speed = 0.2f;
 
-	enemy_position_w.PushBack({ 630,44,32,34 });
+	enemy_position_w.PushBack({ 630,44,26,27 });
 	enemy_position_w.speed = 0.2f;
 
-	enemy_position_wd.PushBack({ 557,44,32,34 });
+	enemy_position_wd.PushBack({ 557,44,22,25 });
 	enemy_position_wd.speed = 0.2f;
 
-	enemy_position_d.PushBack({ 632,10,32,34 });
+	enemy_position_d.PushBack({ 632,10,25,26 });
 	enemy_position_d.speed = 0.2f;
 
-	enemy_position_sd.PushBack({ 559,12,32,34 });
+	enemy_position_sd.PushBack({ 559,12,24,23 });
 	enemy_position_sd.speed = 0.2f;
 
-	fly.PushBack({ 533,154,32,32 });
-	fly.PushBack({ 570,152,32,32 });
-	fly.PushBack({ 603,152,32,32 });
-	fly.PushBack({ 640,151,32,32 });
-	fly.PushBack({ 686,152,32,32 });
-	fly.PushBack({ 739,153,32,32 });
+	fly.PushBack({ 532,154,32,32 });
+	fly.PushBack({ 568,152,32,32 });
+	fly.PushBack({ 601,152,32,32 });
+	fly.PushBack({ 638,151,32,32 });
+	fly.PushBack({ 684,152,32,32 });
+	fly.PushBack({ 736,153,32,32 });
 
 	fly.speed = 0.5f;
 	animation2 = &fly;
