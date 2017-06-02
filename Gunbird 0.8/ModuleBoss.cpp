@@ -116,6 +116,10 @@ bool ModuleBoss::Start()
 
 	App->enemies->AddEnemy(ENEMY_TYPES::SHIPHORIZONTALCANON, 86, -144);
 
+	App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 150, -90);
+
+	App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE2, 30, -18);
+
 	return true;
 }
 
@@ -205,6 +209,41 @@ update_status ModuleBoss::Update()
 	}
 
 	//ENEMIES--------------------------
+
+	if (App->render->camera.y == 400)
+	{
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 150, -290);
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE2, 30, -218);
+	}
+	if (App->render->camera.y == 900)
+	{
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 180, -550);
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE3, 20, -478);
+	}
+
+	if (App->render->camera.y == 1300)
+	{
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 140, -820);
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 140, -680);
+	}
+
+	if (App->render->camera.y == 1900)
+	{
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 175, -1150);
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE3, 40, -1080);
+	}
+
+	if (App->render->camera.y == 2300)
+	{
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 175, -1350);
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE3, 40, -1280);
+	}
+
+	if (App->render->camera.y == 2700)
+	{
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 155, -1450);
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE2, 20, -1480);
+	}
 
 
 	return UPDATE_CONTINUE;

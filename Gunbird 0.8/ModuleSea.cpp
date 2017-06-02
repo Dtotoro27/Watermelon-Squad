@@ -193,7 +193,17 @@ update_status ModuleSea::Update()
 
 	//ENEMIES--------------------------
 
-	
+	if (App->render->camera.y == 1500) {
+		App->enemies->AddEnemy(ENEMY_TYPES::BIGSHIPSTATIC, 10, -850);
+	}
+
+	if (App->render->camera.y == 3450) {
+		App->enemies->AddEnemy(ENEMY_TYPES::BIGSHIPMOVE, 145, -1850);
+	}
+
+	if (App->render->camera.y == 9450) {
+		App->enemies->AddEnemy(ENEMY_TYPES::BIGSHIPMOVE, 0, -4850);
+	}
 	
 	if (App->render->camera.y == 560) {
 		App->enemies->AddEnemy(ENEMY_TYPES::VERTICALBOMB, 164, -340);
@@ -270,9 +280,7 @@ update_status ModuleSea::Update()
 		App->enemies->AddEnemy(ENEMY_TYPES::STATICTURRET, 188, -700);
 		App->enemies->AddEnemy(ENEMY_TYPES::STATICTURRET, 188, -735);
 	}
-	if (App->render->camera.y == 1500) {
-		App->enemies->AddEnemy(ENEMY_TYPES::BIGSHIPSTATIC, 10, -850);
-	}
+	
 
 	if (App->render->camera.y == 2770) {
 		App->enemies->AddEnemy(ENEMY_TYPES::SURFINGTURRET2, -30, -1400);
@@ -286,10 +294,6 @@ update_status ModuleSea::Update()
 	 	App->enemies->AddEnemy(ENEMY_TYPES::SURFINGTURRET2, -145, -1475);
 	 	App->enemies->AddEnemy(ENEMY_TYPES::SURFINGTURRET2, -245, -1475);
 	 	App->enemies->AddEnemy(ENEMY_TYPES::SURFINGTURRET2, -345, -1475);
-	 }
-
-	 if (App->render->camera.y == 3450) {
-	 	App->enemies->AddEnemy(ENEMY_TYPES::BIGSHIPMOVE, 145, -1850);
 	 }
 
 	 if (App->render->camera.y == 4600) {
@@ -326,16 +330,6 @@ update_status ModuleSea::Update()
 	 if (App->render->camera.y == 7500) {
 	 	App->enemies->AddEnemy(ENEMY_TYPES::VERTICALSURFINGTURRET, 10, -3820);
 	 }
-
-
-
-
-	 if (App->render->camera.y == 9450) {
-	 	App->enemies->AddEnemy(ENEMY_TYPES::BIGSHIPMOVE, 0, -4850);
-	 }
-
-
-
 
 	 if (App->render->camera.y == 1550) {
 	 	App->enemies->AddEnemy(ENEMY_TYPES::TOWER, 96, -882);

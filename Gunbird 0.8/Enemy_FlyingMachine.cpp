@@ -41,12 +41,12 @@ Enemy_FlyingMachine::Enemy_FlyingMachine(int x, int y) : Enemy(x, y)
 	enemy_position_sd.PushBack({ 559,12,32,34 });
 	enemy_position_sd.speed = 0.2f;
 
-	fly.PushBack({ 533,154,32,32 });
-	fly.PushBack({ 570,152,32,32 });
-	fly.PushBack({ 603,152,32,32 });
-	fly.PushBack({ 640,151,32,32 });
-	fly.PushBack({ 686,152,32,32 });
-	fly.PushBack({ 739,153,32,32 });
+	fly.PushBack({ 532,154,32,32 });
+	fly.PushBack({ 568,152,32,32 });
+	fly.PushBack({ 601,152,32,32 });
+	fly.PushBack({ 638,151,32,32 });
+	fly.PushBack({ 684,152,32,32 });
+	fly.PushBack({ 736,153,32,32 });
 
 	fly.speed = 0.5f;
 	animation2 = &fly;
@@ -57,7 +57,7 @@ Enemy_FlyingMachine::Enemy_FlyingMachine(int x, int y) : Enemy(x, y)
 
 	collider = App->collision->AddCollider({ 0, 0,26,33 }, COLLIDER_TYPE::COLLIDER_FLYING_ENEMY, (Module*)App->enemies);
 
-	movement.PushBack({ 0.0f, 0.35f }, 125, &enemy_position_s);
+	movement.PushBack({ 0.0f, 0.35f }, 225, &enemy_position_s);
 	movement.PushBack({ 0.0f, -0.3f }, 40, &enemy_position_s);
 	movement.PushBack({ 1.0f,-1.0f }, 10000, &enemy_position_s);
 	

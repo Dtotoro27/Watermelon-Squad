@@ -11,6 +11,7 @@
 #include "Enemy_Balloon.h"
 #include "Enemy_FlyingMachine.h"
 #include "Enemy_FlyingMachine2.h"
+#include "Enemy_FlyingMachine3.h"
 #include "Enemy_FlyingMachine4.h"
 #include "Enemy_Bomb.h"
 #include "Enemy_Bomb2.h"
@@ -204,6 +205,10 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 
 		case ENEMY_TYPES::FLYINGMACHINE2:
 			enemies[i] = new Enemy_FlyingMachine2(info.x, info.y);
+			break;
+
+		case ENEMY_TYPES::FLYINGMACHINE3:
+			enemies[i] = new Enemy_FlyingMachine3(info.x, info.y);
 			break;
 
 		case ENEMY_TYPES::FLYINGMACHINE4:
