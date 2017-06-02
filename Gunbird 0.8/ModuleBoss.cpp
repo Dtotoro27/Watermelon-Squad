@@ -169,6 +169,7 @@ update_status ModuleBoss::Update()
 
 	}
 	if (App->input->keyboard[SDL_SCANCODE_F7] == KEY_STATE::KEY_DOWN) {
+		polla = App->render->camera.y;
 		change = false;
 		App->fade->FadeToBlack(this, App->congrats, 1);
 		change = true;
@@ -256,42 +257,42 @@ update_status ModuleBoss::Update()
 
 
 	//ENEMIES--------------------------
-	/*
-	if (App->render->camera.y == 400)
-	{
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 150, -290);
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE2, 30, -218);
-	}
+	
 	if (App->render->camera.y == 900)
 	{
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 180, -550);
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE3, 20, -478);
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 150, -550);
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE2, 30, -478);
 	}
-
-	if (App->render->camera.y == 1300)
+	if (App->render->camera.y == 1400)
 	{
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 140, -820);
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 140, -680);
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 180, -820);
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE3, 20, -880);
 	}
 
 	if (App->render->camera.y == 1900)
 	{
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 175, -1150);
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE3, 40, -1080);
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 140, -1200);
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 140, -1080);
 	}
 
-	if (App->render->camera.y == 2300)
+	if (App->render->camera.y == 2400)
 	{
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 175, -1350);
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 175, -1350);
 		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE3, 40, -1280);
 	}
 
-	if (App->render->camera.y == 2700)
+	if (App->render->camera.y == 2800)
 	{
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 155, -1450);
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE2, 20, -1480);
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 175, -1450);
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE3, 40, -1480);
 	}
-	*/
+
+	if (App->render->camera.y == 3200)
+	{
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 155, -1650);
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE2, 20, -1610);
+	}
+	
 
 	return UPDATE_CONTINUE;
 }

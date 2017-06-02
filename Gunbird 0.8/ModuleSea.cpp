@@ -177,18 +177,14 @@ update_status ModuleSea::Update()
 		change = true;		
 
 	}
-	if (App->input->keyboard[SDL_SCANCODE_F7] == KEY_STATE::KEY_DOWN) {
-		polla = App->render->camera.y;
+	if (App->input->keyboard[SDL_SCANCODE_F7] == KEY_STATE::KEY_DOWN && change) {
 		change = false;
 		App->fade->FadeToBlack(this, App->congrats, 1);
 		change = true;
 	}
 
 	if (App->input->keyboard[SDL_SCANCODE_F10] == KEY_STATE::KEY_DOWN) {
-		polla = App->render->camera.y;
-		change = false;
-		App->fade->FadeToBlack(this, App->boss, 0);
-		change = true;
+		App->render->camera.y = 15248;
 	}
 
 	//ENEMIES--------------------------
@@ -528,7 +524,7 @@ update_status ModuleSea::Update()
 	
 	*/
 
-	if (App->render->camera.y == 15250) {
+	if (App->render->camera.y == 15250 && change) {
 		change = false;
 		App->fade->FadeToBlack(this, App->boss, 0);
 		change = true;

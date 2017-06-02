@@ -31,7 +31,6 @@ public:
 	Animation rock1;
 	Animation rock2;
 	Animation rock3;
-	int polla = 0;
 	bool pause = false;
 	bool bossstart = false;
 
