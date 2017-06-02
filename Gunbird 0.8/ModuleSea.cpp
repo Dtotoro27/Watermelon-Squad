@@ -77,7 +77,7 @@ bool ModuleSea::Start()
 	rocktexture = App->textures->Load("assets/background_sea_2.png");
 	startplayer2texture = App->textures->Load("assets/ui.png");
 
-	App->audio->LoadMusic("assets/Audio/mine.ogg");
+	App->audio->LoadMusic("assets/Audio/sea.ogg");
 
 
 	App->player->Enable();

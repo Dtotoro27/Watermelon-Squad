@@ -47,7 +47,7 @@ bool ModuleWelcome::Start()
 	font_coins = App->fonts->Load("assets/numbers_score.png", "0123456789", 1);
 	welcometexture = App->textures->Load("assets/background_welcome.png");
 	gameovertexture = App->textures->Load("assets/ui.png");
-	App->audio->LoadMusic("assets/Audio/characterselection.ogg");
+	//App->audio->LoadMusic("assets/Audio/characterselection.ogg");
 	
 
 
