@@ -22,15 +22,27 @@ ModuleBoss::ModuleBoss()
 {
 	// Background 
 
-	boss_animation.PushBack({ 0, 0, 288, 2399 });
-	boss_animation.PushBack({ 288, 0, 288, 2399 });
-	boss_animation.PushBack({ 576, 0, 288, 2399 });
-	boss_animation.PushBack({ 864, 0, 288, 2399 });
-	boss_animation.PushBack({ 1152, 0, 288, 2399 });
-	boss_animation.PushBack({ 864, 0, 288, 2399 });
-	boss_animation.PushBack({ 576, 0, 288, 2399 });
-	boss_animation.PushBack({ 288, 0, 288, 2399 });
+	boss_animation.PushBack({ 0, 0, 288, 640 });
+	boss_animation.PushBack({ 288, 0, 288, 640 });
+	boss_animation.PushBack({ 576, 0, 288, 640 });
+	boss_animation.PushBack({ 864, 0, 288, 640 });
+	boss_animation.PushBack({ 1152, 0, 288, 640 });
+	boss_animation.PushBack({ 864, 0, 288, 640 });
+	boss_animation.PushBack({ 576, 0, 288, 640 });
+	boss_animation.PushBack({ 288, 0, 288, 640 });
 	boss_animation.speed = 0.1;
+
+
+	boss_animation2.PushBack({ 0, 0, 288, 640 });
+	boss_animation2.PushBack({ 288, 0, 288, 640 });
+	boss_animation2.PushBack({ 576, 0, 288, 640 });
+	boss_animation2.PushBack({ 864, 0, 288, 640 });
+	boss_animation2.PushBack({ 1152, 0, 288, 640 });
+	boss_animation2.PushBack({ 864, 0, 288, 640 });
+	boss_animation2.PushBack({ 576, 0, 288, 640 });
+	boss_animation2.PushBack({ 288, 0, 288, 640 });
+	boss_animation2.speed = 0.1;
+
 
 
 }
@@ -46,10 +58,11 @@ bool ModuleBoss::Start()
 
 	pause = false;
 	boss_speed = 0.22f;
-	boss_x = -64;
+	boss_y = -640;
+	boss_y2 = -1280;
 
 
-	bosstexture = App->textures->Load("assets/background_sea_1.png");
+	bosstexture = App->textures->Load("assets/boss_background.png");
 	startplayer2texture = App->textures->Load("assets/ui.png");
 
 	App->audio->LoadMusic("assets/Audio/boss.ogg");
@@ -72,6 +85,40 @@ bool ModuleBoss::Start()
 
 
 	//Enemy
+
+
+	//App->enemies->AddEnemy(ENEMY_TYPES::BIRDBODY, SCREEN_WIDTH / 2 -44, 50);
+	//App->enemies->AddEnemy(ENEMY_TYPES::LEFTWINGBIRD, SCREEN_WIDTH / 2 - 52, 102);
+	//App->enemies->AddEnemy(ENEMY_TYPES::RIGHTWINGBIRD, SCREEN_WIDTH / 2 + 89, 102);
+
+	App->enemies->AddEnemy(ENEMY_TYPES::SHIP, 10, -407);
+
+	//FIRST STATE
+
+	App->enemies->AddEnemy(ENEMY_TYPES::SHIPTURRET, 16, -288);
+	App->enemies->AddEnemy(ENEMY_TYPES::SHIPTURRET, 146, -288);
+	App->enemies->AddEnemy(ENEMY_TYPES::SHIPTURRET, 9, -177);
+	App->enemies->AddEnemy(ENEMY_TYPES::SHIPTURRET, 152, -177);
+	App->enemies->AddEnemy(ENEMY_TYPES::SHIPTURRET, 124, -151);
+	App->enemies->AddEnemy(ENEMY_TYPES::SHIPTURRET, 38, -151);
+	App->enemies->AddEnemy(ENEMY_TYPES::SHIPTURRET, 50, -73);
+	App->enemies->AddEnemy(ENEMY_TYPES::SHIPTURRET, 112, -73);
+
+	App->enemies->AddEnemy(ENEMY_TYPES::SHIPBIGMIDDLETURRET, 28, -276);
+
+	App->enemies->AddEnemy(ENEMY_TYPES::SHIPVERTICALCANON,66, -192);
+	App->enemies->AddEnemy(ENEMY_TYPES::SHIPVERTICALCANON, 116, -192);
+
+	App->enemies->AddEnemy(ENEMY_TYPES::SHIPHORIZONTALCANON, 86, -144);
+
+	//SECOND STATE
+
+
+
+
+
+
+
 
 
 	
@@ -107,7 +154,8 @@ update_status ModuleBoss::Update()
 {
 
 	// -------------------------------------- Draw everything --------------------------------------
-	App->render->Blit(bosstexture, boss_x, -2372 + SCREEN_HEIGHT, &(boss_animation.GetCurrentFrame()), boss_speed);
+	App->render->Blit(bosstexture, -64, boss_y + SCREEN_HEIGHT, &(boss_animation.GetCurrentFrame()), boss_speed);
+	App->render->Blit(bosstexture, -64, boss_y2 + SCREEN_HEIGHT, &(boss_animation.GetCurrentFrame()), boss_speed);
 
 	if (App->player->dead == false) {
 		if (App->input->keyboard[SDL_SCANCODE_P] == KEY_STATE::KEY_DOWN || App->input->buttonStart == KEY_STATE::KEY_DOWN) {
@@ -126,19 +174,19 @@ update_status ModuleBoss::Update()
 	}
 
 	//Background--------------------------
-	
 
-
-	if (delay > 5200) {
-		if (boss_x < 0) {
-			boss_x += 0.4;
-		}
-
-	}
-	else {
-		delay++;
+	if (App->input->keyboard[SDL_SCANCODE_U] == KEY_STATE::KEY_DOWN) {
+		LOG("%i", App->render->camera.y);
 	}
 
+	if (App->render->camera.y == 5800)
+	{
+		boss_y -= 1280;
+	}
+	if (App->render->camera.y == 11600)
+	{
+		boss_y2 -= 1280;
+	}
 
 	//UI--------------------------
 

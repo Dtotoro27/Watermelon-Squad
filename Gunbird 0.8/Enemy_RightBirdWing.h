@@ -10,7 +10,8 @@ private:
 	iPoint originalpos;
 
 	Animation enemypos;
-
+	Animation shootopen;
+	Animation shootclose;
 
 	bool left = true;
 	bool right = false;

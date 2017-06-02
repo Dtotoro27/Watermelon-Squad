@@ -22,6 +22,7 @@ private:
 	float v_x;
 	float v_y;
 	uint timer;
+	uint timer2 = 0;
 
 public:
 

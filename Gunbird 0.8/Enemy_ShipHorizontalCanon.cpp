@@ -37,8 +37,10 @@ Enemy_ShipHorizontalCanon::Enemy_ShipHorizontalCanon(int x, int y) : Enemy(x, y)
 
 	collider = App->collision->AddCollider({ 0, 0,28,15 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
-
-	movement.PushBack({ 0.0f,-0.782f }, 100, &enemypos);
+	movement.PushBack({ 0.3f,-1.0f }, 75, &enemypos);
+	movement.PushBack({ 0.0f,-1.0f }, 40, &enemypos);
+	movement.PushBack({ -0.3f,-1.0f }, 75, &enemypos);
+	movement.PushBack({ 0.0f,-1.0f }, 40, &enemypos);
 
 
 
@@ -55,7 +57,14 @@ void Enemy_ShipHorizontalCanon::Move()
 {
 
 	if (App->sea->pause == false) {
+		if (timer2 < 285) {
+			originalpos.y++;
+			timer2++;
+		}
+		else {
+		}
 		position = originalpos + movement.GetCurrentPosition();
+
 	}
 }
 

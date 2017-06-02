@@ -11,6 +11,7 @@ enum COLLIDER_TYPE
 	COLLIDER_WALL,
 	COLLIDER_PLAYER,
 	COLLIDER_ENEMY,
+	COLLIDER_FLYING_ENEMY,
 	COLLIDER_PLAYER_SHOT,
 	COLLIDER_PLAYER_2_SHOT,
 	COLLIDER_ENEMY_SHOT,
@@ -67,6 +68,9 @@ private:
 	Collider* colliders[MAX_COLLIDERS];
 	bool matrix[COLLIDER_MAX][COLLIDER_MAX];
 	bool debug = false;
+
+public:
+	bool shipturret1 = false;
 };
 
 #endif // __ModuleCollision_H__

@@ -26,7 +26,7 @@ Enemy_LeftBirdWing::Enemy_LeftBirdWing(int x, int y) : Enemy(x, y)
 	movement.PushBack({ 0.0f,-0.5f }, 50, &enemypos);
 	movement.PushBack({ 0.0f,-1 }, 100, &enemypos);
 
-	collider = App->collision->AddCollider({ 0, 0,87,80 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
+	collider = App->collision->AddCollider({ 0, 0,100,60 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
 
 	originalpos.x = x;

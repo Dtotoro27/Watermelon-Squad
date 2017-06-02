@@ -31,21 +31,18 @@ Enemy_ShipBigMiddleTurret::Enemy_ShipBigMiddleTurret(int x, int y) : Enemy(x, y)
 	shootclose.loop = false;
 
 
-	movement.PushBack({ 0.0f, -0.5f }, 50, &base);
 
+	movement.PushBack({ 0.3f,-1.0f }, 75, &base);
+	movement.PushBack({ 0.0f,-1.0f }, 40, &base);
+	movement.PushBack({ -0.3f,-1.0f }, 75, &base);
+	movement.PushBack({ 0.0f,-1.0f }, 40, &base);
 
-	movement2.PushBack({ 0.3f,-1.0f }, 75, &base);
-	movement2.PushBack({ 0.0f,-1.0f }, 50, &base);
-	movement2.PushBack({ -0.3f,-1.0f }, 75, &base);
-	movement2.PushBack({ 0.0f,-1.0f }, 50, &base);
 
 	collider = App->collision->AddCollider({ 0, 0, 141,51 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
-	start_time = SDL_GetTicks();
+
 	originalpos.x = x;
 	originalpos.y = y;
-	secondpos.x = originalpos.x = x;
-	secondpos.y = originalpos.y - 150;
 
 	enemy = 10;
 	hitpoints = 165;
@@ -56,13 +53,13 @@ Enemy_ShipBigMiddleTurret::Enemy_ShipBigMiddleTurret(int x, int y) : Enemy(x, y)
 void Enemy_ShipBigMiddleTurret::Move()
 {
 	if (App->sea->pause == false) {
-		if (timer < 575) {
-			position = originalpos + movement.GetCurrentPosition();
-			timer++;
+		if (timer2 < 285) {
+			originalpos.y++;
+			timer2++;
 		}
 		else {
-			position = secondpos + movement2.GetCurrentPosition();
 		}
+		position = originalpos + movement.GetCurrentPosition();
 
 	}
 

@@ -30,7 +30,10 @@ Enemy_ShipBackTurret::Enemy_ShipBackTurret(int x, int y) : Enemy(x, y)
 	shootclose.speed = 0.1f;
 	shootclose.loop = false;
 
-	movement.PushBack({ 0.0f,-1 }, 350, &base);
+	movement.PushBack({ 0.3f,-1.0f }, 75, &base);
+	movement.PushBack({ 0.0f,-1.0f }, 40, &base);
+	movement.PushBack({ -0.3f,-1.0f }, 75, &base);
+	movement.PushBack({ 0.0f,-1.0f }, 40, &base);
 
 	collider = App->collision->AddCollider({ 0, 0, 127,122 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
@@ -47,7 +50,14 @@ Enemy_ShipBackTurret::Enemy_ShipBackTurret(int x, int y) : Enemy(x, y)
 void Enemy_ShipBackTurret::Move()
 {
 	if (App->sea->pause == false) {
+		if (timer2 < 285) {
+			originalpos.y++;
+			timer2++;
+		}
+		else {
+		}
 		position = originalpos + movement.GetCurrentPosition();
+
 	}
 
 }

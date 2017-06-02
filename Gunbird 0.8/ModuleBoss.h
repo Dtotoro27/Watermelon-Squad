@@ -11,9 +11,9 @@ struct SDL_Texture;
 class ModuleBoss : public Module
 {
 private:
-	int delay;
 	float boss_speed;
-	float boss_x;
+	float boss_y;
+	float boss_y2;
 public:
 	ModuleBoss();
 	~ModuleBoss();
@@ -27,6 +27,7 @@ public:
 	SDL_Texture* startplayer2texture = nullptr;
 	bool change = true;
 	Animation boss_animation;
+	Animation boss_animation2;
 	bool pause = false;
 
 

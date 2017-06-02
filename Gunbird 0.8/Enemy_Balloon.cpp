@@ -34,7 +34,7 @@ Enemy_Balloon::Enemy_Balloon(int x, int y) : Enemy(x, y)
 	movement.PushBack({ 0.0f,-0.2f }, 15000, &fly);
 	
 
-	collider = App->collision->AddCollider({ 0, 0, 42,53 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
+	collider = App->collision->AddCollider({ 0, 0, 42,53 }, COLLIDER_TYPE::COLLIDER_FLYING_ENEMY, (Module*)App->enemies);
 
 	start_time = SDL_GetTicks();
 	originalpos.x = x;

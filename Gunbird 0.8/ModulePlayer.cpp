@@ -784,8 +784,11 @@ void  ModulePlayer::OnCollision(Collider *c1, Collider *c2) {
 				max_bomb +=1;
 			}
 
-			else if (c2->type == COLLIDER_TYPE::COLLIDER_ENEMY) {
+			else if (c2->type == COLLIDER_TYPE::COLLIDER_FLYING_ENEMY) {
 				collision = true;
+			}
+
+			else if (c2->type == COLLIDER_TYPE::COLLIDER_ENEMY) {
 			}
 			else{
 				if (godmode == false) {

@@ -49,7 +49,10 @@ Enemy_ShipVerticalCanonLittle::Enemy_ShipVerticalCanonLittle(int x, int y) : Ene
 
 	animation = &enemypos;
 
-	movement.PushBack({ 0.0f,-1 }, 100, &enemypos);
+	movement.PushBack({ 0.3f,-1.0f }, 75, &enemypos);
+	movement.PushBack({ 0.0f,-1.0f }, 40, &enemypos);
+	movement.PushBack({ -0.3f,-1.0f }, 75, &enemypos);
+	movement.PushBack({ 0.0f,-1.0f }, 40, &enemypos);
 
 
 
@@ -61,11 +64,19 @@ Enemy_ShipVerticalCanonLittle::Enemy_ShipVerticalCanonLittle(int x, int y) : Ene
 	score = 2000;
 }
 
+
+
 void Enemy_ShipVerticalCanonLittle::Move()
 {
-
 	if (App->sea->pause == false) {
+		if (timer2 < 285) {
+			originalpos.y++;
+			timer2++;
+		}
+		else {
+		}
 		position = originalpos + movement.GetCurrentPosition();
+
 	}
 }
 

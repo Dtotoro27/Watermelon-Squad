@@ -17,14 +17,14 @@ Enemy_Ship::Enemy_Ship(int x, int y) : Enemy(x, y)
 	ship.speed = 0.2;
 
 	animation = &ship;
-  
 
-		
-		movement.PushBack({ 0.3f,-1.0f }, 75, &ship);
-		movement.PushBack({ 0.0f,-1.0f }, 40, &ship);
-		movement.PushBack({ -0.3f,-1.0f }, 75, &ship);
-		movement.PushBack({ 0.0f,-1.0f }, 40, &ship);
-	
+
+
+	movement.PushBack({ 0.3f,-1.0f }, 75, &ship);
+	movement.PushBack({ 0.0f,-1.0f }, 40, &ship);
+	movement.PushBack({ -0.3f,-1.0f }, 75, &ship);
+	movement.PushBack({ 0.0f,-1.0f }, 40, &ship);
+
 
 	originalpos.x = x;
 	originalpos.y = y;
@@ -38,20 +38,18 @@ void Enemy_Ship::Move()
 {
 	if (App->sea->pause == false) {
 		if (timer < 285) {
-			movement.current_frame = 0;
 			originalpos.y++;
 			timer++;
 		}
-		else  {
-			secondpos.y = originalpos.y;
+		else {
 		}
 		position = originalpos + movement.GetCurrentPosition();
-		
+
 	}
-	
-		
+
+
 }
 
 void Enemy_Ship::Shoot() {
-	
+
 }

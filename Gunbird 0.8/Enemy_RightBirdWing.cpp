@@ -18,6 +18,21 @@ Enemy_RightBirdWing::Enemy_RightBirdWing(int x, int y) : Enemy(x, y)
 
 	animation = &enemypos;
 	
+	shootclose.PushBack({ 193,831,87,17 });
+	shootopen.PushBack({ 193,736,87,17 });
+	shootopen.PushBack({ 193,758,87,17 });
+	shootopen.PushBack({ 193,783,87,17 });
+	shootclose.PushBack({ 193,807,87,17 });
+	shootopen.loop = false;
+	shootopen.speed = 0.1f;
+
+	shootclose.PushBack({ 193,807,87,17 });
+	shootclose.PushBack({ 193,783,87,17 });
+	shootclose.PushBack({ 193,758,87,17 });
+	shootclose.PushBack({ 193,736,87,17 });
+	shootclose.PushBack({ 193,831,87,17 });
+	shootclose.loop = false;
+	shootclose.speed = 0.1f;
 
 
 	movement.PushBack({ 0.0f,-1.5f }, 50, &enemypos);
@@ -25,7 +40,7 @@ Enemy_RightBirdWing::Enemy_RightBirdWing(int x, int y) : Enemy(x, y)
 	movement.PushBack({ 0.0f,-0.5f }, 50, &enemypos);
 	movement.PushBack({ 0.0f,-1 }, 100, &enemypos);
 
-	collider = App->collision->AddCollider({ 0, 0,87,80 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
+	collider = App->collision->AddCollider({ 0, 0,100,60 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
 
 	originalpos.x = x;
@@ -89,8 +104,12 @@ void Enemy_RightBirdWing::Move()
 
 void Enemy_RightBirdWing::Shoot() {
 	if (App->sea->pause == false) {
+
 		if (timer == 400) {
 			if (left == true) {
+				shootopen.current_frame = 0;
+				animation12 = &shootopen;
+
 				App->particles->AddParticle(App->particles->enemy_shoot, position.x + 76, position.y + 37, -1.5f, 0.6f, COLLIDER_ENEMY_SHOT);
 				App->particles->AddParticle(App->particles->enemy_shoot, position.x + 76, position.y + 37, 1.5f, 0.6f, COLLIDER_ENEMY_SHOT);
 
@@ -239,6 +258,10 @@ void Enemy_RightBirdWing::Shoot() {
 					App->particles->AddParticle(App->particles->enemy_shoot_born, position.x + 75, position.y + 53, -1.5f, 0.6f, COLLIDER_ENEMY_SHOT);
 					App->particles->AddParticle(App->particles->enemy_shoot_born, position.x + 75, position.y + 53, 1.5f, 0.6f, COLLIDER_ENEMY_SHOT);
 				}
+			}
+			if (timer == 550) {
+				shootclose.current_frame = 0;
+				animation12 = &shootclose;
 			}
 			if (timer == 560) {
 				if (left == true) {

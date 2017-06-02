@@ -24,7 +24,7 @@ Enemy_Bomb2::Enemy_Bomb2(int x, int y) : Enemy(x, y)
 	movement.PushBack({ 0.0f, -1.0f }, 25, &fly);
 	movement.PushBack({ 0.0f, 2.5f }, 25000, &fly);
 
-	collider = App->collision->AddCollider({ 0, 0, 26,24 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
+	collider = App->collision->AddCollider({ 0, 0, 26,24 }, COLLIDER_TYPE::COLLIDER_FLYING_ENEMY, (Module*)App->enemies);
 
 	originalpos.x = x;
 	originalpos.y = y;

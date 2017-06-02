@@ -27,20 +27,6 @@ Enemy_BirdBody::Enemy_BirdBody(int x, int y) : Enemy(x, y)
 	motor.PushBack({ 486,608,64,48 });
 	motor.speed = 0.2f;
 
-	shootopen.PushBack({ 193,736,87,17 });
-	shootopen.PushBack({ 193,758,87,17 });
-	shootopen.PushBack({ 193,783,87,17 });
-	shootclose.PushBack({ 193,807,87,17 });
-	shootopen.loop = false;
-	shootopen.speed = 0.1f;
-
-	shootclose.PushBack({ 193,807,87,17 });
-	shootclose.PushBack({ 193,783,87,17 });
-	shootclose.PushBack({ 193,758,87,17 });
-	shootclose.PushBack({ 193,736,87,17 });
-	shootclose.loop = false;
-	shootclose.speed = 0.1f;
-
 	animation = &enemypos;
 	animation13 = &motor;
 
@@ -51,7 +37,7 @@ Enemy_BirdBody::Enemy_BirdBody(int x, int y) : Enemy(x, y)
 	movement.PushBack({ 0.0f,-0.5f }, 50, &enemypos);
 	movement.PushBack({ 0.0f,-1 }, 100, &enemypos);
 
-	collider = App->collision->AddCollider({ 0, 0,37,80 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
+	collider = App->collision->AddCollider({ 0, 0,37,120 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
 
 	originalpos.x = x;
@@ -117,16 +103,9 @@ void Enemy_BirdBody::Shoot() {
 		pos_y = App->player->position.y - position.y + 66;
 		module = sqrt((pos_x*pos_x) + (pos_y*pos_y));
 		v_x = 4 * (pos_x / module);
-		v_y = (4 * (pos_y / module) - 1.88f);
+		v_y = (4 * (pos_y / module));
 
-		if (timer == 400) {
-			shootopen.current_frame = 0;
-			animation12 = &shootopen;
-		}
-		if (timer == 410) {
-			shootopen.loop = false;
-			timer++;
-		}
+		
 		if (timer == 450) {
 			App->particles->AddParticle(App->particles->big_enemy_shoot, position.x + 83, position.y + 66, v_x, v_y, COLLIDER_ENEMY_SHOT);
 			App->particles->AddParticle(App->particles->big_enemy_shoot, position.x + 150, position.y + 66, v_x, v_y, COLLIDER_ENEMY_SHOT);
@@ -162,11 +141,6 @@ void Enemy_BirdBody::Shoot() {
 			timer++;
 		}
 
-		if (timer == 550) {
-			shootclose.current_frame = 0;
-			animation12 = &shootclose;
-			timer++;
-		}
 
 		if (timer == 580) {
 			timer = 0;

@@ -50,7 +50,7 @@ Enemy_BlueRobot2::Enemy_BlueRobot2(int x, int y) : Enemy(x, y)
 	movement.PushBack({ -1.5f,-1 }, 75000, &robot);
 
 
-	collider = App->collision->AddCollider({ 0, 0, 63, 63 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
+	collider = App->collision->AddCollider({ 0, 0, 63, 63 }, COLLIDER_TYPE::COLLIDER_FLYING_ENEMY, (Module*)App->enemies);
 
 	originalpos.x = x;
 	originalpos.y = y;

@@ -40,6 +40,7 @@
 #include "Enemy_BirdBody.h"
 #include "Enemy_LeftBirdWing.h"
 #include "Enemy_RightBirdWing.h"
+#include "Enemy_Ship.h"
 #include "ExtraBomb.h"
 #include "PowerUp.h"
 
@@ -323,6 +324,10 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			enemies[i] = new  Enemy_RightBirdWing(info.x, info.y);
 			break;
 
+		case ENEMY_TYPES::SHIP:
+			enemies[i] = new  Enemy_Ship(info.x, info.y);
+			break;
+
 		case ENEMY_TYPES::EXTRABOMB:
 			enemies[i] = new  ExtraBomb(info.x, info.y);
 			break;
@@ -588,6 +593,31 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 				}
 
 //	------------------------ BOSSS -------------------------
+		// ----------SHIP------------
+				//BIG MIDDLE TOWER
+				else if (enemies[i]->enemy == 10) {
+					if (enemies[i]->hitpoints > 0) {
+						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
+							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 10);
+						}
+						else {
+							enemies[i]->hitpoints = enemies[i]->hitpoints - damage;
+						}
+						App->particles->AddParticle(App->particles->damage_shipbigmiddleturret, enemies[i]->position.x, enemies[i]->position.y, 0, 0, COLLIDER_NONE);
+					}
+					else {
+						if (c2->type == COLLIDER_PLAYER_2_SHOT || c2->type == COLLIDER_VALNUS_2_LASER || c2->type == COLLIDER_ASH_BOMB_2) {
+							App->player2->score += enemies[i]->score;
+						}
+						if (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_ASH_BOMB) {
+							App->player->score += enemies[i]->score;
+						}
+						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y, 0, 0, COLLIDER_NONE);
+						App->collision->shipturret1 = true;
+						delete enemies[i];
+						enemies[i] = nullptr;
+					}
+				}
 				//BIRD BODY
 				else if (enemies[i]->enemy == 14) {
 					if (enemies[i]->hitpoints > 0) {

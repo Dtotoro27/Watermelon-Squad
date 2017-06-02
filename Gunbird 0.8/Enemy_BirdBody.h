@@ -11,8 +11,7 @@ private:
 
 	Animation enemypos;
 	Animation motor;
-	Animation shootopen;
-	Animation shootclose;
+
 
 	bool left = true;
 	bool right = false;

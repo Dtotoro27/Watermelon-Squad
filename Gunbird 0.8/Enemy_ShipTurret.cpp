@@ -18,40 +18,43 @@
 Enemy_ShipTurret::Enemy_ShipTurret(int x, int y) : Enemy(x, y)
 {
 
-	turret1.PushBack({ 419,480,39,40 });
-	turret2.PushBack({ 458,480,39,40 });
-	turret3.PushBack({ 497,480,39,40 });
-	turret4.PushBack({ 536,480,39,40 });
-	turret5.PushBack({ 575,480,39,40 });
-	turret6.PushBack({ 614,480,39,40 });
-	turret7.PushBack({ 653,480,39,40 });
-	turret8.PushBack({ 692,480,39,40 });
-	turret9.PushBack({ 419,521,39,40 });
-	turret10.PushBack({ 458,521,39,40 });
-	turret11.PushBack({ 497,521,39,40 });
-	turret12.PushBack({ 536,521,39,40 });
-	turret13.PushBack({ 575,521,39,40 });
-	turret14.PushBack({ 614,521,39,40 });
-	turret15.PushBack({ 653,521,39,40 });
-	turret16.PushBack({ 692,521,39,40 });
-	turret17.PushBack({ 419,562,39,40 });
-	turret18.PushBack({ 458,562,39,40 });
-	turret19.PushBack({ 497,562,39,40 });
-	turret20.PushBack({ 536,562,39,40 });
-	turret21.PushBack({ 575,562,39,40 });
-	turret22.PushBack({ 614,562,39,40 });
-	turret23.PushBack({ 653,562,39,40 });
-	turret24.PushBack({ 692,562,39,40 });
-	turret25.PushBack({ 419,603,39,40 });
-	turret26.PushBack({ 458,603,39,40 });
-	turret27.PushBack({ 497,603,39,40 });
-	turret28.PushBack({ 536,603,39,40 });
-	turret29.PushBack({ 575,603,39,40 });
+	turret1.PushBack({ 419,426,39,40 });
+	turret2.PushBack({ 458,426,39,40 });
+	turret3.PushBack({ 497,426,39,40 });
+	turret4.PushBack({ 536,426,39,40 });
+	turret5.PushBack({ 575,426,39,40 });
+	turret6.PushBack({ 614,426,39,40 });
+	turret7.PushBack({ 653,426,39,40 });
+	turret8.PushBack({ 692,426,39,40 });
+	turret9.PushBack({ 419,467,39,40 });
+	turret10.PushBack({ 458,467,39,40 });
+	turret11.PushBack({ 497,467,39,40 });
+	turret12.PushBack({ 536,467,39,40 });
+	turret13.PushBack({ 575,467,39,40 });
+	turret14.PushBack({ 614,467,39,40 });
+	turret15.PushBack({ 653,467,39,40 });
+	turret16.PushBack({ 692,467,39,40 });
+	turret17.PushBack({ 419,508,39,40 });
+	turret18.PushBack({ 458,508,39,40 });
+	turret19.PushBack({ 497,508,39,40 });
+	turret20.PushBack({ 536,508,39,40 });
+	turret21.PushBack({ 575,508,39,40 });
+	turret22.PushBack({ 614,508,39,40 });
+	turret23.PushBack({ 653,508,39,40 });
+	turret24.PushBack({ 692,508,39,40 });
+	turret25.PushBack({ 419,549,39,40 });
+	turret26.PushBack({ 458,549,39,40 });
+	turret27.PushBack({ 497,549,39,40 });
+	turret28.PushBack({ 536,549,39,40 });
+	turret29.PushBack({ 575,549,39,40 });
 
 
 	animation = &turret1;
 
-	movement.PushBack({ 0.0f,-0.825f }, 50, &turret1);
+	movement.PushBack({ 0.3f,-1.0f }, 75, &turret1);
+	movement.PushBack({ 0.0f,-1.0f }, 40, &turret1);
+	movement.PushBack({ -0.3f,-1.0f }, 75, &turret1);
+	movement.PushBack({ 0.0f,-1.0f }, 40, &turret1);
 
 	collider = App->collision->AddCollider({ 0, 0,39,40 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
@@ -66,6 +69,16 @@ Enemy_ShipTurret::Enemy_ShipTurret(int x, int y) : Enemy(x, y)
 
 void Enemy_ShipTurret::Move()
 {
+	if (App->sea->pause == false) {
+		if (timer < 285) {
+			originalpos.y++;
+			timer++;
+		}
+
+		position = originalpos + movement.GetCurrentPosition();
+
+	}
+
 	bool left;
 	float angle;
 
@@ -193,7 +206,7 @@ void Enemy_ShipTurret::Shoot() {
 	if (App->sea->pause == false) {
 
 		now = SDL_GetTicks() - start_time;
-		if (now >3000) {
+		if (now >5000) {
 			if (position.x < SCREEN_WIDTH && position.x > 0) {
 				pos_x = (App->player->position.x - (ASH_WIDTH / 2)) - position.x;
 				pos_y = App->player->position.y - position.y;
