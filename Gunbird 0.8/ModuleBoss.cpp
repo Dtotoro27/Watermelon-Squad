@@ -86,10 +86,7 @@ bool ModuleBoss::Start()
 
 	//Enemy
 
-
-	//App->enemies->AddEnemy(ENEMY_TYPES::BIRDBODY, SCREEN_WIDTH / 2 -44, 50);
-	//App->enemies->AddEnemy(ENEMY_TYPES::LEFTWINGBIRD, SCREEN_WIDTH / 2 - 52, 102);
-	//App->enemies->AddEnemy(ENEMY_TYPES::RIGHTWINGBIRD, SCREEN_WIDTH / 2 + 89, 102);
+	
 
 	App->enemies->AddEnemy(ENEMY_TYPES::SHIP, 10, -407);
 
@@ -118,18 +115,6 @@ bool ModuleBoss::Start()
 	App->enemies->AddEnemy(ENEMY_TYPES::SHIPVERTICALCANON, 116, -192);
 
 	App->enemies->AddEnemy(ENEMY_TYPES::SHIPHORIZONTALCANON, 86, -144);
-
-	
-
-
-
-
-
-
-	
-
-
-
 
 	return true;
 }
@@ -172,6 +157,13 @@ update_status ModuleBoss::Update()
 			}
 		}
 	}
+
+	if (App->input->keyboard[SDL_SCANCODE_U] == KEY_STATE::KEY_DOWN) {
+		App->enemies->AddEnemy(ENEMY_TYPES::BIRDBODY, App->player->position.x, App->player->position.y);
+		App->enemies->AddEnemy(ENEMY_TYPES::LEFTWINGBIRD, SCREEN_WIDTH / 2 - 52, 102);
+		App->enemies->AddEnemy(ENEMY_TYPES::RIGHTWINGBIRD, SCREEN_WIDTH / 2 + 89, 102);
+	}
+
 	if (pause == true) {
 		App->render->camera.y -= SCROLL_SPEED;
 		App->player->position.y += 1;

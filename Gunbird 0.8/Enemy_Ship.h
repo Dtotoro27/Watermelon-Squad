@@ -9,7 +9,10 @@ class Enemy_Ship : public Enemy
 private:
 	iPoint originalpos;
 	iPoint secondpos;
+
 	Animation ship;
+	Animation brokenship;
+
 	Path movement;
 	Path movement2;
 	Path movement3;

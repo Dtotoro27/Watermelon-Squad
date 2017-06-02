@@ -14,9 +14,11 @@
 Enemy_Ship::Enemy_Ship(int x, int y) : Enemy(x, y)
 {
 	ship.PushBack({ 637,612,189,407 });
-	ship.speed = 0.2;
 
-	animation = &ship;
+
+	brokenship.PushBack({829,612,189,407 });
+
+	
 
 
 
@@ -49,6 +51,9 @@ void Enemy_Ship::Move()
 				originalpos.y++;
 				timer++;
 			}
+			else if (App->collision->shipturret2 == true) {
+				originalpos.y++;
+			}
 			else {
 				timer++;
 			}
@@ -60,5 +65,10 @@ void Enemy_Ship::Move()
 }
 
 void Enemy_Ship::Shoot() {
-
+	if (App->collision->shipturret2 == true) {
+		animation = &brokenship;
+	}
+	else {
+		animation = &ship;
+	}
 }

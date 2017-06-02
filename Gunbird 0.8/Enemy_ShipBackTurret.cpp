@@ -228,7 +228,7 @@ void Enemy_ShipBackTurret::Shoot() {
 
 			if (timer == 590) {
 				animation = &base;
-				timer = 0;
+				timer = 100;
 			}
 			else {
 				timer++;

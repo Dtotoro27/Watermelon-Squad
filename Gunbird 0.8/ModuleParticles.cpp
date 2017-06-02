@@ -49,6 +49,8 @@ ModuleParticles::ModuleParticles()
 
 	damage_bird_rwing.anim.PushBack({ 1494,92,112,75 });
 
+	
+
 
 	big_ship_dead.anim.PushBack({929, 152,62,105 });
 	big_ship_dead.anim.PushBack({ 998, 152,62,105 });

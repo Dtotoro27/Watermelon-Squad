@@ -80,6 +80,9 @@ void Enemy_ShipVerticalCanon3::Move()
 				originalpos.y++;
 				timer2++;
 			}
+			else if (App->collision->shipturret2 == true) {
+				originalpos.y++;
+			}
 			else {
 				timer2++;
 			}

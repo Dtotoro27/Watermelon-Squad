@@ -82,6 +82,9 @@ void Enemy_ShipTurret::Move()
 				originalpos.y++;
 				timer++;
 			}
+			else if (App->collision->shipturret2 == true) {
+				originalpos.y++;
+			}
 			else {
 				timer++;
 			}
@@ -214,20 +217,21 @@ void Enemy_ShipTurret::Move()
 
 void Enemy_ShipTurret::Shoot() {
 	if (App->sea->pause == false) {
+		if (App->collision->shipturret1 == false) {
+			now = SDL_GetTicks() - start_time;
+			if (now > 5000) {
+				if (position.x < SCREEN_WIDTH && position.x > 0) {
+					pos_x = (App->player->position.x - (ASH_WIDTH / 2)) - position.x;
+					pos_y = App->player->position.y - position.y;
+					module = sqrt((pos_x*pos_x) + (pos_y*pos_y));
+					v_x = 4 * (pos_x / module);
+					v_y = (4 * (pos_y / module) - 1.88f);
 
-		now = SDL_GetTicks() - start_time;
-		if (now >5000) {
-			if (position.x < SCREEN_WIDTH && position.x > 0) {
-				pos_x = (App->player->position.x - (ASH_WIDTH / 2)) - position.x;
-				pos_y = App->player->position.y - position.y;
-				module = sqrt((pos_x*pos_x) + (pos_y*pos_y));
-				v_x = 4 * (pos_x / module);
-				v_y = (4 * (pos_y / module) - 1.88f);
+					App->particles->AddParticle(App->particles->enemy_shoot, position.x + 25, position.y + 26, v_x, v_y, COLLIDER_ENEMY_SHOT);
+					App->particles->AddParticle(App->particles->enemy_shoot, position.x + 7, position.y + 26, v_x, v_y, COLLIDER_ENEMY_SHOT);
+					start_time = SDL_GetTicks();
 
-				App->particles->AddParticle(App->particles->enemy_shoot, position.x + 25, position.y + 26, v_x, v_y, COLLIDER_ENEMY_SHOT);
-				App->particles->AddParticle(App->particles->enemy_shoot, position.x + 7, position.y + 26, v_x, v_y, COLLIDER_ENEMY_SHOT);
-				start_time = SDL_GetTicks();
-
+				}
 			}
 		}
 	}
