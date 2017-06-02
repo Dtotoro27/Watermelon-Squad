@@ -94,7 +94,7 @@ bool ModuleSea::Start()
 
 
 	//Enemy
-	App->enemies->AddEnemy(ENEMY_TYPES::POWER_UP, 100,50);
+	//App->enemies->AddEnemy(ENEMY_TYPES::POWER_UP, 100,50);
 
 
 	

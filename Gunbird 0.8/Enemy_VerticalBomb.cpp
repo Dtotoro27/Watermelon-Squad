@@ -25,7 +25,7 @@ Enemy_VerticalBomb::Enemy_VerticalBomb(int x, int y) : Enemy(x, y)
 	movement.PushBack({ 0.0f,2.0f }, 10000, &fly);
 
 
-	collider = App->collision->AddCollider({ 2, 0, 25,30 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
+	collider = App->collision->AddCollider({ 2, 0, 25,30 }, COLLIDER_TYPE::COLLIDER_FLYING_ENEMY, (Module*)App->enemies);
 
 	originalpos.x = x;
 	originalpos.y = y;
