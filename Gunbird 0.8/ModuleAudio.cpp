@@ -35,6 +35,7 @@ bool ModuleAudio::CleanUp()
 {
 	UnloadMusic();
 	Mix_CloseAudio();
+	Mix_ChannelFinished(0);
 	Mix_Quit();
 	SDL_QuitSubSystem(SDL_INIT_AUDIO);
 	return true;
