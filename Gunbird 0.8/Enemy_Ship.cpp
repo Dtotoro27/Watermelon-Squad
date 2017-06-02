@@ -44,6 +44,15 @@ void Enemy_Ship::Move()
 		else {
 		}
 		position = originalpos + movement.GetCurrentPosition();
+		if (App->collision->shipturret1 == true) {
+			if (timer > 350 && timer < 490) {
+				originalpos.y++;
+				timer++;
+			}
+			else {
+				timer++;
+			}
+		}
 
 	}
 

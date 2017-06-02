@@ -113,7 +113,10 @@ bool ModuleBoss::Start()
 
 	//SECOND STATE
 
-
+	App->enemies->AddEnemy(ENEMY_TYPES::SHIPVERTICALCANON2, 16, -288);
+	App->enemies->AddEnemy(ENEMY_TYPES::SHIPVERTICALCANON3, 146, -288);
+	App->enemies->AddEnemy(ENEMY_TYPES::SHIPVERTICALCANONLITTLE, 9, -177);
+	App->enemies->AddEnemy(ENEMY_TYPES::SHIPBACKTURRET, 35, -437);
 
 
 

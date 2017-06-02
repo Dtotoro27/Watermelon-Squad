@@ -16,7 +16,7 @@ Enemy_ShipBackTurret::Enemy_ShipBackTurret(int x, int y) : Enemy(x, y)
 {
 
 
-	base.PushBack({173,735,127,151 });
+	base.PushBack({150,871,127,151 });
 
 	animation = &base;
 
@@ -35,7 +35,6 @@ Enemy_ShipBackTurret::Enemy_ShipBackTurret(int x, int y) : Enemy(x, y)
 	movement.PushBack({ -0.3f,-1.0f }, 75, &base);
 	movement.PushBack({ 0.0f,-1.0f }, 40, &base);
 
-	collider = App->collision->AddCollider({ 0, 0, 127,122 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
 	start_time = SDL_GetTicks();
 	originalpos.x = x;
@@ -57,8 +56,28 @@ void Enemy_ShipBackTurret::Move()
 		else {
 		}
 		position = originalpos + movement.GetCurrentPosition();
+		if (App->collision->shipturret1 == true) {
+			if (timer2 > 350 && timer2 < 490) {
+				originalpos.y++;
+				timer2++;
+			}
+			else if (timer2 == 350) {
+				collider = App->collision->AddCollider({ 0, 0, 127,122 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
+				timer2++;
+			}
+			else {
+				timer2++;
+			}
+		}
+
+	
+			
+		
+		
+
 
 	}
+
 
 }
 
@@ -66,49 +85,49 @@ void Enemy_ShipBackTurret::Move()
 void Enemy_ShipBackTurret::Shoot() {
 
 	if (App->sea->pause == false) {
+		if (App->collision->shipturret1 == true) {
+			pos_x = (App->player->position.x - (ASH_WIDTH / 2)) - position.x;
+			pos_y = App->player->position.y - position.y;
+			module = sqrt((pos_x*pos_x) + (pos_y*pos_y));
+			v_x = 4 * (pos_x / module);
+			v_y = (4 * (pos_y / module) - 1.88f);
 
-		pos_x = (App->player->position.x - (ASH_WIDTH / 2)) - position.x;
-		pos_y = App->player->position.y - position.y;
-		module = sqrt((pos_x*pos_x) + (pos_y*pos_y));
-		v_x = 4 * (pos_x / module);
-		v_y = (4 * (pos_y / module) - 1.88f);
+			if (timer == 480) {
+				animation = &shootopen;
+				timer++;
+			}
 
-		if (timer == 480) {
-			animation = &shootopen;
-			timer++;
-		}
 
-		
 
-		if (timer == 500) {
+			if (timer == 500) {
 
-			App->particles->AddParticle(App->particles->enemy_shoot, position.x + 27, position.y + 107, v_x + 0.5f, 2, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->enemy_shoot, position.x + 33, position.y + 107, v_x - 0.5f, 2, COLLIDER_ENEMY_SHOT);
+				App->particles->AddParticle(App->particles->enemy_shoot, position.x + 27, position.y + 107, v_x + 0.5f, 2, COLLIDER_ENEMY_SHOT);
+				App->particles->AddParticle(App->particles->enemy_shoot, position.x + 33, position.y + 107, v_x - 0.5f, 2, COLLIDER_ENEMY_SHOT);
 
-			App->particles->AddParticle(App->particles->big_enemy_shoot, position.x + 60, position.y + 110, v_x - 0.75f, 2, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->big_enemy_shoot, position.x + 60, position.y + 110, v_x + 0.75f, 2, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->big_enemy_shoot, position.x + 60, position.y + 110, v_x - 2.75, 2, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->big_enemy_shoot, position.x + 60, position.y + 110, v_x + 2.75, 2, COLLIDER_ENEMY_SHOT);
+				App->particles->AddParticle(App->particles->big_enemy_shoot, position.x + 60, position.y + 110, v_x - 0.75f, 2, COLLIDER_ENEMY_SHOT);
+				App->particles->AddParticle(App->particles->big_enemy_shoot, position.x + 60, position.y + 110, v_x + 0.75f, 2, COLLIDER_ENEMY_SHOT);
+				App->particles->AddParticle(App->particles->big_enemy_shoot, position.x + 60, position.y + 110, v_x - 2.75, 2, COLLIDER_ENEMY_SHOT);
+				App->particles->AddParticle(App->particles->big_enemy_shoot, position.x + 60, position.y + 110, v_x + 2.75, 2, COLLIDER_ENEMY_SHOT);
 
-			App->particles->AddParticle(App->particles->enemy_shoot_born, position.x + 27, position.y + 107, v_x + 0.5f, 2, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->enemy_shoot_born, position.x + 33, position.y + 107, v_x - 0.5f, 2, COLLIDER_ENEMY_SHOT);
+				App->particles->AddParticle(App->particles->enemy_shoot_born, position.x + 27, position.y + 107, v_x + 0.5f, 2, COLLIDER_ENEMY_SHOT);
+				App->particles->AddParticle(App->particles->enemy_shoot_born, position.x + 33, position.y + 107, v_x - 0.5f, 2, COLLIDER_ENEMY_SHOT);
 
-			App->particles->AddParticle(App->particles->big_enemy_shoot_born, position.x + 60, position.y + 110, v_x - 0.75f, 2, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->big_enemy_shoot_born, position.x + 60, position.y + 110, v_x + 0.75f, 2, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->big_enemy_shoot_born, position.x + 60, position.y + 110, v_x - 2.75, 2, COLLIDER_ENEMY_SHOT);
-			App->particles->AddParticle(App->particles->big_enemy_shoot_born, position.x + 60, position.y + 110, v_x + 2.75, 2, COLLIDER_ENEMY_SHOT);
+				App->particles->AddParticle(App->particles->big_enemy_shoot_born, position.x + 60, position.y + 110, v_x - 0.75f, 2, COLLIDER_ENEMY_SHOT);
+				App->particles->AddParticle(App->particles->big_enemy_shoot_born, position.x + 60, position.y + 110, v_x + 0.75f, 2, COLLIDER_ENEMY_SHOT);
+				App->particles->AddParticle(App->particles->big_enemy_shoot_born, position.x + 60, position.y + 110, v_x - 2.75, 2, COLLIDER_ENEMY_SHOT);
+				App->particles->AddParticle(App->particles->big_enemy_shoot_born, position.x + 60, position.y + 110, v_x + 2.75, 2, COLLIDER_ENEMY_SHOT);
 
-			timer++;
-		}
+				timer++;
+			}
 
 			if (timer == 510) {
 
 				App->particles->AddParticle(App->particles->enemy_shoot, position.x + 27, position.y + 107, v_x + 0.5f, 2, COLLIDER_ENEMY_SHOT);
 				App->particles->AddParticle(App->particles->enemy_shoot, position.x + 33, position.y + 107, v_x - 0.5f, 2, COLLIDER_ENEMY_SHOT);
 
-				App->particles->AddParticle(App->particles->big_enemy_shoot, position.x + 60, position.y + 110, v_x +1.95f, 2, COLLIDER_ENEMY_SHOT);
-				App->particles->AddParticle(App->particles->big_enemy_shoot, position.x + 60, position.y + 110, v_x+ 0.40f, 2, COLLIDER_ENEMY_SHOT);
-				App->particles->AddParticle(App->particles->big_enemy_shoot, position.x + 60, position.y + 110, v_x -0.8, 2, COLLIDER_ENEMY_SHOT);
+				App->particles->AddParticle(App->particles->big_enemy_shoot, position.x + 60, position.y + 110, v_x + 1.95f, 2, COLLIDER_ENEMY_SHOT);
+				App->particles->AddParticle(App->particles->big_enemy_shoot, position.x + 60, position.y + 110, v_x + 0.40f, 2, COLLIDER_ENEMY_SHOT);
+				App->particles->AddParticle(App->particles->big_enemy_shoot, position.x + 60, position.y + 110, v_x - 0.8, 2, COLLIDER_ENEMY_SHOT);
 
 				App->particles->AddParticle(App->particles->enemy_shoot_born, position.x + 27, position.y + 107, v_x + 0.5f, 2, COLLIDER_ENEMY_SHOT);
 				App->particles->AddParticle(App->particles->enemy_shoot_born, position.x + 33, position.y + 107, v_x - 0.5f, 2, COLLIDER_ENEMY_SHOT);
@@ -216,3 +235,4 @@ void Enemy_ShipBackTurret::Shoot() {
 			}
 		}
 	}
+}

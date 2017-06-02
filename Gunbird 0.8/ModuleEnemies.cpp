@@ -34,6 +34,8 @@
 #include "Enemy_BigShipMove.h"
 #include "Enemy_ShipHorizontalCanon.h"
 #include "Enemy_ShipVerticalCanon.h"
+#include "Enemy_ShipVerticalCanon2.h"
+#include "Enemy_ShipVerticalCanon3.h"
 #include "Enemy_ShipVerticalCanonLittle.h"
 #include "Enemy_ShipBigMiddleTurret.h"
 #include "Enemy_ShipBackTurret.h"
@@ -305,6 +307,13 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			enemies[i] = new  Enemy_ShipVerticalCanon(info.x, info.y);
 			break;
 
+		case ENEMY_TYPES::SHIPVERTICALCANON2:
+			enemies[i] = new  Enemy_ShipVerticalCanon2(info.x, info.y);
+			break;
+
+		case ENEMY_TYPES::SHIPVERTICALCANON3:
+			enemies[i] = new  Enemy_ShipVerticalCanon3(info.x, info.y);
+			break;
 		case ENEMY_TYPES::SHIPBIGMIDDLETURRET:
 			enemies[i] = new  Enemy_ShipBigMiddleTurret(info.x, info.y);
 			break;

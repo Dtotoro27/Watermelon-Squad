@@ -64,6 +64,15 @@ void Enemy_ShipHorizontalCanon::Move()
 		else {
 		}
 		position = originalpos + movement.GetCurrentPosition();
+		if (App->collision->shipturret1 == true) {
+			if (timer2 > 350 && timer2 < 490) {
+				originalpos.y++;
+				timer2++;
+			}
+			else {
+				timer2++;
+			}
+		}
 
 	}
 }

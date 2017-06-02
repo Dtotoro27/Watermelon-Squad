@@ -75,54 +75,64 @@ void Enemy_ShipVerticalCanon3::Move()
 		else {
 		}
 		position = originalpos + movement.GetCurrentPosition();
+		if (App->collision->shipturret1 == true) {
+			if (timer2 > 350 && timer2 < 490) {
+				originalpos.y++;
+				timer2++;
+			}
+			else {
+				timer2++;
+			}
+		}
 
 	}
 }
 
 void Enemy_ShipVerticalCanon3::Shoot() {
 	if (App->sea->pause == false) {
-
-		if (timer == 200) {
-			collider = App->collision->AddCollider({ 0, 0,18,29 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
-			if (App->player->position.x > position.x) {
-				animation = &shootopen_right;
-			}
-			else {
-				animation = &shootopen_left;
-			}
-			timer++;
-		}
-		if (timer == 250) {
-			if (position.x < SCREEN_WIDTH && position.x > 0) {
-				pos_x = (App->player->position.x - (ASH_WIDTH / 2)) - position.x;
-				pos_y = App->player->position.y - position.y;
-				module = sqrt((pos_x*pos_x) + (pos_y*pos_y));
-				v_x = 4 * (pos_x / module);
-				v_y = (4 * (pos_y / module) - 1.88f);
-
-
-				App->particles->AddParticle(App->particles->big_enemy_shoot, position.x + 7, position.y + 26, v_x, v_y, COLLIDER_ENEMY_SHOT);
-				App->particles->AddParticle(App->particles->big_enemy_shoot_born, position.x + 7, position.y + 26, v_x, v_y, COLLIDER_ENEMY_SHOT);
+		if (App->collision->shipturret1 == true) {
+			if (timer == 200) {
+				collider = App->collision->AddCollider({ 0, 0,18,29 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
+				if (App->player->position.x > position.x) {
+					animation = &shootopen_right;
+				}
+				else {
+					animation = &shootopen_left;
+				}
 				timer++;
 			}
-		}
-		if (timer == 300) {
-			if (animation == &shootopen_left) {
-				animation = &shootclose_left;
-			}
-			if (animation == &shootopen_right) {
-				animation = &shootclose_right;
-			}
+			if (timer == 250) {
+				if (position.x < SCREEN_WIDTH && position.x > 0) {
+					pos_x = (App->player->position.x - (ASH_WIDTH / 2)) - position.x;
+					pos_y = App->player->position.y - position.y;
+					module = sqrt((pos_x*pos_x) + (pos_y*pos_y));
+					v_x = 4 * (pos_x / module);
+					v_y = (4 * (pos_y / module) - 1.88f);
 
-			timer++;
-		}
-		if (timer == 330) {
-			animation = &enemypos;
-			timer = 0;
-			App->collision->EraseCollider(collider);
-		}
-		else {
-			timer++;
+
+					App->particles->AddParticle(App->particles->big_enemy_shoot, position.x + 7, position.y + 26, v_x, v_y, COLLIDER_ENEMY_SHOT);
+					App->particles->AddParticle(App->particles->big_enemy_shoot_born, position.x + 7, position.y + 26, v_x, v_y, COLLIDER_ENEMY_SHOT);
+					timer++;
+				}
+			}
+			if (timer == 300) {
+				if (animation == &shootopen_left) {
+					animation = &shootclose_left;
+				}
+				if (animation == &shootopen_right) {
+					animation = &shootclose_right;
+				}
+
+				timer++;
+			}
+			if (timer == 330) {
+				animation = &enemypos;
+				timer = 0;
+				App->collision->EraseCollider(collider);
+			}
+			else {
+				timer++;
+			}
 		}
 	}
 }
