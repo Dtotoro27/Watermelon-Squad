@@ -8,11 +8,13 @@ class Enemy_ShipBigMiddleTurret : public Enemy
 {
 private:
 	iPoint originalpos;
+	iPoint secondpos;
 	Animation base;
 	Animation shootopen;
 	Animation shootclose;
 	Animation enemy_position;
 	Path movement;
+	Path movement2;
 	Uint32 start_time = 0;
 	Uint32 now = 0;
 	uint timer = 0;

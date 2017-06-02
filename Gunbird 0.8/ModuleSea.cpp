@@ -96,7 +96,10 @@ bool ModuleSea::Start()
 	//Enemy
 
 
- App->enemies->AddEnemy(ENEMY_TYPES::BIRDBODY, SCREEN_WIDTH / 2 - 44,50);
+ //App->enemies->AddEnemy(ENEMY_TYPES::BIRDBODY, SCREEN_WIDTH / 2 - 44,50);
+	//App->enemies->AddEnemy(ENEMY_TYPES::SHIP, 10, -410);
+	//App->enemies->AddEnemy(ENEMY_TYPES::SHIPBIGMIDDLETURRET, 28, -79);
+	App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4,130, -10);
 
 	
 

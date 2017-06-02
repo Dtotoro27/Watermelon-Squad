@@ -37,6 +37,7 @@ enum ENEMY_TYPES
 	SHIPVERTICALCANONLITTLE,
 	SHIPBIGMIDDLETURRET,
 	SHIPBACKTURRET,
+	SHIP,
 	BIRDBODY,
 	LEFTWINGBIRD,
 	EXTRABOMB,
@@ -80,6 +81,7 @@ private:
 	
 public: 
 	float damage;
+	bool BigShipMiddleTurretDeath = false;
 };
 
 #endif // __ModuleEnemies_H__

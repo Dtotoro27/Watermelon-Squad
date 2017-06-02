@@ -169,6 +169,12 @@
     <ClCompile Include="Enemy_BirdBody.cpp">
       <Filter>Modules\Enemies\Boss\Bird</Filter>
     </ClCompile>
+    <ClCompile Include="Enemy_Ship.cpp">
+      <Filter>Modules\Enemies\Boss\Ship</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_FlyingMachine3.cpp">
+      <Filter>Modules\Enemies\Others</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -350,6 +356,12 @@
     </ClInclude>
     <ClInclude Include="Enemy_BirdBody.h">
       <Filter>Modules\Enemies\Boss\Bird</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Ship.h">
+      <Filter>Modules\Enemies\Boss\Ship</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_FlyingMachine3.h">
+      <Filter>Modules\Enemies\Others</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -35,6 +35,7 @@ public:
 	float shootspeed_y_u;
 	float vmodule;
 	float hitpoints;
+	bool death = false;
 	uint enemy;
 	uint score;
 

@@ -57,10 +57,10 @@ Enemy_FlyingMachine::Enemy_FlyingMachine(int x, int y) : Enemy(x, y)
 
 	collider = App->collision->AddCollider({ 0, 0,26,33 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 
-	movement.PushBack({ 0.0f,-0.35f }, 225, &enemy_position_s);
-	movement.PushBack({ 0.0f,-0.6f }, 50, &enemy_position_s);
-	movement.PushBack({ 0.0f,-0.775f }, 100, &enemy_position_s);
-	movement.PushBack({ 0.0f, -2.0f }, 10000, &enemy_position_s);
+	movement.PushBack({ 0.0f, 0.35f }, 125, &enemy_position_s);
+	movement.PushBack({ 0.0f, -0.3f }, 40, &enemy_position_s);
+	movement.PushBack({ 1.0f,-1.0f }, 10000, &enemy_position_s);
+	
 
 
 	originalpos.x = x;
