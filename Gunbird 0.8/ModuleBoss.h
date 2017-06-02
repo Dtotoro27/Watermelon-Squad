@@ -29,7 +29,10 @@ public:
 	Animation boss_animation;
 	Animation boss_animation2;
 	bool pause = false;
+	bool spawnship = false;
+	bool spawnbird = false;
 
+	uint timer = 0;
 
 };
 

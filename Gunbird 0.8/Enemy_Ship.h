@@ -13,6 +13,7 @@ private:
 	Animation ship;
 	Animation brokenship;
 
+
 	Path movement;
 	Path movement2;
 	Path movement3;

@@ -2,6 +2,7 @@
 #include "ModuleInput.h"
 #include "ModuleRender.h"
 #include "ModulePlayer.h"
+#include "ModuleBoss.h"
 #include "ModulePlayer2.h"
 #include "ModuleEnemies.h"
 #include "ModuleParticles.h"
@@ -65,6 +66,7 @@ bool ModuleEnemies::Start()
 {
 	// Create a prototype for each enemy available so we can copy them around
 	sprites = App->textures->Load("assets/enemies.png");
+	sprites2 = App->textures->Load("assets/particles.png");
 	audio_explosion = App->audio->LoadFX("assets/Audio/explosion.wav");
 
 
@@ -638,9 +640,14 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						if (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_ASH_BOMB) {
 							App->player->score += enemies[i]->score;
 						}
+						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x -100, enemies[i]->position.y, 0, 0, COLLIDER_NONE);
+						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x +150, enemies[i]->position.y, 0, 0, COLLIDER_NONE);
+						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x +75, enemies[i]->position.y +50, 0, 0, COLLIDER_NONE);
+						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x -10, enemies[i]->position.y+100, 0, 0, COLLIDER_NONE);
 						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y, 0, 0, COLLIDER_NONE);
 						App->collision->shipturret2 = true;
 						App->audio->PlayFX(audio_explosion);
+						App->boss->spawnbird = true;
 						delete enemies[i];
 						enemies[i] = nullptr;
 					}

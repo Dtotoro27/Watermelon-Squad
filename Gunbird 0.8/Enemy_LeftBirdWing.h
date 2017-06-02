@@ -19,6 +19,7 @@ private:
 	bool rwingbroken = false;
 
 	uint timermove = 0;
+	uint timer2 = 0;
 
 	Path movement;
 	Uint32 start_time = 0;

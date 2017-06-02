@@ -528,6 +528,16 @@ update_status ModuleSea::Update()
 	
 	*/
 
+	if (App->render->camera.y == 15250) {
+		change = false;
+		App->fade->FadeToBlack(this, App->boss, 0);
+		change = true;
+		bossstart = true;
+	}
+
+	if (App->input->keyboard[SDL_SCANCODE_M] == KEY_STATE::KEY_DOWN) {
+		App->render->camera.y = 15100;
+	}
 
 
 

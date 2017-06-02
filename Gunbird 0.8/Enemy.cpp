@@ -73,6 +73,8 @@ void Enemy::Draw(SDL_Texture* sprites)
 	}
 	
 
+	
+
 
 }
 

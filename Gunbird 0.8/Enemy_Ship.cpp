@@ -18,14 +18,12 @@ Enemy_Ship::Enemy_Ship(int x, int y) : Enemy(x, y)
 
 	brokenship.PushBack({829,612,189,407 });
 
-	
-
-
 
 	movement.PushBack({ 0.3f,-1.0f }, 75, &ship);
 	movement.PushBack({ 0.0f,-1.0f }, 40, &ship);
 	movement.PushBack({ -0.3f,-1.0f }, 75, &ship);
 	movement.PushBack({ 0.0f,-1.0f }, 40, &ship);
+
 
 
 	originalpos.x = x;
@@ -45,17 +43,22 @@ void Enemy_Ship::Move()
 		}
 		else {
 		}
-		position = originalpos + movement.GetCurrentPosition();
+		if (App->collision->shipturret2 == false) {
+			position = originalpos + movement.GetCurrentPosition();
+		}
 		if (App->collision->shipturret1 == true) {
 			if (timer > 350 && timer < 490) {
 				originalpos.y++;
 				timer++;
 			}
-			else if (App->collision->shipturret2 == true) {
-				originalpos.y++;
-			}
-			else {
+			else if (timer <= 350) {
 				timer++;
+			}
+			else if (App->collision->shipturret2 == true) {
+				timer++;
+				if (timer > 700) {
+					originalpos.y++;
+				}
 			}
 		}
 

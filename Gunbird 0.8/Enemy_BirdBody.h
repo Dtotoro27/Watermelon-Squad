@@ -12,14 +12,12 @@ private:
 	Animation enemypos;
 	Animation motor;
 
-
+	uint collision = 0;
 	bool left = true;
 	bool right = false;
 
-	bool lwingbroken = false;
-	bool rwingbroken = false;
-
 	uint timermove = 0;
+	uint timer = 0;
 
 	Path movement;
 	Uint32 start_time = 0;

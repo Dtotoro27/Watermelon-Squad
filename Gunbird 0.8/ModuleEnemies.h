@@ -81,8 +81,7 @@ private:
 	EnemyInfo queue[MAX_ENEMIES];
 	Enemy* enemies[MAX_ENEMIES];
 	SDL_Texture* sprites;
-	SDL_Texture* pw_sprites;
-	
+	SDL_Texture* sprites2;	
 public: 
 	float damage;
 	bool bossdefeated = false;

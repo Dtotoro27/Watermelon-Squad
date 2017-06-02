@@ -33,7 +33,7 @@ public:
 	Animation rock3;
 	int polla = 0;
 	bool pause = false;
-
+	bool bossstart = false;
 
 };
 

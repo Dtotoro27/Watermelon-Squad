@@ -84,41 +84,7 @@ bool ModuleBoss::Start()
 
 
 
-	//Enemy
-
 	
-
-	App->enemies->AddEnemy(ENEMY_TYPES::SHIP, 10, -407);
-
-	//SECOND STATE
-
-	App->enemies->AddEnemy(ENEMY_TYPES::SHIPVERTICALCANON2, 67, -279);
-	App->enemies->AddEnemy(ENEMY_TYPES::SHIPVERTICALCANON3, 113, -280);
-	App->enemies->AddEnemy(ENEMY_TYPES::SHIPVERTICALCANONLITTLE, 91, -276);
-	App->enemies->AddEnemy(ENEMY_TYPES::SHIPBACKTURRET, 37, -438);
-	
-
-	//FIRST STATE
-
-	App->enemies->AddEnemy(ENEMY_TYPES::SHIPTURRET, 16, -288);
-	App->enemies->AddEnemy(ENEMY_TYPES::SHIPTURRET, 146, -288);
-	App->enemies->AddEnemy(ENEMY_TYPES::SHIPTURRET, 9, -177);
-	App->enemies->AddEnemy(ENEMY_TYPES::SHIPTURRET, 152, -177);
-	App->enemies->AddEnemy(ENEMY_TYPES::SHIPTURRET, 124, -151);
-	App->enemies->AddEnemy(ENEMY_TYPES::SHIPTURRET, 38, -151);
-	App->enemies->AddEnemy(ENEMY_TYPES::SHIPTURRET, 50, -73);
-	App->enemies->AddEnemy(ENEMY_TYPES::SHIPTURRET, 112, -73);
-
-	App->enemies->AddEnemy(ENEMY_TYPES::SHIPBIGMIDDLETURRET, 28, -276);
-
-	App->enemies->AddEnemy(ENEMY_TYPES::SHIPVERTICALCANON,66, -192);
-	App->enemies->AddEnemy(ENEMY_TYPES::SHIPVERTICALCANON, 116, -192);
-
-	App->enemies->AddEnemy(ENEMY_TYPES::SHIPHORIZONTALCANON, 86, -144);
-
-	App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 150, -90);
-
-	App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE2, 30, -18);
 
 	return true;
 }
@@ -208,8 +174,89 @@ update_status ModuleBoss::Update()
 		change = true;
 	}
 
-	//ENEMIES--------------------------
+	if (spawnbird == true) {
+		spawnbird = false;
+			App->enemies->AddEnemy(ENEMY_TYPES::BIRDBODY, -18, App->player->camera_limits.y + 35);
+			App->enemies->AddEnemy(ENEMY_TYPES::LEFTWINGBIRD, -26, App->player->camera_limits.y + 87);
+			App->enemies->AddEnemy(ENEMY_TYPES::RIGHTWINGBIRD, 116, App->player->camera_limits.y + 87);
 
+		
+	}
+
+	if (spawnship == true) {
+		spawnship = false;
+		//Enemy
+		App->enemies->AddEnemy(ENEMY_TYPES::SHIP, 10, App->player->camera_limits.y -407);
+
+		//SECOND STATE
+
+		App->enemies->AddEnemy(ENEMY_TYPES::SHIPVERTICALCANON2, 67, App->player->camera_limits.y -279);
+		App->enemies->AddEnemy(ENEMY_TYPES::SHIPVERTICALCANON3, 113, App->player->camera_limits.y -280);
+		App->enemies->AddEnemy(ENEMY_TYPES::SHIPVERTICALCANONLITTLE, 91, App->player->camera_limits.y -276);
+		App->enemies->AddEnemy(ENEMY_TYPES::SHIPBACKTURRET, 37, App->player->camera_limits.y -438);
+
+
+		//FIRST STATE
+
+		App->enemies->AddEnemy(ENEMY_TYPES::SHIPTURRET, 16, App->player->camera_limits.y -288);
+		App->enemies->AddEnemy(ENEMY_TYPES::SHIPTURRET, 146, App->player->camera_limits.y -288);
+		App->enemies->AddEnemy(ENEMY_TYPES::SHIPTURRET, 9, App->player->camera_limits.y -177);
+		App->enemies->AddEnemy(ENEMY_TYPES::SHIPTURRET, 152, App->player->camera_limits.y -177);
+		App->enemies->AddEnemy(ENEMY_TYPES::SHIPTURRET, 124, App->player->camera_limits.y -151);
+		App->enemies->AddEnemy(ENEMY_TYPES::SHIPTURRET, 38, App->player->camera_limits.y -151);
+		App->enemies->AddEnemy(ENEMY_TYPES::SHIPTURRET, 50, App->player->camera_limits.y - 73);
+		App->enemies->AddEnemy(ENEMY_TYPES::SHIPTURRET, 112, App->player->camera_limits.y -73);
+
+		App->enemies->AddEnemy(ENEMY_TYPES::SHIPBIGMIDDLETURRET, 28, App->player->camera_limits.y -276);
+
+		App->enemies->AddEnemy(ENEMY_TYPES::SHIPVERTICALCANON, 66, App->player->camera_limits.y -192);
+		App->enemies->AddEnemy(ENEMY_TYPES::SHIPVERTICALCANON, 116, App->player->camera_limits.y -192);
+
+		App->enemies->AddEnemy(ENEMY_TYPES::SHIPHORIZONTALCANON, 86, App->player->camera_limits.y -144);
+
+		
+	}
+
+	
+
+	if (App->collision->shipturret2 == true) {
+		if (timer == 0) {
+			App->particles->AddParticle(App->particles->explosion, 50 , App->player->camera_limits.y + 20, 0, 0, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->explosion, 70, App->player->camera_limits.y + 50, 0, 0, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->explosion, 10, App->player->camera_limits.y + 100, 0, 0, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->explosion, 150, App->player->camera_limits.y + 150, 0, 0, COLLIDER_NONE);
+
+			App->particles->AddParticle(App->particles->explosion, 0, App->player->camera_limits.y + 20, 0, 0, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->explosion, 30, App->player->camera_limits.y + 75, 0, 0, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->explosion, 10, App->player->camera_limits.y + 30, 0, 0, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->explosion, 50, App->player->camera_limits.y + 50, 0, 0, COLLIDER_NONE);
+		}
+		if (timer == 10) {
+			App->particles->AddParticle(App->particles->explosion, 50, App->player->camera_limits.y + 120, 0, 0, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->explosion, 70, App->player->camera_limits.y + 150, 0, 0, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->explosion, 10, App->player->camera_limits.y + 200, 0, 0, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->explosion, 150, App->player->camera_limits.y + 250, 0, 0, COLLIDER_NONE);
+
+		}
+		if (timer == 20) {
+			App->particles->AddParticle(App->particles->explosion, 50, App->player->camera_limits.y + 20, 0, 0, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->explosion, 70, App->player->camera_limits.y + 50, 0, 0, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->explosion, 10, App->player->camera_limits.y + 100, 0, 0, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->explosion, 150, App->player->camera_limits.y + 150, 0, 0, COLLIDER_NONE);
+
+		}
+		if (timer == 30) {
+			App->particles->AddParticle(App->particles->explosion, 50, App->player->camera_limits.y + 70, 0, 0, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->explosion, 70, App->player->camera_limits.y + 90, 0, 0, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->explosion, 10, App->player->camera_limits.y + 80, 0, 0, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->explosion, 50, App->player->camera_limits.y + 100, 0, 0, COLLIDER_NONE);
+		}
+		timer++;
+	}
+
+
+	//ENEMIES--------------------------
+	/*
 	if (App->render->camera.y == 400)
 	{
 		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 150, -290);
@@ -244,7 +291,7 @@ update_status ModuleBoss::Update()
 		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 155, -1450);
 		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE2, 20, -1480);
 	}
-
+	*/
 
 	return UPDATE_CONTINUE;
 }

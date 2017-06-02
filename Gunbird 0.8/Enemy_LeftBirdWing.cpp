@@ -42,6 +42,14 @@ void Enemy_LeftBirdWing::Move()
 {
 
 	if (App->sea->pause == false) {
+		if (App->collision->shipturret2 == true) {
+			if (timer2 > 300) {
+			}
+			else {
+				originalpos.x++;
+				timer2++;
+			}
+		}
 		position = originalpos + movement.GetCurrentPosition();
 
 		if (left == true) {
