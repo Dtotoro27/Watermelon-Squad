@@ -29,7 +29,18 @@ public:
 	update_status Update();
 	bool CleanUp();
 	void OnCollision(Collider *c1, Collider *c2);
-	uint audio_shot;
+	uint ash_shot;
+	uint valnus_shot;
+	uint ash_wave;
+	uint valnus_laser;
+	uint valnus_bombvoice;
+	uint ash_bombsound;
+	uint ash_bombvoice;
+	uint valnus_powerup;
+	uint ash_powerup;
+	uint valnus_maxpowerup;
+	uint ash_maxpowerup;
+	uint extrabomb;
 
 public:
 
