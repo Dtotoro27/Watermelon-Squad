@@ -268,7 +268,6 @@ bool ModulePlayer::Start()
 	time.x = 0;
 	max_bomb = 2;
 
-
 	return ret;
 }
 
@@ -297,7 +296,7 @@ update_status ModulePlayer::Update()
 	camera_limits.y -= 1;
 
 	if (App->sea->pause == false) {
-	
+		if (dead == false) {
 			//BOMB ----------------------
 			if (bomb == false && max_bomb > 0) {
 				bomb_position.y = position.y;
@@ -311,7 +310,7 @@ update_status ModulePlayer::Update()
 			if (App->characterselect->characterselected1 == 3 && bomb == true) {
 				speed = 1.5f;
 			}
-		
+		}
 		//MOVEMENT
 
 		if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT || App->input->dpadRight == KEY_STATE::KEY_REPEAT || App->input->joy_right == KEY_STATE::KEY_REPEAT)
@@ -344,7 +343,7 @@ update_status ModulePlayer::Update()
 			}
 		}
 		if (collision == false) {
-			if ((App->input->keyboard[SDL_SCANCODE_LCTRL] == KEY_STATE::KEY_DOWN || 0 < delay || App->input->buttonA == KEY_STATE::KEY_DOWN))
+			if ((App->input->keyboard[SDL_SCANCODE_LCTRL] == KEY_STATE::KEY_DOWN || 0 < delay || App->input->buttonA == KEY_STATE::KEY_DOWN) && dead==false)
 			{
 				shooting = true;
 				if (powerUps == 0) {
