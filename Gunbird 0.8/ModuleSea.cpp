@@ -71,7 +71,7 @@ bool ModuleSea::Start()
 	pause = false;
 	sea_speed = 0.22f;
 	sea_x = -64;
-
+	bossstart = false;
 
 	seatexture = App->textures->Load("assets/background_sea_1.png");
 	rocktexture = App->textures->Load("assets/background_sea_2.png");

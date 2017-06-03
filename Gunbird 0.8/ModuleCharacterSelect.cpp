@@ -289,7 +289,7 @@ update_status ModuleCharacterSelect::Update()
 
 	if (coop == false) {
 		//Player1
-		if (errorp1 == false) {
+		if (character1_selected == false && errorp1 == false) {
 			if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_DOWN || App->input->dpadRight == KEY_STATE::KEY_DOWN || App->input->joy_right == KEY_STATE::KEY_DOWN) {
 				if (characterselected1 < 5) {
 					characterselected1 += 1;
@@ -451,9 +451,10 @@ update_status ModuleCharacterSelect::Update()
 				if (characterselected1 == 1) {
 					App->audio->PlayFX(select_ash);
 				}
-				else {
+				else {	
 					App->audio->PlayFX(select_valnus);
 				}
+				character1_selected = true;
 				change = false;
 				App->fade->FadeToBlack(this, App->sea, 1);
 				change = true;

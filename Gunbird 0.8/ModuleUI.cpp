@@ -92,6 +92,7 @@ bool ModuleUI::Start(){
 	font_time = App->fonts->Load("assets/numbers_time.png", "0123456789", 1);
 
 	timer = 9;
+	timer2 = 0;
 	pause_position.y = 0;
 	delay3 = 0;
 

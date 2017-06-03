@@ -57,6 +57,11 @@ bool ModuleBoss::Start()
 
 	LOG("Loading background assets");
 
+	App->collision->shipturret1 = false;
+	App->collision->shipturret2 = false;
+	App->collision->deadbird = false;
+	App->collision->rwing = false;
+
 	pause = false;
 	boss_speed = 0.22f;
 	boss_y = -640;
@@ -338,6 +343,7 @@ update_status ModuleBoss::Update()
 			change = false;
 			App->fade->FadeToBlack(this, App->congrats, 1);
 			change = true;
+			timer2 = 0;
 		}
 		timer2++;
 	}
