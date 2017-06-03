@@ -72,6 +72,8 @@ private:
 public:
 	bool shipturret1 = false;
 	bool shipturret2= false;
+	bool deadbird = false;
+	bool rwing = false;
 };
 
 #endif // __ModuleCollision_H__

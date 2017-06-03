@@ -107,9 +107,8 @@ public:
 	Particle damage_bird_rwing;
 
 	//Boss
-	Particle birdlgate;
-	Particle birdrgate;
-	Particle bird;
+	Particle bird_shoot;
+	Particle bird_explosion;
 
 	// Enemy Shoots
 	Particle enemy_shoot;

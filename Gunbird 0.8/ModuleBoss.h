@@ -23,10 +23,13 @@ public:
 	update_status Update();
 
 public:
+	Collider* collision;
 	SDL_Texture* bosstexture = nullptr;
+	SDL_Texture* bossdead = nullptr;
 	SDL_Texture* startplayer2texture = nullptr;
 	bool change = true;
 	Animation boss_animation;
+	Animation bird_dead;
 	Animation boss_animation2;
 	int polla = 0;
 	bool pause = false;
@@ -35,6 +38,7 @@ public:
 	
 
 	uint timer = 0;
+	uint timer2 = 0;
 
 };
 

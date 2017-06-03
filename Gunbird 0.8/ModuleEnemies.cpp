@@ -774,7 +774,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						else {
 							enemies[i]->hitpoints = enemies[i]->hitpoints - damage;
 						}
-						App->particles->AddParticle(App->particles->damage_bird_body, enemies[i]->position.x, enemies[i]->position.y, 0, 0, COLLIDER_NONE);
+						App->particles->AddParticle(App->particles->damage_bird_body, enemies[i]->position.x + 75, enemies[i]->position.y, 0, 0, COLLIDER_NONE);
 					}
 					else {
 						if (c2->type == COLLIDER_PLAYER_2_SHOT || c2->type == COLLIDER_VALNUS_2_LASER || c2->type == COLLIDER_ASH_BOMB_2) {
@@ -784,10 +784,11 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 							App->player->score += enemies[i]->score;
 						}
 						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x - 15, enemies[i]->position.y + 10, 0, 0, COLLIDER_NONE);
-						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y, 0, 0, COLLIDER_NONE);
+						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y + 75, 0, 0, COLLIDER_NONE);
 						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x + 5, enemies[i]->position.y - 10, 0, 0, COLLIDER_NONE);
-						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x - 15, enemies[i]->position.y - 10, 0, 0, COLLIDER_NONE);
+						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x - 15, enemies[i]->position.y +40, 0, 0, COLLIDER_NONE);
 						App->audio->PlayFX(audio_explosion);
+						App->collision->deadbird = true;
 						delete enemies[i];
 						enemies[i] = nullptr;
 					}
@@ -845,6 +846,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x - 15, enemies[i]->position.y - 10, 0, 0, COLLIDER_NONE);
 						App->audio->PlayFX(audio_explosion);
 						App->enemies->AddEnemy(POWER_UP, enemies[i]->position.x, enemies[i]->position.y);
+						App->collision->rwing = true;
 						delete enemies[i];
 						enemies[i] = nullptr;
 					}

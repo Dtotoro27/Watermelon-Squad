@@ -32,6 +32,7 @@ ModuleBoss::ModuleBoss()
 	boss_animation.PushBack({ 288, 0, 288, 640 });
 	boss_animation.speed = 0.1;
 
+	bird_dead.PushBack({1645,33,187,107});
 
 	boss_animation2.PushBack({ 0, 0, 288, 640 });
 	boss_animation2.PushBack({ 288, 0, 288, 640 });
@@ -64,10 +65,11 @@ bool ModuleBoss::Start()
 
 	bosstexture = App->textures->Load("assets/boss_background.png");
 	startplayer2texture = App->textures->Load("assets/ui.png");
+	bossdead = App->textures->Load("assets/particles.png");
 
 	App->audio->LoadMusic("assets/Audio/boss.ogg");
 
-
+	collision= App->collision->AddCollider({ 0,0,SCREEN_WIDTH,SCREEN_HEIGHT }, COLLIDER_ASH_BOMB, this);
 
 	App->ui->destroyed = false;
 	App->particles->Enable();
@@ -112,33 +114,30 @@ bool ModuleBoss::CleanUp()
 // Update: draw background
 update_status ModuleBoss::Update()
 {
+// PAUSE
+
+	if (App->player->dead == false) {
+		if (App->input->keyboard[SDL_SCANCODE_P] == KEY_STATE::KEY_DOWN || App->input->buttonStart == KEY_STATE::KEY_DOWN) {
+			if (App->sea->pause == false) {
+				App->sea->pause = true;
+			}
+			else if (App->sea->pause == true) {
+				App->sea->pause = false;
+			}
+		}
+	}
+
+	if (App->sea->pause == true) {
+		App->render->camera.y -= SCROLL_SPEED;
+		App->player->position.y += 1;
+		App->player->camera_limits.y += 1;
+	}
 
 	// -------------------------------------- Draw everything --------------------------------------
 	App->render->Blit(bosstexture, -64, boss_y + SCREEN_HEIGHT, &(boss_animation.GetCurrentFrame()), boss_speed);
 	App->render->Blit(bosstexture, -64, boss_y2 + SCREEN_HEIGHT, &(boss_animation.GetCurrentFrame()), boss_speed);
 
-	if (App->player->dead == false) {
-		if (App->input->keyboard[SDL_SCANCODE_P] == KEY_STATE::KEY_DOWN || App->input->buttonStart == KEY_STATE::KEY_DOWN) {
-			if (pause == false) {
-				pause = true;
-			}
-			else if (pause == true) {
-				pause = false;
-			}
-		}
-	}
 
-	if (App->input->keyboard[SDL_SCANCODE_U] == KEY_STATE::KEY_DOWN) {
-		App->enemies->AddEnemy(ENEMY_TYPES::BIRDBODY, App->player->position.x, App->player->position.y);
-		App->enemies->AddEnemy(ENEMY_TYPES::LEFTWINGBIRD, SCREEN_WIDTH / 2 - 52, 102);
-		App->enemies->AddEnemy(ENEMY_TYPES::RIGHTWINGBIRD, SCREEN_WIDTH / 2 + 89, 102);
-	}
-
-	if (pause == true) {
-		App->render->camera.y -= SCROLL_SPEED;
-		App->player->position.y += 1;
-		App->player->camera_limits.y += 1;
-	}
 
 	//Background--------------------------
 
@@ -169,7 +168,6 @@ update_status ModuleBoss::Update()
 
 	}
 	if (App->input->keyboard[SDL_SCANCODE_F7] == KEY_STATE::KEY_DOWN) {
-		polla = App->render->camera.y;
 		change = false;
 		App->fade->FadeToBlack(this, App->congrats, 1);
 		change = true;
@@ -227,10 +225,10 @@ update_status ModuleBoss::Update()
 			App->particles->AddParticle(App->particles->explosion, 10, App->player->camera_limits.y + 100, 0, 0, COLLIDER_NONE);
 			App->particles->AddParticle(App->particles->explosion, 150, App->player->camera_limits.y + 150, 0, 0, COLLIDER_NONE);
 
-			App->particles->AddParticle(App->particles->explosion, 0, App->player->camera_limits.y + 20, 0, 0, COLLIDER_NONE);
-			App->particles->AddParticle(App->particles->explosion, 30, App->player->camera_limits.y + 75, 0, 0, COLLIDER_NONE);
-			App->particles->AddParticle(App->particles->explosion, 10, App->player->camera_limits.y + 30, 0, 0, COLLIDER_NONE);
-			App->particles->AddParticle(App->particles->explosion, 50, App->player->camera_limits.y + 50, 0, 0, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->explosion, 0, App->player->camera_limits.y + 100, 0, 0, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->explosion, 30, App->player->camera_limits.y + 150, 0, 0, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->explosion, 10, App->player->camera_limits.y + 75, 0, 0, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->explosion, 50, App->player->camera_limits.y +200, 0, 0, COLLIDER_NONE);
 		}
 		if (timer == 10) {
 			App->particles->AddParticle(App->particles->explosion, 50, App->player->camera_limits.y + 120, 0, 0, COLLIDER_NONE);
@@ -247,6 +245,37 @@ update_status ModuleBoss::Update()
 
 		}
 		if (timer == 30) {
+			App->particles->AddParticle(App->particles->explosion, 50, App->player->camera_limits.y + 70, 0, 0, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->explosion, 70, App->player->camera_limits.y + 90, 0, 0, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->explosion, 10, App->player->camera_limits.y + 80, 0, 0, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->explosion, 50, App->player->camera_limits.y + 100, 0, 0, COLLIDER_NONE);
+		}
+		if (timer == 40) {
+			App->particles->AddParticle(App->particles->explosion, 50, App->player->camera_limits.y + 20, 0, 0, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->explosion, 70, App->player->camera_limits.y + 50, 0, 0, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->explosion, 10, App->player->camera_limits.y + 100, 0, 0, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->explosion, 150, App->player->camera_limits.y + 150, 0, 0, COLLIDER_NONE);
+
+			App->particles->AddParticle(App->particles->explosion, 0, App->player->camera_limits.y + 100, 0, 0, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->explosion, 30, App->player->camera_limits.y + 150, 0, 0, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->explosion, 10, App->player->camera_limits.y + 75, 0, 0, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->explosion, 50, App->player->camera_limits.y + 200, 0, 0, COLLIDER_NONE);
+		}
+		if (timer == 50) {
+			App->particles->AddParticle(App->particles->explosion, 50, App->player->camera_limits.y + 120, 0, 0, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->explosion, 70, App->player->camera_limits.y + 150, 0, 0, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->explosion, 10, App->player->camera_limits.y + 200, 0, 0, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->explosion, 150, App->player->camera_limits.y + 250, 0, 0, COLLIDER_NONE);
+
+		}
+		if (timer == 60) {
+			App->particles->AddParticle(App->particles->explosion, 50, App->player->camera_limits.y + 20, 0, 0, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->explosion, 70, App->player->camera_limits.y + 50, 0, 0, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->explosion, 10, App->player->camera_limits.y + 100, 0, 0, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->explosion, 150, App->player->camera_limits.y + 150, 0, 0, COLLIDER_NONE);
+
+		}
+		if (timer == 70) {
 			App->particles->AddParticle(App->particles->explosion, 50, App->player->camera_limits.y + 70, 0, 0, COLLIDER_NONE);
 			App->particles->AddParticle(App->particles->explosion, 70, App->player->camera_limits.y + 90, 0, 0, COLLIDER_NONE);
 			App->particles->AddParticle(App->particles->explosion, 10, App->player->camera_limits.y + 80, 0, 0, COLLIDER_NONE);
@@ -291,6 +320,26 @@ update_status ModuleBoss::Update()
 	{
 		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 155, -1650);
 		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE2, 20, -1610);
+	}
+
+
+	if (App->collision->deadbird == true) {
+
+		collision->SetPos(0, App->player->camera_limits.y);
+
+		if (timer2 > 300) {
+			App->player->position.y -= 3;
+			App->player->camera_limits.y -= 3;
+		}
+		if (timer2 > 0) {
+			App->render->Blit(bossdead, 20, 50, &(bird_dead.GetCurrentFrame()), 0);
+		}
+		if (timer2 == 350) {
+			change = false;
+			App->fade->FadeToBlack(this, App->congrats, 1);
+			change = true;
+		}
+		timer2++;
 	}
 	
 
