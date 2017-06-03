@@ -13,7 +13,7 @@ class ModuleSea : public Module
 private: 
 	int delay;
 	float sea_speed;
-	float sea_x;
+
 public:
 	ModuleSea();
 	~ModuleSea();
@@ -33,11 +33,7 @@ public:
 	Animation rock3;
 	bool pause = false;
 	bool bossstart = false;
-	int currentPowerUpsP1 = 0;
-	int currentBombsP1 = 0;
-	int currentLivesP1 = 0;
-	int currentScoreP1 = 0;
-
+	float sea_x;
 };
 
 #endif

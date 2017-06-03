@@ -53,6 +53,7 @@ bool ModuleCongrats::Start()
 	App->player->lives = 2;
 	App->player->score = 0;
 	App->player->max_bomb = 2;
+	App->sea->sea_x = -64;
 
 	return ret;
 }
