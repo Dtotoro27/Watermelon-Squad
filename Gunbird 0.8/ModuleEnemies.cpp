@@ -143,6 +143,19 @@ update_status ModuleEnemies::PostUpdate()
 					enemies[i] = nullptr;
 					}
 		}
+		if (enemies[i] != nullptr && enemies[i]->enemy == 17)
+		{
+
+			int si1 = enemies[i]->position.y *(-SCREEN_SIZE);
+			int si2 = (App->render->camera.y - (SCREEN_HEIGHT*SCREEN_SIZE + SPAWN_MARGIN));
+			if (si1 < si2)
+			{
+
+				LOG("DeSpawning enemy at %d", enemies[i]->position.y * SCREEN_SIZE);
+				delete enemies[i];
+				enemies[i] = nullptr;
+			}
+		}
 	}
 
 	return UPDATE_CONTINUE;
@@ -564,7 +577,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 				}
 
 				//SURFING TURRETS
-				else if (enemies[i]->enemy == 7) {
+				else if (enemies[i]->enemy == 7 || enemies[i]->enemy == 17) {
 					if (enemies[i]->hitpoints > 0) {
 						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
 							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 10);

@@ -379,9 +379,9 @@ update_status ModuleSea::Update()
 	////
 
 	 if (App->render->camera.y == 11100) {
-	 	App->enemies->AddEnemy(ENEMY_TYPES::UPSURFINGTURRET, 65, -5220);
-	 	App->enemies->AddEnemy(ENEMY_TYPES::UPSURFINGTURRET, 100, -5210);
-	 	App->enemies->AddEnemy(ENEMY_TYPES::UPSURFINGTURRET, 135, -5200);
+	 	App->enemies->AddEnemy(ENEMY_TYPES::UPSURFINGTURRET, 65, -5250);
+	 	App->enemies->AddEnemy(ENEMY_TYPES::UPSURFINGTURRET, 100, -5240);
+	 	App->enemies->AddEnemy(ENEMY_TYPES::UPSURFINGTURRET, 135, -5230);
 	 }
 	 if (App->render->camera.y == 11400) {
 	 	App->enemies->AddEnemy(ENEMY_TYPES::VERTICALBOMB, 15, -5700);
