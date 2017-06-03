@@ -134,7 +134,7 @@ update_status ModuleEnemies::PostUpdate()
 		{
 			
 			int si1 = enemies[i]->position.y *(-SCREEN_SIZE);
-			int si2 = (App->render->camera.y - (SCREEN_HEIGHT*SCREEN_SIZE) - SPAWN_MARGIN);
+			int si2 = (App->render->camera.y - (SCREEN_HEIGHT*SCREEN_SIZE));
 				if (si1 < si2)
 				{
 

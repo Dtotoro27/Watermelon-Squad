@@ -41,6 +41,9 @@ public:
 	uint valnus_maxpowerup;
 	uint ash_maxpowerup;
 	uint extrabomb;
+	uint collisionsound;
+	uint ash_deathsound;
+	uint valnus_deathsound;
 
 public:
 

@@ -258,7 +258,9 @@ bool ModulePlayer::Start()
 	valnus_maxpowerup = App->audio->LoadFX("assets/Audio/valnus_maxpowerup.wav");
 	ash_maxpowerup = App->audio->LoadFX("assets/Audio/ash_maxpowerup.wav");
 	extrabomb = App->audio->LoadFX("assets/Audio/catchbomb.wav");
-
+	collisionsound = App->audio->LoadFX("assets/Audio/collision.wav");
+	ash_deathsound = App->audio->LoadFX("assets/Audio/death_ash.wav");
+	valnus_deathsound = App->audio->LoadFX("assets/Audio/valnus_death.wav");
 
 
 
@@ -705,6 +707,7 @@ update_status ModulePlayer::Update()
 				}
 				if (timer2 == 1) {
 					App->particles->AddParticle(App->particles->collision, position.x, position.y - 50, 0, 0);
+					App->audio->PlayFX(collisionsound);
 				}
 				if (timer2 == 50) {
 					collision = false;
@@ -844,9 +847,11 @@ void  ModulePlayer::OnCollision(Collider *c1, Collider *c2) {
 						lives--;
 						if (App->characterselect->characterselected1 == 1) {
 							App->particles->AddParticle(App->particles->dead, position.x - 5, position.y - 25, 0, 0, COLLIDER_NONE, 150);
+							App->audio->PlayFX(ash_deathsound);
 						}
 						else {
 							App->particles->AddParticle(App->particles->dead_valnus, position.x - 5, position.y - 25, 0, 0, COLLIDER_NONE, 150);
+							App->audio->PlayFX(valnus_deathsound);
 						}
 						position.y = camera_limits.y + 800;
 						position_immortal.y = camera_limits.y + 350;
