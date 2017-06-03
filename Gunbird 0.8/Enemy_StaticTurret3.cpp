@@ -56,9 +56,9 @@ Enemy_StaticTurret3::Enemy_StaticTurret3(int x, int y) : Enemy(x, y)
 	animation = &base;
 
 
-	movement.PushBack({ 0.0f,-0.825f }, 650, &base);
+	movement.PushBack({ 0.0f,-0.78f }, 650, &base);
 	movement.PushBack({ 0.4f,-0.715f }, 160, &base);
-	movement.PushBack({ 0.0f,-0.825f }, 8000, &base);
+	movement.PushBack({ 0.0f,-0.78f }, 8000, &base);
 
 
 	collider = App->collision->AddCollider({ 7, 0, 26, 24 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);

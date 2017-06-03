@@ -327,12 +327,14 @@ update_status ModuleSea::Update()
 	 	App->enemies->AddEnemy(ENEMY_TYPES::VERTICALSURFINGTURRET, 10, -3820);
 	 }
 
+	 if (App->render->camera.y == 7250) {
+		 App->enemies->AddEnemy(ENEMY_TYPES::BLUEROBOT, -80, -3575);
+	 }
+
 	 if (App->render->camera.y == 1550) {
 	 	App->enemies->AddEnemy(ENEMY_TYPES::TOWER, 96, -882);
 	 }
-	 if (App->render->camera.y == 7100) {
-	 	App->enemies->AddEnemy(ENEMY_TYPES::BLUEROBOT, -80, -3475);
-	 }
+
 	 if (App->render->camera.y == 8890) {
 
 	 	App->enemies->AddEnemy(ENEMY_TYPES::STATICTURRET2, 110, -4480);
@@ -534,6 +536,9 @@ update_status ModuleSea::Update()
 	if (App->input->keyboard[SDL_SCANCODE_M] == KEY_STATE::KEY_DOWN) {
 		App->render->camera.y = 15100;
 	}
+
+
+	
 
 
 

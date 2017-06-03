@@ -65,8 +65,10 @@ Enemy_VerticalSurfingTurret::Enemy_VerticalSurfingTurret(int x, int y) : Enemy(x
 
 
 	water.speed = 0.1f;
-	animation7 = &water;
+	
 	animation5 = &turret1;
+
+	animation7 = &water;
 
 	movement.PushBack({ 0.0f,-0.55f }, 1250, &base);
 

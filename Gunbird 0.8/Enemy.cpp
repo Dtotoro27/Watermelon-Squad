@@ -26,12 +26,6 @@ void Enemy::Draw(SDL_Texture* sprites)
 	if (collider != nullptr)
 		collider->SetPos(position.x, position.y);
 
-	if (collider != nullptr && enemy==14)
-		collider->SetPos(position.x+100, position.y);
-
-	if (collider != nullptr && enemy == 16)
-		collider->SetPos(position.x + 10, position.y);
-
 	if (animation4 != nullptr) {
 		App->render->Blit(sprites, position.x - 32, position.y + 2, &(animation4->GetCurrentFrame()));
 	}
@@ -39,17 +33,19 @@ void Enemy::Draw(SDL_Texture* sprites)
 		App->render->Blit(sprites, position.x, position.y + 30, &(animation11->GetCurrentFrame()));
 	}
 	if (animation7 != nullptr) {
-		App->render->Blit(sprites, position.x, position.y - 33, &(animation7->GetCurrentFrame()));
+		App->render->Blit(sprites, position.x, position.y - 30, &(animation7->GetCurrentFrame()));
 	}
+	if (animation3 != nullptr) {
+		App->render->Blit(sprites, position.x + 29, position.y + 2, &(animation3->GetCurrentFrame()));
+	}
+	
 	if (animation != nullptr) {
 		App->render->Blit(sprites, position.x, position.y, &(animation->GetCurrentFrame()));
 	}
 	if (animation2 != nullptr) {
 		App->render->Blit(sprites, position.x - 2 , position.y -8, &(animation2->GetCurrentFrame()));
 	}
-	if (animation3 != nullptr) {
-		App->render->Blit(sprites, position.x + 29, position.y + 2, &(animation3->GetCurrentFrame()));
-	}
+	
 	if (animation5 != nullptr) {
 		App->render->Blit(sprites, position.x +1 , position.y - 7, &(animation5->GetCurrentFrame()));
 	}
@@ -71,8 +67,14 @@ void Enemy::Draw(SDL_Texture* sprites)
 	if (animation13 != nullptr) {
 		App->render->Blit(sprites, position.x + 86, position.y + 110, &(animation13->GetCurrentFrame()));
 	}
+
 	
 
+	if (collider != nullptr && enemy == 14)
+		collider->SetPos(position.x + 100, position.y);
+
+	if (collider != nullptr && enemy == 16)
+		collider->SetPos(position.x + 10, position.y);
 	
 
 
