@@ -734,6 +734,7 @@ update_status ModulePlayer::Update()
 	//DEAD
 	if (dead == true && App->sea->pause == false) {
 		powerUps = 0;
+		godmode = true;
 		if (lives >= 0) {
 			if (delay2 < 150) {
 				App->render->Blit(graphics, 55, position_immortal.y, &(immortal.GetCurrentFrame()));
@@ -748,15 +749,9 @@ update_status ModulePlayer::Update()
 				App->render->Blit(graphics, position.x, position.y - r.h, &(immortal.GetCurrentFrame()));
 			}
 			if (delay2 == 300) {
-				if (App->characterselect->characterselected1 == 1) {
-					playerhitbox = App->collision->AddCollider({ position.x + 1, position.y, 13, 32 }, COLLIDER_PLAYER, this);
-
-				}
-				else {
-					playerhitbox = App->collision->AddCollider({ position.x + 10, position.y, 19, 32 }, COLLIDER_PLAYER, this);
-				}
 				delay2 = 0;
 				dead = false;
+				godmode = false;
 			}
 			else
 				delay2++;
@@ -855,7 +850,6 @@ void  ModulePlayer::OnCollision(Collider *c1, Collider *c2) {
 						}
 						position.y = camera_limits.y + 800;
 						position_immortal.y = camera_limits.y + 350;
-						App->collision->EraseCollider(playerhitbox);
 						dead = true;
 					
 				}
