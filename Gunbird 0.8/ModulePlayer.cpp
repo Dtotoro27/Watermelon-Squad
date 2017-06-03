@@ -300,7 +300,7 @@ update_status ModulePlayer::Update()
 			//BOMB ----------------------
 			if (bomb == false && max_bomb > 0) {
 				bomb_position.y = position.y;
-				if (App->input->keyboard[SDL_SCANCODE_LALT] == KEY_STATE::KEY_DOWN || App->input->buttonB == KEY_STATE::KEY_DOWN) {
+				if (App->input->keyboard[SDL_SCANCODE_X] == KEY_STATE::KEY_DOWN || App->input->buttonB == KEY_STATE::KEY_DOWN) {
 					bomb = true;
 					bomb_position.x = position.x;
 					max_bomb--;
@@ -697,24 +697,20 @@ update_status ModulePlayer::Update()
 				current_animation = &collision_animation;
 				SDL_Rect r = current_animation->GetCurrentFrame();
 				if (timer2 == 0) {
-					if (powerUps != 0) {
-						powerUps--;
-					}
-					if (powerUps == 1) {
-						powerUps = 0;
-					}
+					powerUps--;
 					timer2++;
 				}
 				if (timer2 == 1) {
 					App->particles->AddParticle(App->particles->collision, position.x, position.y - 50, 0, 0);
 					App->audio->PlayFX(collisionsound);
 				}
+				timer2++;
 				if (timer2 == 50) {
 					collision = false;
 					timer2 = 0;
 					current_animation = &idle;
 				}
-				timer2++;
+				
 				App->render->Blit(graphics, position.x, position.y - r.h, &r);
 			}
 			else {

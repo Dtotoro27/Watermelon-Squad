@@ -40,27 +40,29 @@ PowerUp::PowerUp(int x, int y) : Enemy(x, y)
 
 void PowerUp::Move()
 {
-	if (up == true)
-		position.y -= 2; //si se cambia esta speed, por algun motivo desconocido deja de ir, NO TOCAR!
-	else
-		position.y += 1; 
+	if (App->sea->pause == false) {
+		if (up == true)
+			position.y -= 2; //si se cambia esta speed, por algun motivo desconocido deja de ir, NO TOCAR!
+		else
+			position.y += 1;
 
-	if (left == true)
-		position.x -= 1;
-	else
-		position.x += 1;
+		if (left == true)
+			position.x -= 1;
+		else
+			position.x += 1;
 
-	if (position.x < App->render->camera.x)
-		left = false;
+		if (position.x < App->render->camera.x)
+			left = false;
 
-	else if (position.x > SCREEN_WIDTH - 21)
-		left = true;
+		else if (position.x > SCREEN_WIDTH - 21)
+			left = true;
 
-	 if (position.y > App->player->camera_limits.y + (SCREEN_HEIGHT - 13))
-		up = true;
+		if (position.y > App->player->camera_limits.y + (SCREEN_HEIGHT - 13))
+			up = true;
 
-	 else if (position.y  < App->player->camera_limits.y)
-		 up = false;
+		else if (position.y < App->player->camera_limits.y)
+			up = false;
+	}
 }
 
 

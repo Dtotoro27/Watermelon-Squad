@@ -22,6 +22,7 @@ public:
 	bool CleanUp();
 	update_status Update();
 
+
 public:
 	bool change = true;
 	SDL_Texture* seatexture = nullptr;
@@ -34,6 +35,10 @@ public:
 	bool pause = false;
 	bool bossstart = false;
 	float sea_x;
+	
+	Uint32 minimized;
+
+
 };
 
 #endif

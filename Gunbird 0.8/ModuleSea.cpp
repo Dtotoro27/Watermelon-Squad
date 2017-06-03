@@ -16,6 +16,8 @@
 #include "ModuleCongrats.h"
 #include "ModuleCharacterSelect.h"
 #include "ModuleUI.h"
+#include "ModuleWindow.h"
+#include "SDL/include/SDL.h"
 
 
 ModuleSea::ModuleSea()
@@ -141,9 +143,10 @@ update_status ModuleSea::Update()
 			}
 		}
 	
-	if (App->input->keyboard[SDL_SCANCODE_RGUI] == KEY_STATE::KEY_DOWN) {
+		if (App->input->keyboard[SDL_SCANCODE_RGUI] == KEY_STATE::KEY_DOWN || App->input->keyboard[SDL_SCANCODE_LALT] == KEY_STATE::KEY_DOWN) {
 			pause = true;
-	}
+		}
+
 
 	
 	if (pause == true) {
@@ -538,6 +541,11 @@ update_status ModuleSea::Update()
 		bossstart = true;
 	}
 
+	minimized = SDL_GetWindowFlags(App->window->window);
 
+	
 	return UPDATE_CONTINUE;
 }
+
+
+

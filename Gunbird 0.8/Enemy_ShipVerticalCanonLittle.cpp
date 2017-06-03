@@ -102,6 +102,7 @@ void Enemy_ShipVerticalCanonLittle::Shoot() {
 				}
 				else {
 					animation = &shootopen_left;
+					collider = App->collision->AddCollider({ 0, 0,17,25 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
 				}
 				timer++;
 			}
