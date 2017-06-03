@@ -81,6 +81,10 @@ bool ModuleBoss::Start()
 	App->collision->Enable();
 	App->enemies->Enable();
 	App->player->Enable();
+	App->player->max_bomb  = App->sea->currentBombsP1;
+	App->player->powerUps = App->sea->currentPowerUpsP1;
+	App->player->lives = App->sea->currentLivesP1;
+	App->player->score = App->sea->currentScoreP1;
 
 	if (App->characterselect->coop == true) {
 		App->player2->Enable();

@@ -532,6 +532,10 @@ update_status ModuleSea::Update()
 	*/
 
 	if (App->render->camera.y == 15250 && change) {
+		currentBombsP1 = App->player->max_bomb;
+		currentPowerUpsP1 = App->player->powerUps;
+		currentLivesP1 = App->player->lives;
+		currentScoreP1 = App->player->score;
 		change = false;
 		App->fade->FadeToBlack(this, App->boss, 0);
 		change = true;
