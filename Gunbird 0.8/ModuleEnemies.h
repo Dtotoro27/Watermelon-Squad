@@ -72,6 +72,10 @@ public:
 
 	bool AddEnemy(ENEMY_TYPES type, int x, int y);
 	uint audio_explosion;
+	uint audio_explosion2;
+	uint audio_explosion3;
+	uint audio_explosion4;
+	uint audio_explosion5;
 
 private:
 

@@ -68,7 +68,7 @@ Enemy_UpSurfingTurret::Enemy_UpSurfingTurret(int x, int y) : Enemy(x, y)
 	animation11 = &water;
 	animation5 = &turret1;
 
-	movement.PushBack({ 0.0f,-1.45f }, 600, &base);
+	movement.PushBack({ 0.0f,-1.45f }, 450, &base);
 	movement.PushBack({ 0.0f,-0.5f }, 1000000, &base);
 
 
@@ -78,7 +78,7 @@ Enemy_UpSurfingTurret::Enemy_UpSurfingTurret(int x, int y) : Enemy(x, y)
 	originalpos.x = x;
 	originalpos.y = y;
 
-	enemy = 7;
+	enemy = 17;
 	hitpoints = 3;
 	score = 500;
 }
