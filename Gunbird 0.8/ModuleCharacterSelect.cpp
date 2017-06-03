@@ -447,7 +447,7 @@ update_status ModuleCharacterSelect::Update()
 
 	if (coop == false) {
 		if (characterselected1 == 1 || characterselected1 == 3) {
-			if (App->input->keyboard[SDL_SCANCODE_1] && change || App->input->buttonA == KEY_STATE::KEY_DOWN && change) {
+			if (App->input->keyboard[SDL_SCANCODE_1] == KEY_STATE::KEY_DOWN && change || App->input->buttonA == KEY_STATE::KEY_DOWN && change) {
 				if (characterselected1 == 1) {
 					App->audio->PlayFX(select_ash);
 				}
@@ -462,7 +462,7 @@ update_status ModuleCharacterSelect::Update()
 			}
 		}
 		else {
-			if (App->input->keyboard[SDL_SCANCODE_1] && change || App->input->buttonA == KEY_STATE::KEY_DOWN && change) {
+			if (App->input->keyboard[SDL_SCANCODE_1] == KEY_STATE::KEY_DOWN && change || App->input->buttonA == KEY_STATE::KEY_DOWN && change) {
 				errorp1 = true;
 				App->audio->PlayFX(selection_fail);
 			}
@@ -472,7 +472,7 @@ update_status ModuleCharacterSelect::Update()
 	if (coop == true) {
 		if (characterselected1 == 1 || characterselected1 == 3) {
 			if (character1_selected == false) {
-				if (App->input->keyboard[SDL_SCANCODE_1] && change || App->input->buttonA == KEY_STATE::KEY_DOWN && change) {
+				if (App->input->keyboard[SDL_SCANCODE_1] == KEY_STATE::KEY_DOWN && change || App->input->buttonA == KEY_STATE::KEY_DOWN && change) {
 					if (characterselected1 == 1) {
 						App->audio->PlayFX(select_ash);
 					}
@@ -485,7 +485,7 @@ update_status ModuleCharacterSelect::Update()
 			
 		}
 		else {
-			if (App->input->keyboard[SDL_SCANCODE_1] && change || App->input->buttonA == KEY_STATE::KEY_DOWN && change) {
+			if (App->input->keyboard[SDL_SCANCODE_1] == KEY_STATE::KEY_DOWN && change || App->input->buttonA == KEY_STATE::KEY_DOWN && change) {
 				errorp1 = true;
 				App->audio->PlayFX(selection_fail);
 			}
