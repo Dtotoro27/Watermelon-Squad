@@ -808,14 +808,11 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x - 15, enemies[i]->position.y + 10, 0, 0, COLLIDER_NONE);
 						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y + 75, 0, 0, COLLIDER_NONE);
 						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x + 5, enemies[i]->position.y - 10, 0, 0, COLLIDER_NONE);
-<<<<<<< HEAD
 						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x - 15, enemies[i]->position.y +40, 0, 0, COLLIDER_NONE);
 						App->audio->PlayFX(audio_explosion);
 						App->collision->deadbird = true;
-=======
 						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x - 15, enemies[i]->position.y - 10, 0, 0, COLLIDER_NONE);
 						App->audio->PlayFX(audio_explosion5);
->>>>>>> origin/master
 						delete enemies[i];
 						enemies[i] = nullptr;
 					}
