@@ -141,6 +141,11 @@ update_status ModuleSea::Update()
 			}
 		}
 	}
+	if (App->input->keyboard[SDL_SCANCODE_RGUI] == KEY_STATE::KEY_DOWN) {
+			pause = true;
+	}
+
+	
 	if (pause == true) {
 		App->render->camera.y -= SCROLL_SPEED;
 		App->player->position.y += 1;
@@ -533,14 +538,14 @@ update_status ModuleSea::Update()
 		bossstart = true;
 	}
 
-	if (App->input->keyboard[SDL_SCANCODE_M] == KEY_STATE::KEY_DOWN) {
-		App->render->camera.y = 15100;
-	}
 
-
+<<<<<<< HEAD
 	
 
 
+=======
+	LOG("%i", App->render->camera.y);
+>>>>>>> origin/master
 
 	return UPDATE_CONTINUE;
 }
