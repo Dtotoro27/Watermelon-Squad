@@ -43,7 +43,7 @@ Enemy_BlueRobot2::Enemy_BlueRobot2(int x, int y) : Enemy(x, y)
 
 	animation = &robot;
 
-	movement.PushBack({ -1.5f,-1 }, 55, &robot);
+	movement.PushBack({ -1.5f,-1 }, 85, &robot);
 	movement.PushBack({ -0.5f,-1 }, 65, &robot);
 	movement.PushBack({ 0,-1 }, 150, &robot);
 	movement.PushBack({ -0.5f,-1 }, 75, &robot);

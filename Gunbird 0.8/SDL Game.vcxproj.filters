@@ -181,6 +181,9 @@
     <ClCompile Include="Enemy_FlyingMachine3.cpp">
       <Filter>Modules\Enemies\Others</Filter>
     </ClCompile>
+    <ClCompile Include="Enemy_BigShipMove2.cpp">
+      <Filter>Modules\Enemies\Others</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -373,6 +376,9 @@
       <Filter>Modules\Enemies\Boss\Ship\Second state</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_FlyingMachine3.h">
+      <Filter>Modules\Enemies\Others</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_BigShipMove2.h">
       <Filter>Modules\Enemies\Others</Filter>
     </ClInclude>
   </ItemGroup>

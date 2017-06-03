@@ -203,7 +203,7 @@ update_status ModuleSea::Update()
 	}
 
 	if (App->render->camera.y == 9450) {
-		App->enemies->AddEnemy(ENEMY_TYPES::BIGSHIPMOVE, 0, -4850);
+		App->enemies->AddEnemy(ENEMY_TYPES::BIGSHIPMOVE2, 0, -4850);
 	}
 	
 	if (App->render->camera.y == 560) {
@@ -409,14 +409,14 @@ update_status ModuleSea::Update()
 	 	App->enemies->AddEnemy(ENEMY_TYPES::BOMB2, 284, -5930);
 	 }
 
-	 if (App->render->camera.y == 12150) {
-	 	App->enemies->AddEnemy(ENEMY_TYPES::BOMB, -10, -5950);
+	 if (App->render->camera.y == 12400) {
+	 	App->enemies->AddEnemy(ENEMY_TYPES::BOMB, -10, -6150);
 	 }
-	 if (App->render->camera.y == 12200) {
-	 	App->enemies->AddEnemy(ENEMY_TYPES::BOMB, -40, -5990);
+	 if (App->render->camera.y == 12450) {
+	 	App->enemies->AddEnemy(ENEMY_TYPES::BOMB, -40, -6190);
 	 }
-	 if (App->render->camera.y == 12250) {
-	 	App->enemies->AddEnemy(ENEMY_TYPES::BOMB, -70, -6030);
+	 if (App->render->camera.y == 12500) {
+	 	App->enemies->AddEnemy(ENEMY_TYPES::BOMB, -70, -6230);
 	 }
 
 
@@ -538,14 +538,6 @@ update_status ModuleSea::Update()
 		bossstart = true;
 	}
 
-
-<<<<<<< HEAD
-	
-
-
-=======
-	LOG("%i", App->render->camera.y);
->>>>>>> origin/master
 
 	return UPDATE_CONTINUE;
 }
