@@ -343,7 +343,7 @@ update_status ModulePlayer::Update()
 			}
 		}
 		if (collision == false) {
-			if ((App->input->keyboard[SDL_SCANCODE_LCTRL] == KEY_STATE::KEY_DOWN || 0 < delay || App->input->buttonA == KEY_STATE::KEY_DOWN) && dead==false)
+			if ((App->input->keyboard[SDL_SCANCODE_LCTRL] == KEY_STATE::KEY_DOWN || 0 < delay || App->input->buttonA == KEY_STATE::KEY_DOWN))
 			{
 				shooting = true;
 				if (powerUps == 0) {
