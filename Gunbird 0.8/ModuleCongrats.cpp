@@ -48,6 +48,12 @@ bool ModuleCongrats::Start()
 	App->audio->LoadMusic("assets/Audio/scoreboard.ogg");
 	font_score = App->fonts->Load("assets/numbers_score.png", "0123456789", 1);
 
+	App->player->position.x = 100;
+	App->player->position.y = (App->player->camera_limits.y + 300);
+	App->player->lives = 2;
+	App->player->score = 0;
+	App->player->max_bomb = 2;
+
 	return ret;
 }
 

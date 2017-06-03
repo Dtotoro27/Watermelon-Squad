@@ -219,6 +219,10 @@ ModulePlayer::ModulePlayer()
 	bomb_throw.PushBack({ 1933,428,10,5 });
 	bomb_throw.speed = 0.08;
 
+	
+	
+
+
 }
 
 ModulePlayer::~ModulePlayer()
@@ -229,9 +233,7 @@ bool ModulePlayer::Start()
 {
 	LOG("Loading player textures");
 	bool ret = true;
-	position.x = 100;
-	position.y = (camera_limits.y + 300);
-	lives = 2;
+	
 	if (App->characterselect->characterselected1 == 1) {
 		graphics = App->textures->Load("assets/characters/ash.png");
 		ash_bomb_texture = App->textures->Load("assets/ash_bomb.png");
@@ -262,12 +264,10 @@ bool ModulePlayer::Start()
 	ash_deathsound = App->audio->LoadFX("assets/Audio/death_ash.wav");
 	valnus_deathsound = App->audio->LoadFX("assets/Audio/valnus_death.wav");
 
+	position.x = 100;
+	position.y = (camera_limits.y + 300);
 
-
-	score = 0;
 	time.x = 0;
-	max_bomb = 2;
-
 	return ret;
 }
 
@@ -732,7 +732,7 @@ update_status ModulePlayer::Update()
 
 
 	//DEAD
-	if (dead == true) {
+	if (dead == true && App->sea->pause == false) {
 		powerUps = 0;
 		if (lives >= 0) {
 			if (delay2 < 150) {

@@ -44,6 +44,7 @@ public:
 	uint ash_deathsound;
 	uint valnus_deathsound;
 
+
 public:
 
 	SDL_Texture* graphics = nullptr;
