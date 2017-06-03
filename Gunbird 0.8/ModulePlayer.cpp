@@ -616,10 +616,10 @@ update_status ModulePlayer::Update()
 		}
 
 		if (App->input->keyboard[SDL_SCANCODE_F5] == KEY_STATE::KEY_DOWN) {
-			if (max_bomb < 2) {
+			if (max_bomb < 5) {
 				max_bomb++;
 			}
-			else if (max_bomb == 2) {
+			else if (max_bomb == 5) {
 				max_bomb = 0;
 			}
 		}
@@ -831,7 +831,7 @@ void  ModulePlayer::OnCollision(Collider *c1, Collider *c2) {
 		}
 
 			else if (c2->type == COLLIDER_TYPE::COLLIDER_EXTRA_BOMB) {
-				if (max_bomb<2)
+				if (max_bomb<5)
 				max_bomb +=1;
 				App->audio->PlayFX(extrabomb);
 			}

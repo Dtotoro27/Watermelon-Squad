@@ -186,6 +186,24 @@ update_status ModuleUI::Update() {
 			App->render->Blit(ui, 6, 300, &(bomb_indicator.GetCurrentFrame()), 0);
 			App->render->Blit(ui, 22, 300, &(bomb_indicator.GetCurrentFrame()), 0);
 		}
+		if (App->player->max_bomb == 3) {
+			App->render->Blit(ui, 6, 300, &(bomb_indicator.GetCurrentFrame()), 0);
+			App->render->Blit(ui, 22, 300, &(bomb_indicator.GetCurrentFrame()), 0);
+			App->render->Blit(ui, 38, 300, &(bomb_indicator.GetCurrentFrame()), 0);
+		}
+		if (App->player->max_bomb == 4) {
+			App->render->Blit(ui, 6, 300, &(bomb_indicator.GetCurrentFrame()), 0);
+			App->render->Blit(ui, 22, 300, &(bomb_indicator.GetCurrentFrame()), 0);
+			App->render->Blit(ui, 38, 300, &(bomb_indicator.GetCurrentFrame()), 0);
+			App->render->Blit(ui, 54, 300, &(bomb_indicator.GetCurrentFrame()), 0);
+		}
+		if (App->player->max_bomb == 5) {
+			App->render->Blit(ui, 6, 300, &(bomb_indicator.GetCurrentFrame()), 0);
+			App->render->Blit(ui, 22, 300, &(bomb_indicator.GetCurrentFrame()), 0);
+			App->render->Blit(ui, 38, 300, &(bomb_indicator.GetCurrentFrame()), 0);
+			App->render->Blit(ui, 54, 300, &(bomb_indicator.GetCurrentFrame()), 0);
+			App->render->Blit(ui, 70, 300, &(bomb_indicator.GetCurrentFrame()), 0);
+		}
 		if (App->player2->IsEnabled()) {
 			if (App->player2->max_bomb_p2 == 1) {
 				App->render->Blit(ui, 118, 300, &(bomb_indicator.GetCurrentFrame()), 0);
@@ -193,6 +211,25 @@ update_status ModuleUI::Update() {
 			if (App->player2->max_bomb_p2 == 2) {
 				App->render->Blit(ui, 118, 300, &(bomb_indicator.GetCurrentFrame()), 0);
 				App->render->Blit(ui, 134, 300, &(bomb_indicator.GetCurrentFrame()), 0);
+			}
+			if (App->player2->max_bomb_p2 == 3) {
+				App->render->Blit(ui, 118, 300, &(bomb_indicator.GetCurrentFrame()), 0);
+				App->render->Blit(ui, 134, 300, &(bomb_indicator.GetCurrentFrame()), 0);
+				App->render->Blit(ui, 150, 300, &(bomb_indicator.GetCurrentFrame()), 0);
+			}
+			if (App->player2->max_bomb_p2 == 4) {
+				App->render->Blit(ui, 118, 300, &(bomb_indicator.GetCurrentFrame()), 0);
+				App->render->Blit(ui, 134, 300, &(bomb_indicator.GetCurrentFrame()), 0);
+				App->render->Blit(ui, 150, 300, &(bomb_indicator.GetCurrentFrame()), 0);
+				App->render->Blit(ui, 166, 300, &(bomb_indicator.GetCurrentFrame()), 0);
+			}
+			if (App->player2->max_bomb_p2 == 5) {
+				App->render->Blit(ui, 118, 300, &(bomb_indicator.GetCurrentFrame()), 0);
+				App->render->Blit(ui, 134, 300, &(bomb_indicator.GetCurrentFrame()), 0);
+				App->render->Blit(ui, 150, 300, &(bomb_indicator.GetCurrentFrame()), 0);
+				App->render->Blit(ui, 166, 300, &(bomb_indicator.GetCurrentFrame()), 0);
+				App->render->Blit(ui, 182, 300, &(bomb_indicator.GetCurrentFrame()), 0);
+
 			}
 		}
 	//CREDITS-----------------
