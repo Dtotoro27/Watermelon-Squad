@@ -51,6 +51,24 @@ bool ModuleInput::Init()
 // Called every draw update
 update_status ModuleInput::PreUpdate()
 {
+	for (int i = 0; i < SDL_NumJoysticks(); i++) {
+		if (SDL_IsGameController(i)) {
+			if (i == 0) {
+				controller = SDL_GameControllerOpen(i);
+				joy = SDL_GameControllerGetJoystick(controller);
+			}
+			if (i == 1) {
+				controller2 = SDL_GameControllerOpen(i);
+				joy2 = SDL_GameControllerGetJoystick(controller2);
+			}
+			LOG("Index \'%i\' is a compatible controller, named \'%s\'\n", i, SDL_GameControllerNameForIndex(i));
+
+		}
+		else {
+			LOG("Index \'%i\' is not a compatible controller.\n", i);
+		}
+	}
+
 	SDL_PumpEvents();
 
 	const Uint8* keys = SDL_GetKeyboardState(NULL);
