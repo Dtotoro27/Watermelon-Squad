@@ -303,7 +303,7 @@ update_status ModuleUI::Update() {
 			delay3++;
 			if (delay3 < 1600) {
 				if (App->welcome->coins > 0) {
-					if (App->input->keyboard[SDL_SCANCODE_1] == KEY_STATE::KEY_DOWN || App->input->buttonStart == KEY_STATE::KEY_DOWN) {
+					if (App->input->keyboard[SDL_SCANCODE_1] == KEY_STATE::KEY_DOWN || App->input->buttonStart == KEY_STATE::KEY_DOWN || App->input->buttonA == KEY_STATE::KEY_DOWN) {
 						App->player->lives = 2;
 						App->player->score += 1;
 						delay3 = 0;

@@ -134,7 +134,7 @@ update_status ModuleSea::Update()
 	// -------------------------------------- Draw everything --------------------------------------
 
 
-		if (App->input->keyboard[SDL_SCANCODE_P] == KEY_STATE::KEY_DOWN || App->input->buttonStart == KEY_STATE::KEY_DOWN) {
+		if (App->input->keyboard[SDL_SCANCODE_P] == KEY_STATE::KEY_DOWN || App->input->buttonStart == KEY_STATE::KEY_DOWN || App->input->buttonStart2 == KEY_STATE::KEY_DOWN) {
 			if (pause == false) {
 				pause = true;
 			}
