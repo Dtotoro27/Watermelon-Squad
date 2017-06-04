@@ -20,6 +20,8 @@ private:
 	bool bomb = false;
 	bool collision = false;
 	int timer2 = 0;
+	bool powerupcatch=false;
+	bool extrabombcatch=false;
 public:
 	ModulePlayer();
 	~ModulePlayer();

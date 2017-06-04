@@ -12,7 +12,7 @@ private:
 	Path movement;
 	bool onscreen = true;
 	bool left = true;
-	bool up = false;
+	bool up = true;
 
 public:
 

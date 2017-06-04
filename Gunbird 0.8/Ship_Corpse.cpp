@@ -24,7 +24,7 @@ Ship_Corpse::Ship_Corpse(int x, int y) : Enemy(x, y)
 	movement.PushBack({ 0.0f,-0.825f }, 50, &base);
 	
 
-	collider = App->collision->AddCollider({ 0, 0, 63, 63 }, COLLIDER_TYPE::COLLIDER_NONE, (Module*)App->enemies);
+	collider = App->collision->AddCollider({ 0, 0, 63, 63 }, COLLIDER_TYPE::COLLIDER_WALL, (Module*)App->enemies);
 
 	originalpos.x = x;
 	originalpos.y = y;
