@@ -300,7 +300,7 @@ update_status ModulePlayer2::Update()
 			//BOMB ----------------------
 			if (bomb == false && max_bomb_p2 > 0) {
 				bomb_position.y = position.y;
-				if (App->input->keyboard[SDL_SCANCODE_M] == KEY_STATE::KEY_DOWN || App->input->buttonB == KEY_STATE::KEY_DOWN) {
+				if (App->input->keyboard[SDL_SCANCODE_V] == KEY_STATE::KEY_DOWN || App->input->buttonB == KEY_STATE::KEY_DOWN) {
 					bomb = true;
 					bomb_position.x = position.x;
 					max_bomb_p2--;
