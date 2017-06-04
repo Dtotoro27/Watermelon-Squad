@@ -40,10 +40,10 @@ ModuleSea::ModuleSea()
 	rock1.PushBack({ 46,0,46,175 });
 	rock1.speed = 0.06;
 
-	rock2.PushBack({0,187,68,155});
-	rock2.PushBack({ 68,187,68,155 });
-	rock2.PushBack({ 137,187,68,155 });
-	rock2.PushBack({ 206,187,68,155 });
+	rock2.PushBack({1,187,69,155});
+	rock2.PushBack({ 69,187,69,155 });
+	rock2.PushBack({ 138,187,69,155 });
+	rock2.PushBack({ 207,187,69,155 });
 	rock2.speed = 0.06;
 
 	rock3.PushBack({ 320,5,14,117 });
@@ -152,6 +152,7 @@ update_status ModuleSea::Update()
 	if (pause == true) {
 		App->render->camera.y -= SCROLL_SPEED;
 		App->player->position.y += 1;
+		App->player2->position.y += 1;
 		App->player->camera_limits.y += 1;
 	}
 
