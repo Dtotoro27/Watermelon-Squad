@@ -140,6 +140,7 @@ update_status ModuleBoss::Update()
 	if (App->sea->pause == true) {
 		App->render->camera.y -= SCROLL_SPEED;
 		App->player->position.y += 1;
+		App->player2->position.y += 1;
 		App->player->camera_limits.y += 1;
 	}
 
@@ -323,7 +324,8 @@ update_status ModuleBoss::Update()
 
 		collision->SetPos(0, App->player->camera_limits.y);
 
-		if (timer2 > 300) {
+		if (timer2 > 250) {
+			App->player2->position.y -= 3;
 			App->player->position.y -= 3;
 			App->player->camera_limits.y -= 3;
 		}
