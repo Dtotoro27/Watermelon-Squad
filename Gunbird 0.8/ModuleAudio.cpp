@@ -58,8 +58,14 @@ bool ModuleAudio::UnloadMusic() {
 
 bool ModuleAudio::UnloadFX(uint FXname)
 {
-	Mix_FreeChunk(fx[FXname]);
-	fx[FXname] = nullptr;
+	bool ret = false;
+	
+	if (fx[FXname] != nullptr) {
+		Mix_FreeChunk(fx[FXname]);
+		fx[FXname] = nullptr;
+		ret = true;
+		last_fx--;
+	}
 	return true;
 }
 
