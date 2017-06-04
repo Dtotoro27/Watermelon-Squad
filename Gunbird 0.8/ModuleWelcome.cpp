@@ -3,6 +3,7 @@
 #include "ModuleTextures.h"
 #include "ModuleRender.h"
 #include "ModulePlayer.h"
+#include "ModulePlayer2.h"
 #include "ModuleCharacterSelect.h"
 #include "ModuleWelcome.h"
 #include "ModuleSea.h"
@@ -49,7 +50,9 @@ bool ModuleWelcome::Start()
 	gameovertexture = App->textures->Load("assets/ui.png");
 	insert_coin_audio = App->audio->LoadFX("assets/Audio/add_coin.wav");
 	//App->audio->LoadMusic("assets/Audio/characterselection.ogg");
-	
+	App->player2->score = 0;
+	App->player->score = 0;
+
 
 
 	return ret;

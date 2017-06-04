@@ -28,6 +28,9 @@ public:
 	int font_score = -1;
 	uint fx = 0;
 
+	uint maxscorep1;
+	uint maxscorep2;
+
 };
 
 #endif

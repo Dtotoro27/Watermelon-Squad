@@ -31,6 +31,9 @@ ModuleCongrats::ModuleCongrats()
 	gameover.speed = 0.05f;
 
 	score_ranking.PushBack({ 6,3,114,21 });
+
+	maxscorep1 = 0;
+	maxscorep2 = 0;
 }
 
 ModuleCongrats::~ModuleCongrats()
@@ -77,7 +80,12 @@ update_status ModuleCongrats::Update()
 
 	// Draw everything --------------------------------------
 
-
+	if (App->player->score > maxscorep1) {
+		maxscorep1 = App->player->score;
+	}
+	if (App->player2->score > maxscorep2) {
+		maxscorep2 = App->player2->score;
+	}
 	App->render->Blit(congratstexture, 0, -320 + SCREEN_HEIGHT, &congrats, 0.75f);
 
 	App->render->Blit(gameovertexture, 50, 136, &(gameover.GetCurrentFrame()), 0.22f);
@@ -85,8 +93,8 @@ update_status ModuleCongrats::Update()
 	App->render->Blit(rankingtexture, 39, 76, &(p2.GetCurrentFrame()), 0.22f);
 	App->render->Blit(rankingtexture, 56, 17, &(score_ranking.GetCurrentFrame()), 0.22f);
 
-	sprintf_s(str, "%i", App->player->score);
-	sprintf_s(str2, "%i", App->player2->score);
+	sprintf_s(str, "%i", maxscorep1);
+	sprintf_s(str2, "%i", maxscorep2);
 
 	App->fonts->BlitText(136, 58, font_score, str);
 	App->fonts->BlitText(136, 82, font_score, str2);
