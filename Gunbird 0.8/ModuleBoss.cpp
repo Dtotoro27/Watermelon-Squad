@@ -146,10 +146,6 @@ update_status ModuleBoss::Update()
 
 	//Background--------------------------
 
-	if (App->input->keyboard[SDL_SCANCODE_U] == KEY_STATE::KEY_DOWN) {
-		LOG("%i", App->render->camera.y);
-	}
-
 	if (App->render->camera.y == 5800)
 	{
 		boss_y -= 1280;
@@ -176,10 +172,6 @@ update_status ModuleBoss::Update()
 		change = false;
 		App->fade->FadeToBlack(this, App->congrats, 1);
 		change = true;
-	}
-
-	if (App->input->keyboard[SDL_SCANCODE_M] == KEY_STATE::KEY_DOWN) {
-		App->collision->deadbird = true;
 	}
 
 	if (spawnbird == true) {

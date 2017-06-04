@@ -19,9 +19,11 @@ private:
 	float delay2 = 0;	
 	bool bomb = false;
 	bool collision = false;
+	bool bomb2 = false;
 	int timer2 = 0;
 	bool powerupcatch=false;
 	bool extrabombcatch=false;
+	uint i = 2;
 public:
 	ModulePlayer();
 	~ModulePlayer();
@@ -78,7 +80,7 @@ public:
 	iPoint time;
 	iPoint position_immortal;
 	int powerUps = 0;
-	int lives = 2;
+	int lives = 3;
 	int max_bomb = 2;
 	bool dead = false;
 

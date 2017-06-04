@@ -458,7 +458,6 @@ update_status ModuleCharacterSelect::Update()
 				change = false;
 				App->fade->FadeToBlack(this, App->sea, 1);
 				change = true;
-				//App->input->buttonA = false;
 
 			}
 		}

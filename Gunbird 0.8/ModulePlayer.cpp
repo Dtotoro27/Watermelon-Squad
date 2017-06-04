@@ -304,7 +304,7 @@ update_status ModulePlayer::Update()
 			//BOMB ----------------------
 			if (bomb == false && max_bomb > 0) {
 				bomb_position.y = position.y;
-				if (App->input->keyboard[SDL_SCANCODE_X] == KEY_STATE::KEY_DOWN || App->input->buttonB == KEY_STATE::KEY_DOWN) {
+				if (App->input->keyboard[SDL_SCANCODE_M] == KEY_STATE::KEY_DOWN || App->input->buttonB == KEY_STATE::KEY_DOWN) {
 					bomb = true;
 					bomb_position.x = position.x;
 					max_bomb--;
@@ -347,7 +347,7 @@ update_status ModulePlayer::Update()
 			}
 		}
 		if (collision == false) {
-			if ((App->input->keyboard[SDL_SCANCODE_Z] == KEY_STATE::KEY_DOWN || 0 < delay || App->input->buttonA == KEY_STATE::KEY_DOWN))
+			if ((App->input->keyboard[SDL_SCANCODE_N] == KEY_STATE::KEY_DOWN || 0 < delay || App->input->buttonA == KEY_STATE::KEY_DOWN))
 			{
 				shooting = true;
 				if (powerUps == 0) {
@@ -748,11 +748,12 @@ update_status ModulePlayer::Update()
 			else {
 				powerupcatch = true;
 			}
-			if (max_bomb > 0 && extrabombcatch == false) {
+			if (i> 0 && extrabombcatch == false) {
 				int random = rand() % 22;
 				random = random * 10;
 				App->enemies->AddEnemy(ENEMY_TYPES::EXTRABOMB, random, camera_limits.y + (SCREEN_HEIGHT / 2));
-				max_bomb--;
+				i--;
+				max_bomb = 2;
 			}
 
 			else {
@@ -865,11 +866,13 @@ void  ModulePlayer::OnCollision(Collider *c1, Collider *c2) {
 				if (godmode == false) {
 						lives--;
 						if (App->characterselect->characterselected1 == 1) {
-							App->particles->AddParticle(App->particles->dead, position.x - 5, position.y - 25, 0, 0, COLLIDER_NONE, 150);
+							App->particles->AddParticle(App->particles->explosion, position.x - 50, position.y - 70, 0, 0, COLLIDER_NONE);
+							App->particles->AddParticle(App->particles->dead, position.x - 5, position.y - 25, 0, 0, COLLIDER_NONE);
 							App->audio->PlayFX(ash_deathsound);
 						}
 						else {
-							App->particles->AddParticle(App->particles->dead_valnus, position.x - 5, position.y - 25, 0, 0, COLLIDER_NONE, 150);
+							App->particles->AddParticle(App->particles->explosion, position.x - 50, position.y - 70, 0, 0, COLLIDER_NONE);
+							App->particles->AddParticle(App->particles->dead_valnus, position.x - 5, position.y - 25, 0, 0, COLLIDER_NONE);
 							App->audio->PlayFX(valnus_deathsound);
 						}
 						position.y = camera_limits.y + 800;

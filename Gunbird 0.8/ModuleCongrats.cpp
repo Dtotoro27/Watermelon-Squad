@@ -109,7 +109,7 @@ update_status ModuleCongrats::Update()
 
 		App->player->position.x = 100;
 		App->player->position.y = (App->player->camera_limits.y + 300);
-		App->player->lives = 2;
+		App->player->lives = 3;
 		App->player->score = 0;
 		App->player->max_bomb = 2;
 		App->sea->sea_x = -64;

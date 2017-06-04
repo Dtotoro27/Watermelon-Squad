@@ -217,19 +217,10 @@ ModuleParticles::ModuleParticles()
 	enemy_shoot_born.life = 70;
 
 
+	dead.anim.PushBack({ 631, 170, 31,26 }); 
 	dead.anim.PushBack({ 631, 170, 31,26 });
-	dead.anim.PushBack({ 631, 170, 31,26 });
-	dead.anim.PushBack({ 631, 170, 31,26 });
-	dead.anim.PushBack({ 631, 170, 31,26 });
-	dead.anim.PushBack({ 631, 170, 31,26 });
-	dead.anim.PushBack({ 631, 170, 31,26 });
-	dead.anim.PushBack({ 631, 170, 31,26 });
-	dead.anim.PushBack({ 631, 170, 31,26 });
-	dead.anim.PushBack({ 631, 170, 31,26 });
-	dead.anim.PushBack({ 631, 170, 31,26 });
-	dead.anim.PushBack({ 631, 170, 31,26 });
-	dead.anim.speed = 0.1f;
 	dead.anim.loop = true;
+	dead.life = 500;
 
 	explosion.anim.PushBack({ 22,16, 105, 105 });
 	explosion.anim.PushBack({ 126, 16, 105, 105 });
@@ -243,7 +234,9 @@ ModuleParticles::ModuleParticles()
 	explosion.anim.PushBack({ 124, 259, 105, 105 });
 	explosion.anim.PushBack({ 231, 258, 105, 105 });
 	explosion.anim.PushBack({ 345, 263, 105, 105 });
-	explosion.anim.speed = 0.8f;
+	explosion.anim.PushBack({});
+	explosion.anim.speed = 0.3f;
+	explosion.life = 500;
 	explosion.anim.loop = false;
 	
 
@@ -264,8 +257,7 @@ ModuleParticles::ModuleParticles()
 	littleexplosion.anim.loop = false;
 
 	dead_valnus.anim.PushBack({632,202,32,38});
-	dead_valnus.anim.speed = 0.1f;
-	dead_valnus.anim.loop = true;
+	dead_valnus.life = 500;
 
 	collision.anim.PushBack({ 1057,10,31,31 });
 	collision.anim.PushBack({ 1094,10,31,31 });
