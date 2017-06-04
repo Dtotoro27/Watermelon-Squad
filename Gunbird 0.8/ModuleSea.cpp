@@ -186,7 +186,7 @@ update_status ModuleSea::Update()
 		change = true;		
 
 	}
-	if (App->input->keyboard[SDL_SCANCODE_F7] == KEY_STATE::KEY_DOWN && change) {
+	if (App->input->keyboard[SDL_SCANCODE_F8] == KEY_STATE::KEY_DOWN && change) {
 		change = false;
 		App->fade->FadeToBlack(this, App->congrats, 1);
 		change = true;

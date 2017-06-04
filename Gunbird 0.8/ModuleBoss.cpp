@@ -122,7 +122,7 @@ update_status ModuleBoss::Update()
 // PAUSE
 
 	if (App->player->dead == false) {
-		if (App->input->keyboard[SDL_SCANCODE_P] == KEY_STATE::KEY_DOWN || App->input->buttonStart == KEY_STATE::KEY_DOWN) {
+		if (App->input->keyboard[SDL_SCANCODE_P] == KEY_STATE::KEY_DOWN || App->input->buttonStart == KEY_STATE::KEY_DOWN|| App->input->buttonStart2 == KEY_STATE::KEY_DOWN) {
 			if (App->sea->pause == false) {
 				App->sea->pause = true;
 			}
@@ -173,7 +173,7 @@ update_status ModuleBoss::Update()
 		change = true;
 
 	}
-	if (App->input->keyboard[SDL_SCANCODE_F7] == KEY_STATE::KEY_DOWN) {
+	if (App->input->keyboard[SDL_SCANCODE_F8] == KEY_STATE::KEY_DOWN) {
 		change = false;
 		App->fade->FadeToBlack(this, App->congrats, 1);
 		change = true;

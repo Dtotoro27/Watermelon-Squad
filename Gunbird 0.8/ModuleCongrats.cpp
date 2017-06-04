@@ -92,7 +92,7 @@ update_status ModuleCongrats::Update()
 	App->fonts->BlitText(136, 82, font_score, str2);
 
 
-	if (App->input->keyboard[SDL_SCANCODE_F7] && change) {
+	if (App->input->keyboard[SDL_SCANCODE_F8] && change) {
 
 		change = false;
 		App->fade->FadeToBlack(this, App->welcome, 1);

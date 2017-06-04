@@ -402,7 +402,7 @@ update_status ModuleCharacterSelect::Update()
 			}
 		}
 		if (character2_selected == false) {
-			if (App->input->keyboard[SDL_SCANCODE_2] == KEY_STATE::KEY_DOWN) {
+			if (App->input->keyboard[SDL_SCANCODE_2] == KEY_STATE::KEY_DOWN || App->input->buttonA2 == KEY_STATE::KEY_DOWN) {
 				if (characterselected2 != 1 && characterselected2 != 3) {
 					errorp2 = true;
 				}
@@ -701,7 +701,7 @@ update_status ModuleCharacterSelect::Update()
 	delay3++;
 
 
-	if (App->input->keyboard[SDL_SCANCODE_F7] && change) {
+	if (App->input->keyboard[SDL_SCANCODE_F8] && change) {
 		characterselected1 = 1;
 		characterselected2 = 3;
 		change = false;
