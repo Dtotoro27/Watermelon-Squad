@@ -14,8 +14,8 @@
 Ship_Corpse::Ship_Corpse(int x, int y) : Enemy(x, y)
 {
 
-	base.PushBack({ 929, 152,62,105 });
-	base.PushBack({ 998, 152,62,105 });
+	base.PushBack({ 659, 22,62,105 });
+	base.PushBack({ 726, 9,62,105 });
 	base.speed = 0.3f;
 
 
