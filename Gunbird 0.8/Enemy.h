@@ -29,7 +29,6 @@ protected:
 
 
 
-	Collider* collider = nullptr;
 
 public:
 	iPoint position;
@@ -42,6 +41,7 @@ public:
 	bool death = false;
 	uint enemy;
 	uint score;
+	Collider* collider = nullptr;
 
 
 public:

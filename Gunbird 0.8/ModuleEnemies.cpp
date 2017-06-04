@@ -440,6 +440,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y, 0, 0, COLLIDER_NONE);
 						App->audio->PlayFX(audio_explosion);
 						App->enemies->AddEnemy(POWER_UP, enemies[i]->position.x, enemies[i]->position.y);
+						App->collision->EraseCollider(enemies[i]->collider);
 						delete enemies[i];
 						enemies[i] = nullptr;
 					}
@@ -472,6 +473,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x + 5, enemies[i]->position.y-10, 0, 0, COLLIDER_NONE);
 						App->audio->PlayFX(audio_explosion3);
 						App->enemies->AddEnemy(EXTRABOMB, enemies[i]->position.x, enemies[i]->position.y);
+						App->collision->EraseCollider(enemies[i]->collider);
 						delete enemies[i];
 						enemies[i] = nullptr;
 					}
@@ -504,6 +506,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x -15, enemies[i]->position.y - 10, 0, 0, COLLIDER_NONE);
 						App->audio->PlayFX(audio_explosion);
 						App->enemies->AddEnemy(POWER_UP, enemies[i]->position.x, enemies[i]->position.y);
+						App->collision->EraseCollider(enemies[i]->collider);
 						delete enemies[i];
 						enemies[i] = nullptr;
 					}
@@ -532,6 +535,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						}
 						App->particles->AddParticle(App->particles->littleexplosion, enemies[i]->position.x, enemies[i]->position.y, 0, 0, COLLIDER_NONE);
 						App->audio->PlayFX(audio_explosion4);
+						App->collision->EraseCollider(enemies[i]->collider);
 						delete enemies[i];
 						enemies[i] = nullptr;
 					}
@@ -560,6 +564,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						}
 						App->particles->AddParticle(App->particles->littleexplosion, enemies[i]->position.x, enemies[i]->position.y, 0, 0, COLLIDER_NONE);
 						App->audio->PlayFX(audio_explosion);
+						App->collision->EraseCollider(enemies[i]->collider);
 						delete enemies[i];
 						enemies[i] = nullptr;
 					}
@@ -587,6 +592,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						}
 						App->particles->AddParticle(App->particles->littleexplosion, enemies[i]->position.x, enemies[i]->position.y, 0, 0, COLLIDER_NONE);
 						App->audio->PlayFX(audio_explosion2);
+						App->collision->EraseCollider(enemies[i]->collider);
 						delete enemies[i];
 						enemies[i] = nullptr;
 					}
@@ -615,6 +621,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						}
 						App->particles->AddParticle(App->particles->littleexplosion, enemies[i]->position.x, enemies[i]->position.y, 0, 0, COLLIDER_NONE);
 						App->audio->PlayFX(audio_explosion);
+						App->collision->EraseCollider(enemies[i]->collider);
 						delete enemies[i];
 						enemies[i] = nullptr;
 					}
@@ -644,6 +651,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						}
 						App->particles->AddParticle(App->particles->littleexplosion, enemies[i]->position.x, enemies[i]->position.y, 0, 0, COLLIDER_NONE);
 						App->audio->PlayFX(audio_explosion4);
+						App->collision->EraseCollider(enemies[i]->collider);
 						delete enemies[i];
 						enemies[i] = nullptr;
 					}
@@ -676,6 +684,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x - 15, enemies[i]->position.y - 10, 0, 0, COLLIDER_NONE);
 						App->audio->PlayFX(audio_explosion3);
 						App->enemies->AddEnemy(POWER_UP, enemies[i]->position.x, enemies[i]->position.y);
+						App->collision->EraseCollider(enemies[i]->collider);
 						delete enemies[i];
 						enemies[i] = nullptr;
 					}
@@ -714,6 +723,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						App->collision->shipturret2 = true;
 						App->audio->PlayFX(audio_explosion);
 						App->boss->spawnbird = true;
+						App->collision->EraseCollider(enemies[i]->collider);
 						delete enemies[i];
 						enemies[i] = nullptr;
 					}
@@ -745,6 +755,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						App->collision->shipturret1 = true;
 						App->audio->PlayFX(audio_explosion);
 						App->enemies->AddEnemy(POWER_UP, enemies[i]->position.x, enemies[i]->position.y);
+						App->collision->EraseCollider(enemies[i]->collider);
 						delete enemies[i];
 						enemies[i] = nullptr;
 					}
@@ -773,6 +784,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						}
 						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x - 15, enemies[i]->position.y + 10, 0, 0, COLLIDER_NONE);
 						App->audio->PlayFX(audio_explosion);
+						App->collision->EraseCollider(enemies[i]->collider);
 						delete enemies[i];
 						enemies[i] = nullptr;
 					}
@@ -802,6 +814,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						}
 						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x - 15, enemies[i]->position.y + 10, 0, 0, COLLIDER_NONE);
 						App->audio->PlayFX(audio_explosion);
+						App->collision->EraseCollider(enemies[i]->collider);
 						delete enemies[i];
 						enemies[i] = nullptr;
 					}
@@ -841,6 +854,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						}
 						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x - 15, enemies[i]->position.y + 10, 0, 0, COLLIDER_NONE);
 						App->audio->PlayFX(audio_explosion);
+						App->collision->EraseCollider(enemies[i]->collider);
 						delete enemies[i];
 						enemies[i] = nullptr;
 					}
@@ -875,6 +889,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						App->collision->deadbird = true;
 						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x - 15, enemies[i]->position.y - 10, 0, 0, COLLIDER_NONE);
 						App->audio->PlayFX(audio_explosion5);
+						App->collision->EraseCollider(enemies[i]->collider);
 						delete enemies[i];
 						enemies[i] = nullptr;
 					}
@@ -908,6 +923,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x - 15, enemies[i]->position.y - 10, 0, 0, COLLIDER_NONE);
 						App->audio->PlayFX(audio_explosion4);
 						App->enemies->AddEnemy(POWER_UP, enemies[i]->position.x, enemies[i]->position.y);
+						App->collision->EraseCollider(enemies[i]->collider);
 						delete enemies[i];
 						enemies[i] = nullptr;
 					}
@@ -940,6 +956,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						App->audio->PlayFX(audio_explosion4);
 						App->enemies->AddEnemy(POWER_UP, enemies[i]->position.x, enemies[i]->position.y);
 						App->collision->rwing = true;
+						App->collision->EraseCollider(enemies[i]->collider);
 						delete enemies[i];
 						enemies[i] = nullptr;
 					}
