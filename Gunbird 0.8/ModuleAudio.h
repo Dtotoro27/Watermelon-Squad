@@ -22,7 +22,7 @@ public:
 
 	bool LoadMusic(const char* musicName);
 	bool UnloadMusic();
-
+	bool UnloadFX(uint FXname);
 	uint LoadFX(const char* path);
 	bool PlayFX(uint FXname);
 

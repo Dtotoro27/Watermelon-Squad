@@ -98,7 +98,6 @@ bool ModuleBoss::Start()
 
 bool ModuleBoss::CleanUp()
 {
-
 	App->enemies->Disable();
 	App->collision->Disable();
 	App->particles->Disable();
@@ -107,6 +106,7 @@ bool ModuleBoss::CleanUp()
 	App->ui->Disable();
 	App->textures->Unload(bosstexture);
 	App->textures->Unload(startplayer2texture);
+	App->textures->Unload(bossdead);
 	App->audio->UnloadMusic();
 	App->boss->Disable();
 

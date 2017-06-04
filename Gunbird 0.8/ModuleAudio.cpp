@@ -56,6 +56,13 @@ bool ModuleAudio::UnloadMusic() {
 	return true;
 }
 
+bool ModuleAudio::UnloadFX(uint FXname)
+{
+	Mix_FreeChunk(fx[FXname]);
+	fx[FXname] = nullptr;
+	return true;
+}
+
 
 
 uint ModuleAudio::LoadFX(const char* path) {
@@ -81,13 +88,13 @@ uint ModuleAudio::LoadFX(const char* path) {
 
 }
 
+
 bool ModuleAudio::PlayFX(uint FXname) {
 
 	if (fx[FXname] != nullptr) {
 		Mix_PlayChannel(-1, fx[FXname], 0);
 		if (Mix_PlayChannel(-1, fx[FXname], 0) == -1) {
 			LOG("Mix_PlayChannel: %s\n", Mix_GetError());
-
 		}
 		ret = true;
 	}

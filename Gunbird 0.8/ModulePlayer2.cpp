@@ -281,7 +281,21 @@ bool ModulePlayer2::CleanUp()
 	App->textures->Unload(valnus_bomb_texture);
 	App->collision->EraseCollider(player2hitbox);
 
-
+	App->audio->UnloadFX(ash_shot);
+	App->audio->UnloadFX(valnus_shot);
+	App->audio->UnloadFX(ash_wave);
+	App->audio->UnloadFX(valnus_laser);
+	App->audio->UnloadFX(valnus_bombvoice);
+	App->audio->UnloadFX(ash_bombsound);
+	App->audio->UnloadFX(ash_bombvoice);
+	App->audio->UnloadFX(valnus_powerup);
+	App->audio->UnloadFX(ash_powerup);
+	App->audio->UnloadFX(valnus_maxpowerup);
+	App->audio->UnloadFX(ash_maxpowerup);
+	App->audio->UnloadFX(extrabomb);
+	App->audio->UnloadFX(collisionsound);
+	App->audio->UnloadFX(ash_deathsound);
+	App->audio->UnloadFX(valnus_deathsound);
 
 	return true;
 }

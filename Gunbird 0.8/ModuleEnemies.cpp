@@ -173,6 +173,13 @@ bool ModuleEnemies::CleanUp()
 	LOG("Freeing all enemies");
 
 	App->textures->Unload(sprites);
+	App->textures->Unload(sprites2);
+
+	App->audio->UnloadFX(audio_explosion);
+	App->audio->UnloadFX(audio_explosion2);
+	App->audio->UnloadFX(audio_explosion3);
+	App->audio->UnloadFX(audio_explosion4);
+	App->audio->UnloadFX(audio_explosion5);
 
 	for (uint i = 0; i < MAX_ENEMIES; ++i)
 	{
