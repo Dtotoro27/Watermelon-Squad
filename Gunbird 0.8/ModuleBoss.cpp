@@ -286,8 +286,8 @@ update_status ModuleBoss::Update()
 	
 	if (App->render->camera.y == 900)
 	{
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 150, -550);
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE2, 30, -478);
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 170, -550);
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE2, 10, -478);
 	}
 	if (App->render->camera.y == 1400)
 	{
@@ -297,26 +297,26 @@ update_status ModuleBoss::Update()
 
 	if (App->render->camera.y == 1900)
 	{
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 140, -1200);
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 140, -1080);
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 190, -1200);
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 190, -1080);
 	}
 
 	if (App->render->camera.y == 2400)
 	{
 		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE4, 175, -1350);
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE3, 40, -1280);
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE3, 7, -1280);
 	}
 
 	if (App->render->camera.y == 2800)
 	{
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 175, -1450);
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE3, 40, -1480);
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 185, -1450);
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE3, 20, -1480);
 	}
 
 	if (App->render->camera.y == 3200)
 	{
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 155, -1650);
-		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE2, 20, -1610);
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE, 185, -1650);
+		App->enemies->AddEnemy(ENEMY_TYPES::FLYINGMACHINE2, 10, -1610);
 	}
 
 
