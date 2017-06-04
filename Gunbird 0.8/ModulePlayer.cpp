@@ -320,7 +320,7 @@ update_status ModulePlayer::Update()
 		if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT || App->input->dpadRight == KEY_STATE::KEY_REPEAT || App->input->joy_right == KEY_STATE::KEY_REPEAT)
 		{
 			current_animation = &right;
-			if (position.x < SCREEN_WIDTH - ASH_WIDTH) {
+			if (position.x < SCREEN_WIDTH - 25) {
 				position.x += speed;
 			}
 		}
@@ -857,7 +857,9 @@ void  ModulePlayer::OnCollision(Collider *c1, Collider *c2) {
 			}
 
 			else if (c2->type == COLLIDER_TYPE::COLLIDER_FLYING_ENEMY) {
-				collision = true;
+				if (godmode == false) {
+					collision = true;
+				}
 			}
 
 			else if (c2->type == COLLIDER_TYPE::COLLIDER_ENEMY) {
