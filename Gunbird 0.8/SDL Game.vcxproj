@@ -137,6 +137,7 @@
     <ClInclude Include="Enemy_ShipVerticalCanon2.h" />
     <ClInclude Include="Enemy_ShipVerticalCanon3.h" />
     <ClInclude Include="Enemy_RightBirdWing.h" />
+    <ClInclude Include="Ship_Corpse.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
@@ -200,6 +201,7 @@
     <ClCompile Include="Enemy_ShipVerticalCanon3.cpp" />
     <ClCompile Include="Enemy_ShipVerticalCanon2.cpp" />
     <ClCompile Include="Enemy_RightBirdWing.cpp" />
+    <ClCompile Include="Ship_Corpse.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

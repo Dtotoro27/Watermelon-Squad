@@ -184,6 +184,9 @@
     <ClCompile Include="Enemy_BigShipMove2.cpp">
       <Filter>Modules\Enemies\Others</Filter>
     </ClCompile>
+    <ClCompile Include="Ship_Corpse.cpp">
+      <Filter>Modules\Enemies\Others</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h">
@@ -379,6 +382,9 @@
       <Filter>Modules\Enemies\Others</Filter>
     </ClInclude>
     <ClInclude Include="Enemy_BigShipMove2.h">
+      <Filter>Modules\Enemies\Others</Filter>
+    </ClInclude>
+    <ClInclude Include="Ship_Corpse.h">
       <Filter>Modules\Enemies\Others</Filter>
     </ClInclude>
   </ItemGroup>

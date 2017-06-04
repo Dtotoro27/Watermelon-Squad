@@ -15,9 +15,13 @@
 #include "ModuleFonts.h"
 #include "ModuleAudio.h"
 #include "ModuleEnemies.h"
+#include "ModuleRender.h"
 #include "Enemy.h"
 #include "ModuleUI.h"
 #include "PowerUp.h"
+
+#include <time.h>
+#include <stdlib.h>
 
 
 #include<stdio.h>
@@ -343,7 +347,7 @@ update_status ModulePlayer::Update()
 			}
 		}
 		if (collision == false) {
-			if ((App->input->keyboard[SDL_SCANCODE_LCTRL] == KEY_STATE::KEY_DOWN || 0 < delay || App->input->buttonA == KEY_STATE::KEY_DOWN))
+			if ((App->input->keyboard[SDL_SCANCODE_Z] == KEY_STATE::KEY_DOWN || 0 < delay || App->input->buttonA == KEY_STATE::KEY_DOWN))
 			{
 				shooting = true;
 				if (powerUps == 0) {
@@ -697,7 +701,10 @@ update_status ModulePlayer::Update()
 				current_animation = &collision_animation;
 				SDL_Rect r = current_animation->GetCurrentFrame();
 				if (timer2 == 0) {
-					powerUps--;
+					if (powerUps > 0) {
+						powerUps--;
+						App->enemies->AddEnemy(ENEMY_TYPES::POWER_UP, position.x, position.y - 65);
+					}
 					timer2++;
 				}
 				if (timer2 == 1) {
@@ -729,9 +736,28 @@ update_status ModulePlayer::Update()
 
 	//DEAD
 	if (dead == true && App->sea->pause == false) {
-		powerUps = 0;
+		
 		godmode = true;
 		if (lives >= 0) {
+			if (powerUps > 0 && powerupcatch== false) {
+				int random = rand() % 22;
+				random = random * 10;
+				App->enemies->AddEnemy(ENEMY_TYPES::POWER_UP, random, camera_limits.y + (SCREEN_HEIGHT/2));
+				powerUps--;
+			}
+			else {
+				powerupcatch = true;
+			}
+			if (max_bomb > 0 && extrabombcatch == false) {
+				int random = rand() % 22;
+				random = random * 10;
+				App->enemies->AddEnemy(ENEMY_TYPES::EXTRABOMB, random, camera_limits.y + (SCREEN_HEIGHT / 2));
+				max_bomb--;
+			}
+
+			else {
+				extrabombcatch = true;
+			}
 			if (delay2 < 150) {
 				App->render->Blit(graphics, 55, position_immortal.y, &(immortal.GetCurrentFrame()));
 				if (position_immortal.y != camera_limits.y + 243) {
@@ -748,6 +774,8 @@ update_status ModulePlayer::Update()
 				delay2 = 0;
 				dead = false;
 				godmode = false;
+				extrabombcatch = false;
+				powerupcatch = false;
 			}
 			else
 				delay2++;
