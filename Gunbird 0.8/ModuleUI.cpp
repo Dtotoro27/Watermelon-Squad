@@ -272,7 +272,7 @@ update_status ModuleUI::Update() {
 			pause_position.y--;
 		}
 
-		if (App->player->lives == -1) {
+		if (App->player->lives < 0) {
 			if (delay3 > 100) {
 				App->particles->AddParticle(App->particles->dead, App->player->position.x - 5, App->player->position.y - 25, 0, 0, COLLIDER_NONE, 150);
 				App->player->position.y = App->player->camera_limits.y + 800;
