@@ -83,7 +83,7 @@ public:
 	int lives = 2;
 	int max_bomb = 2;
 	bool dead = false;
-
+	bool dead2 = false;
 };
 
 #endif
