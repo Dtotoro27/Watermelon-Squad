@@ -295,14 +295,14 @@ ModuleParticles::ModuleParticles()
 	bird_explosion.anim.PushBack({ 1578,1121,222,222 });
 	bird_explosion.anim.PushBack({ 1354,1121,222,222 });
 	bird_explosion.anim.PushBack({ 1578,1121,222,222 });
-	bird_explosion.anim.PushBack({ 10,1344,222,222 });
-	bird_explosion.anim.PushBack({ 234,1344,222,222 });
-	bird_explosion.anim.PushBack({ 458,1344,222,222 });
-	bird_explosion.anim.PushBack({ 682,1344,222,222 });
-	bird_explosion.anim.PushBack({ 906,1344,222,222 });
-	bird_explosion.anim.PushBack({ 1130,1344,222,222 });
-	bird_explosion.anim.PushBack({ 1354,1344,222,222 });
-	bird_explosion.anim.PushBack({ 1578,1344,222,222 });
+	bird_explosion.anim.PushBack({ 10,1345,222,222 });
+	bird_explosion.anim.PushBack({ 234,1345,222,222 });
+	bird_explosion.anim.PushBack({ 458,1345,222,222 });
+	bird_explosion.anim.PushBack({ 682,1345,222,222 });
+	bird_explosion.anim.PushBack({ 906,1345,222,222 });
+	bird_explosion.anim.PushBack({ 1130,1345,222,222 });
+	bird_explosion.anim.PushBack({ 1354,1345,222,222 });
+	bird_explosion.anim.PushBack({ 1578,1345,222,222 });
 	bird_explosion.anim.speed = 0.3f;
 
 	smoke.anim.PushBack({27,1745,52,182 });

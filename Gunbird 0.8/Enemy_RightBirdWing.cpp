@@ -88,9 +88,9 @@ void Enemy_RightBirdWing::Move()
 		}
 
 		else if (right == true) {
-			if (originalpos.x < 180 && timermove == 0) {
+			if (originalpos.x < 179 && timermove == 0) {
 				originalpos.x++;
-				if (originalpos.x == 180) {
+				if (originalpos.x == 179) {
 					timermove = 1;
 				}
 			}

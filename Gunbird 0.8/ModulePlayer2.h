@@ -82,7 +82,7 @@ public:
 	iPoint time;
 	iPoint position_immortal;
 	int powerUps = 0;
-	int lives = 3;
+	int lives = 2;
 	int max_bomb_p2 = 2;
 	bool dead = false;
 

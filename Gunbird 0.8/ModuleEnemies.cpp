@@ -410,11 +410,12 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 
 				//BALLOON
 				if (enemies[i]->enemy == 0) {
+					LOG("BALLOON HIT POINTS %i", enemies[i]->hitpoints);
 					if (enemies[i]->hitpoints > 0) {
 						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
 							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 10);
 						}
-						if (c2->type == COLLIDER_ASH_BOMB || c2->type == COLLIDER_ASH_BOMB_2) {
+						else if (c2->type == COLLIDER_ASH_BOMB || c2->type == COLLIDER_ASH_BOMB_2) {
 							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 2);
 						}
 						else {
@@ -443,7 +444,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
 							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 10);
 						}
-						if (c2->type == COLLIDER_ASH_BOMB || c2->type == COLLIDER_ASH_BOMB_2) {
+						else if (c2->type == COLLIDER_ASH_BOMB || c2->type == COLLIDER_ASH_BOMB_2) {
 							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 2);
 						}
 						else {
@@ -475,7 +476,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
 							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 10);
 						}
-						if (c2->type == COLLIDER_ASH_BOMB || c2->type == COLLIDER_ASH_BOMB_2) {
+						else if (c2->type == COLLIDER_ASH_BOMB || c2->type == COLLIDER_ASH_BOMB_2) {
 							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 2);
 						}
 						else {
@@ -507,7 +508,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
 							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 10);
 						}
-						if (c2->type == COLLIDER_ASH_BOMB || c2->type == COLLIDER_ASH_BOMB_2) {
+						else if (c2->type == COLLIDER_ASH_BOMB || c2->type == COLLIDER_ASH_BOMB_2) {
 							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 2);
 						}
 						else {
@@ -535,7 +536,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
 							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 10);
 						}
-						if (c2->type == COLLIDER_ASH_BOMB || c2->type == COLLIDER_ASH_BOMB_2) {
+						else if (c2->type == COLLIDER_ASH_BOMB || c2->type == COLLIDER_ASH_BOMB_2) {
 							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 2);
 						}
 						else {
@@ -563,7 +564,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
 							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 10);
 						}
-						if (c2->type == COLLIDER_ASH_BOMB || c2->type == COLLIDER_ASH_BOMB_2) {
+						else if (c2->type == COLLIDER_ASH_BOMB || c2->type == COLLIDER_ASH_BOMB_2) {
 							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 2);
 						}
 						else {
@@ -590,7 +591,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
 							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 10);
 						}
-						if (c2->type == COLLIDER_ASH_BOMB || c2->type == COLLIDER_ASH_BOMB_2) {
+						else if (c2->type == COLLIDER_ASH_BOMB || c2->type == COLLIDER_ASH_BOMB_2) {
 							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 2);
 						}
 						else {
@@ -618,7 +619,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
 							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 10);
 						}
-						if (c2->type == COLLIDER_ASH_BOMB || c2->type == COLLIDER_ASH_BOMB_2) {
+						else if (c2->type == COLLIDER_ASH_BOMB || c2->type == COLLIDER_ASH_BOMB_2) {
 							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 2);
 						}
 						else {
@@ -647,7 +648,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
 							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 10);
 						}
-						if (c2->type == COLLIDER_ASH_BOMB || c2->type == COLLIDER_ASH_BOMB_2) {
+						else if (c2->type == COLLIDER_ASH_BOMB || c2->type == COLLIDER_ASH_BOMB_2) {
 							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 2);
 						}
 						else {
@@ -683,7 +684,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
 							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 10);
 						}
-						if (c2->type == COLLIDER_ASH_BOMB || c2->type == COLLIDER_ASH_BOMB_2) {
+						else if (c2->type == COLLIDER_ASH_BOMB || c2->type == COLLIDER_ASH_BOMB_2) {
 							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 2);
 						}
 						else {
@@ -718,7 +719,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
 							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 10);
 						}
-						if (c2->type == COLLIDER_ASH_BOMB || c2->type == COLLIDER_ASH_BOMB_2) {
+						else if (c2->type == COLLIDER_ASH_BOMB || c2->type == COLLIDER_ASH_BOMB_2) {
 							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 2);
 						}
 						else {
@@ -748,7 +749,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
 							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 10);
 						}
-						if (c2->type == COLLIDER_ASH_BOMB || c2->type == COLLIDER_ASH_BOMB_2) {
+						else if (c2->type == COLLIDER_ASH_BOMB || c2->type == COLLIDER_ASH_BOMB_2) {
 							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 2);
 						}
 						else {
@@ -777,7 +778,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
 							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 10);
 						}
-						if (c2->type == COLLIDER_ASH_BOMB || c2->type == COLLIDER_ASH_BOMB_2) {
+						else if (c2->type == COLLIDER_ASH_BOMB || c2->type == COLLIDER_ASH_BOMB_2) {
 							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 2);
 						}
 						else {
@@ -807,7 +808,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
 							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 10);
 						}
-						if (c2->type == COLLIDER_ASH_BOMB || c2->type == COLLIDER_ASH_BOMB_2) {
+						else if (c2->type == COLLIDER_ASH_BOMB || c2->type == COLLIDER_ASH_BOMB_2) {
 							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 2);
 						}
 						else {
@@ -825,7 +826,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						if (c2->type == COLLIDER_PLAYER_2_SHOT || c2->type == COLLIDER_VALNUS_2_LASER || c2->type == COLLIDER_ASH_BOMB_2) {
 							App->player2->score += enemies[i]->score;
 						}
-						if (c2->type == COLLIDER_ASH_BOMB || c2->type == COLLIDER_ASH_BOMB_2) {
+						else if (c2->type == COLLIDER_ASH_BOMB || c2->type == COLLIDER_ASH_BOMB_2) {
 							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 2);
 						}
 						if (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_ASH_BOMB) {
@@ -844,7 +845,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
 							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 10);
 						}
-						if (c2->type == COLLIDER_ASH_BOMB || c2->type == COLLIDER_ASH_BOMB_2) {
+						else if (c2->type == COLLIDER_ASH_BOMB || c2->type == COLLIDER_ASH_BOMB_2) {
 							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 2);
 						}
 						else {
@@ -878,12 +879,13 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
 							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 10);
 						}
+						else if (c2->type == COLLIDER_ASH_BOMB || c2->type == COLLIDER_ASH_BOMB_2) {
+							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 2);
+						}
 						else {
 							enemies[i]->hitpoints = enemies[i]->hitpoints - damage;
 						}
-						if (c2->type == COLLIDER_ASH_BOMB || c2->type == COLLIDER_ASH_BOMB_2) {
-							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 2);
-						}
+					
 						App->particles->AddParticle(App->particles->damage_bird_lwing, enemies[i]->position.x, enemies[i]->position.y, 0, 0, COLLIDER_NONE);
 					}
 					else {
@@ -909,7 +911,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						if (c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_VALNUS_2_LASER) {
 							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 10);
 						}
-						if (c2->type == COLLIDER_ASH_BOMB || c2->type == COLLIDER_ASH_BOMB_2) {
+						else if (c2->type == COLLIDER_ASH_BOMB || c2->type == COLLIDER_ASH_BOMB_2) {
 							enemies[i]->hitpoints = enemies[i]->hitpoints - (damage / 2);
 						}
 						else {

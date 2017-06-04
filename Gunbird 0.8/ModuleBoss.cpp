@@ -132,6 +132,11 @@ update_status ModuleBoss::Update()
 		}
 	}
 
+	if (App->input->keyboard[SDL_SCANCODE_RGUI] == KEY_STATE::KEY_DOWN || App->input->keyboard[SDL_SCANCODE_LALT] == KEY_STATE::KEY_DOWN) {
+		App->sea->pause = true;
+	}
+
+
 	if (App->sea->pause == true) {
 		App->render->camera.y -= SCROLL_SPEED;
 		App->player->position.y += 1;
@@ -178,7 +183,7 @@ update_status ModuleBoss::Update()
 		spawnbird = false;
 			App->enemies->AddEnemy(ENEMY_TYPES::BIRDBODY, -18, App->player->camera_limits.y + 35);
 			App->enemies->AddEnemy(ENEMY_TYPES::LEFTWINGBIRD, -26, App->player->camera_limits.y + 87);
-			App->enemies->AddEnemy(ENEMY_TYPES::RIGHTWINGBIRD, 116, App->player->camera_limits.y + 87);
+			App->enemies->AddEnemy(ENEMY_TYPES::RIGHTWINGBIRD, 115, App->player->camera_limits.y + 87);
 
 		
 	}
@@ -225,11 +230,6 @@ update_status ModuleBoss::Update()
 			App->particles->AddParticle(App->particles->explosion, 70, App->player->camera_limits.y + 50, 0, 0, COLLIDER_NONE);
 			App->particles->AddParticle(App->particles->explosion, 10, App->player->camera_limits.y + 100, 0, 0, COLLIDER_NONE);
 			App->particles->AddParticle(App->particles->explosion, 150, App->player->camera_limits.y + 150, 0, 0, COLLIDER_NONE);
-
-			App->particles->AddParticle(App->particles->explosion, 0, App->player->camera_limits.y + 100, 0, 0, COLLIDER_NONE);
-			App->particles->AddParticle(App->particles->explosion, 30, App->player->camera_limits.y + 150, 0, 0, COLLIDER_NONE);
-			App->particles->AddParticle(App->particles->explosion, 10, App->player->camera_limits.y + 75, 0, 0, COLLIDER_NONE);
-			App->particles->AddParticle(App->particles->explosion, 50, App->player->camera_limits.y +200, 0, 0, COLLIDER_NONE);
 		}
 		if (timer == 10) {
 			App->particles->AddParticle(App->particles->explosion, 50, App->player->camera_limits.y + 120, 0, 0, COLLIDER_NONE);
@@ -256,11 +256,6 @@ update_status ModuleBoss::Update()
 			App->particles->AddParticle(App->particles->explosion, 70, App->player->camera_limits.y + 50, 0, 0, COLLIDER_NONE);
 			App->particles->AddParticle(App->particles->explosion, 10, App->player->camera_limits.y + 100, 0, 0, COLLIDER_NONE);
 			App->particles->AddParticle(App->particles->explosion, 150, App->player->camera_limits.y + 150, 0, 0, COLLIDER_NONE);
-
-			App->particles->AddParticle(App->particles->explosion, 0, App->player->camera_limits.y + 100, 0, 0, COLLIDER_NONE);
-			App->particles->AddParticle(App->particles->explosion, 30, App->player->camera_limits.y + 150, 0, 0, COLLIDER_NONE);
-			App->particles->AddParticle(App->particles->explosion, 10, App->player->camera_limits.y + 75, 0, 0, COLLIDER_NONE);
-			App->particles->AddParticle(App->particles->explosion, 50, App->player->camera_limits.y + 200, 0, 0, COLLIDER_NONE);
 		}
 		if (timer == 50) {
 			App->particles->AddParticle(App->particles->explosion, 50, App->player->camera_limits.y + 120, 0, 0, COLLIDER_NONE);

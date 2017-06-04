@@ -256,6 +256,10 @@ update_status ModuleUI::Update() {
 			}
 		}
 
+		if (App->player2->lives == -1) {
+			App->player2->Disable();
+		}
+
 	//PAUSE-----------------
 
 		if (App->sea->pause == true) {

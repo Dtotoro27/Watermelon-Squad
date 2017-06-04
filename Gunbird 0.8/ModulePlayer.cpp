@@ -223,7 +223,7 @@ ModulePlayer::ModulePlayer()
 	bomb_throw.PushBack({ 1933,428,10,5 });
 	bomb_throw.speed = 0.08;
 
-	
+	lives = 2;
 	
 
 
@@ -320,16 +320,31 @@ update_status ModulePlayer::Update()
 		if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT || App->input->dpadRight == KEY_STATE::KEY_REPEAT || App->input->joy_right == KEY_STATE::KEY_REPEAT)
 		{
 			current_animation = &right;
-			if (position.x < SCREEN_WIDTH - 25) {
-				position.x += speed;
+			if (App->characterselect->characterselected1 == 1) {
+				if (position.x < SCREEN_WIDTH - 25) {
+					position.x += speed;
+				}
+			}
+			else
+			{
+				if (position.x < SCREEN_WIDTH - 31) {
+					position.x += speed;
+				}
 			}
 		}
 
 		if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT || App->input->dpadLeft == KEY_STATE::KEY_REPEAT || App->input->joy_left == KEY_STATE::KEY_REPEAT)
 		{
 			current_animation = &left;
-			if (position.x > 0) {
-				position.x -= speed - 0.5;
+			if (App->characterselect->characterselected1 == 3) {
+				if (position.x > 0) {
+					position.x -= speed - 0.5;
+				}
+			}
+			else {
+				if (position.x > -6) {
+					position.x -= speed - 0.5;
+				}
 			}
 		}
 
@@ -635,6 +650,7 @@ update_status ModulePlayer::Update()
 				App->player2->Enable();
 				App->player2->position.x = SCREEN_WIDTH / 2 + 10;
 				App->player2->position.y = position.y;
+				App->player2->lives = 2;
 			}
 		}
 

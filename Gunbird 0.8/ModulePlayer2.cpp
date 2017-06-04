@@ -31,9 +31,6 @@ ModulePlayer2::ModulePlayer2()
 	position.x = 100;
 	position.y = 220;
 
-
-	camera_limits2.y = 0;
-
 	// idle animation
 	idle.PushBack({ 0, 0, 31, 32 });
 	idle.PushBack({ 31, 0, 31, 32 });
@@ -223,7 +220,7 @@ ModulePlayer2::ModulePlayer2()
 	bomb_throw.PushBack({ 1933,428,10,5 });
 	bomb_throw.speed = 0.08;
 
-
+	lives = 2;
 
 
 
@@ -269,7 +266,7 @@ bool ModulePlayer2::Start()
 	valnus_deathsound = App->audio->LoadFX("assets/Audio/valnus_death.wav");
 
 	position.x = 100;
-	position.y = (camera_limits2.y + 300);
+	position.y = (App->player->camera_limits.y+ 300);
 
 	time.x = 0;
 	return ret;
@@ -297,7 +294,6 @@ update_status ModulePlayer2::Update()
 
 	float speed = 3.5f;
 	position.y -= 1;
-	camera_limits2.y -= 1;
 
 	if (App->sea->pause == false) {
 		if (dead == false) {
@@ -320,29 +316,44 @@ update_status ModulePlayer2::Update()
 		if (App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT || App->input->dpadRight2 == KEY_STATE::KEY_REPEAT || App->input->joy_right2 == KEY_STATE::KEY_REPEAT)
 		{
 			current_animation = &right;
-			if (position.x < SCREEN_WIDTH - 25) {
-				position.x += speed;
+			if (App->characterselect->characterselected2 == 1) {
+				if (position.x < SCREEN_WIDTH - 25) {
+					position.x += speed;
+				}
+			}
+			else
+			{
+				if (position.x < SCREEN_WIDTH - 31) {
+					position.x += speed;
+				}
 			}
 		}
 
 		if (App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT || App->input->dpadLeft2 == KEY_STATE::KEY_REPEAT || App->input->joy_left2 == KEY_STATE::KEY_REPEAT)
 		{
 			current_animation = &left;
-			if (position.x > 0) {
-				position.x -= speed - 0.5;
+			if (App->characterselect->characterselected2 == 3) {
+				if (position.x > 0) {
+					position.x -= speed - 0.5;
+				}
+			}
+			else {
+				if (position.x > -6) {
+					position.x -= speed - 0.5;
+				}
 			}
 		}
 
 		if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT || App->input->dpadUp2 == KEY_STATE::KEY_REPEAT || App->input->joy_up2 == KEY_STATE::KEY_REPEAT)
 		{
-			if (position.y > camera_limits2.y + ASH_HEIGHT + 35) {
+			if (position.y > App->player->camera_limits.y + ASH_HEIGHT + 35) {
 				position.y -= speed;
 			}
 		}
 
 		if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT || App->input->dpadDown2 == KEY_STATE::KEY_REPEAT || App->input->joy_down2 == KEY_STATE::KEY_REPEAT)
 		{
-			if (position.y < camera_limits2.y + 273 + ASH_HEIGHT) {
+			if (position.y < App->player->camera_limits.y + 273 + ASH_HEIGHT) {
 				position.y += speed;
 			}
 		}
@@ -728,7 +739,7 @@ update_status ModulePlayer2::Update()
 			if (powerUps > 0 && powerupcatch == false) {
 				int random = rand() % 22;
 				random = random * 10;
-				App->enemies->AddEnemy(ENEMY_TYPES::POWER_UP, random, camera_limits2.y + (SCREEN_HEIGHT / 2));
+				App->enemies->AddEnemy(ENEMY_TYPES::POWER_UP, random, App->player->camera_limits.y + (SCREEN_HEIGHT / 2));
 				powerUps--;
 			}
 			else {
@@ -737,7 +748,7 @@ update_status ModulePlayer2::Update()
 			if (i> 0 && extrabombcatch == false) {
 				int random = rand() % 22;
 				random = random * 10;
-				App->enemies->AddEnemy(ENEMY_TYPES::EXTRABOMB, random, camera_limits2.y + (SCREEN_HEIGHT / 2));
+				App->enemies->AddEnemy(ENEMY_TYPES::EXTRABOMB, random, App->player->camera_limits.y+ (SCREEN_HEIGHT / 2));
 				i--;
 				max_bomb_p2 = 2;
 			}
@@ -747,14 +758,14 @@ update_status ModulePlayer2::Update()
 			}
 			if (delay2 < 150) {
 				App->render->Blit(graphics, 55, position_immortal.y, &(immortal.GetCurrentFrame()));
-				if (position_immortal.y != camera_limits2.y + 243) {
+				if (position_immortal.y != App->player->camera_limits.y + 243) {
 					position_immortal.y -= 2;
 				}
 			}
 			if (delay2 == 150) {
 				position.x = 55;
 				SDL_Rect r = current_animation->GetCurrentFrame();
-				position.y = camera_limits2.y + 277;
+				position.y = App->player->camera_limits.y + 277;
 				App->render->Blit(graphics, position.x, position.y - r.h, &(immortal.GetCurrentFrame()));
 			}
 			if (delay2 == 300) {
@@ -861,8 +872,8 @@ void  ModulePlayer2::OnCollision(Collider *c1, Collider *c2) {
 						App->particles->AddParticle(App->particles->dead_valnus, position.x - 5, position.y - 25, 0, 0, COLLIDER_NONE);
 						App->audio->PlayFX(valnus_deathsound);
 					}
-					position.y = camera_limits2.y + 800;
-					position_immortal.y = camera_limits2.y + 350;
+					position.y = App->player->camera_limits.y+ 800;
+					position_immortal.y = App->player->camera_limits.y+ 350;
 					dead = true;
 
 				}
