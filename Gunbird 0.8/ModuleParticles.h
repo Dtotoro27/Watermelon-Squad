@@ -109,6 +109,7 @@ public:
 	//Boss
 	Particle bird_shoot;
 	Particle bird_explosion;
+	Particle smoke;
 
 	// Enemy Shoots
 	Particle enemy_shoot;

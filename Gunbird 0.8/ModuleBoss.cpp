@@ -178,6 +178,10 @@ update_status ModuleBoss::Update()
 		change = true;
 	}
 
+	if (App->input->keyboard[SDL_SCANCODE_M] == KEY_STATE::KEY_DOWN) {
+		App->collision->deadbird = true;
+	}
+
 	if (spawnbird == true) {
 		spawnbird = false;
 			App->enemies->AddEnemy(ENEMY_TYPES::BIRDBODY, -18, App->player->camera_limits.y + 35);
@@ -336,16 +340,50 @@ update_status ModuleBoss::Update()
 			App->player->position.y -= 3;
 			App->player->camera_limits.y -= 3;
 		}
-		if (timer2 > 0) {
-			App->render->Blit(bossdead, 20, 50, &(bird_dead.GetCurrentFrame()), 0);
+		if (timer2 == 0) {
+			App->particles->AddParticle(App->particles->bird_explosion, 3, App->player->camera_limits.y+38, 0, -1, COLLIDER_NONE);
+
 		}
+		if (timer2 == 30) {
+			App->particles->AddParticle(App->particles->explosion, 20, App->player->camera_limits.y + 100, 0, 0, COLLIDER_NONE);
+
+		}
+		if (timer2 == 40) {
+			App->particles->AddParticle(App->particles->explosion, 50, App->player->camera_limits.y + 120, 0, 0, COLLIDER_NONE);
+
+		}
+		if (timer2 == 50) {
+			App->particles->AddParticle(App->particles->explosion, 70, App->player->camera_limits.y + 100, 0, 0, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->smoke, 60, App->player->camera_limits.y + 140, 0, -0.8f, COLLIDER_NONE);
+		}
+		if (timer2 == 60) {
+			App->particles->AddParticle(App->particles->explosion, 20, App->player->camera_limits.y + 120, 0, 0, COLLIDER_NONE);
+			App->particles->AddParticle(App->particles->smoke,20, App->player->camera_limits.y + 120, 0, -0.8f, COLLIDER_NONE);
+
+		}
+		if (timer2 == 70) {
+			App->particles->AddParticle(App->particles->smoke, 50, App->player->camera_limits.y + 140, 0, -0.8f, COLLIDER_NONE);
+		}
+		if (timer2 == 80) {
+			App->particles->AddParticle(App->particles->smoke,126, App->player->camera_limits.y + 150, 0, -0.8f, COLLIDER_NONE);
+		}
+		if (timer2 == 90) {
+			App->particles->AddParticle(App->particles->smoke, 105, App->player->camera_limits.y + 100, 0, -0.8f, COLLIDER_NONE);
+		}
+		if (timer2 ==100) {
+			App->particles->AddParticle(App->particles->smoke,20, App->player->camera_limits.y + 140, 0, -0.8f, COLLIDER_NONE);
+		}
+		if (timer2 > 0) {
+			App->render->Blit(bossdead, 20, 100, &(bird_dead.GetCurrentFrame()), 0);
+		}
+		timer2++;
 		if (timer2 == 350) {
 			change = false;
 			App->fade->FadeToBlack(this, App->congrats, 1);
 			change = true;
 			timer2 = 0;
+			App->collision->deadbird = false;
 		}
-		timer2++;
 	}
 	
 

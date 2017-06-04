@@ -31,7 +31,6 @@ public:
 	Animation boss_animation;
 	Animation bird_dead;
 	Animation boss_animation2;
-	int polla = 0;
 	bool pause = false;
 	bool spawnship = false;
 	bool spawnbird = false;
