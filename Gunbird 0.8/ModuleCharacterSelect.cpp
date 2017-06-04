@@ -231,6 +231,11 @@ bool ModuleCharacterSelect::CleanUp()
 {
 	LOG("Unloading stage");
 	App->fonts->UnLoad(font_time);
+	App->audio->UnloadFX(change_selection);
+	App->audio->UnloadFX(insert_coin_audio);
+	App->audio->UnloadFX(selection_fail);
+	App->audio->UnloadFX(select_ash);
+	App->audio->UnloadFX(select_valnus);
 	App->textures->Unload(characterselecttexture);
 	App->textures->Unload(characterfaces);
 	App->textures->Unload(clouds);

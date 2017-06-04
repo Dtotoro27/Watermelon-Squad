@@ -401,7 +401,7 @@ bool ModuleParticles::CleanUp()
 			active[i] = nullptr;
 		}
 	}
-
+	App->particles->Disable();
 	return true;
 }
 

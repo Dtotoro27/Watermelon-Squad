@@ -104,9 +104,12 @@ bool ModuleUI::Start(){
 bool ModuleUI::CleanUp(){
 	bool ret = true;
 	App->textures->Unload(ui);
+	App->textures->Unload(trump);
 	App->fonts->UnLoad(font_score);
 	App->fonts->UnLoad(font_coins);
 	App->fonts->UnLoad(font_time);
+	App->audio->UnloadFX(insert_coin_audio);
+	App->ui->Disable();
 	return ret;
 }
 

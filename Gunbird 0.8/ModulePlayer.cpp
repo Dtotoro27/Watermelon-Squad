@@ -300,6 +300,7 @@ bool ModulePlayer::CleanUp()
 	App->audio->UnloadFX(ash_deathsound);
 	App->audio->UnloadFX(valnus_deathsound);
 
+	App->player->Disable();
 
 	return true;
 }
