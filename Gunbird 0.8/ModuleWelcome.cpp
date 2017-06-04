@@ -47,6 +47,7 @@ bool ModuleWelcome::Start()
 	font_coins = App->fonts->Load("assets/numbers_score.png", "0123456789", 1);
 	welcometexture = App->textures->Load("assets/background_welcome.png");
 	gameovertexture = App->textures->Load("assets/ui.png");
+	insert_coin_audio = App->audio->LoadFX("assets/Audio/add_coin.wav");
 	//App->audio->LoadMusic("assets/Audio/characterselection.ogg");
 	
 
@@ -84,8 +85,9 @@ update_status ModuleWelcome::Update()
 		change = true;
 		//App->input->buttonA = false;
 	}
-	if (App->input->keyboard[SDL_SCANCODE_5] == KEY_STATE::KEY_DOWN) {
+	if (App->input->keyboard[SDL_SCANCODE_5] == KEY_STATE::KEY_DOWN || App->input->buttonY == KEY_STATE::KEY_DOWN && change) {
 		if (coins < 9) {
+			App->audio->PlayFX(insert_coin_audio);
 			coins++;
 		}
 	}

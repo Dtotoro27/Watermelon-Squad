@@ -186,6 +186,7 @@ bool ModuleCharacterSelect::Start()
 	bool ret = true;
 	font_time = App->fonts->Load("assets/numbers_time.png", "0123456789", 1);
 	change_selection= App->audio->LoadFX("assets/Audio/change_character.wav"); 
+	insert_coin_audio = App->audio->LoadFX("assets/Audio/add_coin.wav");
 	selection_fail = App->audio->LoadFX("assets/Audio/collision.wav");
 	select_ash = App->audio->LoadFX("assets/Audio/select_ash.wav");
 	select_valnus = App->audio->LoadFX("assets/Audio/select_valnus.wav");
@@ -639,8 +640,9 @@ update_status ModuleCharacterSelect::Update()
 
 	
 	//COINS
-	if (App->input->keyboard[SDL_SCANCODE_5] == KEY_STATE::KEY_DOWN) {
+	if (App->input->keyboard[SDL_SCANCODE_5] == KEY_STATE::KEY_DOWN || App->input->buttonY == KEY_STATE::KEY_DOWN && change) {
 		if (App->welcome->coins < 9) {
+			App->audio->PlayFX(insert_coin_audio);
 			App->welcome->coins++;
 		}
 	}

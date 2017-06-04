@@ -28,7 +28,7 @@ public:
 	uint coins;
 	int font_coins = -1;
 	
-
+	uint insert_coin_audio;
 
 
 

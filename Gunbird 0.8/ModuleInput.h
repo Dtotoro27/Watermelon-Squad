@@ -40,6 +40,7 @@ public:
 
 	KEY_STATE buttonA;
 	KEY_STATE buttonB;
+	KEY_STATE buttonY;
 	KEY_STATE buttonStart;
 	KEY_STATE dpadUp;
 	KEY_STATE dpadDown;

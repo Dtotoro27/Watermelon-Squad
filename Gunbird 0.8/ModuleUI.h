@@ -52,6 +52,8 @@ public:
 	//Pause
 	bool destroyed = false;
 	iPoint pause_position;
+
+	uint insert_coin_audio;
 };
 
 #endif // !MODULE_UI

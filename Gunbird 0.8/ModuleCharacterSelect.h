@@ -70,6 +70,8 @@ public:
 	Animation available_soon;
 	Animation start_player;
 	Animation insert_coin;
+
+	uint insert_coin_audio;
 };
 
 #endif

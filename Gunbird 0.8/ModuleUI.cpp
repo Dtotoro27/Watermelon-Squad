@@ -14,6 +14,7 @@
 #include "ModuleAudio.h"
 #include "ModuleFonts.h"
 #include "ModuleFadeToBlack.h"
+#include "ModuleWelcome.h"
 
 #include<stdio.h>
 
@@ -90,6 +91,7 @@ bool ModuleUI::Start(){
 	font_score = App->fonts->Load("assets/numbers.png", "0123456789", 1);
 	font_coins = App->fonts->Load("assets/numbers_score.png", "0123456789", 1);
 	font_time = App->fonts->Load("assets/numbers_time.png", "0123456789", 1);
+	insert_coin_audio = App->audio->LoadFX("assets/Audio/add_coin.wav");
 
 	timer = 9;
 	timer2 = 0;
@@ -233,8 +235,9 @@ update_status ModuleUI::Update() {
 			}
 		}
 	//CREDITS-----------------
-		if (App->input->keyboard[SDL_SCANCODE_5] == KEY_STATE::KEY_DOWN) {
+		if (App->input->keyboard[SDL_SCANCODE_5] == KEY_STATE::KEY_DOWN || App->input->buttonY == KEY_STATE::KEY_DOWN) {
 			if (App->welcome->coins < 9) {
+				App->audio->PlayFX(insert_coin_audio);
 				App->welcome->coins++;
 			}
 		}
@@ -300,7 +303,7 @@ update_status ModuleUI::Update() {
 			delay3++;
 			if (delay3 < 1600) {
 				if (App->welcome->coins > 0) {
-					if (App->input->keyboard[SDL_SCANCODE_1] == KEY_STATE::KEY_DOWN) {
+					if (App->input->keyboard[SDL_SCANCODE_1] == KEY_STATE::KEY_DOWN || App->input->buttonStart == KEY_STATE::KEY_DOWN) {
 						App->player->lives = 2;
 						App->player->score += 1;
 						delay3 = 0;
