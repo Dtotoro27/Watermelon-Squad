@@ -102,15 +102,12 @@ bool ModuleBoss::CleanUp()
 	App->collision->Disable();
 	App->particles->Disable();
 	App->player->Disable();
-	if (App->player2->IsEnabled()==true) {
-		App->player2->Disable();
-	}
+	App->player2->Disable();
 	App->ui->Disable();
 	App->textures->Unload(bosstexture);
 	App->textures->Unload(startplayer2texture);
 	App->textures->Unload(bossdead);
 	App->audio->UnloadMusic();
-	App->collision->EraseCollider(collision);
 	App->boss->Disable();
 
 

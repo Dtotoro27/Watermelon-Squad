@@ -60,7 +60,7 @@ bool ModuleWelcome::CleanUp()
 	App->textures->Unload(welcometexture);
 	App->textures->Unload(gameovertexture);
 	App->fonts->UnLoad(font_coins);
-	App->audio->UnloadFX(insert_coin_audio);
+	App->audio->UnloadMusic();
 	App->welcome->Disable();
 	LOG("Unloading stage");
 	return true;

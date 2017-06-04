@@ -189,7 +189,7 @@ bool ModuleEnemies::CleanUp()
 			enemies[i] = nullptr;
 		}
 	}
-	App->enemies->Disable();
+
 	return true;
 }
 
