@@ -52,10 +52,6 @@ ModuleParticles::ModuleParticles()
 	
 
 
-	big_ship_dead.anim.PushBack({929, 152,62,105 });
-	big_ship_dead.anim.PushBack({ 998, 152,62,105 });
-	big_ship_dead.anim.speed = 0.3f;
-	big_ship_dead.life = 50000;
 
 
 	//LASER ASH

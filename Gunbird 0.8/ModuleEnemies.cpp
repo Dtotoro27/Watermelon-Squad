@@ -14,6 +14,7 @@
 #include "Enemy_FlyingMachine2.h"
 #include "Enemy_FlyingMachine3.h"
 #include "Enemy_FlyingMachine4.h"
+#include "Ship_Corpse.h"
 #include "Enemy_Bomb.h"
 #include "Enemy_Bomb2.h"
 #include "Enemy_VerticalBomb.h"
@@ -369,6 +370,11 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 		case ENEMY_TYPES::EXTRABOMB:
 			enemies[i] = new  ExtraBomb(info.x, info.y);
 			break;
+
+
+		case ENEMY_TYPES::SHIPCORPSE:
+			enemies[i] = new  Ship_Corpse(info.x, info.y);
+			break;
 		}
 
 	}
@@ -446,7 +452,7 @@ void ModuleEnemies::OnCollision(Collider* c1, Collider* c2)
 						if (c2->type == COLLIDER_PLAYER_SHOT || c2->type == COLLIDER_VALNUS_LASER || c2->type == COLLIDER_ASH_BOMB) {
 							App->player->score += enemies[i]->score;
 						}
-						App->particles->AddParticle(App->particles->big_ship_dead, enemies[i]->position.x, enemies[i]->position.y, 0, -0.782, COLLIDER_NONE);
+						AddEnemy(ENEMY_TYPES::SHIPCORPSE, enemies[i]->position.x, enemies[i]->position.y);;
 						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x -15, enemies[i]->position.y +10, 0, 0, COLLIDER_NONE);
 						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x, enemies[i]->position.y, 0, 0, COLLIDER_NONE);
 						App->particles->AddParticle(App->particles->explosion, enemies[i]->position.x + 5, enemies[i]->position.y-10, 0, 0, COLLIDER_NONE);
