@@ -801,7 +801,6 @@ update_status ModulePlayer2::Update()
 
 	if (App->characterselect->characterselected2 == 3) {
 		if (bomb == true) {
-
 			speed = 1.5;
 			if (bomb == true) {
 				if (delay2 == 0) {

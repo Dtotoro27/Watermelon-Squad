@@ -658,17 +658,6 @@ update_status ModulePlayer::Update()
 			}
 		}
 
-		if (App->player2->IsEnabled()) {}
-
-		else {
-			if (App->input->keyboard[SDL_SCANCODE_2]) {
-				App->player2->Enable();
-				App->player2->position.x = SCREEN_WIDTH / 2 + 10;
-				App->player2->position.y = position.y;
-				App->player2->lives = 2;
-			}
-		}
-
 	}
 	if (App->characterselect->characterselected1 == 1) {
 		playerhitbox->SetPos(position.x + 9, position.y - ASH_HEIGHT);
