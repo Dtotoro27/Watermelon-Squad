@@ -371,7 +371,7 @@ update_status ModulePlayer2::Update()
 				position.y += speed;
 			}
 		}
-		if (collision == false) {
+		if (collision == false && dead2 == false) {
 			if ((App->input->keyboard[SDL_SCANCODE_C] == KEY_STATE::KEY_DOWN || 0 < delay || App->input->buttonA2 == KEY_STATE::KEY_DOWN))
 			{
 				shooting = true;
@@ -774,6 +774,7 @@ update_status ModulePlayer2::Update()
 				App->render->Blit(graphics, 55, position_immortal.y, &(immortal.GetCurrentFrame()));
 				if (position_immortal.y != App->player->camera_limits.y + 243) {
 					position_immortal.y -= 2;
+					dead2 = true;
 				}
 			}
 			if (delay2 == 150) {
@@ -781,6 +782,7 @@ update_status ModulePlayer2::Update()
 				SDL_Rect r = current_animation->GetCurrentFrame();
 				position.y = App->player->camera_limits.y + 277;
 				App->render->Blit(graphics, position.x, position.y - r.h, &(immortal.GetCurrentFrame()));
+				dead2 = false;
 			}
 			if (delay2 == 300) {
 				delay2 = 0;
@@ -788,6 +790,7 @@ update_status ModulePlayer2::Update()
 				godmode2 = false;
 				extrabombcatch = false;
 				powerupcatch = false;
+				max_bomb_p2 = 2;
 			}
 			else
 				delay2++;
